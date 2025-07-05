@@ -1,5 +1,5 @@
 package com.example.lol_research_center.ui.home
-
+import androidx.core.os.bundleOf
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +14,8 @@ import com.example.lol_research_center.model.Lane
 import com.example.lol_research_center.model.Skill
 import com.example.lol_research_center.model.Skills
 import com.example.lol_research_center.model.Stats
+import androidx.navigation.fragment.findNavController   // ← 이 한 줄
+
 
 import com.example.lol_research_center.model.ChampionDataLoader
 class HomeFragment : Fragment() {
@@ -39,9 +41,25 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = ImageGridAdapter(champs) {
-            println(it.name)
+        val pickerMode = arguments?.getBoolean("pickerMode") ?: false
+
+        val adapter = ImageGridAdapter(champs) { champ ->
+            if (pickerMode) {
+                println("hihihi")
+                // ① 선택된 챔피언을 갖고 아이템 선택 화면으로 이동
+                val bundle = bundleOf("champion" to champ)
+                findNavController().navigate(
+                    R.id.action_selectChampion_to_selectItems, bundle
+                )
+            } else {
+                println("byebyebyebye")
+                // ② 평소엔 상세 보기 등 기존 동작
+//                showChampionDetail(champ)
+            }
         }
+
+        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.recyclerView.adapter = adapter
 
