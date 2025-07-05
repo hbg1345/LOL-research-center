@@ -12,6 +12,31 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/buildsFragment"
+        android:name="com.example.lol_research_center.ui.builds.BuildsFragment"
+        android:label="Builds"
+        tools:layout="@layout/fragment_builds">
+
+<!--         ✨ 이 블록을 반드시 포함하십시오 -->
+        <action
+            android:id="@+id/action_builds_to_selectChampion"
+            app:destination="@id/selectChampionFragment" />
+    </fragment>
+
+    <!-- 목적지 노드 (HomeFragment 재활용) -->
+    <fragment
+        android:id="@+id/selectChampionFragment"
+        android:name="com.example.lol_research_center.ui.home.HomeFragment"
+        android:label="Select Champion"
+        tools:layout="@layout/fragment_home">
+
+        <argument
+            android:name="pickerMode"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.lol_research_center.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"

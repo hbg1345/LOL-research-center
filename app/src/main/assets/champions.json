@@ -1,0 +1,142 @@
+[
+  {
+    "champDrawable": "leesin",
+    "name": "Lee Sin",
+    "lane": "TOP",
+    "stats": {
+      "ad": 68,
+      "ap": 0,
+      "hp": 575,
+      "mp": 200,
+      "critical": 0,
+      "attackSpeed": 70,
+      "ar": 36,
+      "mr": 32
+    },
+    "itemDrawables": [
+      "cull"
+    ],
+    "skills": {
+      "p": {
+        "skillLevel": 1,
+        "skillDamage": [0, 0, 0, 0, 0],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 5,
+        "skillDamage": [55, 80, 105, 130, 155],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 5,
+        "skillDamage": [40, 60, 80, 100, 120],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.5,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.08,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 5,
+        "skillDamage": [100, 130, 160, 190, 220],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 3,
+        "skillDamage": [150, 300, 450],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 2.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "vi",
+    "name": "Vi",
+    "lane": "JUNGLE",
+    "stats": {
+      "ad": 65,
+      "ap": 0,
+      "hp": 585,
+      "mp": 295,
+      "critical": 0,
+      "attackSpeed": 63,
+      "ar": 35,
+      "mr": 32
+    },
+    "itemDrawables": [
+      "bf_sword"
+    ],
+    "skills": {
+      "p": {
+        "skillLevel": 1,
+        "skillDamage": [0, 0, 0, 0, 0],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 5,
+        "skillDamage": [55, 90, 125, 160, 195],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.6,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 5,
+        "skillDamage": [0, 0, 0, 0, 0],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "e": {
+        "skillLevel": 5,
+        "skillDamage": [10, 35, 60, 85, 110],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.1,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 3,
+        "skillDamage": [150, 325, 500],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.1,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  }
+]
