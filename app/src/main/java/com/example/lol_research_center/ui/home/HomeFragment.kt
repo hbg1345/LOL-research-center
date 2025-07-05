@@ -14,14 +14,20 @@ import com.example.lol_research_center.model.Lane
 import com.example.lol_research_center.model.Skill
 import com.example.lol_research_center.model.Skills
 import com.example.lol_research_center.model.Stats
+
+import com.example.lol_research_center.model.ChampionDataLoader
 class HomeFragment : Fragment() {
 
     // ───────────────────────────────── Binding ─────────────────────────────────
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private val champs: List<ChampionInfo> by lazy {
+        ChampionDataLoader.loadChampionsFromAsset(requireContext(), "champions.json")
+    }
+
     // ─────────────────────────────── 샘플 데이터 ────────────────────────────────
-    private val champs by lazy {
+    private val champs_ by lazy {
         listOf(
             ChampionInfo(
                 champDrawable = R.drawable.leesin,
