@@ -2,8 +2,6 @@ package com.example.lol_research_center.model
 
 import android.content.Context
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.example.lol_research_center.R // R 클래스 임포트
 
 //package com.example.lol_research_center.model
 
