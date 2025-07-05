@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.R
 
 import android.widget.TextView
+import com.example.lol_research_center.model.ItemData
 
 class DashboardAdapter(private val items: List<ItemData>) : RecyclerView.Adapter<DashboardAdapter.ViewHolder>() {
 
