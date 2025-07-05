@@ -225,8 +225,25 @@ class HomeFragment : Fragment() {
                 )
             ),
             ImageItem(
-                champDrawable = R.drawable.vi,
-                name          = "vi",
+                champDrawable = R.drawable.irelia,
+                name          = "irelia",
+                type          = "mid",
+                stats         = Stats(
+                    ad = 60, ap = 0, hp = 650, mp = 0,
+                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                ),
+                itemDrawables = listOf(
+                    R.drawable.amplifying_tome,
+                    R.drawable.blasting_wand,
+                    R.drawable.blasting_wand,
+                    R.drawable.doran_ring,
+                    R.drawable.cull,
+                    R.drawable.faerie_charm
+                )
+            ),
+            ImageItem(
+                champDrawable = R.drawable.zed,
+                name          = "zed",
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
@@ -242,9 +259,9 @@ class HomeFragment : Fragment() {
                 )
             ),
             ImageItem(
-                champDrawable = R.drawable.vi,
-                name          = "vi",
-                type          = "Support",
+                champDrawable = R.drawable.leblanc,
+                name          = "leblanc",
+                type          = "mid",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
                     critical = 0, attackSpeed = 0, def = 38, mr = 32
@@ -259,9 +276,9 @@ class HomeFragment : Fragment() {
                 )
             ),
             ImageItem(
-                champDrawable = R.drawable.vi,
-                name          = "vi",
-                type          = "Support",
+                champDrawable = R.drawable.kaisa,
+                name          = "kaisa",
+                type          = "ad carry",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
                     critical = 0, attackSpeed = 0, def = 38, mr = 32
@@ -276,9 +293,9 @@ class HomeFragment : Fragment() {
                 )
             ),
             ImageItem(
-                champDrawable = R.drawable.vi,
-                name          = "vi",
-                type          = "Support",
+                champDrawable = R.drawable.ashe,
+                name          = "ashe",
+                type          = "ad carry",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
                     critical = 0, attackSpeed = 0, def = 38, mr = 32
@@ -293,9 +310,9 @@ class HomeFragment : Fragment() {
                 )
             ),
             ImageItem(
-                champDrawable = R.drawable.vi,
-                name          = "vi",
-                type          = "Support",
+                champDrawable = R.drawable.katarina,
+                name          = "katarina",
+                type          = "mid",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
                     critical = 0, attackSpeed = 0, def = 38, mr = 32
@@ -310,9 +327,26 @@ class HomeFragment : Fragment() {
                 )
             ),
             ImageItem(
-                champDrawable = R.drawable.vi,
-                name          = "vi",
-                type          = "Support",
+                champDrawable = R.drawable.riven,
+                name          = "riven",
+                type          = "top",
+                stats         = Stats(
+                    ad = 60, ap = 0, hp = 650, mp = 0,
+                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                ),
+                itemDrawables = listOf(
+                    R.drawable.amplifying_tome,
+                    R.drawable.blasting_wand,
+                    R.drawable.blasting_wand,
+                    R.drawable.doran_ring,
+                    R.drawable.cull,
+                    R.drawable.faerie_charm
+                )
+            ),
+            ImageItem(
+                champDrawable = R.drawable.vayne,
+                name          = "vayne",
+                type          = "ad carry",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
                     critical = 0, attackSpeed = 0, def = 38, mr = 32
