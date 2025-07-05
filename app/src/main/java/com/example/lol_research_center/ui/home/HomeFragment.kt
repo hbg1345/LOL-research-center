@@ -1,36 +1,37 @@
 package com.example.lol_research_center.ui.home
-import androidx.core.os.bundleOf
+
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.R
 import com.example.lol_research_center.databinding.FragmentHomeBinding
+import com.example.lol_research_center.model.ChampionDataLoader
 import com.example.lol_research_center.model.ChampionInfo
 import com.example.lol_research_center.model.Lane
-import com.example.lol_research_center.model.Skill
-import com.example.lol_research_center.model.Skills
-import com.example.lol_research_center.model.Stats
-import androidx.navigation.fragment.findNavController   // ← 이 한 줄
+import com.example.lol_research_center.ui.viewmodel.BuildViewModel
 
-
-import com.example.lol_research_center.model.ChampionDataLoader
 class HomeFragment : Fragment() {
 
-    // ───────────────────────────────── Binding ─────────────────────────────────
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private val buildViewModel: BuildViewModel by activityViewModels()
 
     private val champs: List<ChampionInfo> by lazy {
         ChampionDataLoader.loadChampionsFromAsset(requireContext(), "champions.json")
     }
 
-    // ─────────────────────────────── 샘플 데이터 ────────────────────────────────
+    private var _selectedChampionForConfirmation: ChampionInfo? = null
 
-    // ───────────────────────────── Lifecycle ──────────────────────────────
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,26 +43,53 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val pickerMode = arguments?.getBoolean("pickerMode") ?: false
+        Log.d("HomeFragment", "pickerMode: $pickerMode")
+        Log.d("HomeFragment", "champs size: ${champs.size}")
 
         val adapter = ImageGridAdapter(champs) { champ ->
             if (pickerMode) {
-                println("hihihi")
-                // ① 선택된 챔피언을 갖고 아이템 선택 화면으로 이동
-                val bundle = bundleOf("champion" to champ)
-                findNavController().navigate(
-                    R.id.action_selectChampion_to_selectItems, bundle
-                )
+                _selectedChampionForConfirmation = champ
+                binding.confirmButton.visibility = View.VISIBLE
             } else {
-                println("byebyebyebye")
-                // ② 평소엔 상세 보기 등 기존 동작
-//                showChampionDetail(champ)
+                // Handle non-picker mode action
             }
         }
 
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
-        binding.recyclerView.adapter = adapter
+
+        binding.confirmButton.setOnClickListener {
+            _selectedChampionForConfirmation?.let {
+                selectedChamp ->
+                buildViewModel.setChampion(selectedChamp)
+                val bundle = Bundle().apply { putBoolean("pickerMode", pickerMode) }
+                findNavController().navigate(R.id.action_selectChampion_to_selectItems, bundle)
+                binding.confirmButton.visibility = View.GONE
+                _selectedChampionForConfirmation = null
+            }
+        }
+
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (newState != RecyclerView.SCROLL_STATE_IDLE) {
+                    binding.confirmButton.visibility = View.GONE
+                    _selectedChampionForConfirmation = null
+                }
+            }
+        })
+
+        binding.root.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                val rect = android.graphics.Rect()
+                binding.recyclerView.getHitRect(rect)
+                if (!rect.contains(v.left + event.x.toInt(), v.top + event.y.toInt())) {
+                    binding.confirmButton.visibility = View.GONE
+                    _selectedChampionForConfirmation = null
+                }
+            }
+            false
+        }
 
         /* SearchView */
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -86,13 +114,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-    // ───────────────────────────── Private Helpers ─────────────────────────────
-
-
 }

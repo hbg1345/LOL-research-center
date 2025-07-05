@@ -36,6 +36,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -60,6 +61,8 @@ dependencies {
 
     /* ───────── 이미지 로더 ───────── */
     implementation("io.coil-kt:coil:2.5.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 
     /* ───────── JSON 파싱 ───────── */
     implementation("com.google.code.gson:gson:2.10.1")
