@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.lol_research_center.R
 import com.example.lol_research_center.databinding.FragmentHomeBinding
-import com.example.lol_research_center.model.ImageItem
+import com.example.lol_research_center.model.ChampionInfo
+import com.example.lol_research_center.model.Skill
+import com.example.lol_research_center.model.Skills
 import com.example.lol_research_center.model.Stats
 
 class HomeFragment : Fragment() {
@@ -20,58 +22,7 @@ class HomeFragment : Fragment() {
     // ─────────────────────────────── 샘플 데이터 ────────────────────────────────
     private val champs by lazy {
         listOf(
-            ImageItem(
-                champDrawable = R.drawable.velkoz,
-                name          = "velkoz",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.caitlyn,
-                name          = "caitlyn",
-                type          = "ad carry",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.camille,
-                name          = "camille",
-                type          = "top",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
+            ChampionInfo(
                 champDrawable = R.drawable.leesin,
                 name          = "leesin",
                 type          = "jungle",
@@ -86,281 +37,386 @@ class HomeFragment : Fragment() {
                     R.drawable.doran_ring,
                     R.drawable.cull,
                     R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.graves,
-                name          = "graves",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.ezreal,
-                name          = "ezreal",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+                skills = Skills(
+                    p = Skill(
+                        skillType   = "ad",
+                        skillLevel  = 1,                 // 예시
+                        skillDamage = listOf(100, 130),  // 예시
+                        skillApCoeff = 0.0f,
+                        skillAdCoeff = 1.2f,
+                        skillArCoeff = 0f,
+                        skillMrCoeff = 0f,
+                        skillHpCoeff = 0f
+                    ),
+
+                    q = Skill(
+                        skillType   = "ad",
+                        skillLevel  = 1,                 // 예시
+                        skillDamage = listOf(100, 130),  // 예시
+                        skillApCoeff = 0.0f,
+                        skillAdCoeff = 1.2f,
+                        skillArCoeff = 0f,
+                        skillMrCoeff = 0f,
+                        skillHpCoeff = 0f
+                    ),
+                    w = Skill(
+                        skillType   = "ad",
+                        skillLevel  = 1,                 // 예시
+                        skillDamage = listOf(100, 130),  // 예시
+                        skillApCoeff = 0.0f,
+                        skillAdCoeff = 1.2f,
+                        skillArCoeff = 0f,
+                        skillMrCoeff = 0f,
+                        skillHpCoeff = 0f
+                    ),
+                    e= Skill(
+                        skillType   = "ad",
+                        skillLevel  = 1,                 // 예시
+                        skillDamage = listOf(100, 130),  // 예시
+                        skillApCoeff = 0.0f,
+                        skillAdCoeff = 1.2f,
+                        skillArCoeff = 0f,
+                        skillMrCoeff = 0f,
+                        skillHpCoeff = 0f
+                    ),
+                    r= Skill(
+                        skillType   = "ad",
+                        skillLevel  = 1,                 // 예시
+                        skillDamage = listOf(100, 130),  // 예시
+                        skillApCoeff = 0.0f,
+                        skillAdCoeff = 1.2f,
+                        skillArCoeff = 0f,
+                        skillMrCoeff = 0f,
+                        skillHpCoeff = 0f
+                    )
+
                 ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
+
             ),
-            ImageItem(
-                champDrawable = R.drawable.missfortune,
-                name          = "missfortune",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.neeko,
-                name          = "neeko",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.orianna,
-                name          = "oriana",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.riven,
-                name          = "riven",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.twistedfate,
-                name          = "twistedfate",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.vi,
-                name          = "vi",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.irelia,
-                name          = "irelia",
-                type          = "mid",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.zed,
-                name          = "zed",
-                type          = "Support",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.leblanc,
-                name          = "leblanc",
-                type          = "mid",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.kaisa,
-                name          = "kaisa",
-                type          = "ad carry",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.ashe,
-                name          = "ashe",
-                type          = "ad carry",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.katarina,
-                name          = "katarina",
-                type          = "mid",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.riven,
-                name          = "riven",
-                type          = "top",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            ImageItem(
-                champDrawable = R.drawable.vayne,
-                name          = "vayne",
-                type          = "ad carry",
-                stats         = Stats(
-                    ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
-                ),
-                itemDrawables = listOf(
-                    R.drawable.amplifying_tome,
-                    R.drawable.blasting_wand,
-                    R.drawable.blasting_wand,
-                    R.drawable.doran_ring,
-                    R.drawable.cull,
-                    R.drawable.faerie_charm
-                )
-            ),
-            /* TODO: 다른 챔피언도 추가 */
+//            ChampionInfo(
+//                champDrawable = R.drawable.velkoz,
+//                name          = "velkoz",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.caitlyn,
+//                name          = "caitlyn",
+//                type          = "ad carry",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.camille,
+//                name          = "camille",
+//                type          = "top",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.graves,
+//                name          = "graves",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.ezreal,
+//                name          = "ezreal",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.missfortune,
+//                name          = "missfortune",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.neeko,
+//                name          = "neeko",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.orianna,
+//                name          = "oriana",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.riven,
+//                name          = "riven",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.twistedfate,
+//                name          = "twistedfate",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.vi,
+//                name          = "vi",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.irelia,
+//                name          = "irelia",
+//                type          = "mid",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.zed,
+//                name          = "zed",
+//                type          = "Support",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.leblanc,
+//                name          = "leblanc",
+//                type          = "mid",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.kaisa,
+//                name          = "kaisa",
+//                type          = "ad carry",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.ashe,
+//                name          = "ashe",
+//                type          = "ad carry",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.katarina,
+//                name          = "katarina",
+//                type          = "mid",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.riven,
+//                name          = "riven",
+//                type          = "top",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
+//            ChampionInfo(
+//                champDrawable = R.drawable.vayne,
+//                name          = "vayne",
+//                type          = "ad carry",
+//                stats         = Stats(
+//                    ad = 60, ap = 0, hp = 650, mp = 0,
+//                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
+//                ),
+//                itemDrawables = listOf(
+//                    R.drawable.amplifying_tome,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.blasting_wand,
+//                    R.drawable.doran_ring,
+//                    R.drawable.cull,
+//                    R.drawable.faerie_charm
+//                )
+//            ),
         )
     }
 

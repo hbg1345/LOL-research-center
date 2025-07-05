@@ -7,18 +7,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.R
-import com.example.lol_research_center.model.ImageItem   // ← 모델 import
+import com.example.lol_research_center.model.ChampionInfo   // ← 모델 import
 
 class ImageGridAdapter(
-    private val items: List<ImageItem>,                 // Int → ImageItem
-    private val onClick: (ImageItem) -> Unit            // 클릭 콜백 전달
+    private val items: List<ChampionInfo>,                 // Int → ImageItem
+    private val onClick: (ChampionInfo) -> Unit            // 클릭 콜백 전달
 ) : RecyclerView.Adapter<ImageGridAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val iv: ImageView = view.findViewById(R.id.imageView)
         private val tv  = view.findViewById<TextView>(R.id.tvName)
 
-        fun bind(item: ImageItem) {
+        fun bind(item: ChampionInfo) {
             iv.setImageResource(item.champDrawable)     // 모델 속성 사용
             tv.text = item.name
             itemView.setOnClickListener { onClick(item) }
