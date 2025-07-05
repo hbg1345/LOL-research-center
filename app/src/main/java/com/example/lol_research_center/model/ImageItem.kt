@@ -16,7 +16,7 @@ data class ImageItem(
 @Parcelize
 data class Stats(
     val ad: Int, val ap: Int, val hp: Int, val mp: Int,
-    val critical: Int, val attackSpeed: Int, val def: Int, val mr: Int
+    val critical: Int, val attackSpeed: Int, val ar: Int, val mr: Int,
 ) : Parcelable
 
 //챔피언 이름, 타입,

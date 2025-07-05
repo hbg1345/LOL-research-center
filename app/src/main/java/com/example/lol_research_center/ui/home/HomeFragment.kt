@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
                 type          = "ad carry",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -60,7 +60,7 @@ class HomeFragment : Fragment() {
                 type          = "top",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -77,7 +77,7 @@ class HomeFragment : Fragment() {
                 type          = "jungle",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -94,7 +94,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -111,7 +111,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -128,7 +128,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -145,7 +145,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -162,7 +162,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -179,7 +179,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -196,7 +196,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -213,7 +213,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -230,7 +230,7 @@ class HomeFragment : Fragment() {
                 type          = "mid",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -247,7 +247,7 @@ class HomeFragment : Fragment() {
                 type          = "Support",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -264,7 +264,7 @@ class HomeFragment : Fragment() {
                 type          = "mid",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -281,7 +281,7 @@ class HomeFragment : Fragment() {
                 type          = "ad carry",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -298,7 +298,7 @@ class HomeFragment : Fragment() {
                 type          = "ad carry",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -315,7 +315,7 @@ class HomeFragment : Fragment() {
                 type          = "mid",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -332,7 +332,7 @@ class HomeFragment : Fragment() {
                 type          = "top",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
@@ -349,7 +349,7 @@ class HomeFragment : Fragment() {
                 type          = "ad carry",
                 stats         = Stats(
                     ad = 60, ap = 0, hp = 650, mp = 0,
-                    critical = 0, attackSpeed = 0, def = 38, mr = 32
+                    critical = 0, attackSpeed = 0, ar = 38, mr = 32
                 ),
                 itemDrawables = listOf(
                     R.drawable.amplifying_tome,
