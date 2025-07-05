@@ -24,17 +24,35 @@
     </fragment>
 
     <!-- 목적지 노드 (HomeFragment 재활용) -->
+    <!-- 이미 추가돼 있는 챔피언 선택 노드 -->
     <fragment
         android:id="@+id/selectChampionFragment"
         android:name="com.example.lol_research_center.ui.home.HomeFragment"
         android:label="Select Champion"
         tools:layout="@layout/fragment_home">
-
         <argument
             android:name="pickerMode"
             app:argType="boolean"
-            android:defaultValue="false" />
+            android:defaultValue="false"/>
+        <!-- 챔피언을 고르면 아이템 선택 화면으로 이동 -->
+        <action
+            android:id="@+id/action_selectChampion_to_selectItems"
+            app:destination="@id/selectItemsFragment"/>
     </fragment>
+
+    <!-- 새 아이템 선택 노드 -->
+    <fragment
+        android:id="@+id/selectItemsFragment"
+        android:name="com.example.lol_research_center.ui.dashboard.DashboardFragment"
+        android:label="Select Items"
+        tools:layout="@layout/fragment_dashboard">
+
+        <!-- 챔피언 정보를 Parcelable 로 받음 -->
+        <argument
+            android:name="champion"
+            app:argType="com.example.lol_research_center.model.ChampionInfo" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/navigation_dashboard"

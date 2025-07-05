@@ -11,6 +11,7 @@ import com.example.lol_research_center.model.BuildInfo
 import androidx.navigation.fragment.findNavController
 import android.os.Build
 import android.util.Log
+import androidx.core.os.bundleOf
 import com.example.lol_research_center.R
 
 
@@ -61,7 +62,11 @@ class BuildsFragment : Fragment() {
                 vm.addBuild(build)
             }
             /* 2) 단순 Navigation ID 사용 */
-            findNavController().navigate(R.id.action_builds_to_selectChampion)
+            val args = bundleOf("pickerMode" to true)
+            findNavController().navigate(
+                R.id.action_builds_to_selectChampion,
+                args
+            )
         }
 
 
