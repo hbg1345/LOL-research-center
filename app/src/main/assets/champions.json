@@ -2,7 +2,7 @@
   {
     "champDrawable": "leesin",
     "name": "Lee Sin",
-    "lane": "JUNGLE",
+    "lane": "TOP",
     "stats": {
       "ad": 68,
       "ap": 0,

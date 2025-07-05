@@ -40,20 +40,32 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4") // 2.0 이상
-    implementation("com.google.android.material:material:1.12.0")
+    /* ───────── AndroidX core / appcompat / material ───────── */
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.material)                 // material:1.12.0 이상
+
+    /* ───────── Layout & UI ───────── */
+    implementation(libs.androidx.constraintlayout) // constraintlayout:2.1.4
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+
+    /* ───────── Lifecycle / Navigation ───────── */
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.firebase.crashlytics.buildtools)
+    implementation("androidx.fragment:fragment-ktx:1.7.0")
+
+    /* ───────── 이미지 로더 ───────── */
+    implementation("io.coil-kt:coil:2.5.0")
+
+    /* ───────── JSON 파싱 ───────── */
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    /* ───────── 테스트 ───────── */
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("com.google.code.gson:gson:2.10.1") // Gson 라이브러리 추가
 }
