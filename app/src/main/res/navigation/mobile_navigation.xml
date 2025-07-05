@@ -21,6 +21,20 @@
         <action
             android:id="@+id/action_builds_to_selectChampion"
             app:destination="@id/selectChampionFragment" />
+        <action
+            android:id="@+id/action_builds_to_notification"
+            app:destination="@id/notificationFragment"
+        />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.lol_research_center.ui.notifications.NotificationsFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notifications">
+        <argument
+            android:name="build"
+            app:argType="com.example.lol_research_center.model.BuildInfo"
+            app:nullable="false"/>
     </fragment>
 
     <!-- 목적지 노드 (HomeFragment 재활용) -->

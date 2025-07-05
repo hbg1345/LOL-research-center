@@ -13,6 +13,12 @@ import android.os.Build
 import android.util.Log
 import androidx.core.os.bundleOf
 import com.example.lol_research_center.R
+import com.example.lol_research_center.model.ChampionInfo
+import com.example.lol_research_center.model.Lane
+import com.example.lol_research_center.model.Skill
+import com.example.lol_research_center.model.SkillDamageSet
+import com.example.lol_research_center.model.Skills
+import com.example.lol_research_center.model.Stats
 
 
 //import dagger.hilt.android.AndroidEntryPoint  // Hilt 사용 시
@@ -35,10 +41,20 @@ class BuildsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         adapter = BuildListAdapter { build ->
-            // 리스트 항목 클릭 시 상세 다이얼로그/화면으로 이동
-            BuildDetailDialog.show(childFragmentManager, build)
+            val bundle = bundleOf("build" to build)
+            findNavController().navigate(
+                R.id.action_builds_to_notification,
+                bundle
+            )
         }
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = adapter
 
+        /* ─────────────────────  테스트용 더미 한 장  ───────────────────── */
+        val dummyBuild = createDummyBuild()          // ▼ 아래에 함수 정의
+        vm.addBuild(dummyBuild)
+
+        adapter.submitList(listOf(dummyBuild))
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = this@BuildsFragment.adapter
@@ -77,4 +93,28 @@ class BuildsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView(); _binding = null
     }
+}
+
+private fun createDummyBuild(): BuildInfo {
+    val stats  = Stats(68, 0, 575, 200, 0, 70, 36, 32)
+    val skills = Skills(
+        p = Skill(1, listOf(0,0,0,0,0),0f,0f,0f,0f,0f,"Passive"),
+        q = Skill(5, listOf(55,80,105,130,155),0f,1f,0f,0f,0f,"Active"),
+        w = Skill(5, listOf(40,60,80,100,120),0f,0.5f,0f,0f,0.08f,"Active"),
+        e = Skill(5, listOf(100,130,160,190,220),0f,1f,0f,0f,0f,"Active"),
+        r = Skill(3, listOf(150,300,450),0f,2f,0f,0f,0f,"Ultimate")
+    )
+    val champ = ChampionInfo(
+        champDrawable = R.drawable.leesin,   // 임시 아이콘
+        name          = "Lee Sin",
+        lane          = Lane.JUNGLE,
+        stats         = stats,
+        itemDrawables = emptyList(),
+        skills        = skills
+    )
+    return BuildInfo(
+        champion   = champ,
+        items      = emptyList(),
+        calcResult = SkillDamageSet(0,0,0,0,0)
+    )
 }
