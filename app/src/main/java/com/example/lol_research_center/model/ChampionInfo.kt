@@ -13,14 +13,16 @@ data class Skills(
     val r: Skill
 ) : Parcelable
 
+enum class Lane { TOP, JUNGLE, MID, ADC, SUPPORT }
+
 @Parcelize
 data class ChampionInfo(
     val champDrawable: Int,
     val name: String,
-    val type: String,
+    val lane: Lane,              // ← type → lane
     val stats: Stats,
     val itemDrawables: List<Int>,
-    val skills: Skills              // 리스트 대신 래퍼
+    val skills: Skills
 ) : Parcelable
 
 @Parcelize
