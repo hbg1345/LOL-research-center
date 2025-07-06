@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
     <!-- ── 레인 선택 버튼 (ImageButton 5개) ───────────────────── -->
     <LinearLayout
-        android:id="@+id/laneButtons"
+        android:id="@+id/laneGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

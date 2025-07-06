@@ -104,17 +104,13 @@ class HomeFragment : Fragment() {
         })
 
         /* ChipGroup */
-        binding.laneGroup.setOnCheckedStateChangeListener { _, ids ->
-            val lane = when (ids.firstOrNull()) {
-                R.id.btnTop      -> Lane.TOP
-                R.id.btnJungle   -> Lane.JUNGLE
-                R.id.btnMid      -> Lane.MID
-                R.id.btnAdc      -> Lane.ADC
-                R.id.btnSupport  -> Lane.SUPPORT
-                else              -> null            // 아무 것도 선택 안 함
-            }
-            adapter.updateFilter(newLane = lane)
-        }
+        /* ChipGroup 코드는 제거 */
+        binding.btnTop.setOnClickListener     { adapter.updateFilter(newLane = Lane.TOP) }
+        binding.btnJungle.setOnClickListener  { adapter.updateFilter(newLane = Lane.JUNGLE) }
+        binding.btnMid.setOnClickListener     { adapter.updateFilter(newLane = Lane.MID) }
+        binding.btnAdc.setOnClickListener     { adapter.updateFilter(newLane = Lane.ADC) }
+        binding.btnSupport.setOnClickListener { adapter.updateFilter(newLane = Lane.SUPPORT) }
+
     }
 
     override fun onDestroyView() {
