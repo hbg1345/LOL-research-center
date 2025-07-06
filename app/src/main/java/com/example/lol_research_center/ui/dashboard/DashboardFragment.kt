@@ -116,6 +116,14 @@ class DashboardFragment : Fragment() {
             layoutManager = GridLayoutManager(context, 3)
         }
 
+        if (pickerMode) {
+            binding.selectedItemsRecyclerView.visibility = View.VISIBLE
+            binding.dragHandle.visibility = View.VISIBLE
+        } else {
+            binding.selectedItemsRecyclerView.visibility = View.GONE
+            binding.dragHandle.visibility = View.GONE
+        }
+
         // Adjust bottom margin of selected_items_recycler_view to be above nav_view
         val navView = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
         navView?.post { // Ensure navView is measured
