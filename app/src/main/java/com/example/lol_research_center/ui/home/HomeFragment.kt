@@ -110,7 +110,7 @@ class HomeFragment : Fragment() {
         binding.btnMid.setOnClickListener     { adapter.updateFilter(newLane = Lane.MID) }
         binding.btnAdc.setOnClickListener     { adapter.updateFilter(newLane = Lane.ADC) }
         binding.btnSupport.setOnClickListener { adapter.updateFilter(newLane = Lane.SUPPORT) }
-
+        binding.btnFill.setOnClickListener { adapter.updateFilter(newLane = null )}
     }
 
     override fun onDestroyView() {
