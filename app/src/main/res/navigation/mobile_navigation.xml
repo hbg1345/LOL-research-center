@@ -5,19 +5,32 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
+
+    <fragment
+        android:id="@+id/championinfoFragment"
+        android:name="com.example.lol_research_center.ui.champinfo.ChampioninfoFragment"
+        android:label="Champion Info"
+        tools:layout="@layout/fragment_champinfo">
+        <argument
+            android:name="championInfo"
+            app:argType="com.example.lol_research_center.model.ChampionInfo"
+            app:nullable="false"/>
+    </fragment>
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.lol_research_center.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_championinfo"
+            app:destination="@id/championinfoFragment"/>
+    </fragment>
 
     <fragment
         android:id="@+id/buildsFragment"
         android:name="com.example.lol_research_center.ui.builds.BuildsFragment"
         android:label="Builds"
         tools:layout="@layout/fragment_builds">
-
-<!--         ✨ 이 블록을 반드시 포함하십시오 -->
         <action
             android:id="@+id/action_builds_to_selectChampion"
             app:destination="@id/selectChampionFragment" />
@@ -37,8 +50,6 @@
             app:nullable="false"/>
     </fragment>
 
-    <!-- 목적지 노드 (HomeFragment 재활용) -->
-    <!-- 이미 추가돼 있는 챔피언 선택 노드 -->
     <fragment
         android:id="@+id/selectChampionFragment"
         android:name="com.example.lol_research_center.ui.home.HomeFragment"

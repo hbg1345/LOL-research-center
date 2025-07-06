@@ -7,6 +7,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -51,6 +52,8 @@ class HomeFragment : Fragment() {
                 _selectedChampionForConfirmation = champ
                 binding.confirmButton.visibility = View.VISIBLE
             } else {
+                val bundle = bundleOf("championInfo" to champ)
+                findNavController().navigate(R.id.action_home_to_championinfo,bundle)
                 // Handle non-picker mode action
             }
         }
@@ -103,11 +106,11 @@ class HomeFragment : Fragment() {
         /* ChipGroup */
         binding.laneGroup.setOnCheckedStateChangeListener { _, ids ->
             val lane = when (ids.firstOrNull()) {
-                R.id.chipTop      -> Lane.TOP
-                R.id.chipJungle   -> Lane.JUNGLE
-                R.id.chipMid      -> Lane.MID
-                R.id.chipAdc      -> Lane.ADC
-                R.id.chipSupport  -> Lane.SUPPORT
+                R.id.btnTop      -> Lane.TOP
+                R.id.btnJungle   -> Lane.JUNGLE
+                R.id.btnMid      -> Lane.MID
+                R.id.btnAdc      -> Lane.ADC
+                R.id.btnSupport  -> Lane.SUPPORT
                 else              -> null            // 아무 것도 선택 안 함
             }
             adapter.updateFilter(newLane = lane)

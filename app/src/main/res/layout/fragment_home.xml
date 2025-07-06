@@ -12,73 +12,79 @@
         android:id="@+id/bgImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/tab1_background"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/tab1_background"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/laneGroup"
-        android:layout_width="409dp"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- ── 레인 선택 버튼 (ImageButton 5개) ───────────────────── -->
+    <LinearLayout
+        android:id="@+id/laneButtons"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        app:chipSpacingHorizontal="14dp"
         app:layout_constraintBottom_toTopOf="@+id/searchView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:selectionRequired="false"
-        app:singleSelection="true">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipTop"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Top"
-            app:checkedIconVisible="false"
-            app:chipIcon="@drawable/ashe" />
+        <!-- TOP -->
+        <ImageButton
+            android:id="@+id/btnTop"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:src="@drawable/icon_top"
+            android:scaleType="centerInside"
+            android:foreground="?attr/selectableItemBackgroundBorderless"/>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipJungle"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jungle"
-            app:checkedIconVisible="false"
-            app:chipIcon="@drawable/vi" />
+        <!-- JUNGLE -->
+        <ImageButton
+            android:id="@+id/btnJungle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="15dp"
+            android:background="@null"
+            android:src="@drawable/icon_jungle"
+            android:scaleType="centerInside"
+            android:foreground="?attr/selectableItemBackgroundBorderless"/>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipMid"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mid"
-            app:checkedIconVisible="false"
-            app:chipIcon="@drawable/leesin" />
+        <!-- MID -->
+        <ImageButton
+            android:id="@+id/btnMid"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="15dp"
+            android:background="@null"
+            android:src="@drawable/icon_mid"
+            android:scaleType="centerInside"
+            android:foreground="?attr/selectableItemBackgroundBorderless"/>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipAdc"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ADC"
-            app:checkedIconVisible="false"
-            app:chipIcon="@drawable/vi" />
+        <!-- ADC -->
+        <ImageButton
+            android:id="@+id/btnAdc"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="15dp"
+            android:background="@null"
+            android:src="@drawable/icon_adc"
+            android:scaleType="centerInside"
+            android:foreground="?attr/selectableItemBackgroundBorderless"/>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipSupport"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Support"
-            app:checkedIconVisible="false"
-            app:chipIcon="@drawable/vi" />
-    </com.google.android.material.chip.ChipGroup>
+        <!-- SUPPORT -->
+        <ImageButton
+            android:id="@+id/btnSupport"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="15dp"
+            android:background="@null"
+            android:src="@drawable/icon_support"
+            android:scaleType="centerInside"
+            android:foreground="?attr/selectableItemBackgroundBorderless"/>
+    </LinearLayout>
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
@@ -107,9 +113,9 @@
         android:id="@+id/confirmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
         android:text="확인"
         android:visibility="gone"
-        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

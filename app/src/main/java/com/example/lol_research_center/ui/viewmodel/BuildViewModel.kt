@@ -20,7 +20,28 @@ class BuildViewModel : ViewModel() {
     init {
         val defaultSkill = Skill(0, emptyList(), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, "")
         val asheSkills = Skills(defaultSkill, defaultSkill, defaultSkill, defaultSkill, defaultSkill)
-        val asheStats = Stats(0, 0, 0, 0, 0, 0, 0, 0) // 임시 스탯
+        val asheStats = Stats(
+            attackdamage = 68,
+            attackdamageperlevel = 3.5f,
+            ap = 0,
+            hp = 575,
+            mp = 200,
+            crit = 0,
+            attackspeed = 0.651f,
+            attackspeedperlevel = 3.0f,
+            armor = 36,
+            spellblock = 32,
+            hpperlevel = 100,
+            mpperlevel = 0,
+            movespeed = 345,
+            armorperlevel = 4.0f,
+            spellblockperlevel = 1.5f,
+            hpregen = 7.5f,
+            hpregenperlevel = 0.7f,
+            mpregen = 50f,
+            mpregenperlevel = 0f,
+            critperlevel = 0f
+        )
         val asheChampionInfo = ChampionInfo(
             champDrawable = 0, // 실제 Drawable ID로 대체 필요
             name = "Ashe",
