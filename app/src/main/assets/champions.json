@@ -1,25 +1,41 @@
 [
   {
-    "champDrawable": "leesin",
-    "name": "Lee Sin",
-    "lane": "TOP",
+    "champDrawable": "ahri",
+    "name": "Ahri",
+    "lane": "MID",
     "stats": {
-      "ad": 68,
+      "attackdamage": 53,
+      "attackdamageperlevel": 3.0,
       "ap": 0,
-      "hp": 575,
-      "mp": 200,
-      "critical": 0,
-      "attackSpeed": 70,
-      "ar": 36,
-      "mr": 32
+      "hp": 590,
+      "mp": 418,
+      "crit": 0,
+      "attackspeed": 0.668,
+      "attackspeedperlevel": 2.2,
+      "armor": 21,
+      "spellblock": 30,
+      "hpperlevel": 104,
+      "mpperlevel": 25,
+      "movespeed": 330,
+      "armorperlevel": 4.2,
+      "spellblockperlevel": 1.3,
+      "hpregen": 2.5,
+      "hpregenperlevel": 0.6,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
     },
-    "itemDrawables": [
-      "cull"
-    ],
+    "itemDrawables": [],
     "skills": {
       "p": {
-        "skillLevel": 1,
-        "skillDamage": [0, 0, 0, 0, 0],
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
         "skillApCoeff": 0.0,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
@@ -28,40 +44,2006 @@
         "skillType": "Passive"
       },
       "q": {
-        "skillLevel": 5,
-        "skillDamage": [55, 80, 105, 130, 155],
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
         "skillApCoeff": 0.0,
-        "skillAdCoeff": 1.0,
+        "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
         "skillType": "Active"
       },
       "w": {
-        "skillLevel": 5,
-        "skillDamage": [40, 60, 80, 100, 120],
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
         "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.5,
+        "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.08,
+        "skillHpCoeff": 0.0,
         "skillType": "Active"
       },
       "e": {
-        "skillLevel": 5,
-        "skillDamage": [100, 130, 160, 190, 220],
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
         "skillApCoeff": 0.0,
-        "skillAdCoeff": 1.0,
+        "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
         "skillType": "Active"
       },
       "r": {
-        "skillLevel": 3,
-        "skillDamage": [150, 300, 450],
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
         "skillApCoeff": 0.0,
-        "skillAdCoeff": 2.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "ashe",
+    "name": "Ashe",
+    "lane": "ADC",
+    "stats": {
+      "attackdamage": 59,
+      "attackdamageperlevel": 2.95,
+      "ap": 0,
+      "hp": 610,
+      "mp": 280,
+      "crit": 0,
+      "attackspeed": 0.658,
+      "attackspeedperlevel": 3.33,
+      "armor": 26,
+      "spellblock": 30,
+      "hpperlevel": 101,
+      "mpperlevel": 35,
+      "movespeed": 325,
+      "armorperlevel": 4.6,
+      "spellblockperlevel": 1.3,
+      "hpregen": 3.5,
+      "hpregenperlevel": 0.55,
+      "mpregen": 7.0,
+      "mpregenperlevel": 0.65,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "caitlyn",
+    "name": "Caitlyn",
+    "lane": "ADC",
+    "stats": {
+      "attackdamage": 60,
+      "attackdamageperlevel": 3.8,
+      "ap": 0,
+      "hp": 580,
+      "mp": 315,
+      "crit": 0,
+      "attackspeed": 0.681,
+      "attackspeedperlevel": 4.0,
+      "armor": 27,
+      "spellblock": 30,
+      "hpperlevel": 107,
+      "mpperlevel": 40,
+      "movespeed": 325,
+      "armorperlevel": 4.7,
+      "spellblockperlevel": 1.3,
+      "hpregen": 3.5,
+      "hpregenperlevel": 0.55,
+      "mpregen": 7.4,
+      "mpregenperlevel": 0.7,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "camille",
+    "name": "Camille",
+    "lane": "TOP",
+    "stats": {
+      "attackdamage": 68,
+      "attackdamageperlevel": 3.8,
+      "ap": 0,
+      "hp": 650,
+      "mp": 339,
+      "crit": 0,
+      "attackspeed": 0.644,
+      "attackspeedperlevel": 2.5,
+      "armor": 35,
+      "spellblock": 32,
+      "hpperlevel": 99,
+      "mpperlevel": 52,
+      "movespeed": 340,
+      "armorperlevel": 5.0,
+      "spellblockperlevel": 2.05,
+      "hpregen": 8.5,
+      "hpregenperlevel": 0.8,
+      "mpregen": 8.15,
+      "mpregenperlevel": 0.75,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "ezreal",
+    "name": "Ezreal",
+    "lane": "ADC",
+    "stats": {
+      "attackdamage": 60,
+      "attackdamageperlevel": 2.75,
+      "ap": 0,
+      "hp": 600,
+      "mp": 375,
+      "crit": 0,
+      "attackspeed": 0.625,
+      "attackspeedperlevel": 2.5,
+      "armor": 24,
+      "spellblock": 30,
+      "hpperlevel": 102,
+      "mpperlevel": 70,
+      "movespeed": 325,
+      "armorperlevel": 4.2,
+      "spellblockperlevel": 1.3,
+      "hpregen": 4.0,
+      "hpregenperlevel": 0.65,
+      "mpregen": 8.5,
+      "mpregenperlevel": 1.0,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "graves",
+    "name": "Graves",
+    "lane": "JUNGLE",
+    "stats": {
+      "attackdamage": 68,
+      "attackdamageperlevel": 3.0,
+      "ap": 0,
+      "hp": 625,
+      "mp": 325,
+      "crit": 0,
+      "attackspeed": 0.475,
+      "attackspeedperlevel": 2.6,
+      "armor": 33,
+      "spellblock": 30,
+      "hpperlevel": 92,
+      "mpperlevel": 40,
+      "movespeed": 340,
+      "armorperlevel": 4.6,
+      "spellblockperlevel": 1.3,
+      "hpregen": 8.0,
+      "hpregenperlevel": 0.7,
+      "mpregen": 7.6,
+      "mpregenperlevel": 0.7,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "irelia",
+    "name": "Irelia",
+    "lane": "MID",
+    "stats": {
+      "attackdamage": 65,
+      "attackdamageperlevel": 3.5,
+      "ap": 0,
+      "hp": 630,
+      "mp": 350,
+      "crit": 0,
+      "attackspeed": 0.656,
+      "attackspeedperlevel": 2.5,
+      "armor": 36,
+      "spellblock": 30,
+      "hpperlevel": 115,
+      "mpperlevel": 50,
+      "movespeed": 335,
+      "armorperlevel": 4.7,
+      "spellblockperlevel": 2.05,
+      "hpregen": 6.0,
+      "hpregenperlevel": 0.85,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "kaisa",
+    "name": "Kai'Sa",
+    "lane": "ADC",
+    "stats": {
+      "attackdamage": 59,
+      "attackdamageperlevel": 2.6,
+      "ap": 0,
+      "hp": 640,
+      "mp": 345,
+      "crit": 0,
+      "attackspeed": 0.644,
+      "attackspeedperlevel": 1.8,
+      "armor": 27,
+      "spellblock": 30,
+      "hpperlevel": 102,
+      "mpperlevel": 40,
+      "movespeed": 335,
+      "armorperlevel": 4.2,
+      "spellblockperlevel": 1.3,
+      "hpregen": 4.0,
+      "hpregenperlevel": 0.55,
+      "mpregen": 8.2,
+      "mpregenperlevel": 0.7,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "katarina",
+    "name": "Katarina",
+    "lane": "MID",
+    "stats": {
+      "attackdamage": 58,
+      "attackdamageperlevel": 3.2,
+      "ap": 0,
+      "hp": 672,
+      "mp": 0,
+      "crit": 0,
+      "attackspeed": 0.658,
+      "attackspeedperlevel": 2.74,
+      "armor": 28,
+      "spellblock": 32,
+      "hpperlevel": 108,
+      "mpperlevel": 0,
+      "movespeed": 335,
+      "armorperlevel": 4.7,
+      "spellblockperlevel": 2.05,
+      "hpregen": 7.5,
+      "hpregenperlevel": 0.7,
+      "mpregen": 0.0,
+      "mpregenperlevel": 0.0,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "leblanc",
+    "name": "LeBlanc",
+    "lane": "MID",
+    "stats": {
+      "attackdamage": 55,
+      "attackdamageperlevel": 2.2,
+      "ap": 0,
+      "hp": 598,
+      "mp": 400,
+      "crit": 0,
+      "attackspeed": 0.658,
+      "attackspeedperlevel": 2.35,
+      "armor": 22,
+      "spellblock": 30,
+      "hpperlevel": 111,
+      "mpperlevel": 25,
+      "movespeed": 340,
+      "armorperlevel": 4.7,
+      "spellblockperlevel": 1.3,
+      "hpregen": 7.5,
+      "hpregenperlevel": 0.55,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "leesin",
+    "name": "Lee Sin",
+    "lane": "JUNGLE",
+    "stats": {
+      "attackdamage": 69,
+      "attackdamageperlevel": 3.7,
+      "ap": 0,
+      "hp": 645,
+      "mp": 200,
+      "crit": 0,
+      "attackspeed": 0.651,
+      "attackspeedperlevel": 3.0,
+      "armor": 36,
+      "spellblock": 32,
+      "hpperlevel": 108,
+      "mpperlevel": 0,
+      "movespeed": 345,
+      "armorperlevel": 4.9,
+      "spellblockperlevel": 2.05,
+      "hpregen": 7.5,
+      "hpregenperlevel": 0.7,
+      "mpregen": 50.0,
+      "mpregenperlevel": 0.0,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "missfortune",
+    "name": "Miss Fortune",
+    "lane": "ADC",
+    "stats": {
+      "attackdamage": 53,
+      "attackdamageperlevel": 2.4,
+      "ap": 0,
+      "hp": 640,
+      "mp": 300,
+      "crit": 0,
+      "attackspeed": 0.656,
+      "attackspeedperlevel": 3.0,
+      "armor": 25,
+      "spellblock": 30,
+      "hpperlevel": 103,
+      "mpperlevel": 40,
+      "movespeed": 325,
+      "armorperlevel": 4.0,
+      "spellblockperlevel": 1.3,
+      "hpregen": 3.75,
+      "hpregenperlevel": 0.65,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "neeko",
+    "name": "Neeko",
+    "lane": "SUPPORT",
+    "stats": {
+      "attackdamage": 48,
+      "attackdamageperlevel": 2.5,
+      "ap": 0,
+      "hp": 610,
+      "mp": 450,
+      "crit": 0,
+      "attackspeed": 0.625,
+      "attackspeedperlevel": 3.5,
+      "armor": 21,
+      "spellblock": 30,
+      "hpperlevel": 104,
+      "mpperlevel": 30,
+      "movespeed": 340,
+      "armorperlevel": 5.2,
+      "spellblockperlevel": 1.3,
+      "hpregen": 7.5,
+      "hpregenperlevel": 0.75,
+      "mpregen": 7.0,
+      "mpregenperlevel": 0.7,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "orianna",
+    "name": "Orianna",
+    "lane": "MID",
+    "stats": {
+      "attackdamage": 44,
+      "attackdamageperlevel": 2.6,
+      "ap": 0,
+      "hp": 585,
+      "mp": 418,
+      "crit": 0,
+      "attackspeed": 0.658,
+      "attackspeedperlevel": 3.5,
+      "armor": 20,
+      "spellblock": 26,
+      "hpperlevel": 110,
+      "mpperlevel": 25,
+      "movespeed": 325,
+      "armorperlevel": 4.2,
+      "spellblockperlevel": 1.3,
+      "hpregen": 7.0,
+      "hpregenperlevel": 0.55,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "riven",
+    "name": "Riven",
+    "lane": "TOP",
+    "stats": {
+      "attackdamage": 64,
+      "attackdamageperlevel": 3.0,
+      "ap": 0,
+      "hp": 630,
+      "mp": 0,
+      "crit": 0,
+      "attackspeed": 0.625,
+      "attackspeedperlevel": 3.5,
+      "armor": 33,
+      "spellblock": 32,
+      "hpperlevel": 100,
+      "mpperlevel": 0,
+      "movespeed": 340,
+      "armorperlevel": 4.4,
+      "spellblockperlevel": 2.05,
+      "hpregen": 8.5,
+      "hpregenperlevel": 0.5,
+      "mpregen": 0.0,
+      "mpregenperlevel": 0.0,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "twistedfate",
+    "name": "Twisted Fate",
+    "lane": "MID",
+    "stats": {
+      "attackdamage": 52,
+      "attackdamageperlevel": 2.5,
+      "ap": 0,
+      "hp": 604,
+      "mp": 333,
+      "crit": 0,
+      "attackspeed": 0.625,
+      "attackspeedperlevel": 2.5,
+      "armor": 24,
+      "spellblock": 30,
+      "hpperlevel": 108,
+      "mpperlevel": 39,
+      "movespeed": 330,
+      "armorperlevel": 4.35,
+      "spellblockperlevel": 1.3,
+      "hpregen": 5.5,
+      "hpregenperlevel": 0.6,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "vayne",
+    "name": "Vayne",
+    "lane": "ADC",
+    "stats": {
+      "attackdamage": 60,
+      "attackdamageperlevel": 2.35,
+      "ap": 0,
+      "hp": 550,
+      "mp": 232,
+      "crit": 0,
+      "attackspeed": 0.658,
+      "attackspeedperlevel": 3.3,
+      "armor": 23,
+      "spellblock": 30,
+      "hpperlevel": 103,
+      "mpperlevel": 35,
+      "movespeed": 330,
+      "armorperlevel": 4.6,
+      "spellblockperlevel": 1.3,
+      "hpregen": 3.5,
+      "hpregenperlevel": 0.55,
+      "mpregen": 7.0,
+      "mpregenperlevel": 0.4,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "velkoz",
+    "name": "Vel'Koz",
+    "lane": "SUPPORT",
+    "stats": {
+      "attackdamage": 51,
+      "attackdamageperlevel": 3.2,
+      "ap": 0,
+      "hp": 550,
+      "mp": 495,
+      "crit": 0,
+      "attackspeed": 0.658,
+      "attackspeedperlevel": 1.68,
+      "armor": 21,
+      "spellblock": 30,
+      "hpperlevel": 92,
+      "mpperlevel": 45,
+      "movespeed": 325,
+      "armorperlevel": 4.5,
+      "spellblockperlevel": 1.3,
+      "hpregen": 5.5,
+      "hpregenperlevel": 0.55,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate"
+      }
+    }
+  },
+  {
+    "champDrawable": "zed",
+    "name": "Zed",
+    "lane": "MID",
+    "stats": {
+      "attackdamage": 63,
+      "attackdamageperlevel": 3.4,
+      "ap": 0,
+      "hp": 654,
+      "mp": 200,
+      "crit": 0,
+      "attackspeed": 0.651,
+      "attackspeedperlevel": 3.3,
+      "armor": 32,
+      "spellblock": 29,
+      "hpperlevel": 99,
+      "mpperlevel": 0,
+      "movespeed": 345,
+      "armorperlevel": 4.7,
+      "spellblockperlevel": 2.05,
+      "hpregen": 7.0,
+      "hpregenperlevel": 0.65,
+      "mpregen": 50.0,
+      "mpregenperlevel": 0.0,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
@@ -74,21 +2056,31 @@
     "name": "Vi",
     "lane": "JUNGLE",
     "stats": {
-      "ad": 65,
+      "attackdamage": 65,
+      "attackdamageperlevel": 3.5,
       "ap": 0,
       "hp": 585,
       "mp": 295,
-      "critical": 0,
-      "attackSpeed": 63,
-      "ar": 35,
-      "mr": 32
+      "crit": 0,
+      "attackspeed": 0.644,
+      "attackspeedperlevel": 2.5,
+      "armor": 35,
+      "spellblock": 32,
+      "hpperlevel": 99,
+      "mpperlevel": 45,
+      "movespeed": 340,
+      "armorperlevel": 4.5,
+      "spellblockperlevel": 2.05,
+      "hpregen": 7.0,
+      "hpregenperlevel": 0.65,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.7,
+      "critperlevel": 0.0
     },
-    "itemDrawables": [
-      "bf_sword"
-    ],
+    "itemDrawables": [],
     "skills": {
       "p": {
-        "skillLevel": 1,
+        "skillLevel": 0,
         "skillDamage": [0, 0, 0, 0, 0],
         "skillApCoeff": 0.0,
         "skillAdCoeff": 0.0,
@@ -98,40 +2090,40 @@
         "skillType": "Passive"
       },
       "q": {
-        "skillLevel": 5,
-        "skillDamage": [55, 90, 125, 160, 195],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 1.6,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "Active"
-      },
-      "w": {
-        "skillLevel": 5,
+        "skillLevel": 0,
         "skillDamage": [0, 0, 0, 0, 0],
         "skillApCoeff": 0.0,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Passive"
+        "skillType": "Active"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [0, 0, 0, 0, 0],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active"
       },
       "e": {
-        "skillLevel": 5,
-        "skillDamage": [10, 35, 60, 85, 110],
+        "skillLevel": 0,
+        "skillDamage": [0, 0, 0, 0, 0],
         "skillApCoeff": 0.0,
-        "skillAdCoeff": 1.1,
+        "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
         "skillType": "Active"
       },
       "r": {
-        "skillLevel": 3,
-        "skillDamage": [150, 325, 500],
+        "skillLevel": 0,
+        "skillDamage": [0, 0, 0],
         "skillApCoeff": 0.0,
-        "skillAdCoeff": 1.1,
+        "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,

@@ -96,7 +96,28 @@ class BuildsFragment : Fragment() {
 }
 
 private fun createDummyBuild(): BuildInfo {
-    val stats  = Stats(68, 0, 575, 200, 0, 70, 36, 32)
+    val stats = Stats(
+        attackdamage = 68,
+        attackdamageperlevel = 3.5f,
+        ap = 0,
+        hp = 575,
+        mp = 200,
+        crit = 0,
+        attackspeed = 0.651f,
+        attackspeedperlevel = 3.0f,
+        armor = 36,
+        spellblock = 32,
+        hpperlevel = 100,
+        mpperlevel = 0,
+        movespeed = 345,
+        armorperlevel = 4.0f,
+        spellblockperlevel = 1.5f,
+        hpregen = 7.5f,
+        hpregenperlevel = 0.7f,
+        mpregen = 50f,
+        mpregenperlevel = 0f,
+        critperlevel = 0f
+    )
     val skills = Skills(
         p = Skill(1, listOf(0,0,0,0,0),0f,0f,0f,0f,0f,"Passive"),
         q = Skill(5, listOf(55,80,105,130,155),0f,1f,0f,0f,0f,"Active"),

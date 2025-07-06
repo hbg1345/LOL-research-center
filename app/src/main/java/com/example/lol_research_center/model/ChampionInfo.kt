@@ -25,21 +25,47 @@ data class ChampionInfo(
     val skills: Skills
 ) : Parcelable
 
+//@Parcelize
+//data class Stats_(
+//    val attackdamage: Int, val ap: Int, val hp: Int, val mp: Int,
+//    val crit: Int, val attackspeed: Int, val armor: Int, val spellblock: Int,
+//    val attackdamageperlevel: Float,
+//) : Parcelable
+
 @Parcelize
 data class Stats(
-    val ad: Int, val ap: Int, val hp: Int, val mp: Int,
-    val critical: Int, val attackSpeed: Int, val ar: Int, val mr: Int,
+    val attackdamage: Int, //
+    val attackdamageperlevel: Float,
+    val ap: Int, //
+    val hp: Int, //
+    val mp: Int, //
+    val crit: Int, //
+    val attackspeed: Float, //
+    val attackspeedperlevel: Float,
+    val armor: Int,//
+    val spellblock: Int, //
+    val hpperlevel: Int,
+    val mpperlevel: Int,
+    val movespeed: Int,
+    val armorperlevel: Float,
+    val spellblockperlevel: Float,
+    val hpregen: Float,
+    val hpregenperlevel: Float,
+    val mpregen: Float,
+    val mpregenperlevel: Float,
+    val critperlevel: Float // 오타 수정: critperlever → critperlevel
 ) : Parcelable
+
 
 @Parcelize
 data class Skill(
-    val skillLevel : Int, //스킬 레벨
-    val skillDamage : List<Int>, //기본 스킬 데미지
-    val skillApCoeff : Float,
-    val skillAdCoeff : Float,
+    val skillLevel: Int, //스킬 레벨
+    val skillDamage: List<Int>, //기본 스킬 데미지
+    val skillApCoeff: Float,
+    val skillAdCoeff: Float,
     val skillArCoeff: Float,
-    val skillMrCoeff : Float,
-    val skillHpCoeff : Float,
-    val skillType : String,
+    val skillMrCoeff: Float,
+    val skillHpCoeff: Float,
+    val skillType: String,
 ) : Parcelable
 //챔피언 이름, 타입,

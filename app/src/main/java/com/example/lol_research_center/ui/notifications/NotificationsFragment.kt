@@ -39,15 +39,15 @@ class NotificationsFragment : Fragment() {
         /* 1. 챔피언 아이콘 & 이름 (원한다면 TextView 추가) */
         binding.imageView2.setImageResource(build.champion.champDrawable)
 
-//        /* 2. 기본 스탯 숫자 채우기 */
-//        with(build.champion.stats) {
-//            textView_ad.text = ad.toString()
-//            binding.textView_ap.text = ap.toString()
-//            binding.textView_as.text = attackSpeed.toString()
-//            binding.textView_mr.text = mr.toString()
-//            binding.textView_ar.text = ar.toString()
-//            binding.textView_ms.text = "???"
-//        }
+        /* 2. 기본 스탯 숫자 채우기 */
+        with(build.champion.stats) {
+            binding.textViewAd.text = attackdamage.toString()
+            binding.textViewAp.text = ap.toString()
+            binding.textViewAs.text = attackspeed.toString()
+            binding.textViewMr.text = spellblock.toString()
+            binding.textViewAr.text = armor.toString()
+            binding.textViewMs.text = "???"
+        }
 
         /* 3. 체력 / 마나 ProgressBar */
         val hp = build.champion.stats.hp
