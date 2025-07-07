@@ -9,7 +9,7 @@ import com.example.lol_research_center.converters.Converters
 import com.example.lol_research_center.dao.BuildInfoDao
 import com.example.lol_research_center.model.BuildInfo
 
-@Database(entities = [BuildInfo::class], version = 1, exportSchema = false)
+@Database(entities = [BuildInfo::class], version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun buildInfoDao(): BuildInfoDao
@@ -24,7 +24,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "lol-research-db"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }

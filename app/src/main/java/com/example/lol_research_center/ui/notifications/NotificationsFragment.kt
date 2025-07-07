@@ -6,6 +6,8 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.media3.common.util.Log
+import androidx.navigation.fragment.findNavController
+import com.example.lol_research_center.R
 import com.example.lol_research_center.databinding.FragmentNotificationsBinding
 import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.database.AppDatabase
@@ -46,6 +48,14 @@ class NotificationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val pickerMode = arguments?.getBoolean("pickerMode") ?: false
+
+        binding.exitButton.visibility = View.VISIBLE
+
+        binding.exitButton.setOnClickListener {
+            findNavController().navigate(R.id.buildsFragment)
+        }
 
         build?.let { buildInfo ->
             buildInfo.champion?.let { champion ->

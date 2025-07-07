@@ -11,6 +11,6 @@ interface BuildInfoDao {
     @Insert
     suspend fun insertBuildInfo(buildInfo: BuildInfo)
 
-    @Query("SELECT * FROM build_info")
+    @Query("SELECT * FROM build_info ORDER BY timestamp DESC")
     fun getAll(): Flow<List<BuildInfo>>
 }
