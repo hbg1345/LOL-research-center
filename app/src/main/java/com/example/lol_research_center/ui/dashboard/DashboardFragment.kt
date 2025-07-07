@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.lol_research_center.R
 import com.example.lol_research_center.databinding.FragmentDashboardBinding
@@ -44,7 +45,7 @@ class DashboardFragment : Fragment() {
         recyclerView.layoutManager = GridLayoutManager(context, 3)
 
         val items = context?.let {
-            ItemDataLoader.loadItemsFromAsset(it, "items.json")
+            ItemDataLoader.loadItemsFromAsset(it, "item.json")
         } ?: emptyList()
 
         val pickerMode = arguments?.getBoolean("pickerMode") ?: false
@@ -67,9 +68,11 @@ class DashboardFragment : Fragment() {
         binding.selectedItemsRecyclerView.adapter = selectedItemsAdapter
 
         if (pickerMode) {
+            binding.selectedItemsContainer.visibility = View.VISIBLE
             binding.selectedItemsRecyclerView.visibility = View.VISIBLE
+            binding.nextButton.visibility = View.VISIBLE
         } else {
-            binding.selectedItemsRecyclerView.visibility = View.GONE
+            binding.selectedItemsContainer.visibility = View.GONE
         }
 
         // Observe changes in selected items from BuildViewModel
@@ -80,8 +83,12 @@ class DashboardFragment : Fragment() {
         }
 
         binding.nextButton.setOnClickListener {
-            Toast.makeText(requireContext(), "다음 화면으로 이동", Toast.LENGTH_SHORT).show()
-            // TODO: Implement navigation to the next screen
+            buildViewModel.currentBuild.value?.let {
+                val bundle = Bundle().apply { putParcelable("build", it) }
+                findNavController().navigate(R.id.action_selectItems_to_notifications, bundle)
+            } ?: run {
+                Toast.makeText(requireContext(), "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
