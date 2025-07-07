@@ -2,6 +2,7 @@ package com.example.lol_research_center.ui.notifications
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -114,6 +115,9 @@ class NotificationsFragment : Fragment() {
             view.setImageResource(skill.skillDrawable)
             view.setOnClickListener { showSkill(skill, title) }
         }
+        mapping.forEach { (_, pair) ->
+            println("SkillCheck , Title=${pair.second}")
+        }
 
         // default display
         showSkill(skills.q, skills.q.skillTitle)
@@ -122,7 +126,7 @@ class NotificationsFragment : Fragment() {
     private fun showSkill(skill: Skill, title: String) {
         with(binding) {
             skillImg.setImageResource(skill.skillDrawable)
-            skillTitleText.text = skill.skillTitle
+            skillTitleText.text = title
             skilllevelText.text = "Lv ${skill.skillLevel}"
         }
     }

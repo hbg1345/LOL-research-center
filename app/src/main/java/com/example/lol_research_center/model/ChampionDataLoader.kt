@@ -59,7 +59,7 @@ private fun JsonSkill.toSkill(ctx: Context): Skill {
         skillDrawableName, "drawable", ctx.packageName
     )
     return Skill(
-        skillTitle = "hi",
+        skillTitle = skillTitle,
         skillDrawable = resId,
         skillLevel    = skillLevel,
         skillDamageAd   = skillDamageAd,
