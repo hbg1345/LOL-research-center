@@ -35,13 +35,18 @@ class BuildsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        adapter = BuildListAdapter { build ->
-            val bundle = bundleOf("build" to build)
-            findNavController().navigate(
-                R.id.action_builds_to_notification,
-                bundle
-            )
-        }
+        adapter = BuildListAdapter(
+            onClick = { build ->
+                val bundle = bundleOf("build" to build)
+                findNavController().navigate(
+                    R.id.action_builds_to_notification,
+                    bundle
+                )
+            },
+            onDeleteClick = { build ->
+                vm.deleteBuild(build)
+            }
+        )
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 

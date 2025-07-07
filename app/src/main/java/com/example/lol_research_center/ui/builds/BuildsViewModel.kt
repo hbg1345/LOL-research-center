@@ -7,9 +7,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import com.example.lol_research_center.database.AppDatabase
 import com.example.lol_research_center.model.BuildInfo
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class BuildsViewModel(application: Application) : AndroidViewModel(application) {
 
     private val db = AppDatabase.getDatabase(application)
     val builds: LiveData<List<BuildInfo>> = db.buildInfoDao().getAll().asLiveData()
+
+    fun deleteBuild(build: BuildInfo) {
+        viewModelScope.launch {
+            db.buildInfoDao().delete(build)
+        }
+    }
 }
