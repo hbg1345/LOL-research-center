@@ -2,7 +2,6 @@ package com.example.lol_research_center.ui.notifications
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +25,9 @@ class NotificationsFragment : Fragment() {
 
     private var buildInfo: BuildInfo? = null
     private val db by lazy { AppDatabase.getDatabase(requireContext().applicationContext) }
+
+    // 현재 선택된 스킬
+    private var selectedSkill: Skill? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +53,7 @@ class NotificationsFragment : Fragment() {
             setupChampionInfo(info)
             setupItems(info)
             setupSkills(info)
+            setupLevelButtons()
             setupExitButton()
             setupSaveButton(info)
         } ?: run {
@@ -70,16 +73,10 @@ class NotificationsFragment : Fragment() {
                 textViewAr.text = armor.toString()
                 textViewMs.text = movespeed.toString()
 
-                healthBar.apply {
-                    max = hp
-                    progress = hp
-                }
+                healthBar.apply { max = hp; progress = hp }
                 healthText.text = hp.toString()
 
-                manaBar.apply {
-                    max = mp
-                    progress = mp / 2
-                }
+                manaBar.apply { max = mp; progress = mp / 2 }
                 manaText.text = "${mp / 2} / $mp"
             }
         }
@@ -90,45 +87,87 @@ class NotificationsFragment : Fragment() {
             binding.imageView10, binding.imageView11, binding.imageView12,
             binding.imageView13, binding.imageView14, binding.imageView15
         )
-        // Populate each slot or clear
-        slots.forEachIndexed { index, imageView ->
-            val item = info.items.getOrNull(index)
-            if (item != null) imageView.setImageResource(item.imageResId)
-            else imageView.setImageDrawable(null)
+        slots.forEachIndexed { idx, img ->
+            info.items.getOrNull(idx)?.let { img.setImageResource(it.imageResId) }
+                ?: img.setImageDrawable(null)
         }
     }
 
     private fun setupSkills(info: BuildInfo) {
         val skills = info.champion.skills
-        // mapping of view to skill and title
         val mapping = listOf(
-            binding.imageButton1.imgSkill to Pair(skills.p, skills.p.skillTitle),
-            binding.imageButton2.imgSkill to Pair(skills.q, skills.q.skillTitle),
-            binding.imageButton3.imgSkill to Pair(skills.w, skills.w.skillTitle),
-            binding.imageButton4.imgSkill to Pair(skills.e, skills.e.skillTitle),
-            binding.imageButton5.imgSkill to Pair(skills.r, skills.r.skillTitle)
+            binding.imageButton1.imgSkill to skills.p,
+            binding.imageButton2.imgSkill to skills.q,
+            binding.imageButton3.imgSkill to skills.w,
+            binding.imageButton4.imgSkill to skills.e,
+            binding.imageButton5.imgSkill to skills.r
         )
-
-        // set icons and listeners
-        mapping.forEach { (view, pair) ->
-            val (skill, title) = pair
+        mapping.forEach { (view, skill) ->
             view.setImageResource(skill.skillDrawable)
-            view.setOnClickListener { showSkill(skill, title) }
+            view.setOnClickListener {
+                selectedSkill = skill
+                showSkill(skill)
+            }
         }
-        mapping.forEach { (_, pair) ->
-            println("SkillCheck , Title=${pair.second}")
-        }
-
-        // default display
-        showSkill(skills.q, skills.q.skillTitle)
+        // 기본 선택: Q
+        selectedSkill = skills.q
+        showSkill(skills.q)
     }
 
-    private fun showSkill(skill: Skill, title: String) {
+    private fun setupLevelButtons() {
+        binding.levelUpButton.setOnClickListener {
+            selectedSkill?.let { skill ->
+                val maxLvl = when (skill.skillTitle) {
+                    buildInfo?.champion?.skills?.p?.skillTitle -> 0
+                    buildInfo?.champion?.skills?.r?.skillTitle -> 3
+                    else -> 5
+                }
+                skill.skillLevel = (skill.skillLevel + 1).coerceAtMost(maxLvl)
+                showSkill(skill)
+            }
+        }
+        binding.levelDownButton.setOnClickListener {
+            selectedSkill?.let { skill ->
+                skill.skillLevel = (skill.skillLevel - 1).coerceAtLeast(0)
+                showSkill(skill)
+            }
+        }
+    }
+
+    private fun showSkill(skill: Skill) {
+        val stats = buildInfo?.champion?.stats ?: return
+        val damage = calcDamage(skill, stats)
         with(binding) {
             skillImg.setImageResource(skill.skillDrawable)
-            skillTitleText.text = title
-            skilllevelText.text = "Lv ${skill.skillLevel}"
+            skillTitleText.text = skill.skillTitle
+            skilllevelText.text = if (skill.skillTitle == buildInfo?.champion?.skills?.p?.skillTitle) "-"
+            else skill.skillLevel.toString()
+            // 총 데미지 표시
+            dealTotal.text = damage.toString()
         }
+    }
+
+    /**
+     * 스킬 데미지 계산
+     * base: skillDamageX[level - 1]
+     * bonus: stats * coeff
+     */
+    private fun calcDamage(skill: Skill, stats: Stats): Int {
+        val lvl = skill.skillLevel
+        if (lvl <= 0) return 0
+        val baseList = when (skill.skillType) {
+            "ad" -> skill.skillDamageAd
+            "ap" -> skill.skillDamageAp
+            "fix" -> skill.skillDamageFix
+            else -> emptyList()
+        }
+        val base = baseList.getOrNull(lvl - 1) ?: 0
+        val bonus = stats.attackdamage * skill.skillAdCoeff +
+                stats.ap * skill.skillApCoeff +
+                stats.armor * skill.skillArCoeff +
+                stats.spellblock * skill.skillMrCoeff +
+                stats.hp * skill.skillHpCoeff
+        return (base + bonus).toInt()
     }
 
     private fun setupSaveButton(info: BuildInfo) {
@@ -136,14 +175,12 @@ class NotificationsFragment : Fragment() {
             CoroutineScope(Dispatchers.IO).launch {
                 val championName = info.champion.name
                 val itemNames = info.items.map { it.name }.sorted()
-
-                val isDuplicate = db.buildInfoDao().getAllBuilds().any { existing ->
+                val duplicate = db.buildInfoDao().getAllBuilds().any { existing ->
                     existing.champion.name == championName &&
                             existing.items.map { it.name }.sorted() == itemNames
                 }
-
                 CoroutineScope(Dispatchers.Main).launch {
-                    if (!isDuplicate) {
+                    if (!duplicate) {
                         db.buildInfoDao().insertBuildInfo(info)
                         Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
                     } else {
@@ -159,21 +196,6 @@ class NotificationsFragment : Fragment() {
             visibility = View.VISIBLE
             setOnClickListener { findNavController().navigate(R.id.buildsFragment) }
         }
-    }
-
-    private fun calcDamage(skill: Skill, stats: Stats): Int {
-        val base = when (skill.skillType) {
-            "ad"  -> skill.skillDamageAd.getOrNull(skill.skillLevel - 1) ?: 0
-            "ap"  -> skill.skillDamageAp.getOrNull(skill.skillLevel - 1) ?: 0
-            "fix" -> skill.skillDamageFix.getOrNull(skill.skillLevel - 1) ?: 0
-            else   -> 0
-        }
-        val bonus = stats.attackdamage * skill.skillAdCoeff +
-                stats.ap * skill.skillApCoeff +
-                stats.armor * skill.skillArCoeff +
-                stats.spellblock * skill.skillMrCoeff +
-                stats.hp * skill.skillHpCoeff
-        return (base + bonus).toInt()
     }
 
     override fun onDestroyView() {

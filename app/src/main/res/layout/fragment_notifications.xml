@@ -1,511 +1,519 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.NotificationsFragment">
+    android:fillViewport="true">
 
-    <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.notifications.NotificationsFragment">
 
-    <Button
-        android:id="@+id/exitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="372dp"
-        android:layout_marginEnd="108dp"
-        android:text="나가기"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ahri"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <GridLayout
-        android:id="@+id/imageGrid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="5dp"
-        android:columnCount="4"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2">
-
-        <!-- Row 1: Image, Number, Image, Number -->
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ad" />
-
-        <TextView
-            android:id="@+id/textView_ad"
+        <Button
+            android:id="@+id/exitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="120"
-            android:textSize="20sp" />
+            android:layout_marginTop="372dp"
+            android:layout_marginEnd="108dp"
+            android:text="나가기"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/ap" />
+            android:id="@+id/imageView2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ahri"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView_ap"
+        <GridLayout
+            android:id="@+id/imageGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="0"
-            android:textSize="20sp" />
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="5dp"
+            android:columnCount="4"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2">
 
-        <!-- Row 2: Image, Number, Image, Number -->
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/as" />
+            <!-- Row 1: Image, Number, Image, Number -->
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ad" />
 
-        <TextView
-            android:id="@+id/textView_as"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="20dp"
-            android:text="0"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textView_ad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="120"
+                android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/mr" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ap" />
 
-        <TextView
-            android:id="@+id/textView_mr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="20dp"
-            android:text="0"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textView_ap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="0"
+                android:textSize="20sp" />
 
-        <!-- Row 3: Image, Number, Image, Number -->
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/ar" />
+            <!-- Row 2: Image, Number, Image, Number -->
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/as" />
 
-        <TextView
-            android:id="@+id/textView_ar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="20dp"
-            android:text="0"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textView_as"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:text="0"
+                android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/ms" />
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/mr" />
 
-        <TextView
-            android:id="@+id/textView_ms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="20dp"
-            android:text="0"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textView_mr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:text="0"
+                android:textSize="20sp" />
 
-    </GridLayout>
+            <!-- Row 3: Image, Number, Image, Number -->
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ar" />
 
-    <!-- Health Bar -->
-    <ProgressBar
-        android:id="@+id/healthBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="15dp"
-        android:progress="100"
-        android:max="100"
-        android:progressTint="#FF0000"
-        android:scaleY="4"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageGrid"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        android:layout_marginTop="8dp" />
+            <TextView
+                android:id="@+id/textView_ar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:text="0"
+                android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/healthText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="256"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="12sp"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="@+id/healthBar"
-        app:layout_constraintEnd_toEndOf="@+id/healthBar"
-        app:layout_constraintTop_toTopOf="@+id/healthBar"
-        app:layout_constraintBottom_toBottomOf="@+id/healthBar" />
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ms" />
 
-    <!-- Mana Bar -->
-    <ProgressBar
-        android:id="@+id/manaBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="15dp"
-        android:progress="50"
-        android:max="100"
-        android:scaleY="4"
-        android:progressTint="#0000FF"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageGrid"
-        app:layout_constraintTop_toBottomOf="@+id/healthBar"
-        android:layout_marginTop="4dp" />
+            <TextView
+                android:id="@+id/textView_ms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:text="0"
+                android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/manaText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="50 / 100"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="12sp"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="@+id/manaBar"
-        app:layout_constraintEnd_toEndOf="@+id/manaBar"
-        app:layout_constraintTop_toTopOf="@+id/manaBar"
-        app:layout_constraintBottom_toBottomOf="@+id/manaBar" />
+        </GridLayout>
 
-    <GridLayout
-        android:id="@+id/itemGrid"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:background="#CCCCCC"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/manaBar"
-        app:layout_constraintTop_toBottomOf="@+id/manaBar"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp">
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/amplifying_tome"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/doran_ring"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/dark_seal"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/blasting_wand"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/tear_of_the_goddess"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/faerie_charm"
-            android:layout_gravity="center" />
-
-    </GridLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="259dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemGrid"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <!-- 패시브(P) -->
-        <include
-            android:id="@+id/imageButton1"
-            layout="@layout/view_skill_icon"
+        <!-- Health Bar -->
+        <ProgressBar
+            android:id="@+id/healthBar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="8dp"
+            android:max="100"
+            android:progress="100"
+            android:progressTint="#FF0000"
+            android:scaleY="4"
+            app:layout_constraintEnd_toEndOf="@+id/imageGrid"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <!-- Q -->
-        <include
-            android:id="@+id/imageButton2"
-            layout="@layout/view_skill_icon"
+        <TextView
+            android:id="@+id/healthText"
             android:layout_width="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content"
+            android:text="256"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/healthBar"
+            app:layout_constraintEnd_toEndOf="@+id/healthBar"
+            app:layout_constraintStart_toStartOf="@+id/healthBar"
+            app:layout_constraintTop_toTopOf="@+id/healthBar" />
 
-        <!-- W -->
-        <include
-            android:id="@+id/imageButton3"
-            layout="@layout/view_skill_icon"
+        <!-- Mana Bar -->
+        <ProgressBar
+            android:id="@+id/manaBar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="4dp"
+            android:max="100"
+            android:progress="50"
+            android:progressTint="#0000FF"
+            android:scaleY="4"
+            app:layout_constraintEnd_toEndOf="@+id/imageGrid"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/healthBar" />
 
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <!-- E -->
-        <include
-            android:id="@+id/imageButton4"
-            layout="@layout/view_skill_icon"
+        <TextView
+            android:id="@+id/manaText"
             android:layout_width="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_height="wrap_content"
+            android:text="50 / 100"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/manaBar"
+            app:layout_constraintEnd_toEndOf="@+id/manaBar"
+            app:layout_constraintStart_toStartOf="@+id/manaBar"
+            app:layout_constraintTop_toTopOf="@+id/manaBar" />
 
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <!-- R -->
-        <include
-            android:id="@+id/imageButton5"
-            layout="@layout/view_skill_icon"
+        <GridLayout
+            android:id="@+id/itemGrid"
             android:layout_width="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#CCCCCC"
+            android:columnCount="2"
+            app:layout_constraintEnd_toEndOf="@+id/manaBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/manaBar">
 
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/amplifying_tome" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="377dp"
-        android:layout_height="151dp"
-        android:layout_margin="16dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/lol_textpanel_bg"
-        android:padding="8dp"
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/doran_ring" />
 
-        android:text="이곳에 스킬 설명이 표시됩니다."
-        android:textColor="@color/lol_on_surface"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/dark_seal" />
 
-    <ImageView
-        android:id="@+id/skillImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/leesin_q"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/blasting_wand" />
 
-    <TextView
-        android:id="@+id/skillTitleText"
-        android:layout_width="147dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/skillImg"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/tear_of_the_goddess" />
 
-    <TextView
-        android:id="@+id/skilllevelText"
-        android:layout_width="42dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/skillTitleText"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/faerie_charm" />
 
-    <ImageView
-        android:id="@+id/imageAr"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="90dp"
-        android:src="@drawable/ar"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        </GridLayout>
 
-    <ImageView
-        android:id="@+id/imageMr"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="115dp"
-        android:src="@drawable/mr"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="259dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemGrid">
 
-    <ImageView
-        android:id="@+id/imageHp"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="115dp"
-        android:src="@drawable/hp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+            <!-- 패시브(P) -->
+            <include
+                android:id="@+id/imageButton1"
+                layout="@layout/view_skill_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2dp"
 
-    <ImageView
-        android:id="@+id/imageCurHp"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="90dp"
-        android:src="@drawable/hp5"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+                android:layout_marginEnd="2dp"
+                android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/arText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imageAr"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+            <!-- Q -->
+            <include
+                android:id="@+id/imageButton2"
+                layout="@layout/view_skill_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/mrText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imageMr"
-        app:layout_constraintTop_toBottomOf="@+id/arText" />
+            <!-- W -->
+            <include
+                android:id="@+id/imageButton3"
+                layout="@layout/view_skill_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2dp"
 
-    <TextView
-        android:id="@+id/curHpText"
-        android:layout_width="60dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="90dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imageCurHp"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+                android:layout_marginEnd="2dp"
+                android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/hpText"
-        android:layout_width="61dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="4dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imageHp"
-        app:layout_constraintTop_toBottomOf="@+id/curHpText" />
+            <!-- E -->
+            <include
+                android:id="@+id/imageButton4"
+                layout="@layout/view_skill_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2dp"
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:rotation="-90"
-        android:src="@drawable/arrow_right"
-        app:layout_constraintStart_toEndOf="@+id/skilllevelText"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+                android:layout_marginEnd="2dp"
+                android:layout_weight="1" />
 
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:rotation = "90"
-        android:src="@drawable/arrow_right"
-        app:layout_constraintStart_toEndOf="@+id/skilllevelText"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+            <!-- R -->
+            <include
+                android:id="@+id/imageButton5"
+                layout="@layout/view_skill_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2dp"
 
-    <TextView
-        android:id="@+id/dealTotal"
-        android:layout_width="117dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="180dp"
-        android:layout_marginTop="92dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+                android:layout_marginEnd="2dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="377dp"
+            android:layout_height="151dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/lol_textpanel_bg"
+            android:padding="8dp"
+
+            android:text="이곳에 스킬 설명이 표시됩니다."
+            android:textColor="@color/lol_on_surface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <ImageView
+            android:id="@+id/skillImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/leesin_q"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/skillTitleText"
+            android:layout_width="147dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/skillImg"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/skilllevelText"
+            android:layout_width="42dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/skillTitleText"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <ImageView
+            android:id="@+id/imageAr"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/ar"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <ImageView
+            android:id="@+id/imageMr"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="115dp"
+            android:src="@drawable/mr"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <ImageView
+            android:id="@+id/imageHp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="115dp"
+            android:src="@drawable/hp"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <ImageView
+            android:id="@+id/imageCurHp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/hp5"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/arText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/imageAr"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/mrText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/imageMr"
+            app:layout_constraintTop_toBottomOf="@+id/arText" />
+
+        <TextView
+            android:id="@+id/curHpText"
+            android:layout_width="60dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="90dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/imageCurHp"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/hpText"
+            android:layout_width="61dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/imageHp"
+            app:layout_constraintTop_toBottomOf="@+id/curHpText" />
+
+        <ImageButton
+            android:id="@+id/levelUpButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:rotation="-90"
+            android:src="@drawable/arrow_right"
+            app:layout_constraintStart_toEndOf="@+id/skilllevelText"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <ImageButton
+            android:id="@+id/levelDownButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:rotation="90"
+            android:src="@drawable/arrow_right"
+            app:layout_constraintStart_toEndOf="@+id/skilllevelText"
+            app:layout_constraintTop_toBottomOf="@+id/levelUpButton" />
+
+        <TextView
+            android:id="@+id/dealTotal"
+            android:layout_width="117dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="92dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
 
 
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="저장"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.328"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemGrid"
-        app:layout_constraintVertical_bias="0.0" />
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="저장"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.328"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemGrid"
+            app:layout_constraintVertical_bias="0.0" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
