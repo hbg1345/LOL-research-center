@@ -22,15 +22,9 @@ data class ChampionInfo(
     val lane: Lane,              // ← type → lane
     val stats: Stats,
     val itemDrawables: List<Int>,
-    val skills: Skills
+    val skills: Skills,
+    val lore: String
 ) : Parcelable
-
-//@Parcelize
-//data class Stats_(
-//    val attackdamage: Int, val ap: Int, val hp: Int, val mp: Int,
-//    val crit: Int, val attackspeed: Int, val armor: Int, val spellblock: Int,
-//    val attackdamageperlevel: Float,
-//) : Parcelable
 
 @Parcelize
 data class Stats(
@@ -59,6 +53,7 @@ data class Stats(
 
 @Parcelize
 data class Skill(
+    val skillDrawable : Int,
     val skillLevel: Int, //스킬 레벨
     val skillDamage: List<Int>, //기본 스킬 데미지
     val skillApCoeff: Float,
@@ -67,5 +62,6 @@ data class Skill(
     val skillMrCoeff: Float,
     val skillHpCoeff: Float,
     val skillType: String,
+    val skillInfo: String
 ) : Parcelable
 //챔피언 이름, 타입,

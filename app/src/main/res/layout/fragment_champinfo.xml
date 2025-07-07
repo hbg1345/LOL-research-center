@@ -7,7 +7,16 @@
     tools:context=".ui.notifications.NotificationsFragment">
 
     <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
-
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/tab1_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="120dp"
@@ -211,7 +220,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="202dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/lol_textpanel_bg"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -226,53 +236,77 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="259dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageButton
+        <!-- 패시브(P) -->
+        <include
             android:id="@+id/imageButton1"
-            android:layout_width="wrap_content"
+            layout="@layout/view_skill_icon"
+            android:layout_width="0dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/camille_q" />
-        <ImageButton
+            android:layout_weight="1" />
+
+        <!-- Q -->
+        <include
             android:id="@+id/imageButton2"
-            android:layout_width="wrap_content"
+            layout="@layout/view_skill_icon"
+            android:layout_width="0dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ahri_q" />
+            android:layout_weight="1" />
 
-        <ImageButton
+        <!-- W -->
+        <include
             android:id="@+id/imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ahri_w" />
+            layout="@layout/view_skill_icon"
+            android:layout_width="0dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
 
-        <ImageButton
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <!-- E -->
+        <include
             android:id="@+id/imageButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ahri_e" />
+            layout="@layout/view_skill_icon"
+            android:layout_width="0dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
 
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ahri_r" />
+            android:layout_weight="1" />
+
+        <!-- R -->
+        <include
+            android:id="@+id/imageButton5"
+            layout="@layout/view_skill_icon"
+            android:layout_width="0dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="382dp"
-        android:layout_height="224dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/lol_textpanel_bg"
+        android:padding="8dp"
+        android:text="이곳에 스킬 설명이 표시됩니다."
+
+        android:textColor="@color/lol_on_surface"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 

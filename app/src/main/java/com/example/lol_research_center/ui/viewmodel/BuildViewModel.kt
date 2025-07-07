@@ -3,6 +3,7 @@ package com.example.lol_research_center.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.lol_research_center.R
 import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.model.ChampionInfo
 import com.example.lol_research_center.model.ItemData
@@ -18,7 +19,7 @@ class BuildViewModel : ViewModel() {
     val currentBuild: LiveData<BuildInfo?> = _currentBuild
 
     init {
-        val defaultSkill = Skill(0, emptyList(), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, "")
+        val defaultSkill = Skill(skillDrawable = R.drawable.ashe_r, 0, emptyList(), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, "", skillInfo = "skill q info")
         val asheSkills = Skills(defaultSkill, defaultSkill, defaultSkill, defaultSkill, defaultSkill)
         val asheStats = Stats(
             attackdamage = 68,
@@ -48,7 +49,8 @@ class BuildViewModel : ViewModel() {
             lane = Lane.ADC,
             stats = asheStats,
             itemDrawables = emptyList(),
-            skills = asheSkills
+            skills = asheSkills,
+            lore = "챔피언 역사에 대한 재미난 이야기"
         )
         _currentBuild.value = BuildInfo(
             champion = asheChampionInfo,

@@ -9,5 +9,18 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#0B8231</color>
     <color name="blue">#125B89</color>
+    <!-- 베이스 배경 -->
+    <color name="lol_surface">#141416</color><!-- rgba(20,20,22,1) -->
+    <!-- 반투명 오버레이 -->
+    <color name="lol_overlay">#A6000000</color><!-- 65% black -->
+    <!-- 텍스트 -->
+    <color name="lol_on_surface">#EDEDED</color>
+    <color name="lol_muted_text">#69699C</color>
+    <!-- 포커스/선택 -->
+    <color name="lol_highlight">#00FF00</color>
+    <!-- 골드 -->
+    <color name="lol_gold">#D8AD00</color>        <!-- 메인다크 -->
+    <color name="lol_surface_alt">#112534</color>    <!-- 패널 안쪽 -->
+    <color name="lol_gold_">#b69646</color>           <!-- 테두리 포인트 -->
 
 </resources>
