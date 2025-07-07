@@ -1,12 +1,17 @@
-// ui/notifications/NotificationsFragment.kt
 package com.example.lol_research_center.ui.notifications
 
 import android.os.Build
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.lol_research_center.databinding.FragmentNotificationsBinding
 import com.example.lol_research_center.model.BuildInfo
+import com.example.lol_research_center.database.AppDatabase
+import androidx.room.Room
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class NotificationsFragment : Fragment() {
 
@@ -14,6 +19,7 @@ class NotificationsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var build: BuildInfo? = null          // ← 전달받은 BuildInfo
+    private lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +31,12 @@ class NotificationsFragment : Fragment() {
             @Suppress("DEPRECATION")
             arguments?.getParcelable("build")
         }
+
+        // 데이터베이스 인스턴스 초기화
+        db = Room.databaseBuilder(
+            requireContext().applicationContext,
+            AppDatabase::class.java, "lol-research-db"
+        ).build()
     }
 
     override fun onCreateView(
@@ -78,6 +90,20 @@ class NotificationsFragment : Fragment() {
             // build가 null일 경우 처리 (예: 에러 메시지 표시 또는 UI 숨기기)
             // 현재는 아무것도 하지 않아도 앱이 크래시되지 않음
             // 필요하다면 여기에 UI를 비활성화하거나 메시지를 표시하는 코드를 추가할 수 있습니다.
+        }
+
+        binding.saveButton.setOnClickListener {
+            build?.let { buildInfo ->
+                CoroutineScope(Dispatchers.IO).launch {
+                    db.buildInfoDao().insertBuildInfo(buildInfo)
+                    // UI 업데이트는 메인 스레드에서
+                    launch(Dispatchers.Main) {
+                        Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } ?: run {
+                Toast.makeText(context, "저장할 빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
