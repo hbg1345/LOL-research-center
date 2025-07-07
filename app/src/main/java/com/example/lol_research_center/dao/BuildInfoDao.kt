@@ -13,4 +13,7 @@ interface BuildInfoDao {
 
     @Query("SELECT * FROM build_info ORDER BY timestamp DESC")
     fun getAll(): Flow<List<BuildInfo>>
+
+    @Query("SELECT * FROM build_info")
+    suspend fun getAllBuilds(): List<BuildInfo>
 }

@@ -12,6 +12,7 @@ import com.example.lol_research_center.databinding.FragmentNotificationsBinding
 import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.database.AppDatabase
 import androidx.room.Room
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -120,9 +121,25 @@ class NotificationsFragment : Fragment() {
         binding.saveButton.setOnClickListener {
             build?.let { buildInfo ->
                 CoroutineScope(Dispatchers.IO).launch {
-                    db.buildInfoDao().insertBuildInfo(buildInfo)
-                    launch(Dispatchers.Main) {
-                        Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
+                    val championName = buildInfo.champion.name
+                    val itemNames = buildInfo.items.map { it.name }.sorted()
+
+                    val allBuilds = db.buildInfoDao().getAllBuilds()
+                    val isDuplicate = allBuilds.any { existingBuild ->
+                        val existingChampionName = existingBuild.champion.name
+                        val existingItemNames = existingBuild.items.map { it.name }.sorted()
+                        existingChampionName == championName && existingItemNames == itemNames
+                    }
+
+                    if (!isDuplicate) {
+                        db.buildInfoDao().insertBuildInfo(buildInfo)
+                        launch(Dispatchers.Main) {
+                            Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        launch(Dispatchers.Main) {
+                            Toast.makeText(context, "이미 동일한 빌드 정보가 존재합니다.", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             } ?: run {
