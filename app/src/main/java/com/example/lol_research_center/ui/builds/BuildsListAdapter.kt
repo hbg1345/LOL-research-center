@@ -38,7 +38,7 @@ class BuildListAdapter(
         with(holder.vb) {
             build.champion?.let {
                 champIcon.setImageResource(it.champDrawable ?: R.drawable.ic_launcher_foreground)
-                champName.text = it.name ?: "챔피언 정보 없음"
+                champName.text = "${it.name ?: "챔피언 정보 없음"} (Lv. ${it.level})"
             } ?: run {
                 champIcon.setImageResource(R.drawable.ic_launcher_foreground)
                 champName.text = "챔피언 정보 없음"

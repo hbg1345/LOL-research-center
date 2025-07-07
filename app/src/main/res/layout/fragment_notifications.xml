@@ -14,36 +14,16 @@
 
         <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
 
-        <Button
-            android:id="@+id/exitButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="372dp"
-            android:layout_marginEnd="108dp"
-            android:text="나가기"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-        <Button
-            android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="저장"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.328"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemGrid"
-            app:layout_constraintVertical_bias="0.0" />
+
+
+        <!-- Health Bar -->
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/ahri"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,11 +32,14 @@
             android:id="@+id/imageGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="24dp"
             android:columnCount="4"
+            app:layout_constraintBottom_toTopOf="@+id/healthBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <!-- Row 1: Image, Number, Image, Number -->
             <ImageView
@@ -176,18 +159,18 @@
 
         </GridLayout>
 
-        <!-- Health Bar -->
         <ProgressBar
             android:id="@+id/healthBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
             android:layout_height="15dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="30dp"
             android:max="100"
             android:progress="100"
             android:progressTint="#FF0000"
             android:scaleY="4"
-            app:layout_constraintEnd_toEndOf="@+id/imageGrid"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -216,7 +199,8 @@
             android:progress="50"
             android:progressTint="#0000FF"
             android:scaleY="4"
-            app:layout_constraintEnd_toEndOf="@+id/imageGrid"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/healthBar" />
 
@@ -238,11 +222,12 @@
             android:id="@+id/itemGrid"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:background="#CCCCCC"
-            android:columnCount="2"
-            app:layout_constraintEnd_toEndOf="@+id/manaBar"
+            android:columnCount="4"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manaBar">
 
@@ -250,45 +235,123 @@
                 android:id="@+id/imageView10"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/amplifying_tome" />
+            <TextView
+                android:id="@+id/itemStatText_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/doran_ring" />
+            <TextView
+                android:id="@+id/itemStatText_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView12"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/dark_seal" />
+            <TextView
+                android:id="@+id/itemStatText_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView13"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/blasting_wand" />
+            <TextView
+                android:id="@+id/itemStatText_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView14"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/tear_of_the_goddess" />
+            <TextView
+                android:id="@+id/itemStatText_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView15"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/faerie_charm" />
+            <TextView
+                android:id="@+id/itemStatText_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
         </GridLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemGrid">
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저장"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/exitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나가기" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -298,10 +361,11 @@
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="259dp"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemGrid">
+            app:layout_constraintTop_toBottomOf="@+id/buttonContainer">
 
             <!-- 패시브(P) -->
             <include
@@ -381,6 +445,8 @@
             android:src="@drawable/leesin_q"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+
 
         <TextView
             android:id="@+id/skillTitleText"
@@ -524,8 +590,6 @@
 
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

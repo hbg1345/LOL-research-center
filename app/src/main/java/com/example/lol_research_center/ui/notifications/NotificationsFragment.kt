@@ -15,6 +15,7 @@ import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.model.ChampionInfo
 import com.example.lol_research_center.model.ItemData
 import com.example.lol_research_center.model.Lane
+import com.example.lol_research_center.model.ItemStats
 import com.example.lol_research_center.model.Skill
 import com.example.lol_research_center.model.SkillDamageSet
 import com.example.lol_research_center.model.Skills
@@ -69,33 +70,112 @@ class NotificationsFragment : Fragment() {
     }
 
     private fun setupChampionInfo(info: BuildInfo) {
-        with(binding) {
-            imageView2.setImageResource(info.champion.champDrawable)
-            with(info.champion.stats) {
-                textViewAd.text = attackdamage.toString()
-                textViewAp.text = ap.toString()
-                textViewAs.text = attackspeed.toString()
-                textViewMr.text = spellblock.toString()
-                textViewAr.text = armor.toString()
-                textViewMs.text = movespeed.toString()
+        binding.imageView2.setImageResource(info.champion.champDrawable)
+        updateStatsUI(info.champion, info.items, info.champion.level) // 초기 레벨로 스탯 계산 및 UI 업데이트
+    }
 
-                healthBar.apply { max = hp; progress = hp }
-                healthText.text = hp.toString()
+    private fun calculateTotalStats(champion: ChampionInfo, items: List<ItemData>, level: Int): Stats {
+        val baseStats = champion.stats
+        var totalAD = baseStats.attackdamage.toDouble()
+        var totalAP = baseStats.ap.toDouble()
+        var totalAS = baseStats.attackspeed.toDouble()
+        var totalMR = baseStats.spellblock.toDouble()
+        var totalAR = baseStats.armor.toDouble()
+        var totalMS = baseStats.movespeed.toDouble()
+        var totalHP = baseStats.hp.toDouble()
+        var totalMP = baseStats.mp.toDouble()
 
-                manaBar.apply { max = mp; progress = mp / 2 }
-                manaText.text = "${mp / 2} / $mp"
+        // 레벨에 따른 성장 스탯 계산 (챔피언 레벨은 1부터 시작)
+        if (level > 1) {
+            totalAD += baseStats.attackdamageperlevel * (level - 1)
+            totalHP += baseStats.hpperlevel * (level - 1)
+            totalMP += baseStats.mpperlevel * (level - 1)
+            totalAR += baseStats.armorperlevel * (level - 1)
+            totalMR += baseStats.spellblockperlevel * (level - 1)
+            totalAS += baseStats.attackspeedperlevel * (level - 1)
+            // TODO: 다른 스탯들도 레벨 성장에 따라 추가
+        }
+
+        // 아이템 스탯 합산
+        items.forEach { item ->
+            item.stats?.let { itemStats ->
+                itemStats.flatPhysicalDamageMod?.let { totalAD += it }
+                itemStats.flatMagicDamageMod?.let { totalAP += it }
+                itemStats.flatAttackSpeedMod?.let { totalAS += it }
+                itemStats.flatSpellBlockMod?.let { totalMR += it }
+                itemStats.flatArmorMod?.let { totalAR += it }
+                itemStats.flatMovementSpeedMod?.let { totalMS += it }
+                itemStats.flatHPPoolMod?.let { totalHP += it }
+                itemStats.flatMPPoolMod?.let { totalMP += it }
+                // TODO: 다른 아이템 스탯들도 추가
             }
+        }
+
+        return Stats(
+            attackdamage = totalAD.toInt(),
+            ap = totalAP.toInt(),
+            attackspeed = totalAS.toFloat(),
+            spellblock = totalMR.toInt(),
+            armor = totalAR.toInt(),
+            movespeed = totalMS.toInt(),
+            hp = totalHP.toInt(),
+            mp = totalMP.toInt(),
+            // 나머지 스탯은 기본값 또는 0으로 설정
+            attackdamageperlevel = baseStats.attackdamageperlevel,
+            hpperlevel = baseStats.hpperlevel,
+            mpperlevel = baseStats.mpperlevel,
+            armorperlevel = baseStats.armorperlevel,
+            spellblockperlevel = baseStats.spellblockperlevel,
+            hpregen = baseStats.hpregen,
+            hpregenperlevel = baseStats.hpregenperlevel,
+            mpregen = baseStats.mpregen,
+            mpregenperlevel = baseStats.mpregenperlevel,
+            crit = baseStats.crit,
+            critperlevel = baseStats.critperlevel,
+            attackspeedperlevel = baseStats.attackspeedperlevel,
+            armorPenetration = baseStats.armorPenetration,
+            armorPenetrationPercent = baseStats.armorPenetrationPercent,
+            magicPenetration = baseStats.magicPenetration,
+            magicPenetrationPercent = baseStats.magicPenetrationPercent
+        )
+    }
+
+    private fun updateStatsUI(champion: ChampionInfo, items: List<ItemData>, level: Int) {
+        val calculatedStats = calculateTotalStats(champion, items, level)
+        with(binding) {
+            textViewAd.text = calculatedStats.attackdamage.toString()
+            textViewAp.text = calculatedStats.ap.toString()
+            textViewAs.text = String.format("%.2f", calculatedStats.attackspeed) // 소수점 2자리까지 표시
+            textViewMr.text = calculatedStats.spellblock.toString()
+            textViewAr.text = calculatedStats.armor.toString()
+            textViewMs.text = calculatedStats.movespeed.toString()
+
+            healthBar.apply { max = calculatedStats.hp; progress = calculatedStats.hp }
+            healthText.text = calculatedStats.hp.toString()
+
+            manaBar.apply { max = calculatedStats.mp; progress = calculatedStats.mp / 2 } // 마나 현재값은 임시로 절반으로 설정
+            manaText.text = "${calculatedStats.mp / 2} / ${calculatedStats.mp}"
         }
     }
 
     private fun setupItems(info: BuildInfo) {
-        val slots = listOf(
+        val imageSlots = listOf(
             binding.imageView10, binding.imageView11, binding.imageView12,
             binding.imageView13, binding.imageView14, binding.imageView15
         )
-        slots.forEachIndexed { idx, img ->
-            info.items.getOrNull(idx)?.let { img.setImageResource(it.imageResId) }
-                ?: img.setImageDrawable(null)
+        val textSlots = listOf(
+            binding.itemStatText10, binding.itemStatText11, binding.itemStatText12,
+            binding.itemStatText13, binding.itemStatText14, binding.itemStatText15
+        )
+
+        imageSlots.forEachIndexed { idx, img ->
+            info.items.getOrNull(idx)?.let { item ->
+                img.setImageResource(item.imageResId)
+                textSlots[idx].text = formatItemStats(item.stats) // 스탯 텍스트 설정
+            } ?: run {
+                img.setImageDrawable(null)
+                textSlots[idx].text = "" // 아이템이 없으면 스탯 텍스트도 비움
+            }
         }
     }
 
@@ -120,7 +200,15 @@ class NotificationsFragment : Fragment() {
         showSkill(skills.q, defaultTargetBuild)
     }
 
+    private var currentChampionLevel: Int = 1 // 챔피언 레벨을 저장할 변수
+
     private fun setupLevelButtons() {
+        // 초기 챔피언 레벨 설정
+        buildInfo?.champion?.level?.let {
+            currentChampionLevel = it
+            binding.skilllevelText.text = currentChampionLevel.toString() // 챔피언 레벨 표시
+        }
+
         binding.levelUpButton.setOnClickListener {
             selectedSkill?.let { skill ->
                 val maxLvl = when (skill.skillTitle) {
@@ -142,7 +230,7 @@ class NotificationsFragment : Fragment() {
 
     private fun showSkill(skill: Skill, targetChamp: BuildInfo) {
         val stats = buildInfo?.champion?.stats ?: return
-        val damage = calcDamageByType(skill,targetChamp,stats)
+        val damage = calcDamageByType(skill,targetChamp,calculateTotalStats(buildInfo!!.champion, buildInfo!!.items, currentChampionLevel))
         with(binding) {
             skillImg.setImageResource(skill.skillDrawable)
             skillTitleText.text = skill.skillTitle
@@ -162,6 +250,7 @@ class NotificationsFragment : Fragment() {
             damage = calculatePhysicalDamage(calcDamage(skill, stats), targetChamp.champion.stats.armor, stats).toInt()
         }
         else if(skill.skillType == "ap"){
+            println("apapapap")
             damage = calculateMagicDamage(calcDamage(skill,stats), targetChamp.champion.stats.spellblock, stats).toInt()
         }
         return damage
@@ -259,16 +348,21 @@ class NotificationsFragment : Fragment() {
         targetMR: Int,
         stats: Stats
     ): Float {
+        println(targetMR)
         // 1) % 관통
         val afterPercent = targetMR * (1f - stats.magicPenetrationPercent)
         // 2) flat 관통
+        println(afterPercent)
         val afterFlat = afterPercent - stats.magicPenetration
         // 3) 방어식
+        println(afterFlat)
         val coeff = if (afterFlat >= 0f) {
             1f / (1f + afterFlat * 0.01f)
         } else {
             2f - (1f / (1f - afterFlat * 0.01f))
         }
+        println(rawDamage)
+        println(coeff)
         return rawDamage * coeff
     }
 
@@ -427,6 +521,39 @@ class NotificationsFragment : Fragment() {
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
+    }
+
+    // 아이템 스탯을 포맷팅하는 헬퍼 함수
+    private fun formatItemStats(itemStats: ItemStats?): String {
+        if (itemStats == null) return ""
+
+        val statsList = mutableListOf<String>()
+
+        itemStats.flatPhysicalDamageMod?.let { if (it != 0.0) statsList.add("공격력: ${it.toInt()}") }
+        itemStats.flatMagicDamageMod?.let { if (it != 0.0) statsList.add("주문력: ${it.toInt()}") }
+        itemStats.flatAttackSpeedMod?.let { if (it != 0.0) statsList.add("공격 속도: ${String.format("%.2f", it)}") }
+        itemStats.flatArmorMod?.let { if (it != 0.0) statsList.add("방어력: ${it.toInt()}") }
+        itemStats.flatSpellBlockMod?.let { if (it != 0.0) statsList.add("마법 저항력: ${it.toInt()}") }
+        itemStats.flatHPPoolMod?.let { if (it != 0.0) statsList.add("체력: ${it.toInt()}") }
+        itemStats.flatMPPoolMod?.let { if (it != 0.0) statsList.add("마나: ${it.toInt()}") }
+        itemStats.flatMovementSpeedMod?.let { if (it != 0.0) statsList.add("이동 속도: ${it.toInt()}") }
+        itemStats.percentAttackSpeedMod?.let { if (it != 0.0) statsList.add("공격 속도 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.percentHPPoolMod?.let { if (it != 0.0) statsList.add("체력 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.percentMPPoolMod?.let { if (it != 0.0) statsList.add("마나 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.flatHPRegenMod?.let { if (it != 0.0) statsList.add("체력 재생: ${it.toInt()}") }
+        itemStats.flatMPRegenMod?.let { if (it != 0.0) statsList.add("마나 재생: ${it.toInt()}") }
+        itemStats.flatCritChanceMod?.let { if (it != 0.0) statsList.add("치명타 확률: ${it.toInt()}") }
+        itemStats.flatCritDamageMod?.let { if (it != 0.0) statsList.add("치명타 피해: ${it.toInt()}") }
+        itemStats.percentLifeStealMod?.let { if (it != 0.0) statsList.add("생명력 흡수 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.percentSpellVampMod?.let { if (it != 0.0) statsList.add("주문 흡혈 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.rPercentCooldownMod?.let { if (it != 0.0) statsList.add("스킬 가속 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.rFlatArmorPenetrationMod?.let { if (it != 0.0) statsList.add("물리 관통력: ${it.toInt()}") }
+        itemStats.rFlatMagicPenetrationMod?.let { if (it != 0.0) statsList.add("마법 관통력: ${it.toInt()}") }
+        itemStats.rPercentArmorPenetrationMod?.let { if (it != 0.0) statsList.add("물리 관통력 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.rPercentMagicPenetrationMod?.let { if (it != 0.0) statsList.add("마법 관통력 %: ${String.format("%.2f", it * 100)}%") }
+
+
+        return statsList.joinToString("\n")
     }
 }
 
