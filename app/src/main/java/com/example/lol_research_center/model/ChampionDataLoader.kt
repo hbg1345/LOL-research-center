@@ -134,7 +134,8 @@ object ChampionDataLoader {
                 stats         = raw.stats,
                 itemDrawables = itemResIds,
                 skills        = mappedSkills,
-                lore          = raw.lore
+                lore          = raw.lore,
+                level         = 1
             )
         }
     }

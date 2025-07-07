@@ -23,7 +23,8 @@ data class ChampionInfo(
     val stats: Stats,
     val itemDrawables: List<Int>,
     val skills: Skills,
-    val lore: String
+    val lore: String,
+    val level: Int = 1 // 추가할 속성
 ) : Parcelable
 
 @Parcelize
