@@ -44,7 +44,14 @@ class BuildsFragment : Fragment() {
                 )
             },
             onDeleteClick = { build ->
-                vm.deleteBuild(build)
+                android.app.AlertDialog.Builder(requireContext())
+                    .setTitle("빌드 삭제")
+                    .setMessage("정말 이 빌드를 삭제하시겠습니까?")
+                    .setPositiveButton("예") { dialog, which ->
+                        vm.deleteBuild(build)
+                    }
+                    .setNegativeButton("아니오", null)
+                    .show()
             }
         )
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
