@@ -3,7 +3,7 @@
     "champDrawable": "ahri",
     "name": "Ahri",
     "lane": "MID",
-    "lore": "이것은 아리의 챔피언 설명입니다.",
+    "lore": "출시부터 오공과 상호 관계도를 갖고 있는데, 현재까지 관련 배경이나 설정이 나온 적은 없다. 아이오니아 소속 챔피언이고, 인간에게 우호적인 바스타야라는 공통점이 있다.\n\n릴리아는 아리의 소설에서 나왔던 망각의 동산과 관련이 있다. 아리는 자신이 죽인 애인이자 화가에 대한 기억을 지우기 위해 망각의 동산을 방문한 적이 있는데, 릴리아의 상호작용 대사를 보면 이때 릴리아는 아리를 지켜봤던 것으로 추측된다.\n\n야스오는 게임 『몰락한 왕 : 리그 오브 레전드 이야기』에서 고용주와 피용인의 관계로 나온다. 아리는 야스오와 여정을 하며 친해지고 서로 의지하며 정신적인 성장을 이루어 낸다. 휴식대사를 보면 아리는 야스오에게서 죽은 애인의 모습을 겹쳐 보기도 하며 둘이 달달한 분위기를 풍긴다. 여정이 끝난 후, 서로 나중을 기약하기도 한다.\n",
     "stats": {
       "attackdamage": 53,
       "attackdamageperlevel": 3.0,
@@ -31,7 +31,23 @@
       "p": {
         "skillDrawable": "ahri_p",
         "skillLevel": 0,
-        "skillDamage": [
+        "coolDown" : [],
+        "cost" : [],
+        "skillDamageAp": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillDamageAd": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillDamageFix": [
           0,
           0,
           0,
@@ -43,49 +59,97 @@
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Passive",
-        "skillInfo": "이것은 아리의 스킬 q에 대한 설명입니다."
+        "skillType": "passive",
+        "skillInfo": "미니언이나 몬스터를 처치하면 아리가 정기 조각을 얻습니다. 조각을 9개 모으면 전부 소모해 체력을 회복합니다.\n\n아리가 적 챔피언에게 피해를 입힌 후 3초 안에 해당 챔피언 처치에 관여하면 그 정기를 삼켜 체력을 회복합니다."
       },
       "q": {
         "skillDrawable": "ahri_q",
         "skillLevel": 0,
-        "skillDamage": [
+        "coolDown" : [7,7,7,7,7],
+        "cost" : [55,65,75,85,95],
+        "skillDamageAp": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "skillDamageAd": [
           0,
           0,
           0,
           0,
           0
         ],
-        "skillApCoeff": 0.0,
+        "skillDamageFix": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "skillApCoeff": 0.5,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": "skill q info"
+        "skillType": "ap",
+        "skillInfo": "아리가 구슬을 던진 후 다시 받습니다. 던질 때는 마법 피해를 입히며 돌아올 때는 고정 피해를 입힙니다."
       },
       "w": {
         "skillDrawable": "ahri_w",
         "skillLevel": 0,
-        "skillDamage": [
+        "coolDown" : [10,9,8,7,6],
+        "cost" : [30,30,30,30,30],
+        "skillDamageAp": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "skillDamageAd": [
           0,
           0,
           0,
           0,
           0
         ],
-        "skillApCoeff": 0.0,
+        "skillDamageFix": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.4,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": "skill w info"
+        "skillType": "ap",
+        "skillInfo": "아리가 근처 적에게 날아가는 여우불 세 개를 방출하여 마법 피해를 입힙니다. 첫 번째 여우불이 적중한 후에는 마법 피해량이 감소합니다. 또한 이동 속도가 40% 증가했다가 2초에 걸쳐 원래대로 돌아옵니다.\n여우불은 매혹에 적중한 챔피언, 아리가 공격한 적, 이외 챔피언 순으로 공격합니다. 체력이 20% 이하인 미니언은 200%의 피해를 입습니다."
       },
       "e": {
         "skillDrawable": "ahri_e",
         "skillLevel": 0,
-        "skillDamage": [
+        "coolDown" : [12,12,12,12,12],
+        "cost" : [60,60,60,60,60],
+        "skillDamageAp": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "skillDamageAd": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillDamageFix": [
           0,
           0,
           0,
@@ -97,24 +161,36 @@
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": "skill e info"
+        "skillType": "ap",
+        "skillInfo": "아리가 키스를 날려 첫 번째로 맞는 적을 일정 시간 롤아이콘-군중제어 매혹매혹하고 마법 피해를 입힙니다.\n적을 쓰러뜨리는 스킬입니다."
       },
       "r": {
         "skillDrawable": "ahri_r",
         "skillLevel": 0,
-        "skillDamage": [
+        "coolDown" : [140,120,100],
+        "cost" : [100,100,100],
+        "skillDamageAp": [
+          60,
+          90,
+          120
+        ],
+        "skillDamageAd": [
           0,
           0,
           0
         ],
-        "skillApCoeff": 0.0,
+        "skillDamageFix": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.35,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Ultimate",
-        "skillInfo": "skill r info"
+        "skillType": "ap",
+        "skillInfo": "아리가 민첩하게 질주하며 챔피언을 우선으로 근처 적에게 혼령의 정기 3개를 쏘아내 정기 하나당 마법 피해를 입힙니다.\n혼령 질주가 활성화되어 있는 동안 정기 흡수로 챔피언의 정기를 흡수하면 스킬 재사용의 지속 시간을 최대 10초 늘리고 혼령 질주 시전을 추가로 1회 부여합니다. (최대 3회까지 중첩)"
       }
     }
   }

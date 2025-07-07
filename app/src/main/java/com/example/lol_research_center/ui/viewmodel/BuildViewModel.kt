@@ -19,7 +19,7 @@ class BuildViewModel : ViewModel() {
     val currentBuild: LiveData<BuildInfo?> = _currentBuild
 
     init {
-        val defaultSkill = Skill(skillDrawable = R.drawable.ashe_r, 0, emptyList(), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, "", skillInfo = "skill q info")
+        val defaultSkill = Skill(skillDrawable = R.drawable.leesin_p, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"Passive", skillInfo = "skill q info")
         val asheSkills = Skills(defaultSkill, defaultSkill, defaultSkill, defaultSkill, defaultSkill)
         val asheStats = Stats(
             attackdamage = 68,
@@ -50,7 +50,7 @@ class BuildViewModel : ViewModel() {
             stats = asheStats,
             itemDrawables = emptyList(),
             skills = asheSkills,
-            lore = "챔피언 역사에 대한 재미난 이야기"
+            lore = "챔피언 역사에 대한ㅇㅇㅇ 재미난 이야기"
         )
         _currentBuild.value = BuildInfo(
             champion = asheChampionInfo,

@@ -94,5 +94,6 @@ class ChampioninfoFragment : Fragment() {
 
     private fun showChampInfo(info: String) {
         champInfoTv.text = info
+        println(info)
     }
 }
