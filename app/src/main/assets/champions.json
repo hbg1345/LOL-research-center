@@ -33,7 +33,7 @@
     "itemDrawables": [],
     "skills": {
       "p": {
-        "skillTitle" : "정기 흡수(Essence Theft)",
+        "skillTitle" : "정기 흡수",
         "skillDrawable": "ahri_p",
         "skillLevel": 0,
         "coolDown" : [],
@@ -68,7 +68,7 @@
         "skillInfo": "미니언이나 몬스터를 처치하면 아리가 정기 조각을 얻습니다. 조각을 9개 모으면 전부 소모해 체력을 회복합니다.\n\n아리가 적 챔피언에게 피해를 입힌 후 3초 안에 해당 챔피언 처치에 관여하면 그 정기를 삼켜 체력을 회복합니다."
       },
       "q": {
-        "skillTitle" : "현혹의 구슬(Orb of Deception)",
+        "skillTitle" : "현혹의 구슬",
         "skillDrawable": "ahri_q",
         "skillLevel": 0,
         "coolDown" : [7,7,7,7,7],
@@ -103,7 +103,7 @@
         "skillInfo": "아리가 구슬을 던진 후 다시 받습니다. 던질 때는 마법 피해를 입히며 돌아올 때는 고정 피해를 입힙니다."
       },
       "w": {
-        "skillTitle" : "여우불(Fox-Fire)",
+        "skillTitle" : "여우불",
         "skillDrawable": "ahri_w",
         "skillLevel": 0,
         "coolDown" : [10,9,8,7,6],
@@ -138,7 +138,7 @@
         "skillInfo": "아리가 근처 적에게 날아가는 여우불 세 개를 방출하여 마법 피해를 입힙니다. 첫 번째 여우불이 적중한 후에는 마법 피해량이 감소합니다. 또한 이동 속도가 40% 증가했다가 2초에 걸쳐 원래대로 돌아옵니다.\n여우불은 매혹에 적중한 챔피언, 아리가 공격한 적, 이외 챔피언 순으로 공격합니다. 체력이 20% 이하인 미니언은 200%의 피해를 입습니다."
       },
       "e": {
-        "skillTitle" : "매혹(Charm)",
+        "skillTitle" : "매혹",
         "skillDrawable": "ahri_e",
         "skillLevel": 0,
         "coolDown" : [12,12,12,12,12],
@@ -173,7 +173,7 @@
         "skillInfo": "아리가 키스를 날려 첫 번째로 맞는 적을 일정 시간 롤아이콘-군중제어 매혹매혹하고 마법 피해를 입힙니다.\n적을 쓰러뜨리는 스킬입니다."
       },
       "r": {
-        "skillTitle" : "혼령 질주(Spirit Rush)",
+        "skillTitle" : "혼령 질주",
         "skillDrawable": "ahri_r",
         "skillLevel": 0,
         "coolDown" : [140,120,100],
