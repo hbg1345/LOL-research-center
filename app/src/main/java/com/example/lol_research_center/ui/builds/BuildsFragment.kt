@@ -119,11 +119,11 @@ private fun createDummyBuild(): BuildInfo {
         critperlevel = 0f
     )
     val skills = Skills(
-        p = Skill(1, listOf(0,0,0,0,0),0f,0f,0f,0f,0f,"Passive"),
-        q = Skill(5, listOf(55,80,105,130,155),0f,1f,0f,0f,0f,"Active"),
-        w = Skill(5, listOf(40,60,80,100,120),0f,0.5f,0f,0f,0.08f,"Active"),
-        e = Skill(5, listOf(100,130,160,190,220),0f,1f,0f,0f,0f,"Active"),
-        r = Skill(3, listOf(150,300,450),0f,2f,0f,0f,0f,"Ultimate")
+        p = Skill(skillDrawable = R.drawable.leesin_p, 1, listOf(0,0,0,0,0),0f,0f,0f,0f,0f,"Passive", skillInfo = "skill q info"),
+        q = Skill(skillDrawable = R.drawable.leesin_q, 5, listOf(55,80,105,130,155),0f,1f,0f,0f,0f,"Active", skillInfo = "skill q info"),
+        w = Skill(skillDrawable = R.drawable.leesin_w, 5, listOf(40,60,80,100,120),0f,0.5f,0f,0f,0.08f,"Active", skillInfo = "skill q info"),
+        e = Skill(skillDrawable = R.drawable.leesin_e, 5, listOf(100,130,160,190,220),0f,1f,0f,0f,0f,"Active", skillInfo = "skill q info"),
+        r = Skill(skillDrawable = R.drawable.leesin_r, 3, listOf(150,300,450),0f,2f,0f,0f,0f,"Ultimate", skillInfo = "skill q info")
     )
     val champ = ChampionInfo(
         champDrawable = R.drawable.leesin,   // 임시 아이콘
@@ -131,7 +131,8 @@ private fun createDummyBuild(): BuildInfo {
         lane          = Lane.JUNGLE,
         stats         = stats,
         itemDrawables = emptyList(),
-        skills        = skills
+        skills        = skills,
+        lore = "챔피언 역사에 대한 재밌는 이야기"
     )
     return BuildInfo(
         champion   = champ,

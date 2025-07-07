@@ -7,60 +7,124 @@ import android.util.Log
 import com.google.gson.reflect.TypeToken
 import java.io.IOException
 
-// 1) JSON 파싱용 DTO ─ drawable 이름(문자열)을 받기 위한 래퍼
+/*───────────────────────────*
+ * 1)  JSON → DTO 선언부
+ *───────────────────────────*/
+
+/** 스킬 하나(아이콘 = 문자열) */
+private data class JsonSkill(
+    @SerializedName("skillDrawable") val skillDrawableName: String,
+    val skillLevel: Int,
+    val skillDamage: List<Int>,
+    val skillApCoeff: Float,
+    val skillAdCoeff: Float,
+    val skillArCoeff: Float,
+    val skillMrCoeff: Float,
+    val skillHpCoeff: Float,
+    val skillType: String,
+    val skillInfo: String
+)
+
+/** 5개 스킬 묶음 */
+private data class JsonSkills(
+    val p: JsonSkill,
+    val q: JsonSkill,
+    val w: JsonSkill,
+    val e: JsonSkill,
+    val r: JsonSkill
+)
+
+/** 챔피언 전체(JSON용) */
 private data class JsonChampionInfo(
     @SerializedName("champDrawable") val champDrawableName: String,
     val name: String,
     val lane: Lane,
     val stats: Stats,
     @SerializedName("itemDrawables") val itemDrawableNames: List<String>,
-    val skills: Skills
+    val skills: JsonSkills
 )
+
+/*───────────────────────────*
+ * 2)  변환 헬퍼
+ *───────────────────────────*/
+
+/** drawable 문자열 → ID 로 치환하여 Skill 생성 */
+private fun JsonSkill.toSkill(ctx: Context): Skill {
+    val resId = ctx.resources.getIdentifier(
+        skillDrawableName, "drawable", ctx.packageName
+    )
+    return Skill(
+        skillDrawable = resId,
+        skillLevel    = skillLevel,
+        skillDamage   = skillDamage,
+        skillApCoeff  = skillApCoeff,
+        skillAdCoeff  = skillAdCoeff,
+        skillArCoeff  = skillArCoeff,
+        skillMrCoeff  = skillMrCoeff,
+        skillHpCoeff  = skillHpCoeff,
+        skillType     = skillType,
+        skillInfo     = skillInfo
+    )
+}
+
+/*───────────────────────────*
+ * 3)  ChampionDataLoader
+ *───────────────────────────*/
 
 object ChampionDataLoader {
 
     /**
-     * @param context  호출한 컨텍스트 (보통 Activity·Fragment·Application)
-     * @param fileName assets/ 이하의 JSON 파일명 (예: "champions.json")
-     * @return 파싱 및 매핑을 마친 List<ChampionInfo>
+     * @param context  호출 컨텍스트
+     * @param fileName assets/ 이하 JSON (예: "champions.json")
      */
     fun loadChampionsFromAsset(
         context: Context,
         fileName: String
     ): List<ChampionInfo> {
 
-        // 1️⃣ JSON 읽기
+        /* 1️⃣ assets 에서 JSON 문자열 읽기 */
         val jsonString = try {
             context.assets.open(fileName).bufferedReader().use { it.readText() }
         } catch (e: IOException) {
-            e.printStackTrace()
-            return emptyList()
+            e.printStackTrace(); return emptyList()
         }
 
-        // 2️⃣ JSON → DTO(문자열) 변환
-        val listType = object : TypeToken<List<JsonChampionInfo>>() {}.type
-        val rawList: List<JsonChampionInfo> = Gson().fromJson(jsonString, listType)
+        /* 2️⃣ 문자열 → JsonChampionInfo 리스트 파싱 */
+        val listType   = object : TypeToken<List<JsonChampionInfo>>() {}.type
+        val rawList: List<JsonChampionInfo> =
+            Gson().fromJson(jsonString, listType)
 
-        // 3️⃣ drawable 이름 → 실제 리소스 ID 매핑,
-        //     itemDrawables 도 동일하게 매핑
+        /* 3️⃣ drawable·스킬 매핑 후 ChampionInfo 반환 */
         return rawList.map { raw ->
+
+            /* 챔피언 초상화 */
             val champResId = context.resources.getIdentifier(
-                raw.champDrawableName,
-                "drawable",
-                context.packageName
+                raw.champDrawableName, "drawable", context.packageName
             )
 
-            val itemResIds = raw.itemDrawableNames.map { drawableName ->
-                context.resources.getIdentifier(drawableName, "drawable", context.packageName)
+            /* 아이템 아이콘 */
+            val itemResIds = raw.itemDrawableNames.map {
+                context.resources.getIdentifier(it, "drawable", context.packageName)
             }
 
+            /* 스킬 5개 매핑 */
+            val mappedSkills = Skills(
+                p = raw.skills.p.toSkill(context),
+                q = raw.skills.q.toSkill(context),
+                w = raw.skills.w.toSkill(context),
+                e = raw.skills.e.toSkill(context),
+                r = raw.skills.r.toSkill(context)
+            )
+
+            /* 최종 ChampionInfo 생성 */
             ChampionInfo(
                 champDrawable = champResId,
-                name = raw.name,
-                lane = raw.lane,
-                stats = raw.stats,
+                name          = raw.name,
+                lane          = raw.lane,
+                stats         = raw.stats,
                 itemDrawables = itemResIds,
-                skills = raw.skills
+                skills        = mappedSkills,
+                lore          = "챔피언 역사에 대한 이야기"
             )
         }
     }
