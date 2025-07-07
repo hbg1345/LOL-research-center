@@ -8,10 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.R
 import com.example.lol_research_center.model.ItemData
 
-class SelectedItemsAdapter(private var items: List<ItemData>, private val onItemClick: (ItemData) -> Unit) : RecyclerView.Adapter<SelectedItemsAdapter.ViewHolder>() {
+class SelectedItemsAdapter(private val onItemClick: (ItemData) -> Unit) : RecyclerView.Adapter<SelectedItemsAdapter.ViewHolder>() {
+
+    private val items: MutableList<ItemData?> = MutableList(6) { null }
 
     fun updateItems(newItems: List<ItemData>) {
-        items = newItems
+        items.clear()
+        items.addAll(newItems)
+        while (items.size < 6) {
+            items.add(null)
+        }
         notifyDataSetChanged()
     }
 
@@ -22,14 +28,19 @@ class SelectedItemsAdapter(private var items: List<ItemData>, private val onItem
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.imageView.setImageResource(item.imageResId)
-        holder.itemView.setOnClickListener {
-            onItemClick(item)
+        if (item != null) {
+            holder.imageView.setImageResource(item.imageResId)
+            holder.itemView.setOnClickListener {
+                onItemClick(item)
+            }
+        } else {
+            holder.imageView.setImageResource(R.drawable.ic_launcher_background) // Empty slot image
+            holder.itemView.setOnClickListener(null) // No click listener for empty slots
         }
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return 6
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
