@@ -102,15 +102,12 @@ class HomeFragment : Fragment() {
             }
             override fun onQueryTextSubmit(q: String?) = false
         })
-
-        /* ChipGroup */
-        /* ChipGroup 코드는 제거 */
         binding.btnTop.setOnClickListener     { adapter.updateFilter(newLane = Lane.TOP) }
         binding.btnJungle.setOnClickListener  { adapter.updateFilter(newLane = Lane.JUNGLE) }
         binding.btnMid.setOnClickListener     { adapter.updateFilter(newLane = Lane.MID) }
         binding.btnAdc.setOnClickListener     { adapter.updateFilter(newLane = Lane.ADC) }
         binding.btnSupport.setOnClickListener { adapter.updateFilter(newLane = Lane.SUPPORT) }
-
+        binding.btnFill.setOnClickListener { adapter.updateFilter(newLane = null )}
     }
 
     override fun onDestroyView() {

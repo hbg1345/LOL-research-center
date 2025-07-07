@@ -1,6 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.notifications.NotificationsFragment">
+
+    <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ahri"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:id="@+id/imageGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="5dp"
+        android:columnCount="4"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2">
+
+        <!-- Row 1: Image, Number, Image, Number -->
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ad" />
+
+        <TextView
+            android:id="@+id/textView_ad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="120"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ap" />
+
+        <TextView
+            android:id="@+id/textView_ap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="0"
+            android:textSize="20sp" />
+
+        <!-- Row 2: Image, Number, Image, Number -->
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/as" />
+
+        <TextView
+            android:id="@+id/textView_as"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:text="0"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/mr" />
+
+        <TextView
+            android:id="@+id/textView_mr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:text="0"
+            android:textSize="20sp" />
+
+        <!-- Row 3: Image, Number, Image, Number -->
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ar" />
+
+        <TextView
+            android:id="@+id/textView_ar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:text="0"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ms" />
+
+        <TextView
+            android:id="@+id/textView_ms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:text="0"
+            android:textSize="20sp" />
+
+    </GridLayout>
+
+    <!-- Health Bar -->
+    <ProgressBar
+        android:id="@+id/healthBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#FF0000"
+        android:scaleY="4"
+        app:layout_constraintEnd_toEndOf="@+id/imageGrid"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/healthText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="256"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/healthBar"
+        app:layout_constraintEnd_toEndOf="@+id/healthBar"
+        app:layout_constraintStart_toStartOf="@+id/healthBar"
+        app:layout_constraintTop_toTopOf="@+id/healthBar" />
+
+    <!-- Mana Bar -->
+    <ProgressBar
+        android:id="@+id/manaBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="4dp"
+        android:max="100"
+        android:progress="50"
+        android:progressTint="#0000FF"
+        android:scaleY="4"
+        app:layout_constraintEnd_toEndOf="@+id/imageGrid"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/healthBar" />
+
+    <TextView
+        android:id="@+id/manaText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="50 / 100"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/manaBar"
+        app:layout_constraintEnd_toEndOf="@+id/manaBar"
+        app:layout_constraintStart_toStartOf="@+id/manaBar"
+        app:layout_constraintTop_toTopOf="@+id/manaBar" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="202dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="1dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="259dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/camille_q" />
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ahri_q" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ahri_w" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ahri_e" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ahri_r" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="382dp"
+        android:layout_height="224dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
