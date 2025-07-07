@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
+    id("kotlin-kapt")
 }
 
 android {
@@ -62,6 +63,9 @@ dependencies {
     /* ───────── 이미지 로더 ───────── */
     implementation("io.coil-kt:coil:2.5.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.androidx.room.common.jvm)
+    implementation(libs.androidx.room.runtime.android)
+    implementation(libs.androidx.media3.common.ktx)
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 
     /* ───────── JSON 파싱 ───────── */
@@ -71,4 +75,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Room
+    implementation("androidx.room:room-runtime:2.7.2")
+    kapt("androidx.room:room-compiler:2.7.2")
+    implementation("androidx.room:room-ktx:2.7.2") // Kotlin Extensions and Coroutines support for Room
 }

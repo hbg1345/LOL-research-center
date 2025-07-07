@@ -11,8 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.lol_research_center.R
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.lol_research_center.databinding.FragmentDashboardBinding
 import com.example.lol_research_center.model.ItemDataLoader
 import com.example.lol_research_center.ui.viewmodel.BuildViewModel
@@ -50,6 +50,16 @@ class DashboardFragment : Fragment() {
 
         val pickerMode = arguments?.getBoolean("pickerMode") ?: false
 
+        if (pickerMode) {
+            binding.exitButton.visibility = View.VISIBLE
+        } else {
+            binding.exitButton.visibility = View.GONE
+        }
+
+        binding.exitButton.setOnClickListener {
+            findNavController().navigate(R.id.buildsFragment)
+        }
+
         val adapter = DashboardAdapter(items) {
             if (pickerMode) {
                 if ((buildViewModel.currentBuild.value?.items?.size ?: 0) < 6) {
@@ -84,7 +94,10 @@ class DashboardFragment : Fragment() {
 
         binding.nextButton.setOnClickListener {
             buildViewModel.currentBuild.value?.let {
-                val bundle = Bundle().apply { putParcelable("build", it) }
+                val bundle = Bundle().apply { 
+                    putParcelable("build", it)
+                    putBoolean("pickerMode", pickerMode)
+                }
                 findNavController().navigate(R.id.action_selectItems_to_notifications, bundle)
             } ?: run {
                 Toast.makeText(requireContext(), "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()

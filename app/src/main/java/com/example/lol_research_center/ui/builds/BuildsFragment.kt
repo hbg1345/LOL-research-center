@@ -13,12 +13,7 @@ import android.os.Build
 import android.util.Log
 import androidx.core.os.bundleOf
 import com.example.lol_research_center.R
-import com.example.lol_research_center.model.ChampionInfo
-import com.example.lol_research_center.model.Lane
-import com.example.lol_research_center.model.Skill
-import com.example.lol_research_center.model.SkillDamageSet
-import com.example.lol_research_center.model.Skills
-import com.example.lol_research_center.model.Stats
+
 
 
 //import dagger.hilt.android.AndroidEntryPoint  // Hilt 사용 시
@@ -50,41 +45,22 @@ class BuildsFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
-        /* ─────────────────────  테스트용 더미 한 장  ───────────────────── */
-        val dummyBuild = createDummyBuild()          // ▼ 아래에 함수 정의
-        vm.addBuild(dummyBuild)
-
-//        adapter.submitList(listOf(dummyBuild))
-//        binding.recyclerView.apply {
-//            layoutManager = LinearLayoutManager(requireContext())
-//            adapter = this@BuildsFragment.adapter
-//            setHasFixedSize(true)
-//        }
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = this@BuildsFragment.adapter
+            setHasFixedSize(true)
+        }
 
         /* (+) FloatingActionButton */
         binding.fabAdd.setOnClickListener {
             Log.d("Builds", "+ 버튼 클릭")
 
-            /* 1) FragmentResult 리스너 */
-            parentFragmentManager.setFragmentResultListener(
-                "build_result", viewLifecycleOwner
-            ) { _, bundle ->
-                val build: BuildInfo = if (android.os.Build.VERSION.SDK_INT >= 33) {
-                    bundle.getParcelable("build", BuildInfo::class.java)!!   // API 33+
-                } else {
-                    @Suppress("DEPRECATION")
-                    bundle.getParcelable<BuildInfo>("build")!!               // API 32-
-                }
-                vm.addBuild(build)
-            }
-            /* 2) 단순 Navigation ID 사용 */
             val args = bundleOf("pickerMode" to true)
             findNavController().navigate(
                 R.id.action_builds_to_selectChampion,
                 args
             )
         }
-
 
         /* LiveData 관찰 */
         vm.builds.observe(viewLifecycleOwner) { adapter.submitList(it) }
@@ -93,51 +69,4 @@ class BuildsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView(); _binding = null
     }
-}
-
-private fun createDummyBuild(): BuildInfo {
-    val stats = Stats(
-        attackdamage = 68,
-        attackdamageperlevel = 3.5f,
-        ap = 0,
-        hp = 575,
-        mp = 200,
-        crit = 0,
-        attackspeed = 0.651f,
-        attackspeedperlevel = 3.0f,
-        armor = 36,
-        spellblock = 32,
-        hpperlevel = 100,
-        mpperlevel = 0,
-        movespeed = 345,
-        armorperlevel = 4.0f,
-        spellblockperlevel = 1.5f,
-        hpregen = 7.5f,
-        hpregenperlevel = 0.7f,
-        mpregen = 50f,
-        mpregenperlevel = 0f,
-        critperlevel = 0f
-    )
-    val skills = Skills(
-        p = Skill(skillDrawable = R.drawable.leesin_p,  skillTitle= "skill p title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill p info"),
-        q = Skill(skillDrawable = R.drawable.leesin_q,  skillTitle= "skill q title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill q info"),
-        w = Skill(skillDrawable = R.drawable.leesin_w,  skillTitle= "skill w title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill w info"),
-        e = Skill(skillDrawable = R.drawable.leesin_e,  skillTitle= "skill e title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill e info"),
-        r = Skill(skillDrawable = R.drawable.leesin_r,  skillTitle= "skill r title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill r info"),
-
-        )
-    val champ = ChampionInfo(
-        champDrawable = R.drawable.leesin,   // 임시 아이콘
-        name          = "Lee Sin",
-        lane          = Lane.JUNGLE,
-        stats         = stats,
-        itemDrawables = emptyList(),
-        skills        = skills,
-        lore = "챔피언 역사에 대한 재밌는 이야기"
-    )
-    return BuildInfo(
-        champion   = champ,
-        items      = emptyList(),
-        calcResult = SkillDamageSet(0,0,0,0,0)
-    )
 }

@@ -47,6 +47,16 @@ class HomeFragment : Fragment() {
         Log.d("HomeFragment", "pickerMode: $pickerMode")
         Log.d("HomeFragment", "champs size: ${champs.size}")
 
+        if (pickerMode) {
+            binding.exitButton.visibility = View.VISIBLE
+        } else {
+            binding.exitButton.visibility = View.GONE
+        }
+
+        binding.exitButton.setOnClickListener {
+            findNavController().navigate(R.id.buildsFragment)
+        }
+
         val adapter = ImageGridAdapter(champs) { champ ->
             if (pickerMode) {
                 _selectedChampionForConfirmation = champ
