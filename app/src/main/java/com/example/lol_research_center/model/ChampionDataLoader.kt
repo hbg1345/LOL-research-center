@@ -13,6 +13,7 @@ import java.io.IOException
 /** 스킬 하나(아이콘 = 문자열) */
 private data class JsonSkill(
     @SerializedName("skillDrawable") val skillDrawableName: String,
+    val skillTitle: String,
     val skillLevel: Int,
     val coolDown : List<Int>,
     val cost : List<Int>,
@@ -58,6 +59,7 @@ private fun JsonSkill.toSkill(ctx: Context): Skill {
         skillDrawableName, "drawable", ctx.packageName
     )
     return Skill(
+        skillTitle = "hi",
         skillDrawable = resId,
         skillLevel    = skillLevel,
         skillDamageAd   = skillDamageAd,

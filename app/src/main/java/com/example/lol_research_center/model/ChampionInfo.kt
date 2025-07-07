@@ -53,6 +53,7 @@ data class Stats(
 
 @Parcelize
 data class Skill(
+    val skillTitle : String,
     val skillDrawable : Int,
     val skillLevel: Int, //스킬 레벨
     val skillDamageAd: List<Int>, //기본 스킬 데미지

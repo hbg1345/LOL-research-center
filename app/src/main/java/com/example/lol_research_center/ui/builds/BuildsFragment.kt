@@ -54,12 +54,12 @@ class BuildsFragment : Fragment() {
         val dummyBuild = createDummyBuild()          // ▼ 아래에 함수 정의
         vm.addBuild(dummyBuild)
 
-        adapter.submitList(listOf(dummyBuild))
-        binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = this@BuildsFragment.adapter
-            setHasFixedSize(true)
-        }
+//        adapter.submitList(listOf(dummyBuild))
+//        binding.recyclerView.apply {
+//            layoutManager = LinearLayoutManager(requireContext())
+//            adapter = this@BuildsFragment.adapter
+//            setHasFixedSize(true)
+//        }
 
         /* (+) FloatingActionButton */
         binding.fabAdd.setOnClickListener {
@@ -119,11 +119,11 @@ private fun createDummyBuild(): BuildInfo {
         critperlevel = 0f
     )
     val skills = Skills(
-        p = Skill(skillDrawable = R.drawable.leesin_p, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ad", skillInfo = "skill p info"),
-        q = Skill(skillDrawable = R.drawable.leesin_q, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ad", skillInfo = "skill q info"),
-        w = Skill(skillDrawable = R.drawable.leesin_w, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ap", skillInfo = "skill w info"),
-        e = Skill(skillDrawable = R.drawable.leesin_e, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ad", skillInfo = "skill e info"),
-        r = Skill(skillDrawable = R.drawable.leesin_r, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ad", skillInfo = "skill r info"),
+        p = Skill(skillDrawable = R.drawable.leesin_p,  skillTitle= "skill p title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill p info"),
+        q = Skill(skillDrawable = R.drawable.leesin_q,  skillTitle= "skill q title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill q info"),
+        w = Skill(skillDrawable = R.drawable.leesin_w,  skillTitle= "skill w title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill w info"),
+        e = Skill(skillDrawable = R.drawable.leesin_e,  skillTitle= "skill e title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill e info"),
+        r = Skill(skillDrawable = R.drawable.leesin_r,  skillTitle= "skill r title", skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), skillAdCoeff = 0f, skillApCoeff = 0f, skillArCoeff = 0f, skillHpCoeff = 0f, skillMrCoeff = 0f, skillType = "ad", skillInfo = "skill r info"),
 
         )
     val champ = ChampionInfo(
