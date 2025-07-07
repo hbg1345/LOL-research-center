@@ -55,7 +55,11 @@ data class Stats(
 data class Skill(
     val skillDrawable : Int,
     val skillLevel: Int, //스킬 레벨
-    val skillDamage: List<Int>, //기본 스킬 데미지
+    val skillDamageAd: List<Int>, //기본 스킬 데미지
+    val skillDamageAp: List<Int>,
+    val skillDamageFix: List<Int>,
+    val coolDown: List<Int>,
+    val cost : List<Int>,
     val skillApCoeff: Float,
     val skillAdCoeff: Float,
     val skillArCoeff: Float,

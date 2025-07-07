@@ -15,7 +15,11 @@ import java.io.IOException
 private data class JsonSkill(
     @SerializedName("skillDrawable") val skillDrawableName: String,
     val skillLevel: Int,
-    val skillDamage: List<Int>,
+    val coolDown : List<Int>,
+    val cost : List<Int>,
+    val skillDamageAd: List<Int>,
+    val skillDamageAp: List<Int>,
+    val skillDamageFix: List<Int>,
     val skillApCoeff: Float,
     val skillAdCoeff: Float,
     val skillArCoeff: Float,
@@ -56,14 +60,18 @@ private fun JsonSkill.toSkill(ctx: Context): Skill {
     return Skill(
         skillDrawable = resId,
         skillLevel    = skillLevel,
-        skillDamage   = skillDamage,
+        skillDamageAd   = skillDamageAd,
+        skillDamageAp   = skillDamageAp,
+        skillDamageFix   = skillDamageFix,
         skillApCoeff  = skillApCoeff,
         skillAdCoeff  = skillAdCoeff,
         skillArCoeff  = skillArCoeff,
         skillMrCoeff  = skillMrCoeff,
         skillHpCoeff  = skillHpCoeff,
         skillType     = skillType,
-        skillInfo     = skillInfo
+        skillInfo     = skillInfo,
+        coolDown = coolDown,
+        cost = cost
     )
 }
 

@@ -119,12 +119,13 @@ private fun createDummyBuild(): BuildInfo {
         critperlevel = 0f
     )
     val skills = Skills(
-        p = Skill(skillDrawable = R.drawable.leesin_p, 1, listOf(0,0,0,0,0),0f,0f,0f,0f,0f,"Passive", skillInfo = "skill q info"),
-        q = Skill(skillDrawable = R.drawable.leesin_q, 5, listOf(55,80,105,130,155),0f,1f,0f,0f,0f,"Active", skillInfo = "skill q info"),
-        w = Skill(skillDrawable = R.drawable.leesin_w, 5, listOf(40,60,80,100,120),0f,0.5f,0f,0f,0.08f,"Active", skillInfo = "skill q info"),
-        e = Skill(skillDrawable = R.drawable.leesin_e, 5, listOf(100,130,160,190,220),0f,1f,0f,0f,0f,"Active", skillInfo = "skill q info"),
-        r = Skill(skillDrawable = R.drawable.leesin_r, 3, listOf(150,300,450),0f,2f,0f,0f,0f,"Ultimate", skillInfo = "skill q info")
-    )
+        p = Skill(skillDrawable = R.drawable.leesin_p, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ad", skillInfo = "skill p info"),
+        q = Skill(skillDrawable = R.drawable.leesin_q, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ad", skillInfo = "skill q info"),
+        w = Skill(skillDrawable = R.drawable.leesin_w, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ap", skillInfo = "skill w info"),
+        e = Skill(skillDrawable = R.drawable.leesin_e, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ad", skillInfo = "skill e info"),
+        r = Skill(skillDrawable = R.drawable.leesin_r, 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"ad", skillInfo = "skill r info"),
+
+        )
     val champ = ChampionInfo(
         champDrawable = R.drawable.leesin,   // 임시 아이콘
         name          = "Lee Sin",
