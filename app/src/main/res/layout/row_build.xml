@@ -55,6 +55,13 @@
                 <ImageView
                     android:id="@+id/item6" android:layout_width="32dp" android:layout_height="32dp"/>
             </LinearLayout>
+
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="삭제" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

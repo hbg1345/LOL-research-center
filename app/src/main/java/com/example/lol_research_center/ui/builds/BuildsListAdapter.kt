@@ -12,7 +12,8 @@ import com.example.lol_research_center.databinding.RowBuildBinding
 import com.example.lol_research_center.model.BuildInfo
 
 class BuildListAdapter(
-    private val onClick: (BuildInfo) -> Unit
+    private val onClick: (BuildInfo) -> Unit,
+    private val onDeleteClick: (BuildInfo) -> Unit
 ) : ListAdapter<BuildInfo, BuildListAdapter.VH>(DIFF) {
 
     companion object {
@@ -57,6 +58,7 @@ class BuildListAdapter(
             }
 
             root.setOnClickListener { onClick(build) }
+            button3.setOnClickListener { onDeleteClick(build) }
         }
     }
 }

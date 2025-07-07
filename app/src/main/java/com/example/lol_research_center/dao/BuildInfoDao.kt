@@ -3,6 +3,7 @@ package com.example.lol_research_center.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Delete
 import com.example.lol_research_center.model.BuildInfo
 import kotlinx.coroutines.flow.Flow
 
@@ -16,4 +17,7 @@ interface BuildInfoDao {
 
     @Query("SELECT * FROM build_info")
     suspend fun getAllBuilds(): List<BuildInfo>
+
+    @Delete
+    suspend fun delete(build: BuildInfo)
 }
