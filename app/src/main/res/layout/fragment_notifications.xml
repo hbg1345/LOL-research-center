@@ -226,7 +226,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:background="#CCCCCC"
-            android:columnCount="2"
+            android:columnCount="4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manaBar">
@@ -235,43 +235,97 @@
                 android:id="@+id/imageView10"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/amplifying_tome" />
+            <TextView
+                android:id="@+id/itemStatText_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/doran_ring" />
+            <TextView
+                android:id="@+id/itemStatText_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView12"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/dark_seal" />
+            <TextView
+                android:id="@+id/itemStatText_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView13"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/blasting_wand" />
+            <TextView
+                android:id="@+id/itemStatText_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView14"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/tear_of_the_goddess" />
+            <TextView
+                android:id="@+id/itemStatText_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
             <ImageView
                 android:id="@+id/imageView15"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/faerie_charm" />
+            <TextView
+                android:id="@+id/itemStatText_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탯"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp" />
 
         </GridLayout>
 
