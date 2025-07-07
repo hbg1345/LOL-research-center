@@ -1,20 +1,15 @@
 // ui/builds/BuildsViewModel.kt
 package com.example.lol_research_center.ui.builds
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.example.lol_research_center.database.AppDatabase
 import com.example.lol_research_center.model.BuildInfo
 
-class BuildsViewModel : ViewModel() {
+class BuildsViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val _builds = MutableLiveData<List<BuildInfo>>(emptyList())
-    val builds: LiveData<List<BuildInfo>> = _builds
-
-    /** (+) 버튼 흐름이 끝나면 이 함수로 새 빌드를 등록 */
-    fun addBuild(newBuild: BuildInfo) {
-        _builds.value = _builds.value!! + newBuild
-    }
-
-    /** 필요 시 삭제·편집 함수도 추가 */
+    private val db = AppDatabase.getDatabase(application)
+    val builds: LiveData<List<BuildInfo>> = db.buildInfoDao().getAll().asLiveData()
 }

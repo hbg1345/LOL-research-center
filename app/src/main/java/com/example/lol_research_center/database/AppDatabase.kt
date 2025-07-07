@@ -1,6 +1,8 @@
 package com.example.lol_research_center.database
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.lol_research_center.converters.Converters
@@ -11,4 +13,21 @@ import com.example.lol_research_center.model.BuildInfo
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun buildInfoDao(): BuildInfoDao
+
+    companion object {
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
+
+        fun getDatabase(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "lol-research-db"
+                ).build()
+                INSTANCE = instance
+                instance
+            }
+        }
+    }
 }

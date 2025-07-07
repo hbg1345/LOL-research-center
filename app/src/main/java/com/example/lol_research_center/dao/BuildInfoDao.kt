@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.lol_research_center.model.BuildInfo
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BuildInfoDao {
@@ -11,5 +12,5 @@ interface BuildInfoDao {
     suspend fun insertBuildInfo(buildInfo: BuildInfo)
 
     @Query("SELECT * FROM build_info")
-    suspend fun getAllBuildInfo(): List<BuildInfo>
+    fun getAll(): Flow<List<BuildInfo>>
 }

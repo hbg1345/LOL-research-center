@@ -18,7 +18,7 @@ class BuildListAdapter(
     companion object {
         private val DIFF = object : DiffUtil.ItemCallback<BuildInfo>() {
             override fun areItemsTheSame(a: BuildInfo, b: BuildInfo) =
-                a.champion.name == b.champion.name && a.items == b.items   // 필요 시 UUID 사용
+                a.id == b.id
             override fun areContentsTheSame(a: BuildInfo, b: BuildInfo) = a == b
         }
     }
@@ -35,20 +35,26 @@ class BuildListAdapter(
     override fun onBindViewHolder(holder: VH, position: Int) {
         val build = getItem(position)
         with(holder.vb) {
-            champIcon.setImageResource(build.champion.champDrawable)
-            champName.text = build.champion.name
-
-            /* 아이템 6칸 (ImageView 6개) */
-            val itemViews = listOf(item1, item2, item3, item4, item5, item6)
-            itemViews.forEachIndexed { idx, img ->
-                if (idx < build.items.size) {
-                    img.setImageResource(build.items[idx].imageResId)
-                } else {
-                    img.setImageResource(R.drawable.ashe)  // 빈칸 placeholder
-                }
+            build.champion?.let {
+                champIcon.setImageResource(it.champDrawable ?: R.drawable.ic_launcher_foreground)
+                champName.text = it.name ?: "챔피언 정보 없음"
+            } ?: run {
+                champIcon.setImageResource(R.drawable.ic_launcher_foreground)
+                champName.text = "챔피언 정보 없음"
             }
 
-            /* 스킬 총합/미리보기 넣고 싶다면 여기에 */
+            val itemViews = listOf(item1, item2, item3, item4, item5, item6)
+            build.items?.let {
+                itemViews.forEachIndexed { idx, img ->
+                    if (idx < it.size) {
+                        img.setImageResource(it[idx].imageResId ?: R.drawable.ic_launcher_foreground)
+                    } else {
+                        img.setImageResource(R.drawable.ic_launcher_foreground)  // 빈칸 placeholder
+                    }
+                }
+            } ?: run {
+                itemViews.forEach { it.setImageResource(R.drawable.ic_launcher_foreground) }
+            }
 
             root.setOnClickListener { onClick(build) }
         }
