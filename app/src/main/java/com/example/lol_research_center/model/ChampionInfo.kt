@@ -28,6 +28,10 @@ data class ChampionInfo(
 
 @Parcelize
 data class Stats(
+    val armorPenetration: Float,
+    val armorPenetrationPercent: Float,
+    val magicPenetration: Float,
+    val magicPenetrationPercent: Float,
     val attackdamage: Int, //
     val attackdamageperlevel: Float,
     val ap: Int, //
