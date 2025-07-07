@@ -15,17 +15,21 @@ import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.model.ChampionInfo
 import com.example.lol_research_center.model.ItemData
 import com.example.lol_research_center.model.ItemStats
+import com.example.lol_research_center.model.Lane
 import com.example.lol_research_center.model.Skill
+import com.example.lol_research_center.model.SkillDamageSet
+import com.example.lol_research_center.model.Skills
 import com.example.lol_research_center.model.Stats
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
     private val binding get() = _binding!!
-
+    private val defaultTargetBuild : BuildInfo = createDummyBuildInfo()
     private var buildInfo: BuildInfo? = null
     private val db by lazy { AppDatabase.getDatabase(requireContext().applicationContext) }
 
@@ -184,12 +188,12 @@ class NotificationsFragment : Fragment() {
             view.setImageResource(skill.skillDrawable)
             view.setOnClickListener {
                 selectedSkill = skill
-                showSkill(skill)
+                showSkill(skill,defaultTargetBuild)
             }
         }
         // 기본 선택: Q
         selectedSkill = skills.q
-        showSkill(skills.q)
+        showSkill(skills.q, defaultTargetBuild)
     }
 
     private var currentChampionLevel: Int = 1 // 챔피언 레벨을 저장할 변수
@@ -202,6 +206,14 @@ class NotificationsFragment : Fragment() {
         }
 
         binding.levelUpButton.setOnClickListener {
+            selectedSkill?.let { skill ->
+                val maxLvl = when (skill.skillTitle) {
+                    buildInfo?.champion?.skills?.p?.skillTitle -> 0
+                    buildInfo?.champion?.skills?.r?.skillTitle -> 3
+                    else -> 5
+                }
+                skill.skillLevel = (skill.skillLevel + 1).coerceAtMost(maxLvl)
+                showSkill(skill, defaultTargetBuild)
             currentChampionLevel = (currentChampionLevel + 1).coerceAtMost(18) // 최대 레벨 18
             binding.skilllevelText.text = currentChampionLevel.toString()
             buildInfo?.let { info ->
@@ -213,6 +225,9 @@ class NotificationsFragment : Fragment() {
             binding.skilllevelText.text = currentChampionLevel.toString()
             buildInfo?.let { info ->
                 updateStatsUI(info.champion, info.items, currentChampionLevel)
+            selectedSkill?.let { skill ->
+                skill.skillLevel = (skill.skillLevel - 1).coerceAtLeast(0)
+                showSkill(skill , defaultTargetBuild)
             }
         }
     }
@@ -222,14 +237,33 @@ class NotificationsFragment : Fragment() {
         val items = buildInfo?.items ?: return
         val calculatedStats = calculateTotalStats(champion, items, currentChampionLevel) // 현재 챔피언 레벨 사용
         val damage = calcDamage(skill, calculatedStats) // 계산된 스탯 사용
+    private fun showSkill(skill: Skill, targetChamp: BuildInfo) {
+        val stats = buildInfo?.champion?.stats ?: return
+        val damage = calcDamageByType(skill,targetChamp,stats)
         with(binding) {
             skillImg.setImageResource(skill.skillDrawable)
             skillTitleText.text = skill.skillTitle
+            skilllevelText.text =
+                if (skill.skillTitle == buildInfo?.champion?.skills?.p?.skillTitle) "-"
+                else skill.skillLevel.toString()
             skilllevelText.text = if (skill.skillTitle == champion.skills.p.skillTitle) "-"
             else skill.skillLevel.toString()
             // 총 데미지 표시
             dealTotal.text = damage.toString()
         }
+    }
+    private fun calcDamageByType(skill: Skill, targetChamp: BuildInfo, stats: Stats): Int{
+        var damage = 0
+        if(skill.skillType == "fix"){
+            damage = calcDamage(skill, stats)
+        }
+        else if(skill.skillType == "ad"){
+            damage = calculatePhysicalDamage(calcDamage(skill, stats), targetChamp.champion.stats.armor, stats).toInt()
+        }
+        else if(skill.skillType == "ap"){
+            damage = calculateMagicDamage(calcDamage(skill,stats), targetChamp.champion.stats.spellblock, stats).toInt()
+        }
+        return damage
     }
 
     /**
@@ -283,6 +317,212 @@ class NotificationsFragment : Fragment() {
         }
     }
 
+    /**
+     * 상대 방어력에 물리 관통력(%) → 물리 관통력(flat)을 순서대로 적용한 뒤
+     * 방어식을 적용해 최종 데미지 계수를 리턴합니다.
+     *
+     * @param rawDamage    스킬/평타 원시 데미지
+     * @param targetArmor  상대 방어력
+     * @param stats        아군 챔피언의 Stats (armorPenetrationPercent, armorPenetration 필드 포함)
+     * @return 실제 입히는 물리 데미지
+     */
+    fun calculatePhysicalDamage(
+        rawDamage: Int,
+        targetArmor: Int,
+        stats: Stats
+    ): Float {
+        // 1) % 관통
+        val afterPercent = targetArmor * (1f - stats.armorPenetrationPercent)
+        // 2) flat 관통
+        val afterFlat = afterPercent - stats.armorPenetration
+        // 3) 방어식
+        val coeff = if (afterFlat >= 0f) {
+            1f / (1f + afterFlat * 0.01f)
+        } else {
+            2f - (1f / (1f - afterFlat * 0.01f))
+        }
+        return rawDamage * coeff
+    }
+
+    /**
+     * 마법 저항력에 마법 관통력(%) → 마법 관통력(flat)을 순서대로 적용한 뒤
+     * 방어식을 적용해 최종 데미지 계수를 리턴합니다.
+     *
+     * @param rawDamage    스킬 원시 데미지
+     * @param targetMR     상대 마법저항력
+     * @param stats        아군 챔피언의 Stats (magicPenetrationPercent, magicPenetration 필드 포함)
+     * @return 실제 입히는 마법 데미지
+     */
+    fun calculateMagicDamage(
+        rawDamage: Int,
+        targetMR: Int,
+        stats: Stats
+    ): Float {
+        // 1) % 관통
+        val afterPercent = targetMR * (1f - stats.magicPenetrationPercent)
+        // 2) flat 관통
+        val afterFlat = afterPercent - stats.magicPenetration
+        // 3) 방어식
+        val coeff = if (afterFlat >= 0f) {
+            1f / (1f + afterFlat * 0.01f)
+        } else {
+            2f - (1f / (1f - afterFlat * 0.01f))
+        }
+        return rawDamage * coeff
+    }
+
+    fun createDummyBuildInfo(): BuildInfo {
+        // 1) 기본 스탯
+        val stats = Stats(
+            attackdamage = 68,
+            attackdamageperlevel = 3.5f,
+            ap = 0,
+            hp = 575,
+            mp = 200,
+            crit = 0,
+            attackspeed = 0.651f,
+            attackspeedperlevel = 3.0f,
+            armor = 100,
+            spellblock = 100,
+            hpperlevel = 100,
+            mpperlevel = 0,
+            movespeed = 345,
+            armorperlevel = 4.0f,
+            spellblockperlevel = 1.5f,
+            hpregen = 7.5f,
+            hpregenperlevel = 0.7f,
+            mpregen = 50f,
+            mpregenperlevel = 0f,
+            critperlevel = 0f,
+            // 관통 스탯도 함께 포함할 경우
+            armorPenetration = 20f,
+            armorPenetrationPercent = 0.1f,
+            magicPenetration = 15f,
+            magicPenetrationPercent = 0.15f
+        )
+
+        // 2) 스킬 정보 (drawable 리소스와 임의 값들)
+        val skills = Skills(
+            p = Skill(
+                skillTitle = "정기 흡수",
+                skillDrawable = R.drawable.ahri_p,
+                skillLevel = 0,
+                skillDamageAd = listOf(0,0,0,0,0),
+                skillDamageAp = listOf(0,0,0,0,0),
+                skillDamageFix = listOf(0,0,0,0,0),
+                coolDown = emptyList(),
+                cost = emptyList(),
+                skillApCoeff = 0f,
+                skillAdCoeff = 0f,
+                skillArCoeff = 0f,
+                skillMrCoeff = 0f,
+                skillHpCoeff = 0f,
+                skillType = "passive",
+                skillInfo = "미니언 처치 시 정기 조각을 얻습니다."
+            ),
+            q = Skill(
+                skillTitle = "현혹의 구슬",
+                skillDrawable = R.drawable.ahri_q,
+                skillLevel = 1,
+                skillDamageAd = listOf(0,0,0,0,0),
+                skillDamageAp = listOf(40,65,90,115,140),
+                skillDamageFix = listOf(40,65,90,115,140),
+                coolDown = listOf(7,7,7,7,7),
+                cost = listOf(55,65,75,85,95),
+                skillApCoeff = 0.5f,
+                skillAdCoeff = 0f,
+                skillArCoeff = 0f,
+                skillMrCoeff = 0f,
+                skillHpCoeff = 0f,
+                skillType = "ap",
+                skillInfo = "구슬을 던진 후 되돌아올 때 고정 피해를 입힙니다."
+            ),
+            w = Skill(
+                skillTitle = "여우불",
+                skillDrawable = R.drawable.ahri_w,
+                skillLevel = 1,
+                skillDamageAd = listOf(0,0,0,0,0),
+                skillDamageAp = listOf(40,60,80,100,120),
+                skillDamageFix = listOf(0,0,0,0,0),
+                coolDown = listOf(10,9,8,7,6),
+                cost = listOf(30,30,30,30,30),
+                skillApCoeff = 0.4f,
+                skillAdCoeff = 0f,
+                skillArCoeff = 0f,
+                skillMrCoeff = 0f,
+                skillHpCoeff = 0f,
+                skillType = "ap",
+                skillInfo = "세 개의 여우불을 발사하여 마법 피해를 입힙니다."
+            ),
+            e = Skill(
+                skillTitle = "매혹",
+                skillDrawable = R.drawable.ahri_e,
+                skillLevel = 1,
+                skillDamageAd = listOf(0,0,0,0,0),
+                skillDamageAp = listOf(80,120,160,200,240),
+                skillDamageFix = listOf(0,0,0,0,0),
+                coolDown = listOf(12,12,12,12,12),
+                cost = listOf(60,60,60,60,60),
+                skillApCoeff = 0f,
+                skillAdCoeff = 0f,
+                skillArCoeff = 0f,
+                skillMrCoeff = 0f,
+                skillHpCoeff = 0f,
+                skillType = "ap",
+                skillInfo = "첫 번째로 맞은 적에게 매혹 효과를 부여하고 마법 피해를 입힙니다."
+            ),
+            r = Skill(
+                skillTitle = "혼령 질주",
+                skillDrawable = R.drawable.ahri_r,
+                skillLevel = 1,
+                skillDamageAd = listOf(0,0,0),
+                skillDamageAp = listOf(60,90,120),
+                skillDamageFix = listOf(0,0,0),
+                coolDown = listOf(140,120,100),
+                cost = listOf(100,100,100),
+                skillApCoeff = 0.35f,
+                skillAdCoeff = 0f,
+                skillArCoeff = 0f,
+                skillMrCoeff = 0f,
+                skillHpCoeff = 0f,
+                skillType = "ap",
+                skillInfo = "혼령의 정기를 발사하여 마법 피해를 입힙니다."
+            )
+        )
+
+        // 3) 챔피언 정보
+        val champion = ChampionInfo(
+            champDrawable = R.drawable.ahri,
+            name = "Ahri",
+            lane = Lane.MID,
+            stats = stats,
+            itemDrawables = emptyList(),
+            skills = skills,
+            lore = "아리, 구슬을 다루는 여우 요정"
+        )
+
+        // 4) 더미 아이템 (최대 6개)
+        val items = listOf(
+            ItemData(name = "Amplifying Tome", imageResId = R.drawable.amplifying_tome),
+            ItemData(name = "Doran's Ring",   imageResId = R.drawable.doran_ring)
+            // … 최대 6개까지 추가 가능
+        )
+
+        // 5) 스킬별 더미 데미지 결과
+        val calcResult = SkillDamageSet(
+            p = 0,
+            q = Random.nextInt(40, 140),
+            w = Random.nextInt(40, 120),
+            e = Random.nextInt(80, 240),
+            r = Random.nextInt(60, 120)
+        )
+
+        return BuildInfo(
+            champion   = champion,
+            items      = items,
+            calcResult = calcResult
+        )
+    }
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
@@ -321,3 +561,4 @@ class NotificationsFragment : Fragment() {
         return statsList.joinToString("\n")
     }
 }
+

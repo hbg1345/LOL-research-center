@@ -41,7 +41,11 @@ class BuildViewModel : ViewModel() {
             hpregenperlevel = 0.7f,
             mpregen = 50f,
             mpregenperlevel = 0f,
-            critperlevel = 0f
+            critperlevel = 0f,
+            armorPenetration = 0f,
+            armorPenetrationPercent = 0.5f,
+            magicPenetration = 0f,
+            magicPenetrationPercent = 0.5f
         )
         val asheChampionInfo = ChampionInfo(
             champDrawable = 0, // 실제 Drawable ID로 대체 필요
