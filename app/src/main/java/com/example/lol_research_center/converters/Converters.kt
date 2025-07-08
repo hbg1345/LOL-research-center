@@ -1,41 +1,57 @@
-package com.example.lol_research_center.converters
+// database/Converters.kt
+package com.example.lol_research_center.database
 
 import androidx.room.TypeConverter
-import com.example.lol_research_center.model.ChampionInfo
-import com.example.lol_research_center.model.ItemData
-import com.example.lol_research_center.model.SkillDamageSet
+import com.example.lol_research_center.database.DummyDataProvider.createDummyTestInfo
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.example.lol_research_center.model.*
 
 class Converters {
+    private val gson = Gson()
+
+    // BuildInfo.champion: ChampionInfo ↔ JSON
     @TypeConverter
-    fun fromChampionInfo(championInfo: ChampionInfo): String {
-        return Gson().toJson(championInfo)
-    }
+    fun fromChampionInfo(champion: ChampionInfo): String =
+        gson.toJson(champion)
 
     @TypeConverter
-    fun toChampionInfo(json: String): ChampionInfo {
-        return Gson().fromJson(json, ChampionInfo::class.java)
-    }
+    fun toChampionInfo(json: String): ChampionInfo =
+        gson.fromJson(json, ChampionInfo::class.java)
+
+    // BuildInfo.items: List<ItemData> ↔ JSON
+    @TypeConverter
+    fun fromItemDataList(list: List<ItemData>): String =
+        gson.toJson(list)
 
     @TypeConverter
-    fun fromItemList(itemList: List<ItemData>): String {
-        return Gson().toJson(itemList)
-    }
-
-    @TypeConverter
-    fun toItemList(json: String): List<ItemData> {
+    fun toItemDataList(json: String): List<ItemData> {
         val type = object : TypeToken<List<ItemData>>() {}.type
-        return Gson().fromJson(json, type)
+        return gson.fromJson(json, type)
     }
 
+    // BuildInfo.calcResult: SkillDamageSet ↔ JSON
     @TypeConverter
-    fun fromSkillDamageSet(skillDamageSet: SkillDamageSet): String {
-        return Gson().toJson(skillDamageSet)
-    }
+    fun fromSkillDamageSet(set: SkillDamageSet): String =
+        gson.toJson(set)
 
     @TypeConverter
-    fun toSkillDamageSet(json: String): SkillDamageSet {
-        return Gson().fromJson(json, SkillDamageSet::class.java)
+    fun toSkillDamageSet(json: String): SkillDamageSet =
+        gson.fromJson(json, SkillDamageSet::class.java)
+
+    // **여기에 추가** TestInfo 리스트 ↔ JSON
+    @TypeConverter
+    fun fromTestInfoList(list: List<TestInfo>): String =
+        gson.toJson(list)
+
+    @TypeConverter
+    fun toTestInfoList(json: String?): List<TestInfo> {
+        return if (json.isNullOrEmpty()) {
+            // DB에 아무 값도 없으면 기본 더미 하나를 반환
+            listOf(createDummyTestInfo())
+        } else {
+            val type = object : TypeToken<List<TestInfo>>() {}.type
+            gson.fromJson(json, type)
+        }
     }
 }

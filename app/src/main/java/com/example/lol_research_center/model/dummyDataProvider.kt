@@ -1,6 +1,7 @@
 // DummyDataProvider.kt
 package com.example.lol_research_center.database
 
+import com.example.lol_research_center.R
 import com.example.lol_research_center.model.*
 
 object DummyDataProvider {
@@ -55,7 +56,7 @@ object DummyDataProvider {
         )
 
         return ChampionInfo(
-            champDrawable = 0,
+            champDrawable = R.drawable.bot,
             name          = "ahri",
             lane          = Lane.MID,
             stats         = stats,
@@ -75,8 +76,8 @@ object DummyDataProvider {
     /** 더미 ItemData 리스트 생성 (최대 6개까지 자유롭게 늘리세요) */
     fun createDummyItems(): List<ItemData> {
         return listOf(
-            ItemData(imageResId = 0, name = "DummyItem1"),
-            ItemData(imageResId = 0, name = "DummyItem2")
+            ItemData(imageResId = R.drawable.bf_sword, name = "DummyItem1"),
+            ItemData(imageResId = R.drawable.doran_blade, name = "DummyItem2")
         )
     }
 
