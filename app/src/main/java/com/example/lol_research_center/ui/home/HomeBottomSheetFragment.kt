@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.R
 import com.example.lol_research_center.databinding.FragmentHomeBinding
+import com.example.lol_research_center.databinding.FragmentHomeBottomSheetBinding
 import com.example.lol_research_center.model.ChampionDataLoader
 import com.example.lol_research_center.model.ChampionInfo
 import com.example.lol_research_center.model.Lane
@@ -34,13 +35,7 @@ class HomeBottomSheetFragment : BottomSheetDialogFragment() {
             bottomSheet?.let {
                 val behavior = BottomSheetBehavior.from(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
-                behavior.peekHeight = 0
-                behavior.isHideable = false
-
-                // 바텀 시트의 높이를 화면 높이에 맞게 설정
-                val layoutParams = it.layoutParams
-                layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
-                it.layoutParams = layoutParams
+                behavior.isHideable = true // 아래로 스와이프하여 숨길 수 있도록 허용
 
                 Log.d("HomeBottomSheetFragment", "BottomSheetBehavior state: ${behavior.state}")
             }
@@ -48,7 +43,7 @@ class HomeBottomSheetFragment : BottomSheetDialogFragment() {
         return dialog
     }
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentHomeBottomSheetBinding? = null
     private val binding get() = _binding!!
 
     private val buildViewModel: BuildViewModel by activityViewModels()
@@ -64,7 +59,7 @@ class HomeBottomSheetFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBottomSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -73,8 +68,7 @@ class HomeBottomSheetFragment : BottomSheetDialogFragment() {
         Log.d("HomeBottomSheetFragment", "pickerMode: $pickerMode")
         Log.d("HomeBottomSheetFragment", "champs size: ${champs.size}")
 
-        // BottomSheet에서는 exitButton을 사용하지 않으므로 항상 GONE으로 설정
-        binding.exitButton.visibility = View.GONE
+        
 
         val adapter = ImageGridAdapter(champs) { champ ->
             // 바텀 시트에서는 항상 pickerMode라고 가정
@@ -88,7 +82,6 @@ class HomeBottomSheetFragment : BottomSheetDialogFragment() {
         binding.confirmButton.setOnClickListener {
             _selectedChampionForConfirmation?.let { selectedChamp ->
                 buildViewModel.setChampion(selectedChamp)
-                // 바텀 시트를 닫고, 필요한 경우 NotificationsFragment로 결과 전달
                 dismiss()
             }
         }
