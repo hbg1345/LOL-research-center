@@ -65,10 +65,6 @@
             android:name="pickerMode"
             app:argType="boolean"
             android:defaultValue="false"/>
-        <argument
-            android:name="TestInfoMode"
-            app:argType="boolean"
-            android:defaultValue="false"/>
         <!-- 챔피언을 고르면 아이템 선택 화면으로 이동 -->
         <action
             android:id="@+id/action_selectChampion_to_selectItems"
@@ -86,10 +82,6 @@
         tools:layout="@layout/fragment_dashboard">
         <argument
             android:name="pickerMode"
-            app:argType="boolean"
-            android:defaultValue="false"/>
-        <argument
-            android:name="TestInfoMode"
             app:argType="boolean"
             android:defaultValue="false"/>
 

@@ -10,8 +10,10 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lol_research_center.R
 import com.example.lol_research_center.database.AppDatabase
+import com.example.lol_research_center.database.DummyDataProvider.createDummyTestInfo
 import com.example.lol_research_center.databinding.FragmentNotificationsBinding
 import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.model.ChampionInfo
@@ -55,6 +57,18 @@ class NotificationsFragment : Fragment() {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         return binding.root
     }
+    private fun setupTestInfoRecyclerView() {
+        // 1) 진짜 buildInfo 대신
+        val dummy = listOf(createDummyTestInfo())
+        println("▶▶ dummy size = ${dummy.size}")  //
+
+        binding.testInfoRecyclerView.apply {
+            isNestedScrollingEnabled = false
+            layoutManager = LinearLayoutManager(context)
+            adapter = TestInfoAdapter(buildInfo!!.testInfoList)
+        }
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -67,6 +81,7 @@ class NotificationsFragment : Fragment() {
                 args
             )
         }
+
         buildInfo?.let { info ->
             setupChampionInfo(info)
             setupItems(info)
@@ -74,6 +89,7 @@ class NotificationsFragment : Fragment() {
             setupLevelButtons()
             setupExitButton()
             setupSaveButton(info)
+            setupTestInfoRecyclerView()
         } ?: run {
             Toast.makeText(context, "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
             findNavController().popBackStack()

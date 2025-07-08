@@ -47,7 +47,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)                 // material:1.12.0 이상
-
+    implementation("com.google.code.gson:gson:2.8.9")
     /* ───────── Layout & UI ───────── */
     implementation(libs.androidx.constraintlayout) // constraintlayout:2.1.4
     implementation("androidx.recyclerview:recyclerview:1.3.2")

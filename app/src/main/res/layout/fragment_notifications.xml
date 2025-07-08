@@ -577,14 +577,16 @@
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="1dp"
-            android:layout_marginBottom="259dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal"
-            android:layout_marginTop="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonContainer">
+            app:layout_constraintTop_toBottomOf="@+id/buttonContainer"
+            app:layout_constraintVertical_bias="0.076">
 
             <!-- 패시브(P) -->
             <include
@@ -646,7 +648,7 @@
             android:background="@drawable/lol_textpanel_bg"
             app:layout_constraintStart_toStartOf="@+id/constraint"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="150dp"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="10dp"
             android:orientation="vertical"
@@ -744,6 +746,8 @@
                         android:id="@+id/skillDescArLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -770,6 +774,8 @@
                         android:id="@+id/skillDescMrLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -796,6 +802,9 @@
                         android:id="@+id/skillDescCurHpLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -822,6 +831,9 @@
                         android:id="@+id/skillDescHpLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -862,18 +874,29 @@
 
 
         </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/testInfoRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:layout_constraintTop_toBottomOf="@id/skillDesc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <LinearLayout
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
             android:layout_marginHorizontal="10dp"
             android:id="@+id/imageButtonContainer"
             android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/skillDesc"
+            app:layout_constraintTop_toBottomOf="@id/testInfoRecyclerView"
             android:background="@drawable/lol_textpanel_bg"
             android:gravity="center"
             android:layout_height="100dp">
             <ImageButton
                 android:id="@+id/testInfoAddButton"
                 android:src="@drawable/icon_add"
+                android:background="@android:color/transparent"
                 android:layout_width="50dp"
                 android:layout_height="50dp"/>
         </LinearLayout>
