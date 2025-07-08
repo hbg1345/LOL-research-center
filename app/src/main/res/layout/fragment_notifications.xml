@@ -11,8 +11,9 @@
         android:id="@+id/constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.notifications.NotificationsFragment">
-
+        tools:context=".ui.notifications.NotificationsFragment"
+        android:background="@drawable/item_back"
+        >
         <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
         <!-- Health Bar -->
 
