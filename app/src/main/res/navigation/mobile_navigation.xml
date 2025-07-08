@@ -51,6 +51,9 @@
             android:name="build"
             app:argType="com.example.lol_research_center.model.BuildInfo"
             app:nullable="true"/>
+        <action
+            android:id="@+id/action_notification_to_selectChampion"
+            app:destination="@id/selectChampionFragment" />
     </fragment>
 
     <fragment
@@ -60,6 +63,10 @@
         tools:layout="@layout/fragment_home">
         <argument
             android:name="pickerMode"
+            app:argType="boolean"
+            android:defaultValue="false"/>
+        <argument
+            android:name="TestInfoMode"
             app:argType="boolean"
             android:defaultValue="false"/>
         <!-- 챔피언을 고르면 아이템 선택 화면으로 이동 -->
@@ -81,6 +88,11 @@
             android:name="pickerMode"
             app:argType="boolean"
             android:defaultValue="false"/>
+        <argument
+            android:name="TestInfoMode"
+            app:argType="boolean"
+            android:defaultValue="false"/>
+
         <action
             android:id="@+id/action_selectItems_to_notifications"
             app:destination="@+id/notificationFragment" />

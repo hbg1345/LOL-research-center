@@ -37,6 +37,8 @@ class ChampioninfoFragment : Fragment() {
         /* 1) TextView 바인딩 */
         skillDescTv = view.findViewById(R.id.textView2)
         champInfoTv = view.findViewById(R.id.textView)
+        val champImgView = view.findViewById<ImageView>(R.id.champImg)
+        champImgView.setImageResource(champInfo.champDrawable)
 
         /* 2) 스킬 FrameLayout 바인딩 */
         val skillP = view.findViewById<FrameLayout>(R.id.imageButton1)
@@ -71,6 +73,8 @@ class ChampioninfoFragment : Fragment() {
         val img = root.findViewById<ImageView>(R.id.imgSkill)
         val tvCd = root.findViewById<TextView>(R.id.tvCooldown)
         val tvKey = root.findViewById<TextView>(R.id.tvKey)
+//        val Cimg = root.findViewById<ImageView>(R.id.champImg)
+//        Cimg.setImageResource(champInfo.champDrawable)
 
         /* 아이콘 이미지 */
         img.setImageResource(skill.skillDrawable)

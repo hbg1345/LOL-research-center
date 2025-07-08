@@ -2,10 +2,12 @@ package com.example.lol_research_center.ui.notifications
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.lol_research_center.R
@@ -42,6 +44,7 @@ class NotificationsFragment : Fragment() {
             if (Build.VERSION.SDK_INT >= 33) it.getParcelable("build", BuildInfo::class.java)
             else @Suppress("DEPRECATION") it.getParcelable("build")
         }
+
     }
 
     override fun onCreateView(
@@ -55,7 +58,15 @@ class NotificationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.testInfoAddButton.setOnClickListener {
+            Log.d("Builds", "+ 버튼 클릭")
 
+            val args = bundleOf("pickerMode" to true)
+            findNavController().navigate(
+                R.id.action_notification_to_selectChampion,
+                args
+            )
+        }
         buildInfo?.let { info ->
             setupChampionInfo(info)
             setupItems(info)
@@ -70,7 +81,7 @@ class NotificationsFragment : Fragment() {
     }
 
     private fun setupChampionInfo(info: BuildInfo) {
-        binding.imageView2.setImageResource(info.champion.champDrawable)
+        binding.champImg.setImageResource(info.champion.champDrawable)
         updateStatsUI(info.champion, info.items, info.champion.level) // 초기 레벨로 스탯 계산 및 UI 업데이트
     }
 
