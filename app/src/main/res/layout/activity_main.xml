@@ -3,36 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
+    <!-- 1) 앱바 추가 -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="?attr/actionBarSize"
         android:background="@drawable/lol_textpanel_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:gravity="center"
+        app:contentInsetEnd="0dp"
+
+        app:contentInsetEndWithActions="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:title="hello"
         app:layout_constraintRight_toRightOf="parent"
-        app:itemIconTint="@color/lol_gold"
-        app:itemTextColor="@color/lol_gold"
-        app:itemRippleColor="@android:color/transparent"
-        app:itemBackground="@android:color/transparent"
 
-        app:menu="@menu/bottom_nav_menu" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleCentered="true"
+        app:titleTextColor="@color/lol_gold" />
 
-
-
+    <!-- 2) NavHostFragment: 툴바 바로 아래로 붙이기 -->
     <fragment
         android:id="@+id/nav_host_fragment_activity_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
         app:navGraph="@navigation/mobile_navigation" />
+
+    <!-- 3) BottomNavigationView (기존 코드) -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/lol_textpanel_bg"
+        app:itemBackground="@android:color/transparent"
+        app:itemIconTint="@color/lol_gold"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemTextColor="@color/lol_gold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/buildsFragment"
         android:name="com.example.lol_research_center.ui.builds.BuildsFragment"
-        android:label="Builds"
+        android:label="분석"
         tools:layout="@layout/fragment_builds">
         <action
             android:id="@+id/action_builds_to_selectChampion"
@@ -100,6 +100,6 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.lol_research_center.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label= "@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
