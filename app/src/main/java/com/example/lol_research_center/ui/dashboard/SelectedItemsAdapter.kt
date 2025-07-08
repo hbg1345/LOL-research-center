@@ -34,7 +34,6 @@ class SelectedItemsAdapter(private val onItemClick: (ItemData) -> Unit) : Recycl
                 onItemClick(item)
             }
         } else {
-            holder.imageView.setImageResource(R.drawable.ic_launcher_background) // Empty slot image
             holder.itemView.setOnClickListener(null) // No click listener for empty slots
         }
     }

@@ -80,6 +80,10 @@ class DashboardFragment : Fragment() {
             binding.selectedItemsContainer.visibility = View.VISIBLE
             binding.selectedItemsRecyclerView.visibility = View.VISIBLE
             binding.nextButton.visibility = View.VISIBLE
+        } else {
+            binding.selectedItemsContainer.visibility = View.GONE
+            binding.selectedItemsRecyclerView.visibility = View.GONE
+            binding.nextButton.visibility = View.GONE
         }
 
         buildViewModel.currentBuild.observe(viewLifecycleOwner) { buildInfo ->
