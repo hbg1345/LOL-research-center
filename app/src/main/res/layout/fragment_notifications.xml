@@ -5,245 +5,305 @@
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ui.notifications.NotificationsFragment">
 
         <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
         <!-- Health Bar -->
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/ahri"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/healthBar" />
-
-        <GridLayout
-            android:id="@+id/imageGrid"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/image_and_grid_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="4"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/healthBar">
 
-            <!-- Row 1: Image, Number, Image, Number -->
             <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ad" />
-
-            <TextView
-                android:id="@+id/textView_ad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:id="@+id/imageView2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="120"
-                android:textSize="20sp" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/ap" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/image_and_grid_container"
+                android:src="@drawable/ahri" />
 
-            <TextView
-                android:id="@+id/textView_ap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:text="0"
-                android:textSize="20sp" />
-
-            <!-- Row 2: Image, Number, Image, Number -->
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/as" />
-
-            <TextView
-                android:id="@+id/textView_as"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:text="0"
-                android:textSize="20sp" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/mr" />
-
-            <TextView
-                android:id="@+id/textView_mr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:text="0"
-                android:textSize="20sp" />
-
-            <!-- Row 3: Image, Number, Image, Number -->
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ar" />
-
-            <TextView
-                android:id="@+id/textView_ar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:text="0"
-                android:textSize="20sp" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ms" />
-
-            <TextView
-                android:id="@+id/textView_ms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:text="0"
-                android:textSize="20sp" />
-
-            <!-- Row 4: Armor Penetration and Armor Penetration Percent -->
-            <ImageView
-                android:id="@+id/imageView_armorPen"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/armor_penetration" />
-
-            <TextView
-                android:id="@+id/textView_armorPen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:text="0"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView_armorPenPercent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:text="0%"
-                android:textSize="20sp" />
-
-            <!-- Empty cell to maintain 4 columns in Row 4 -->
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1" />
-
-            <!-- Row 5: Magic Penetration and Magic Penetration Percent -->
-            <ImageView
-                android:id="@+id/imageView_magicPen"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/magic_penetration" />
-
-            <TextView
-                android:id="@+id/textView_magicPen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:text="0"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView_magicPenPercent"
+            <LinearLayout
+                android:id="@+id/imageGrid"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:layout_columnWeight="1"
-                android:text="0%"
-                android:textSize="20sp" />
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/image_and_grid_container"
+                app:layout_constraintTop_toTopOf="@+id/image_and_grid_container"
+                android:layout_gravity="center_vertical">
 
-            <!-- Empty cell to maintain 4 columns in Row 5 -->
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1" />
+                <!-- Row 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- Column 1: AD -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ad" />
+                        <TextView
+                            android:id="@+id/textView_ad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="120"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                    <!-- Column 2: AP -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ap" />
+                        <TextView
+                            android:id="@+id/textView_ap"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="0"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
 
-        </GridLayout>
+                <!-- Row 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+                    <!-- Column 1: AS -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/as" />
+                        <TextView
+                            android:id="@+id/textView_as"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="0"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                    <!-- Column 2: MR -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/mr" />
+                        <TextView
+                            android:id="@+id/textView_mr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="0"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
 
+                <!-- Row 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+                    <!-- Column 1: AR -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ar" />
+                        <TextView
+                            android:id="@+id/textView_ar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="0"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                    <!-- Column 2: MS -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ms" />
+                        <TextView
+                            android:id="@+id/textView_ms"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="0"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Row 4: Armor Penetration and Armor Penetration Percent -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+                    <!-- Column 1: Armor Pen -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/imageView_armorPen"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/armor_penetration" />
+                        <TextView
+                            android:id="@+id/textView_armorPen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="0"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                    <!-- Column 2: Armor Pen Percent -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:id="@+id/textView_armorPenPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="0%"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Row 5: Magic Penetration and Magic Penetration Percent -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+                    <!-- Column 1: Magic Pen -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/imageView_magicPen"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/magic_penetration" />
+                        <TextView
+                            android:id="@+id/textView_magicPen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="0"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                    <!-- Column 2: Magic Pen Percent -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:id="@+id/textView_magicPenPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="0%"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
         <ProgressBar
             android:id="@+id/healthBar"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="15dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="16dp"
             android:max="100"
             android:progress="100"
             android:progressTint="#FF0000"
             android:scaleY="4"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageGrid" />
+            app:layout_constraintTop_toBottomOf="@+id/image_and_grid_container" />
 
         <TextView
             android:id="@+id/healthText"
@@ -263,16 +323,14 @@
         <ProgressBar
             android:id="@+id/manaBar"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="15dp"
             android:layout_marginTop="4dp"
             android:max="100"
             android:progress="100"
             android:progressTint="#0000FF"
             android:scaleY="4"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/healthBar" />
 
         <TextView
@@ -289,116 +347,166 @@
             app:layout_constraintStart_toStartOf="@+id/manaBar"
             app:layout_constraintTop_toTopOf="@+id/manaBar" />
 
-        <GridLayout
+        <LinearLayout
             android:id="@+id/itemGrid"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:background="#CCCCCC"
-            android:columnCount="4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@+id/manaBar">
 
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/amplifying_tome" />
-            <TextView
-                android:id="@+id/itemStatText_10"
-                android:layout_width="wrap_content"
+            <!-- Row 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="스탯"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="4dp" />
+                android:orientation="horizontal">
+                <!-- Column 1: Item 1 (ImageView10, TextView10) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/amplifying_tome" />
+                    <TextView
+                        android:id="@+id/itemStatText_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스탯"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+                <!-- Column 2: Item 2 (ImageView11, TextView11) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/doran_ring" />
+                    <TextView
+                        android:id="@+id/itemStatText_11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스탯"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+            </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/doran_ring" />
-            <TextView
-                android:id="@+id/itemStatText_11"
-                android:layout_width="wrap_content"
+            <!-- Row 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="스탯"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="4dp" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <!-- Column 1: Item 3 (ImageView12, TextView12) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/dark_seal" />
+                    <TextView
+                        android:id="@+id/itemStatText_12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스탯"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+                <!-- Column 2: Item 4 (ImageView13, TextView13) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/blasting_wand" />
+                    <TextView
+                        android:id="@+id/itemStatText_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스탯"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+            </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/dark_seal" />
-            <TextView
-                android:id="@+id/itemStatText_12"
-                android:layout_width="wrap_content"
+            <!-- Row 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="스탯"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="4dp" />
-
-            <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/blasting_wand" />
-            <TextView
-                android:id="@+id/itemStatText_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="스탯"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="4dp" />
-
-            <ImageView
-                android:id="@+id/imageView14"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/tear_of_the_goddess" />
-            <TextView
-                android:id="@+id/itemStatText_14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="스탯"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="4dp" />
-
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/faerie_charm" />
-            <TextView
-                android:id="@+id/itemStatText_15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="스탯"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="4dp" />
-
-        </GridLayout>
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <!-- Column 1: Item 5 (ImageView14, TextView14) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/tear_of_the_goddess" />
+                    <TextView
+                        android:id="@+id/itemStatText_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스탯"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+                <!-- Column 2: Item 6 (ImageView15, TextView15) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/faerie_charm" />
+                    <TextView
+                        android:id="@+id/itemStatText_15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스탯"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/buttonContainer"
