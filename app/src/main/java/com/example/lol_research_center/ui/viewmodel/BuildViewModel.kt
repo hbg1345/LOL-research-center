@@ -49,7 +49,7 @@ class BuildViewModel : ViewModel() {
             critperlevel = 0f
         )
         val asheChampionInfo = ChampionInfo(
-            champDrawable = 0, // 실제 Drawable ID로 대체 필요
+            champDrawable = R.drawable.ahri, // 실제 Drawable ID로 대체 필요
             name = "Ashe",
             lane = Lane.ADC,
             stats = asheStats,

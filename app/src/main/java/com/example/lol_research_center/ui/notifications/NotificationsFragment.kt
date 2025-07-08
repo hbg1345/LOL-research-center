@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lol_research_center.ui.home.HomeBottomSheetFragment
@@ -25,6 +26,7 @@ import com.example.lol_research_center.model.Skill
 import com.example.lol_research_center.model.SkillDamageSet
 import com.example.lol_research_center.model.Skills
 import com.example.lol_research_center.model.Stats
+import com.example.lol_research_center.ui.viewmodel.BuildViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -34,20 +36,15 @@ class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
     private val binding get() = _binding!!
-    private val defaultTargetBuild : BuildInfo = createDummyBuildInfo()
-    private var buildInfo: BuildInfo? = null
+    private val buildViewModel: BuildViewModel by activityViewModels()
     private val db by lazy { AppDatabase.getDatabase(requireContext().applicationContext) }
 
     // 현재 선택된 스킬
     private var selectedSkill: Skill? = null
+    private lateinit var testInfoAdapter: TestInfoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        buildInfo = arguments?.let {
-            if (Build.VERSION.SDK_INT >= 33) it.getParcelable("build", BuildInfo::class.java)
-            else @Suppress("DEPRECATION") it.getParcelable("build")
-        }
-
     }
 
     override fun onCreateView(
@@ -59,20 +56,19 @@ class NotificationsFragment : Fragment() {
         return binding.root
     }
     private fun setupTestInfoRecyclerView() {
-        // 1) 진짜 buildInfo 대신
-        val dummy = listOf(createDummyTestInfo())
-        println("▶▶ dummy size = ${dummy.size}")  //
-
         binding.testInfoRecyclerView.apply {
             isNestedScrollingEnabled = false
             layoutManager = LinearLayoutManager(context)
-            adapter = TestInfoAdapter(buildInfo!!.testInfoList)
+            testInfoAdapter = TestInfoAdapter(emptyList()) // Initialize with empty list
+            adapter = testInfoAdapter
         }
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupTestInfoRecyclerView() // Initialize adapter once
+
         binding.testInfoAddButton.setOnClickListener {
             Log.d("Builds", "+ 버튼 클릭")
 
@@ -82,17 +78,19 @@ class NotificationsFragment : Fragment() {
             homeBottomSheet.show(parentFragmentManager, homeBottomSheet.tag)
         }
 
-        buildInfo?.let { info ->
-            setupChampionInfo(info)
-            setupItems(info)
-            setupSkills(info)
-            setupLevelButtons()
-            setupExitButton()
-            setupSaveButton(info)
-            setupTestInfoRecyclerView()
-        } ?: run {
-            Toast.makeText(context, "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
-            findNavController().popBackStack()
+        buildViewModel.currentBuild.observe(viewLifecycleOwner) { buildInfo ->
+            buildInfo?.let {
+                setupChampionInfo(it)
+                setupItems(it)
+                setupSkills(it)
+                setupLevelButtons(it)
+                setupExitButton()
+                setupSaveButton(it)
+                testInfoAdapter.updateData(it.testInfoList) // Update data
+            } ?: run {
+                Toast.makeText(context, "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
+                findNavController().popBackStack()
+            }
         }
     }
 
@@ -234,19 +232,21 @@ class NotificationsFragment : Fragment() {
             view.setImageResource(skill.skillDrawable)
             view.setOnClickListener {
                 selectedSkill = skill
-                showSkill(skill,defaultTargetBuild)
+                showSkill(skill, info)
             }
         }
         // 기본 선택: Q
-        selectedSkill = skills.q
-        showSkill(skills.q, defaultTargetBuild)
+        info.champion.skills.q.let { qSkill ->
+            selectedSkill = qSkill
+            showSkill(qSkill, info)
+        }
     }
 
     private var currentChampionLevel: Int = 1 // 챔피언 레벨을 저장할 변수
 
-    private fun setupLevelButtons() {
+    private fun setupLevelButtons(info: BuildInfo) {
         // 초기 챔피언 레벨 설정
-        buildInfo?.champion?.level?.let {
+        info.champion.level.let {
             currentChampionLevel = it
             binding.skilllevelText.text = currentChampionLevel.toString() // 챔피언 레벨 표시
         }
@@ -254,30 +254,30 @@ class NotificationsFragment : Fragment() {
         binding.levelUpButton.setOnClickListener {
             selectedSkill?.let { skill ->
                 val maxLvl = when (skill.skillTitle) {
-                    buildInfo?.champion?.skills?.p?.skillTitle -> 0
-                    buildInfo?.champion?.skills?.r?.skillTitle -> 3
+                    info.champion.skills.p.skillTitle -> 0
+                    info.champion.skills.r.skillTitle -> 3
                     else -> 5
                 }
                 skill.skillLevel = (skill.skillLevel + 1).coerceAtMost(maxLvl)
-                showSkill(skill, defaultTargetBuild)
+                showSkill(skill, info)
             }
         }
         binding.levelDownButton.setOnClickListener {
             selectedSkill?.let { skill ->
                 skill.skillLevel = (skill.skillLevel - 1).coerceAtLeast(0)
-                showSkill(skill , defaultTargetBuild)
+                showSkill(skill , info)
             }
         }
     }
 
     private fun showSkill(skill: Skill, targetChamp: BuildInfo) {
-        val stats = buildInfo?.champion?.stats ?: return
-        val damage = calcDamageByType(skill,targetChamp,calculateTotalStats(buildInfo!!.champion, buildInfo!!.items, currentChampionLevel))
+        val stats = calculateTotalStats(targetChamp.champion, targetChamp.items, currentChampionLevel)
+        val damage = calcDamageByType(skill, targetChamp, stats)
         with(binding) {
             skillImg.setImageResource(skill.skillDrawable)
             skillTitleText.text = skill.skillTitle
             skilllevelText.text =
-                if (skill.skillTitle == buildInfo?.champion?.skills?.p?.skillTitle) "-"
+                if (skill.skillTitle == targetChamp.champion.skills.p.skillTitle) "-"
                 else skill.skillLevel.toString()
             // 총 데미지 표시
             dealTotal.text = damage.toString()
