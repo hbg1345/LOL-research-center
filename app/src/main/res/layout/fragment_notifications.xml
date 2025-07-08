@@ -606,7 +606,7 @@
             android:id="@+id/skillDesc"
             android:background="@drawable/lol_textpanel_bg"
             app:layout_constraintStart_toStartOf="@+id/constraint"
-            android:layout_width="390dp"
+            android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="10dp"
@@ -823,7 +823,6 @@
 
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="10dp"
@@ -837,13 +836,6 @@
                 android:src="@drawable/icon_add"
                 android:layout_width="50dp"
                 android:layout_height="50dp"/>
-
         </LinearLayout>
-
-
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
