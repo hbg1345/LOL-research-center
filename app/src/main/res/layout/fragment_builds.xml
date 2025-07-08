@@ -15,20 +15,18 @@
         android:padding="8dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageButton
         android:id="@+id/fabAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="96dp"
+        android:scaleType="fitCenter"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
-        android:contentDescription="@string/add_build"
-        app:backgroundTint="@color/purple_500"
-
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/add_button"
         app:layout_anchor="@id/recyclerView"
         app:layout_anchorGravity="bottom|end"
-
-        app:srcCompat="@drawable/ic_home_black_24dp"
-        app:tint="@android:color/white" />
+        />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
