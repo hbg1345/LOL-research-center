@@ -26,7 +26,8 @@ data class TestInfo(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val champion: ChampionInfo,
-    val items: List<ItemData>
+    val items: List<ItemData>,
+    val timestamp: Long = System.currentTimeMillis(), // 빌드 저장 시간
 ) : Parcelable
 
 @Parcelize
