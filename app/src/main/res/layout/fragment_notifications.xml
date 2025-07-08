@@ -28,19 +28,38 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/healthBar">
 
-            <ImageView
-                android:id="@+id/champImg"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/champImgContainer"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="10dp"
                 android:layout_gravity="center_vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/image_and_grid_container"
-                android:src="@drawable/ahri"
-                android:padding="10dp"
-                android:background="@drawable/crystal_ring"
-                />
+                app:layout_constraintBottom_toBottomOf="@+id/image_and_grid_container">
+
+                <ImageView
+                    android:id="@+id/crystalRingBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/crystal_ring"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/champImg"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:src="@drawable/ahri"
+                    app:layout_constraintTop_toTopOf="@id/crystalRingBackground"
+                    app:layout_constraintBottom_toBottomOf="@id/crystalRingBackground"
+                    app:layout_constraintStart_toStartOf="@id/crystalRingBackground"
+                    app:layout_constraintEnd_toEndOf="@id/crystalRingBackground"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/imageGrid"

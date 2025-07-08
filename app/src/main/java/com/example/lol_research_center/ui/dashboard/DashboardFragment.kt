@@ -45,7 +45,7 @@ class DashboardFragment : Fragment() {
         recyclerView.layoutManager = GridLayoutManager(context, 3)
 
         context?.let {
-            originalItems = ItemDataLoader.loadItemsFromAsset(it, "item.json")
+            originalItems = ItemDataLoader.loadItemsFromAsset(it, "item_unique_by_id.json")
         }
 
         val pickerMode = arguments?.getBoolean("pickerMode") ?: false
