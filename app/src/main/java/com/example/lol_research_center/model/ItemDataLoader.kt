@@ -32,6 +32,8 @@ object ItemDataLoader {
                 context.packageName
             )
             Log.d("ItemDataLoader", "Processing item: ${itemData.name}, rawImageName: $rawImageName, resourceName: $resourceName, imageResId: $imageResId")
+            // Add this line to print the stats
+            println("Item Stats for ${itemData.name}: ${itemData.stats}")
             itemData.copy(imageResId = imageResId)
         }
     }

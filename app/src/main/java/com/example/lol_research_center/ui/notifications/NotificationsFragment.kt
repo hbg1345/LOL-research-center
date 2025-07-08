@@ -84,7 +84,6 @@ class NotificationsFragment : Fragment() {
         var totalMS = baseStats.movespeed.toDouble()
         var totalHP = baseStats.hp.toDouble()
         var totalMP = baseStats.mp.toDouble()
-
         // 레벨에 따른 성장 스탯 계산 (챔피언 레벨은 1부터 시작)
         if (level > 1) {
             totalAD += baseStats.attackdamageperlevel * (level - 1)
@@ -149,6 +148,10 @@ class NotificationsFragment : Fragment() {
             textViewMr.text = calculatedStats.spellblock.toString()
             textViewAr.text = calculatedStats.armor.toString()
             textViewMs.text = calculatedStats.movespeed.toString()
+            textViewArmorPen.text = calculatedStats.armorPenetration.toString()
+            textViewArmorPenPercent.text = String.format("%.2f%%", calculatedStats.armorPenetrationPercent * 100)
+            textViewMagicPen.text = calculatedStats.magicPenetration.toString()
+            textViewMagicPenPercent.text = String.format("%.2f%%", calculatedStats.magicPenetrationPercent * 100)
 
             healthBar.apply { max = calculatedStats.hp; progress = calculatedStats.hp }
             healthText.text = calculatedStats.hp.toString()
@@ -250,7 +253,7 @@ class NotificationsFragment : Fragment() {
             damage = calculatePhysicalDamage(calcDamage(skill, stats), targetChamp.champion.stats.armor, stats).toInt()
         }
         else if(skill.skillType == "ap"){
-            println("apapapap")
+
             damage = calculateMagicDamage(calcDamage(skill,stats), targetChamp.champion.stats.spellblock, stats).toInt()
         }
         return damage
@@ -348,21 +351,20 @@ class NotificationsFragment : Fragment() {
         targetMR: Int,
         stats: Stats
     ): Float {
-        println(targetMR)
+
         // 1) % 관통
         val afterPercent = targetMR * (1f - stats.magicPenetrationPercent)
         // 2) flat 관통
-        println(afterPercent)
+
         val afterFlat = afterPercent - stats.magicPenetration
         // 3) 방어식
-        println(afterFlat)
+
         val coeff = if (afterFlat >= 0f) {
             1f / (1f + afterFlat * 0.01f)
         } else {
             2f - (1f / (1f - afterFlat * 0.01f))
         }
-        println(rawDamage)
-        println(coeff)
+
         return rawDamage * coeff
     }
 
