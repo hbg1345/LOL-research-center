@@ -15,6 +15,7 @@ data class BuildInfo(
     val items: List<ItemData>,        // 최대 6개
     val calcResult: SkillDamageSet,    // 스킬별 데미지 계산 결과 (아래 참조)
     val timestamp: Long = System.currentTimeMillis() // 빌드 저장 시간
+//    val calStat: Stats
 ) : Parcelable
 
 @Parcelize

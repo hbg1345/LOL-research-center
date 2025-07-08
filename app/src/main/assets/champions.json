@@ -7,7 +7,7 @@
     "stats": {
       "armorPenetration" : 0,
       "armorPenetrationPercent": 0,
-      "magicPenetration": 50,
+      "magicPenetration": 0,
       "magicPenetrationPercent": 0,
       "attackdamage": 53,
       "attackdamageperlevel": 3.0,

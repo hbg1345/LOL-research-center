@@ -13,33 +13,29 @@
         tools:context=".ui.notifications.NotificationsFragment">
 
         <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
-
-
-
         <!-- Health Bar -->
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/ahri"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/healthBar" />
 
         <GridLayout
             android:id="@+id/imageGrid"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:columnCount="4"
-            app:layout_constraintBottom_toTopOf="@+id/healthBar"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2">
 
             <!-- Row 1: Image, Number, Image, Number -->
             <ImageView
@@ -54,8 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:text="120"
                 android:textSize="20sp" />
 
@@ -157,6 +153,81 @@
                 android:text="0"
                 android:textSize="20sp" />
 
+            <!-- Row 4: Armor Penetration and Armor Penetration Percent -->
+            <ImageView
+                android:id="@+id/imageView_armorPen"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/armor_penetration" />
+
+            <TextView
+                android:id="@+id/textView_armorPen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:text="0"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView_armorPenPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:text="0%"
+                android:textSize="20sp" />
+
+            <!-- Empty cell to maintain 4 columns in Row 4 -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1" />
+
+            <!-- Row 5: Magic Penetration and Magic Penetration Percent -->
+            <ImageView
+                android:id="@+id/imageView_magicPen"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/magic_penetration" />
+
+            <TextView
+                android:id="@+id/textView_magicPen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:text="0"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView_magicPenPercent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:layout_columnWeight="1"
+                android:text="0%"
+                android:textSize="20sp" />
+
+            <!-- Empty cell to maintain 4 columns in Row 5 -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1" />
+
         </GridLayout>
 
         <ProgressBar
@@ -172,7 +243,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/imageGrid" />
 
         <TextView
             android:id="@+id/healthText"
@@ -196,7 +267,7 @@
             android:layout_height="15dp"
             android:layout_marginTop="4dp"
             android:max="100"
-            android:progress="50"
+            android:progress="100"
             android:progressTint="#0000FF"
             android:scaleY="4"
             app:layout_constraintEnd_toEndOf="parent"
@@ -365,7 +436,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemGrid">
+            app:layout_constraintTop_toBottomOf="@+id/buttonContainer">
 
             <!-- 패시브(P) -->
             <include
@@ -447,6 +518,8 @@
             android:src="@drawable/leesin_q"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+
 
         <TextView
             android:id="@+id/skillTitleText"

@@ -14,8 +14,8 @@ import com.example.lol_research_center.databinding.FragmentNotificationsBinding
 import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.model.ChampionInfo
 import com.example.lol_research_center.model.ItemData
-import com.example.lol_research_center.model.ItemStats
 import com.example.lol_research_center.model.Lane
+import com.example.lol_research_center.model.ItemStats
 import com.example.lol_research_center.model.Skill
 import com.example.lol_research_center.model.SkillDamageSet
 import com.example.lol_research_center.model.Skills
@@ -132,7 +132,11 @@ class NotificationsFragment : Fragment() {
             mpregenperlevel = baseStats.mpregenperlevel,
             crit = baseStats.crit,
             critperlevel = baseStats.critperlevel,
-            attackspeedperlevel = baseStats.attackspeedperlevel
+            attackspeedperlevel = baseStats.attackspeedperlevel,
+            armorPenetration = baseStats.armorPenetration,
+            armorPenetrationPercent = baseStats.armorPenetrationPercent,
+            magicPenetration = baseStats.magicPenetration,
+            magicPenetrationPercent = baseStats.magicPenetrationPercent
         )
     }
 
@@ -145,6 +149,11 @@ class NotificationsFragment : Fragment() {
             textViewMr.text = calculatedStats.spellblock.toString()
             textViewAr.text = calculatedStats.armor.toString()
             textViewMs.text = calculatedStats.movespeed.toString()
+
+            textViewArmorPen.text = calculatedStats.armorPenetration.toString()
+            textViewArmorPenPercent.text = String.format("%.2f%%", calculatedStats.armorPenetrationPercent * 100)
+            textViewMagicPen.text = calculatedStats.magicPenetration.toString()
+            textViewMagicPenPercent.text = String.format("%.2f%%", calculatedStats.magicPenetrationPercent * 100)
 
             healthBar.apply { max = calculatedStats.hp; progress = calculatedStats.hp }
             healthText.text = calculatedStats.hp.toString()
@@ -214,17 +223,9 @@ class NotificationsFragment : Fragment() {
                 }
                 skill.skillLevel = (skill.skillLevel + 1).coerceAtMost(maxLvl)
                 showSkill(skill, defaultTargetBuild)
-            currentChampionLevel = (currentChampionLevel + 1).coerceAtMost(18) // 최대 레벨 18
-            binding.skilllevelText.text = currentChampionLevel.toString()
-            buildInfo?.let { info ->
-                updateStatsUI(info.champion, info.items, currentChampionLevel)
             }
         }
         binding.levelDownButton.setOnClickListener {
-            currentChampionLevel = (currentChampionLevel - 1).coerceAtLeast(1) // 최소 레벨 1
-            binding.skilllevelText.text = currentChampionLevel.toString()
-            buildInfo?.let { info ->
-                updateStatsUI(info.champion, info.items, currentChampionLevel)
             selectedSkill?.let { skill ->
                 skill.skillLevel = (skill.skillLevel - 1).coerceAtLeast(0)
                 showSkill(skill , defaultTargetBuild)
@@ -232,22 +233,15 @@ class NotificationsFragment : Fragment() {
         }
     }
 
-    private fun showSkill(skill: Skill) {
-        val champion = buildInfo?.champion ?: return
-        val items = buildInfo?.items ?: return
-        val calculatedStats = calculateTotalStats(champion, items, currentChampionLevel) // 현재 챔피언 레벨 사용
-        val damage = calcDamage(skill, calculatedStats) // 계산된 스탯 사용
     private fun showSkill(skill: Skill, targetChamp: BuildInfo) {
         val stats = buildInfo?.champion?.stats ?: return
-        val damage = calcDamageByType(skill,targetChamp,stats)
+        val damage = calcDamageByType(skill,targetChamp,calculateTotalStats(buildInfo!!.champion, buildInfo!!.items, currentChampionLevel))
         with(binding) {
             skillImg.setImageResource(skill.skillDrawable)
             skillTitleText.text = skill.skillTitle
             skilllevelText.text =
                 if (skill.skillTitle == buildInfo?.champion?.skills?.p?.skillTitle) "-"
                 else skill.skillLevel.toString()
-            skilllevelText.text = if (skill.skillTitle == champion.skills.p.skillTitle) "-"
-            else skill.skillLevel.toString()
             // 총 데미지 표시
             dealTotal.text = damage.toString()
         }
@@ -261,6 +255,7 @@ class NotificationsFragment : Fragment() {
             damage = calculatePhysicalDamage(calcDamage(skill, stats), targetChamp.champion.stats.armor, stats).toInt()
         }
         else if(skill.skillType == "ap"){
+            println("apapapap")
             damage = calculateMagicDamage(calcDamage(skill,stats), targetChamp.champion.stats.spellblock, stats).toInt()
         }
         return damage
@@ -358,16 +353,21 @@ class NotificationsFragment : Fragment() {
         targetMR: Int,
         stats: Stats
     ): Float {
+        println(targetMR)
         // 1) % 관통
         val afterPercent = targetMR * (1f - stats.magicPenetrationPercent)
         // 2) flat 관통
+        println(afterPercent)
         val afterFlat = afterPercent - stats.magicPenetration
         // 3) 방어식
+        println(afterFlat)
         val coeff = if (afterFlat >= 0f) {
             1f / (1f + afterFlat * 0.01f)
         } else {
             2f - (1f / (1f - afterFlat * 0.01f))
         }
+        println(rawDamage)
+        println(coeff)
         return rawDamage * coeff
     }
 
