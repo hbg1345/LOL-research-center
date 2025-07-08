@@ -148,9 +148,6 @@ class NotificationsFragment : Fragment() {
             textViewMr.text = calculatedStats.spellblock.toString()
             textViewAr.text = calculatedStats.armor.toString()
             textViewMs.text = calculatedStats.movespeed.toString()
-            println("이동속도 알려주세요.")
-            println(textViewMs.text)
-
             textViewArmorPen.text = calculatedStats.armorPenetration.toString()
             textViewArmorPenPercent.text = String.format("%.2f%%", calculatedStats.armorPenetrationPercent * 100)
             textViewMagicPen.text = calculatedStats.magicPenetration.toString()
