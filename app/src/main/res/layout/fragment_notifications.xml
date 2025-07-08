@@ -37,7 +37,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/image_and_grid_container"
-                android:src="@drawable/ahri" />
+                android:src="@drawable/ahri"
+                android:padding="10dp"
+                android:background="@drawable/crystal_ring"
+                />
 
             <LinearLayout
                 android:id="@+id/imageGrid"
@@ -75,7 +78,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:text="120"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                     <!-- Column 2: AP -->
                     <LinearLayout
@@ -97,7 +101,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:text="0"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -126,7 +131,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:text="0"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                     <!-- Column 2: MR -->
                     <LinearLayout
@@ -148,7 +154,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:text="0"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -177,7 +184,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:text="0"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                     <!-- Column 2: MS -->
                     <LinearLayout
@@ -199,7 +207,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:text="0"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -228,7 +237,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:text="0"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                     <!-- Column 2: Armor Pen Percent -->
                     <LinearLayout
@@ -244,7 +254,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:text="0%"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -273,7 +284,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:text="0"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                     <!-- Column 2: Magic Pen Percent -->
                     <LinearLayout
@@ -289,7 +301,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:text="0%"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFFFF"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -356,15 +369,17 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:background="#CCCCCC"
             android:orientation="vertical"
+            android:background="@drawable/skill_icon_border"
             app:layout_constraintTop_toBottomOf="@+id/manaBar">
 
             <!-- Row 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp">
                 <!-- Column 1: Item 1 (ImageView10, TextView10) -->
                 <LinearLayout
                     android:layout_width="0dp"
@@ -414,14 +429,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginStart="5dp"
+                >
                 <!-- Column 1: Item 3 (ImageView12, TextView12) -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    >
                     <ImageView
                         android:id="@+id/imageView12"
                         android:layout_width="50dp"
@@ -455,7 +472,8 @@
                         android:text="스탯"
                         android:textSize="10sp"
                         android:textColor="#FFFFFF"
-                        android:layout_marginStart="4dp" />
+                        android:layout_marginStart="4dp"
+                        />
                 </LinearLayout>
             </LinearLayout>
 
@@ -464,7 +482,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp">
                 <!-- Column 1: Item 5 (ImageView14, TextView14) -->
                 <LinearLayout
                     android:layout_width="0dp"
