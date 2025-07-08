@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/backdrop_magic"
+
+
+    android:padding="8dp">
+
+    <!-- 1줄짜리 가로 컨테이너 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- 1) 챔피언 이미지 + 금테두리 -->
+        <ImageView
+            android:id="@+id/cardChampImg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/frame_gold"
+            android:padding="3dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ahri" />
+
+        <!-- 2) 3×2 아이템 그리드 -->
+        <GridLayout
+            android:id="@+id/cardItemsGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="2"
+            android:useDefaultMargins="false">
+
+            <!-- 6개의 슬롯, 모두 30×30 -->
+
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="1dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/amplifying_tome"
+                android:background="@drawable/frame_gold"
+                android:padding="3dp"
+                />
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="1dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/amplifying_tome"
+                android:background="@drawable/frame_gold"
+                android:padding="3dp"
+                />
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="1dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/amplifying_tome"
+                android:background="@drawable/frame_gold"
+                android:padding="3dp"
+                />
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="1dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/amplifying_tome"
+                android:background="@drawable/frame_gold"
+                android:padding="3dp"
+                />
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="1dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/amplifying_tome"
+                android:background="@drawable/frame_gold"
+                android:padding="3dp"
+                />
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="1dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/amplifying_tome"
+                android:background="@drawable/frame_gold"
+                android:padding="3dp"
+                />
+            <!-- ... 나머지 5개도 동일하게 ... -->
+        </GridLayout>
+        <!-- 3) 세로로 5개의 스탯 (아이콘 + 값) -->
+        <LinearLayout
+            android:id="@+id/statRows"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp">
+
+            <!-- AD -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/ar" />
+
+                <TextView
+                    android:id="@+id/statAdText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="53"
+                    android:textSize="10sp"
+                    android:textColor="@color/lol_gold"
+                    android:fontFamily="@font/friz_quadrata_bold" />
+            </LinearLayout>
+
+            <!-- AS -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/mr" />
+
+                <TextView
+                    android:id="@+id/statAsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="0.67"
+                    android:textSize="10sp"
+                    android:textColor="@color/lol_gold"
+                    android:fontFamily="@font/friz_quadrata_bold" />
+            </LinearLayout>
+
+            <!-- Armor -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/hp" />
+
+                <TextView
+                    android:id="@+id/statArmorText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="21"
+                    android:textSize="10sp"
+                    android:textColor="@color/lol_gold"
+                    android:fontFamily="@font/friz_quadrata_bold" />
+            </LinearLayout>
+
+            <!-- AP -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/hp5" />
+
+                <TextView
+                    android:id="@+id/statApText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="0"
+                    android:textSize="10sp"
+                    android:textColor="@color/lol_gold"
+                    android:fontFamily="@font/friz_quadrata_bold" />
+            </LinearLayout>
+
+            <!-- MR -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/leblanc" />
+                <TextView
+                    android:id="@+id/statMrText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="30"
+                    android:textSize="10sp"
+                    android:textColor="@color/lol_gold"
+                    android:fontFamily="@font/friz_quadrata_bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="36dp"
+                android:layout_height="35dp"
+                android:adjustViewBounds="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="4dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/button_close" />
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:fontFamily="@font/friz_quadrata_bold"
+                android:text="10000"
+                android:textColor="@color/lol_gold"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+
+        <!-- 3) 레벨 박스 (그리드 옆에 붙음) -->
+
+    </LinearLayout>
+</FrameLayout>

@@ -446,8 +446,6 @@
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
 
-
-
         <TextView
             android:id="@+id/skillTitleText"
             android:layout_width="200dp"
@@ -590,6 +588,8 @@
 
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
