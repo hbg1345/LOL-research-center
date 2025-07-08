@@ -111,6 +111,11 @@ class NotificationsFragment : Fragment() {
         var totalMS = baseStats.movespeed.toDouble()
         var totalHP = baseStats.hp.toDouble()
         var totalMP = baseStats.mp.toDouble()
+        var totalArmorPenetration = baseStats.armorPenetration.toDouble()
+        var totalArmorPenetrationPercent = 1.0
+        var totalMagicPenetration = baseStats.magicPenetration.toDouble()
+        var totalMagicPenetrationPercent = 1.0
+
         // 레벨에 따른 성장 스탯 계산 (챔피언 레벨은 1부터 시작)
         if (level > 1) {
             totalAD += baseStats.attackdamageperlevel * (level - 1)
@@ -133,9 +138,16 @@ class NotificationsFragment : Fragment() {
                 itemStats.flatMovementSpeedMod?.let { totalMS += it }
                 itemStats.flatHPPoolMod?.let { totalHP += it }
                 itemStats.flatMPPoolMod?.let { totalMP += it }
+                itemStats.rFlatArmorPenetrationMod?.let { totalArmorPenetration += it }
+                itemStats.rPercentArmorPenetrationMod?.let { totalArmorPenetrationPercent *= (1-it) }
+                itemStats.rFlatMagicPenetrationMod?.let { totalMagicPenetration += it }
+                itemStats.rPercentMagicPenetrationMod?.let { totalMagicPenetrationPercent *= (1-it) }
+
                 // TODO: 다른 아이템 스탯들도 추가
             }
         }
+        totalArmorPenetrationPercent = 1-totalArmorPenetrationPercent
+        totalMagicPenetrationPercent = 1-totalMagicPenetrationPercent
 
         return Stats(
             attackdamage = totalAD.toInt(),
@@ -159,10 +171,10 @@ class NotificationsFragment : Fragment() {
             crit = baseStats.crit,
             critperlevel = baseStats.critperlevel,
             attackspeedperlevel = baseStats.attackspeedperlevel,
-            armorPenetration = baseStats.armorPenetration,
-            armorPenetrationPercent = baseStats.armorPenetrationPercent,
-            magicPenetration = baseStats.magicPenetration,
-            magicPenetrationPercent = baseStats.magicPenetrationPercent
+            armorPenetration = totalArmorPenetration.toFloat(),
+            armorPenetrationPercent = totalArmorPenetrationPercent.toFloat(),
+            magicPenetration = totalMagicPenetration.toFloat(),
+            magicPenetrationPercent = totalMagicPenetrationPercent.toFloat()
         )
     }
 
@@ -566,20 +578,20 @@ class NotificationsFragment : Fragment() {
         itemStats.flatHPPoolMod?.let { if (it != 0.0) statsList.add("체력: ${it.toInt()}") }
         itemStats.flatMPPoolMod?.let { if (it != 0.0) statsList.add("마나: ${it.toInt()}") }
         itemStats.flatMovementSpeedMod?.let { if (it != 0.0) statsList.add("이동 속도: ${it.toInt()}") }
-        itemStats.percentAttackSpeedMod?.let { if (it != 0.0) statsList.add("공격 속도 %: ${String.format("%.2f", it * 100)}%") }
-        itemStats.percentHPPoolMod?.let { if (it != 0.0) statsList.add("체력 %: ${String.format("%.2f", it * 100)}%") }
-        itemStats.percentMPPoolMod?.let { if (it != 0.0) statsList.add("마나 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.percentAttackSpeedMod?.let { if (it != 0.0) statsList.add("공격 속도 %: ${String.format("%.0f", it * 100)}%") }
+        itemStats.percentHPPoolMod?.let { if (it != 0.0) statsList.add("체력 %: ${String.format("%.0f", it * 100)}%") }
+        itemStats.percentMPPoolMod?.let { if (it != 0.0) statsList.add("마나 %: ${String.format("%.0f", it * 100)}%") }
         itemStats.flatHPRegenMod?.let { if (it != 0.0) statsList.add("체력 재생: ${it.toInt()}") }
         itemStats.flatMPRegenMod?.let { if (it != 0.0) statsList.add("마나 재생: ${it.toInt()}") }
-        itemStats.flatCritChanceMod?.let { if (it != 0.0) statsList.add("치명타 확률: ${it.toInt()}") }
+        itemStats.flatCritChanceMod?.let { if (it != 0.0) statsList.add("치명타 확률: ${String.format("%.0f", it * 100)}%") }
         itemStats.flatCritDamageMod?.let { if (it != 0.0) statsList.add("치명타 피해: ${it.toInt()}") }
-        itemStats.percentLifeStealMod?.let { if (it != 0.0) statsList.add("생명력 흡수 %: ${String.format("%.2f", it * 100)}%") }
-        itemStats.percentSpellVampMod?.let { if (it != 0.0) statsList.add("주문 흡혈 %: ${String.format("%.2f", it * 100)}%") }
-        itemStats.rPercentCooldownMod?.let { if (it != 0.0) statsList.add("스킬 가속 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.percentLifeStealMod?.let { if (it != 0.0) statsList.add("생명력 흡수 %: ${String.format("%.0f", it * 100)}%") }
+        itemStats.percentSpellVampMod?.let { if (it != 0.0) statsList.add("주문 흡혈 %: ${String.format("%.0f", it * 100)}%") }
+        itemStats.rPercentCooldownMod?.let { if (it != 0.0) statsList.add("스킬 가속 %: ${String.format("%.0f", it * 100)}%") }
         itemStats.rFlatArmorPenetrationMod?.let { if (it != 0.0) statsList.add("물리 관통력: ${it.toInt()}") }
         itemStats.rFlatMagicPenetrationMod?.let { if (it != 0.0) statsList.add("마법 관통력: ${it.toInt()}") }
-        itemStats.rPercentArmorPenetrationMod?.let { if (it != 0.0) statsList.add("물리 관통력 %: ${String.format("%.2f", it * 100)}%") }
-        itemStats.rPercentMagicPenetrationMod?.let { if (it != 0.0) statsList.add("마법 관통력 %: ${String.format("%.2f", it * 100)}%") }
+        itemStats.rPercentArmorPenetrationMod?.let { if (it != 0.0) statsList.add("물리 관통력 %: ${String.format("%.0f", it * 100)}%") }
+        itemStats.rPercentMagicPenetrationMod?.let { if (it != 0.0) statsList.add("마법 관통력 %: ${String.format("%.0f", it * 100)}%") }
 
 
         return statsList.joinToString("\n")
