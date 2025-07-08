@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- ① 텍스처 배경 -->
-    <item>
+    <!-- ① 내부 여백을 stroke 두께만큼(1dp) 주어, 비트맵이 테두리 밑으로 삐져나오지 않도록 -->
+    <item
+        android:left="1dp"
+        android:top="1dp"
+        android:right="1dp"
+        android:bottom="1dp">
         <bitmap
-            android:src="@drawable/backdrop_magic"
+            android:src="@drawable/back_highlight"
             android:tileMode="repeat"
             android:gravity="fill" />
     </item>
 
     <!-- ② 금색 외곽선 -->
-    <item android:left="0dp" android:top="0dp"
-        android:right="0dp" android:bottom="0dp">
+    <item>
         <shape android:shape="rectangle">
-            <stroke android:width="1dp" android:color="@color/lol_gold"/>
-            <corners android:radius="4dp"/>
+            <!-- 배경은 투명(없음) -->
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/lol_gold" />
+            <corners android:radius="4dp" />
         </shape>
     </item>
 
