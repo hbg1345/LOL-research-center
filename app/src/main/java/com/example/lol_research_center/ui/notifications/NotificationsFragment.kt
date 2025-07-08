@@ -11,6 +11,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.lol_research_center.ui.home.HomeBottomSheetFragment
 import com.example.lol_research_center.R
 import com.example.lol_research_center.database.AppDatabase
 import com.example.lol_research_center.database.DummyDataProvider.createDummyTestInfo
@@ -75,11 +76,10 @@ class NotificationsFragment : Fragment() {
         binding.testInfoAddButton.setOnClickListener {
             Log.d("Builds", "+ 버튼 클릭")
 
+            val homeBottomSheet = HomeBottomSheetFragment()
             val args = bundleOf("pickerMode" to true)
-            findNavController().navigate(
-                R.id.action_notification_to_selectChampion,
-                args
-            )
+            homeBottomSheet.arguments = args
+            homeBottomSheet.show(parentFragmentManager, homeBottomSheet.tag)
         }
 
         buildInfo?.let { info ->

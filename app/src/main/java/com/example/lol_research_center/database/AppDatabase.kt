@@ -11,7 +11,7 @@ import com.example.lol_research_center.model.TestInfo
 
 @Database(
     entities = [BuildInfo::class, TestInfo::class],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
