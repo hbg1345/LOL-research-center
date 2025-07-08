@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Delete
 import com.example.lol_research_center.model.BuildInfo
+import com.example.lol_research_center.model.TestInfo
 import kotlinx.coroutines.flow.Flow
 
 @Dao

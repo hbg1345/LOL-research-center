@@ -19,13 +19,13 @@ data class BuildInfo(
 ) : Parcelable
 
 @Parcelize
+@Entity(tableName = "test_info")
 data class TestInfo(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val champion: ChampionInfo,
-    val items: List<ItemData>,        // 최대 6개
+    val items: List<ItemData>
 ) : Parcelable
-
 
 @Parcelize
 data class SkillDamageSet(

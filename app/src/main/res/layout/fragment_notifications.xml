@@ -28,7 +28,7 @@
             app:layout_constraintBottom_toTopOf="@+id/healthBar">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/champImg"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="10dp"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/champImg"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/image_and_grid_container"
@@ -606,7 +606,7 @@
             android:id="@+id/skillDesc"
             android:background="@drawable/lol_textpanel_bg"
             app:layout_constraintStart_toStartOf="@+id/constraint"
-            android:layout_width="390dp"
+            android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="10dp"
@@ -823,7 +823,6 @@
 
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="10dp"
@@ -834,16 +833,10 @@
             android:gravity="center"
             android:layout_height="100dp">
             <ImageButton
+                android:id="@+id/testInfoAddButton"
                 android:src="@drawable/icon_add"
                 android:layout_width="50dp"
                 android:layout_height="50dp"/>
-
         </LinearLayout>
-
-
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
