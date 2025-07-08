@@ -10,7 +10,7 @@ import com.example.lol_research_center.R
 import android.widget.TextView
 import com.example.lol_research_center.model.ItemData
 
-class DashboardAdapter(private val items: List<ItemData>, private val onItemClick: (ItemData) -> Unit) : RecyclerView.Adapter<DashboardAdapter.ViewHolder>() {
+class DashboardAdapter(private var items: List<ItemData>, private val onItemClick: (ItemData) -> Unit) : RecyclerView.Adapter<DashboardAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_grid, parent, false)
@@ -26,6 +26,11 @@ class DashboardAdapter(private val items: List<ItemData>, private val onItemClic
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun updateItems(newItems: List<ItemData>) {
+        items = newItems
+        notifyDataSetChanged()
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
