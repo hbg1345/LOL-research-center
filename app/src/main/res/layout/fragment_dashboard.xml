@@ -6,28 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <!-- 모든 아이템을 보여주는 RecyclerView -->
+    <EditText
+        android:id="@+id/search_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="아이템 검색"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/search_button"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="검색"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/search_edit_text"
+        app:layout_constraintBottom_toBottomOf="@+id/search_edit_text"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- 기존 RecyclerView for all items -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/selected_items_container"/> <!-- 이 뷰의 하단은 아래 컨테이너의 상단에 고정 -->
+        app:layout_constraintTop_toBottomOf="@+id/search_edit_text"
+        app:layout_constraintBottom_toTopOf="@+id/selected_items_container" />
 
-    <!-- 하단에 고정될 선택된 아이템 및 버튼 컨테이너 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/selected_items_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"> <!-- 이 뷰의 하단은 부모의 하단에 고정 -->
-        <!-- 상단 제약(constraintTop_toBottomOf)을 제거하여 순환 참조를 해결 -->
+        app:layout_constraintBottom_toBottomOf="parent">
 
-
-        <!-- 선택된 아이템을 보여주는 RecyclerView (2x3 그리드) -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/selected_items_recycler_view"
             android:layout_width="300dp"

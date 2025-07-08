@@ -2,8 +2,9 @@ package com.example.lol_research_center.ui.dashboard
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -14,9 +15,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.lol_research_center.R
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.lol_research_center.databinding.FragmentDashboardBinding
+import com.example.lol_research_center.model.ItemData
 import com.example.lol_research_center.model.ItemDataLoader
 import com.example.lol_research_center.ui.viewmodel.BuildViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashboardFragment : Fragment() {
 
@@ -25,9 +26,8 @@ class DashboardFragment : Fragment() {
 
     private val buildViewModel: BuildViewModel by activityViewModels()
     private lateinit var selectedItemsAdapter: SelectedItemsAdapter
-
-    // Constants for item dimensions
-    
+    private lateinit var dashboardAdapter: DashboardAdapter
+    private var originalItems: List<ItemData> = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,9 +44,9 @@ class DashboardFragment : Fragment() {
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = GridLayoutManager(context, 3)
 
-        val items = context?.let {
-            ItemDataLoader.loadItemsFromAsset(it, "item.json")
-        } ?: emptyList()
+        context?.let {
+            originalItems = ItemDataLoader.loadItemsFromAsset(it, "item.json")
+        }
 
         val pickerMode = arguments?.getBoolean("pickerMode") ?: false
 
@@ -60,7 +60,7 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.buildsFragment)
         }
 
-        val adapter = DashboardAdapter(items) {
+        dashboardAdapter = DashboardAdapter(originalItems) {
             if (pickerMode) {
                 if ((buildViewModel.currentBuild.value?.items?.size ?: 0) < 6) {
                     buildViewModel.addItem(it)
@@ -69,9 +69,8 @@ class DashboardFragment : Fragment() {
                 }
             }
         }
-        recyclerView.adapter = adapter
+        recyclerView.adapter = dashboardAdapter
 
-        // Setup for selected items RecyclerView
         selectedItemsAdapter = SelectedItemsAdapter() {
             buildViewModel.removeItem(it)
         }
@@ -81,11 +80,8 @@ class DashboardFragment : Fragment() {
             binding.selectedItemsContainer.visibility = View.VISIBLE
             binding.selectedItemsRecyclerView.visibility = View.VISIBLE
             binding.nextButton.visibility = View.VISIBLE
-        } else {
-            binding.selectedItemsContainer.visibility = View.GONE
         }
 
-        // Observe changes in selected items from BuildViewModel
         buildViewModel.currentBuild.observe(viewLifecycleOwner) { buildInfo ->
             buildInfo?.items?.let {
                 selectedItemsAdapter.updateItems(it)
@@ -94,7 +90,7 @@ class DashboardFragment : Fragment() {
 
         binding.nextButton.setOnClickListener {
             buildViewModel.currentBuild.value?.let {
-                val bundle = Bundle().apply { 
+                val bundle = Bundle().apply {
                     putParcelable("build", it)
                     putBoolean("pickerMode", pickerMode)
                 }
@@ -103,6 +99,30 @@ class DashboardFragment : Fragment() {
                 Toast.makeText(requireContext(), "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filterItems(s.toString())
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        binding.searchButton.setOnClickListener {
+            filterItems(binding.searchEditText.text.toString())
+        }
+    }
+
+    private fun filterItems(query: String) {
+        val filteredList = if (query.isBlank()) {
+            originalItems
+        } else {
+            originalItems.filter {
+                it.name.contains(query, ignoreCase = true) ||
+                it.description?.contains(query, ignoreCase = true) == true
+            }
+        }
+        dashboardAdapter.updateItems(filteredList)
     }
 
     override fun onDestroyView() {
@@ -110,4 +130,3 @@ class DashboardFragment : Fragment() {
         _binding = null
     }
 }
-
