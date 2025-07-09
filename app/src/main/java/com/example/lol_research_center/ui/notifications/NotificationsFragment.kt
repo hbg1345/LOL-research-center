@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.ui.home.HomeBottomSheetFragment
 import com.example.lol_research_center.R
-import com.example.lol_research_center.adapter.SkillComboAdapter
+import com.example.lol_research_center.ui.notifications.SkillComboAdapter
 import com.example.lol_research_center.database.AppDatabase
 import com.example.lol_research_center.database.DummyDataProvider.createDummyTestInfo
 import com.example.lol_research_center.databinding.FragmentNotificationsBinding
@@ -35,6 +35,7 @@ import com.example.lol_research_center.model.SkillCombo
 import com.example.lol_research_center.model.SkillDamageSet
 import com.example.lol_research_center.model.Skills
 import com.example.lol_research_center.model.Stats
+import com.example.lol_research_center.model.TestInfo
 import com.example.lol_research_center.ui.viewmodel.BuildViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -57,6 +58,8 @@ class NotificationsFragment : Fragment() {
     private var selectedSkill: Skill? = null
     private lateinit var testInfoAdapter: TestInfoAdapter
 
+    private var selectedTestInfo: TestInfo? = null // Add this line to store the selected TestInfo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -76,8 +79,9 @@ class NotificationsFragment : Fragment() {
             testInfoAdapter = TestInfoAdapter(emptyList(), ::calculateTotalStats, ::calculatePhysicalDamage, ::calculateMagicDamage, selectedSkill, { testInfoToRemove ->
                 buildViewModel.removeTestInfo(testInfoToRemove)
             }) { selectedTestInfo ->
-                // Handle item selection here if needed in NotificationsFragment
-                // For now, we just log it or do nothing specific
+                // Handle item selection here
+                this@NotificationsFragment.selectedTestInfo = selectedTestInfo
+                skillComboAdapter.updateSelectedTestInfo(selectedTestInfo)
                 Log.d("NotificationsFragment", "TestInfo selected: ${selectedTestInfo.champion.name}")
             } // Initialize with empty list and pass the stat and damage calculation functions
             adapter = testInfoAdapter
@@ -88,9 +92,8 @@ class NotificationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         super.onViewCreated(view, savedInstanceState)
-        skillComboAdapter = SkillComboAdapter(comboList)
+        // Initialize skillComboAdapter later when buildInfo is available
         val recyclerView = view.findViewById<RecyclerView>(R.id.skillComboRecyclerView)
-        recyclerView.adapter = skillComboAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         setupTestInfoRecyclerView() // Initialize adapter once
         val btnSkillComboModal: ImageButton = view.findViewById(R.id.skillComboModalButton)
@@ -220,6 +223,30 @@ class NotificationsFragment : Fragment() {
                 setupSaveButton()
                 testInfoAdapter.updateData(it.testInfoList) // Update data
                 setupSkillButtons(it)
+
+                // Initialize SkillComboAdapter here
+                val skillMap = mapOf(
+                    it.champion.skills.p.skillDrawable to it.champion.skills.p,
+                    it.champion.skills.q.skillDrawable to it.champion.skills.q,
+                    it.champion.skills.w.skillDrawable to it.champion.skills.w,
+                    it.champion.skills.e.skillDrawable to it.champion.skills.e,
+                    it.champion.skills.r.skillDrawable to it.champion.skills.r
+                )
+                skillComboAdapter = SkillComboAdapter(
+                    comboList,
+                    skillMap,
+                    ::calculateTotalStats,
+                    ::calculatePhysicalDamage,
+                    ::calculateMagicDamage,
+                    ::calcDamage,
+                    ::calcDamageByType,
+                    it.champion,
+                    it.items,
+                    it.champion.level,
+                    selectedTestInfo // Pass the selectedTestInfo here
+                )
+                binding.skillComboRecyclerView.adapter = skillComboAdapter
+
             } ?: run {
                 Toast.makeText(context, "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
@@ -241,33 +268,28 @@ class NotificationsFragment : Fragment() {
         }
         val btnSaveCombo = view.findViewById<Button>(R.id.btnSaveCombo)
         btnSaveCombo.setOnClickListener {
-            // 1) 콤보 이름
             val comboName = (skillComboModal.findViewById<TextView>(R.id.tvComboName)).text.toString()
-            // 2) 콤보 설명
             val comboDesc = (skillComboModal.findViewById<TextView>(R.id.tvComboDescription)).text.toString()
-            // 3) 총 데미지
-            val comboDamage = (skillComboModal.findViewById<TextView>(R.id.tvDamageTextView))?.text?.toString() ?: "-"
 
-            // 4) 10개 스킬 아이콘(이미지)와 키값 리스트 뽑기
             val skillDrawables = mutableListOf<Int>()
             val skillKeys = mutableListOf<String>()
 
-            // skillImg1~10에서 추출
             for (i in 1..10) {
                 val skillLayout = skillComboModal.findViewById<View>(skillImgId(i))
                 val img = skillLayout.findViewById<ImageView>(R.id.imgSkill)
                 val key = skillLayout.findViewById<TextView>(R.id.tvSkillKey)
-                skillDrawables.add(img.getTag(R.id.imgSkill) as? Int ?: R.drawable.empty_icon) // <- 수정!
+                skillDrawables.add(img.getTag(R.id.imgSkill) as? Int ?: R.drawable.empty_icon)
                 skillKeys.add(key.text?.toString() ?: "")
             }
 
+            val tempCombo = SkillCombo("", skillDrawables, skillKeys, 0, "") // Temporary combo to calculate damage
+            val totalComboDamage = skillComboAdapter.calculateComboDamage(tempCombo)
 
-            // SkillCombo 객체 생성 및 추가
             val combo = SkillCombo(
                 name = comboName,
                 skillDrawables = skillDrawables,
                 skillKeys = skillKeys,
-                damage = comboDamage,
+                damage = totalComboDamage,
                 description = comboDesc
             )
             comboList.add(combo)
@@ -514,7 +536,7 @@ class NotificationsFragment : Fragment() {
 
     private fun showSkill(skill: Skill, targetChamp: BuildInfo) {
         val stats = calculateTotalStats(targetChamp.champion, targetChamp.items, currentChampionLevel)
-        val damage = calcDamageByType(skill, targetChamp, stats)
+        val damage = calcDamageByType(skill, stats, targetChamp.champion.stats.armor, targetChamp.champion.stats.spellblock)
         with(binding) {
             skillImg.setImageResource(skill.skillDrawable)
             skillTitleText.text = skill.skillTitle
@@ -526,17 +548,16 @@ class NotificationsFragment : Fragment() {
         }
         testInfoAdapter.updateSelectedSkill(skill) // Update selected skill in adapter
     }
-    private fun calcDamageByType(skill: Skill, targetChamp: BuildInfo, stats: Stats): Int{
+    private fun calcDamageByType(skill: Skill, stats: Stats, targetArmor: Int, targetMR: Int): Int{
         var damage = 0
         if(skill.skillType == "fix"){
             damage = calcDamage(skill, stats)
         }
         else if(skill.skillType == "ad"){
-            damage = calculatePhysicalDamage(calcDamage(skill, stats), targetChamp.champion.stats.armor, stats).toInt()
+            damage = calculatePhysicalDamage(calcDamage(skill, stats), targetArmor, stats).toInt()
         }
         else if(skill.skillType == "ap"){
-
-            damage = calculateMagicDamage(calcDamage(skill,stats), targetChamp.champion.stats.spellblock, stats).toInt()
+            damage = calculateMagicDamage(calcDamage(skill,stats), targetMR, stats).toInt()
         }
         return damage
     }
