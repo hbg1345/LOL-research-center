@@ -78,7 +78,7 @@ class TestInfoAdapter(
         holder.statMr.text = calculatedStats.spellblock.toString()
         // 데미지 계산 및 표시 (현재 선택된 스킬 사용)
         selectedSkill?.let { skill ->
-            val damage = calcDamageByType(skill, calculatedStats, info.champion.stats.armor, info.champion.stats.spellblock)
+            val damage = calcDamageByType(skill, calculatedStats, calculatedStats.armor, calculatedStats.spellblock)
             holder.hitDamage.text = damage.toString()
         } ?: run {
             holder.hitDamage.text = "N/A" // No skill selected
