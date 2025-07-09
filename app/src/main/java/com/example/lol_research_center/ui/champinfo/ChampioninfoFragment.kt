@@ -29,7 +29,6 @@ class ChampioninfoFragment : Fragment() {
             requireArguments().getParcelable("championInfo")!!
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
