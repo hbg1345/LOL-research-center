@@ -73,7 +73,7 @@ class NotificationsFragment : Fragment() {
         binding.testInfoRecyclerView.apply {
             isNestedScrollingEnabled = false
             layoutManager = LinearLayoutManager(context)
-            testInfoAdapter = TestInfoAdapter(emptyList(), ::calculateTotalStats) // Initialize with empty list and pass the stat calculation function
+            testInfoAdapter = TestInfoAdapter(emptyList(), ::calculateTotalStats, ::calculatePhysicalDamage, ::calculateMagicDamage, selectedSkill) // Initialize with empty list and pass the stat and damage calculation functions
             adapter = testInfoAdapter
         }
     }
@@ -518,6 +518,7 @@ class NotificationsFragment : Fragment() {
             // 총 데미지 표시
             dealTotal.text = damage.toString()
         }
+        testInfoAdapter.updateSelectedSkill(skill) // Update selected skill in adapter
     }
     private fun calcDamageByType(skill: Skill, targetChamp: BuildInfo, stats: Stats): Int{
         var damage = 0

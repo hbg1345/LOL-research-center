@@ -103,7 +103,6 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="8dp">
 
-            <!-- AD -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -117,17 +116,16 @@
                     android:src="@drawable/ar" />
 
                 <TextView
-                    android:id="@+id/statAdText"
+                    android:id="@+id/statArmorText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="53"
+                    android:text="21"
                     android:textSize="10sp"
                     android:textColor="@color/lol_gold"
                     android:fontFamily="@font/friz_quadrata_bold" />
             </LinearLayout>
 
-            <!-- AS -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -139,13 +137,12 @@
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:src="@drawable/mr" />
-
                 <TextView
-                    android:id="@+id/statAsText"
+                    android:id="@+id/statMrText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="0.67"
+                    android:text="30"
                     android:textSize="10sp"
                     android:textColor="@color/lol_gold"
                     android:fontFamily="@font/friz_quadrata_bold" />
@@ -165,7 +162,7 @@
                     android:src="@drawable/hp" />
 
                 <TextView
-                    android:id="@+id/statArmorText"
+                    android:id="@+id/statHpText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -175,29 +172,13 @@
                     android:fontFamily="@font/friz_quadrata_bold" />
             </LinearLayout>
 
-            <!-- AP -->
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="2dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:src="@drawable/hp5" />
-
-                <TextView
-                    android:id="@+id/statApText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="0"
-                    android:textSize="10sp"
-                    android:textColor="@color/lol_gold"
-                    android:fontFamily="@font/friz_quadrata_bold" />
-            </LinearLayout>
+                android:gravity="center_vertical"/>
 
             <!-- MR -->
             <LinearLayout
@@ -207,16 +188,13 @@
                 android:layout_marginBottom="2dp"
                 android:gravity="center_vertical">
 
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:src="@drawable/leblanc" />
+
                 <TextView
-                    android:id="@+id/statMrText"
+                    android:id="@+id/LevelText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="30"
+                    android:layout_marginStart="0dp"
+                    android:text="Lv. 30"
                     android:textSize="10sp"
                     android:textColor="@color/lol_gold"
                     android:fontFamily="@font/friz_quadrata_bold" />
@@ -242,7 +220,7 @@
 
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/hit"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:fontFamily="@font/friz_quadrata_bold"
