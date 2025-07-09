@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/skillComboContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:background="#80000000"
+    android:padding="8dp">
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/lol_textpanel_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 1) 콤보 이름 -->
+            <TextView
+                android:id="@+id/tvComboName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lol_on_surface"
+                android:text="스킬 콤보 이름"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingBottom="8dp"/>
+
+            <!-- 2) 스킬 아이콘 + 화살표 (2줄) -->
+            <LinearLayout
+                android:layout_marginStart="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 왼쪽: 아이콘 그리드 -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <!-- 첫 번째 줄 -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp">
+
+                        <!-- slot 1 -->
+                        <include
+                            android:id="@+id/skillImg1"
+                            layout="@layout/view_skill_icon_qwer"/>
+
+                        <!-- arrow -->
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/arrow_right"/>
+
+                        <!-- slot 2 -->
+                        <include
+                            android:id="@+id/skillImg2"
+                            layout="@layout/view_skill_icon_qwer"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/arrow_right"/>
+
+                        <!-- slot 3 -->
+                        <include
+                            android:id="@+id/skillImg3"
+                            layout="@layout/view_skill_icon_qwer"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/arrow_right"/>
+
+                        <!-- slot 4 -->
+                        <include
+                            android:id="@+id/skillImg4"
+                            layout="@layout/view_skill_icon_qwer"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/arrow_right"/>
+
+                        <!-- slot 5 -->
+                        <include
+                            android:id="@+id/skillImg5"
+                            layout="@layout/view_skill_icon_qwer"/>
+                    </LinearLayout>
+
+                    <!-- 두 번째 줄 -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <!-- slot 6 -->
+                        <include
+                            android:id="@+id/skillImg6"
+                            layout="@layout/view_skill_icon_qwer"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/arrow_right"/>
+
+                        <!-- slot 7 -->
+                        <include
+                            android:id="@+id/skillImg7"
+                            layout="@layout/view_skill_icon_qwer"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/arrow_right"/>
+
+                        <!-- slot 8 -->
+                        <include
+                            android:id="@+id/skillImg8"
+                            layout="@layout/view_skill_icon_qwer"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/arrow_right"/>
+
+                        <!-- slot 9 -->
+                        <include
+                            android:id="@+id/skillImg9"
+                            layout="@layout/view_skill_icon_qwer"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/arrow_right"/>
+
+                        <!-- slot 10 -->
+                        <include
+                            android:id="@+id/skillImg10"
+                            layout="@layout/view_skill_icon_qwer"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 오른쪽: 총 데미지 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/friz_quadrata_bold"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@color/lol_gold" />
+            </LinearLayout>
+
+            <!-- 3) 스킬 선택 뷰 -->
+            <TextView
+                android:id="@+id/tvSkillSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lol_on_surface"
+                android:text="스킬 선택"
+
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:paddingTop="8dp"/>
+        </LinearLayout>
+        <GridLayout
+            android:id="@+id/skillButtonsGrid"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:columnCount="5"
+            android:rowCount="2"
+            android:alignmentMode="alignMargins"
+            android:useDefaultMargins="true"
+            android:paddingTop="8dp"
+            android:gravity="center">
+
+            <include
+                android:id="@+id/skillBtn1"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <include
+                android:id="@+id/skillBtn2"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <include
+                android:id="@+id/skillBtn3"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <include
+                android:id="@+id/skillBtn4"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <include
+                android:id="@+id/skillBtn5"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <include
+                android:id="@+id/skillBtn6"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <include
+                android:id="@+id/skillBtn7"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <include
+                android:id="@+id/skillBtn8"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <include
+                android:id="@+id/skillBtn9"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <include
+                android:id="@+id/skillBtn10"
+                layout="@layout/view_skill_icon_select"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+        </GridLayout>
+        <TextView
+            android:id="@+id/tvComboDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/lol_on_surface"
+            android:text="스킬 콤보에 대한 설명"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:paddingTop="8dp"/>
+        <Button
+            android:id="@+id/btnSaveCombo"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장"
+            android:layout_marginHorizontal="24dp"/>
+
+    </LinearLayout>
+</FrameLayout>
