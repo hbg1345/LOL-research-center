@@ -331,11 +331,16 @@ class NotificationsFragment : Fragment() {
                             existing.items.map { it.name }.sorted() == itemNames
                 }
                 CoroutineScope(Dispatchers.Main).launch {
-                    if (!duplicate) {
-                        db.buildInfoDao().insertBuildInfo(info)
-                        Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(context, "이미 동일한 빌드 정보가 존재합니다.", Toast.LENGTH_SHORT).show()
+                    if (info.id == 0L) { // New build
+                        if (!duplicate) {
+                            db.buildInfoDao().insertBuildInfo(info)
+                            Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(context, "이미 동일한 빌드 정보가 존재합니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    } else { // Existing build
+                        db.buildInfoDao().updateBuildInfo(info)
+                        Toast.makeText(context, "빌드 정보가 업데이트되었습니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
