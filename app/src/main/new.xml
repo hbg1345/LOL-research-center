@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+    android:padding="24dp">
+
+    <ImageView android:id="@+id/item_detail_image" android:layout_width="96dp" android:layout_height="96dp"
+        android:layout_gravity="center_horizontal" tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView android:id="@+id/item_detail_name" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" android:textAppearance="?attr/textAppearanceHeadline6"
+        tools:text="아이템 이름" />
+
+    <TextView android:id="@+id/item_detail_description" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center_horizontal"
+        android:textAppearance="?attr/textAppearanceBody2" tools:text="여기에 아이템 설명이 들어갑니다. 아이템에 대한 자세한 정보를 표시합니다." />
+
+    <Button android:id="@+id/button_close" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" android:layout_marginTop="24dp" android:text="닫기" />
+
+</LinearLayout>
+    

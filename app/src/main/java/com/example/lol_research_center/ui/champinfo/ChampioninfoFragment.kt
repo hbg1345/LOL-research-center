@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.lol_research_center.R
 import com.example.lol_research_center.model.ChampionInfo
@@ -33,6 +34,7 @@ class ChampioninfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_champinfo, container, false)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = champInfo.name
 
         /* 1) TextView 바인딩 */
         skillDescTv = view.findViewById(R.id.textView2)

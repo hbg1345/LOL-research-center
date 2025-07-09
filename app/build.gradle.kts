@@ -45,6 +45,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     /* ───────── AndroidX core / appcompat / material ───────── */
     implementation(libs.androidx.core.ktx)
+
     implementation(libs.androidx.appcompat)
     implementation(libs.material)                 // material:1.12.0 이상
     implementation("com.google.code.gson:gson:2.8.9")
