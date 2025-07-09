@@ -28,10 +28,9 @@ class TestInfoAdapter(
     inner class TestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val champImg: ImageView = itemView.findViewById(R.id.cardChampImg)
         val itemsGrid: GridLayout = itemView.findViewById(R.id.cardItemsGrid)
-        val statAd: TextView = itemView.findViewById(R.id.statAdText)
-        val statAs: TextView = itemView.findViewById(R.id.statAsText)
         val statArmor: TextView = itemView.findViewById(R.id.statArmorText)
-        val statAp: TextView = itemView.findViewById(R.id.statApText)
+        val champLevel: TextView = itemView.findViewById(R.id.LevelText)
+        val statHp: TextView = itemView.findViewById(R.id.statHpText)
         val statMr: TextView = itemView.findViewById(R.id.statMrText)
         val closeBtn: ImageButton = itemView.findViewById(R.id.closeButton)
         val text4: TextView = itemView.findViewById(R.id.textView4)
@@ -63,12 +62,10 @@ class TestInfoAdapter(
 
         // 스탯 5개
         val calculatedStats = calculateStats(info.champion, info.items, info.champion.level)
-        holder.statAd.text = calculatedStats.attackdamage.toString()
-        holder.statAs.text = String.format("%.2f", calculatedStats.attackspeed)
+        holder.champLevel.text = "Lv. ${info.champion.level}"
         holder.statArmor.text = calculatedStats.armor.toString()
-        holder.statAp.text = calculatedStats.ap.toString()
+        holder.statHp.text = calculatedStats.hp.toString()
         holder.statMr.text = calculatedStats.spellblock.toString()
-
         // textView4: 예시로 TestInfo id 표시
         holder.text4.text = info.id.toString()
 
