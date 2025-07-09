@@ -14,14 +14,23 @@ import com.example.lol_research_center.model.TestInfo
 import com.example.lol_research_center.model.ChampionInfo
 import com.example.lol_research_center.model.ItemData
 import com.example.lol_research_center.model.Stats
+import com.example.lol_research_center.model.Skill
 
 class TestInfoAdapter(
     private var data: List<TestInfo>,
-    private val calculateStats: (ChampionInfo, List<ItemData>, Int) -> Stats
+    private val calculateStats: (ChampionInfo, List<ItemData>, Int) -> Stats,
+    private val calculatePhysicalDamage: (Int, Int, Stats) -> Float,
+    private val calculateMagicDamage: (Int, Int, Stats) -> Float,
+    private var selectedSkill: Skill? // Add selectedSkill parameter
 ) : RecyclerView.Adapter<TestInfoAdapter.TestViewHolder>() {
 
     fun updateData(newData: List<TestInfo>) {
         data = newData
+        notifyDataSetChanged()
+    }
+
+    fun updateSelectedSkill(newSkill: Skill?) {
+        selectedSkill = newSkill
         notifyDataSetChanged()
     }
 
@@ -66,12 +75,54 @@ class TestInfoAdapter(
         holder.statArmor.text = calculatedStats.armor.toString()
         holder.statHp.text = calculatedStats.hp.toString()
         holder.statMr.text = calculatedStats.spellblock.toString()
-        // textView4: 예시로 TestInfo id 표시
-        holder.hitDamage.text = info.id.toString()
+        // 데미지 계산 및 표시 (현재 선택된 스킬 사용)
+        selectedSkill?.let { skill ->
+            val damage = calcDamageByType(skill, calculatedStats, info.champion.stats.armor, info.champion.stats.spellblock)
+            holder.hitDamage.text = damage.toString()
+        } ?: run {
+            holder.hitDamage.text = "N/A" // No skill selected
+        }
 
         // 닫기 버튼 (추가 기능 구현 가능)
         holder.closeBtn.setOnClickListener {
             // TODO: 항목 삭제 등 원하는 동작 구현
         }
+    }
+
+    /**
+     * 스킬 데미지 계산
+     * base: skillDamageX[level - 1]
+     * bonus: stats * coeff
+     */
+    private fun calcDamage(skill: Skill, stats: Stats): Int {
+        val lvl = skill.skillLevel
+        if (lvl <= 0) return 0
+        val baseList = when (skill.skillType) {
+            "ad" -> skill.skillDamageAd
+            "ap" -> skill.skillDamageAp
+            "fix" -> skill.skillDamageFix
+            else -> emptyList()
+        }
+        val base = baseList.getOrNull(lvl - 1) ?: 0
+        val bonus = stats.attackdamage * skill.skillAdCoeff +
+                stats.ap * skill.skillApCoeff +
+                stats.armor * skill.skillArCoeff +
+                stats.spellblock * skill.skillMrCoeff +
+                stats.hp * skill.skillHpCoeff
+        return (base + bonus).toInt()
+    }
+
+    private fun calcDamageByType(skill: Skill, stats: Stats, targetArmor: Int, targetMR: Int): Int{
+        var damage = 0
+        if(skill.skillType == "fix"){
+            damage = calcDamage(skill, stats)
+        }
+        else if(skill.skillType == "ad"){
+            damage = calculatePhysicalDamage(calcDamage(skill, stats), targetArmor, stats).toInt()
+        }
+        else if(skill.skillType == "ap"){
+            damage = calculateMagicDamage(calcDamage(skill,stats), targetMR, stats).toInt()
+        }
+        return damage
     }
 }
