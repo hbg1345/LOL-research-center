@@ -511,7 +511,7 @@
     "champDrawable": "ashe",
     "name": "Ashe",
     "lane": "ADC",
-    "lore": "",
+    "lore": "아바로사 부족의 냉기의 화신이자 전쟁의 어머니인 애쉬는 북방에서 가장 규모가 큰 군단을 이끌고 있다. 절제력이 뛰어나고 총명한 데다 이상주의적인 면을 갖추고 있지만 지도자라는 역할을 부담스러워하기도 한다. 고대 마법의 힘이 흐르는 혈통을 이어받았기에 얼음 정수의 활을 무기로 사용할 수 있다. 아바로사 부족민들은 애쉬가 전설 속 영웅 아바로사 여왕의 화신이라고 굳게 믿으며, 애쉬는 이들과 함께 먼 옛날 자신의 부족이 살았던 영토를 되찾아 다시 한 번 프렐요드를 통일하려 한다.",
     "stats": {
       "armorPenetration": 0,
       "armorPenetrationPercent": 0,
@@ -541,11 +541,11 @@
     "itemDrawables": [],
     "skills": {
       "p": {
-        "skillTitle": "",
+        "skillTitle": "서리 화살",
         "skillDrawable": "ashe_p",
         "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
+        "coolDown": [0,0,0,0,0],
+        "cost": [0,0,0,0,0],
         "skillDamageAp": [],
         "skillDamageAd": [],
         "skillDamageFix": [],
@@ -562,14 +562,14 @@
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
         "skillType": "Passive",
-        "skillInfo": ""
+        "skillInfo": "애쉬의 기본 공격과 스킬[8]이 대상을 2초간 둔화 시킵니다.[9] 적을 공격하면 추가 피해를 입힙니다.\n\n애쉬의 치명타는 추가 피해를 가하지 않는 대신, 둔화 효과를 늘려 줍니다. 둔화 효과는 점차 원래대로 돌아옵니다.\n\n추가 피해량은 치명타 확률과 추가 치명타 피해량에 비례합니다."
       },
       "q": {
-        "skillTitle": "",
+        "skillTitle": "궁사의 집중",
         "skillDrawable": "ashe_q",
         "skillLevel": 0,
         "coolDown": [],
-        "cost": [],
+        "cost": [30,30,30,30,30],
         "skillDamageAp": [],
         "skillDamageAd": [],
         "skillDamageFix": [],
@@ -585,17 +585,17 @@
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": ""
+        "skillType": "ad",
+        "skillInfo": "기본 지속 효과: 애쉬가 기본 공격 시 4초 동안 유지되는 중첩이 1회 쌓입니다. 4회 중첩 시 이 스킬을 사용할 수 있습니다.\n\n사용 시: 6초 동안 애쉬의 공격 속도가 오르며 기본 공격이 강화된 피해를 입힙니다.\n강화된 기본 공격은 5개의 작은 공격을 한꺼번에 퍼붓습니다. 적중 시 효과는 기본 공격당 한 번만 적용됩니다."
       },
       "w": {
-        "skillTitle": "",
+        "skillTitle": "일제 사격",
         "skillDrawable": "ashe_w",
         "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
+        "coolDown": [18,15,11,7,4],
+        "cost": [75,70,65,60,55],
         "skillDamageAp": [],
-        "skillDamageAd": [],
+        "skillDamageAd": [60,95,130,165,200],
         "skillDamageFix": [],
         "skillDamage": [
           0,
@@ -605,19 +605,19 @@
           0
         ],
         "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.0,
+        "skillAdCoeff": 1.1,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": ""
+        "skillType": "ad",
+        "skillInfo": "애쉬가 몇 개의 화살을 일제히 쏴 각각 물리 피해를 입힙니다. 적들은 일제 사격의 여러 화살에 맞을 수 있지만, 그중 첫 번째 화살에만 피해를 입습니다.\n챔피언에게 적중되면 서리 화살 효과가 적용되는 치명타로 판정됩니다."
       },
       "e": {
-        "skillTitle": "",
+        "skillTitle": "매 날리기",
         "skillDrawable": "ashe_e",
         "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
+        "coolDown": [5,5,5,5,5],
+        "cost": [0,0,0,0,0],
         "skillDamageAp": [],
         "skillDamageAd": [],
         "skillDamageFix": [],
@@ -634,15 +634,15 @@
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
         "skillType": "Active",
-        "skillInfo": ""
+        "skillInfo": "애쉬가 매를 맵 어느 위치든 날려 보내 5초 동안 시야를 확보합니다. 매는 날아가는 동안 주변 지역을 드러냅니다.\n\n이 스킬은 2회까지 충전됩니다."
       },
       "r": {
-        "skillTitle": "",
+        "skillTitle": "마법의 수정화살",
         "skillDrawable": "ashe_r",
         "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
-        "skillDamageAp": [],
+        "coolDown": [100,80,60],
+        "cost": [100,100,100],
+        "skillDamageAp": [200,400,600],
         "skillDamageAd": [],
         "skillDamageFix": [],
         "skillDamage": [
@@ -650,13 +650,13 @@
           0,
           0
         ],
-        "skillApCoeff": 0.0,
+        "skillApCoeff": 1.2,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Ultimate",
-        "skillInfo": ""
+        "skillType": "ap",
+        "skillInfo": "애쉬가 얼음 수정화살을 발사하여 처음으로 맞힌 챔피언에게 마법 피해를 입히고 롤아이콘-군중제어 기절기절시킵니다. 롤아이콘-군중제어 기절기절 지속 시간은 화살이 날아가는 거리에 비례하여 3.5초까지 증가합니다. 주변의 적들은 같은 양의 마법 피해를 입고 서리 화살의 둔화를 적용합니다.\n롤아이콘-군중제어 기절기절 효과는 최소 1초 지속됩니다."
       }
     }
   },
@@ -1276,7 +1276,7 @@
     "champDrawable": "irelia",
     "name": "Irelia",
     "lane": "MID",
-    "lore": "",
+    "lore": "녹서스에게 침략당한 후 아이오니아에서는 수많은 영웅이 등장했지만, 나보리 출신의 젊은 이렐리아만큼 독특한 영웅은 없다. 이렐리아는 고향 나보리에 전해 내려오는 고대의 춤을 익혔고, 아이오니아가 침략당하자 그 능력을 전쟁터에서의 기술로 삼았다. 치명적인 위력의 칼날들을 공중에 띄우고 자유자재로 조종하며 싸우는 그녀의 모습은 우아하고 신중하며 군더더기라고는 없었다. 훌륭한 투사임을 입증한 이렐리아는 원하는 바는 아니었으나 아이오니아 저항 세력을 선두에서 이끄는 역할을 맡게 되었고, 지금까지도 고향 땅을 지키고 보존하는 일에 헌신하고 있다.",
     "stats": {
       "armorPenetration": 0,
       "armorPenetrationPercent": 0,
@@ -1306,7 +1306,7 @@
     "itemDrawables": [],
     "skills": {
       "p": {
-        "skillTitle": "",
+        "skillTitle": "아이오니아의 열정",
         "skillDrawable": "irelia_p",
         "skillLevel": 0,
         "coolDown": [],
@@ -1326,17 +1326,17 @@
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Passive",
-        "skillInfo": ""
+        "skillType": "ad",
+        "skillInfo": "이렐리아가 스킬로 적을 맞히면 6초 동안 중첩을 1 얻습니다. (최대 4중첩) 이렐리아가 중첩당 공격 속도를 얻으며 최대 중첩 시 기본 공격으로 추가 마법 피해를 입힙니다.\n\n챔피언이나 구조물, 대형 몬스터 공격 시 중첩 지속 시간이 초기화됩니다. 챔피언을 맞히거나 챔피언이 아닌 적을 하나라도 맞힐 때마다 1중첩을 얻습니다.\n구조물 공격 시 절반의 피해를 입힙니다"
       },
       "q": {
-        "skillTitle": "",
+        "skillTitle": "칼날 쇄도",
         "skillDrawable": "irelia_q",
         "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
+        "coolDown": [10,9,8,7,6],
+        "cost": [15,15,15,15,15],
         "skillDamageAp": [],
-        "skillDamageAd": [],
+        "skillDamageAd": [5,25,45,65,85],
         "skillDamageFix": [],
         "skillDamage": [
           0,
@@ -1346,21 +1346,21 @@
           0
         ],
         "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.0,
+        "skillAdCoeff": 0.7,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": ""
+        "skillType": "ad",
+        "skillInfo": "이렐리아가 적에게 돌진해 물리 피해를 입히고 체력을 회복합니다. 적이 죽거나 불안정 상태일 경우 재사용 대기시간이 초기화됩니다.\n\n미니언에게는 추가 피해를 입힙니다.\n이 스킬은 적중 시 효과가 적용됩니다."
       },
       "w": {
-        "skillTitle": "",
+        "skillTitle": "저항의 춤",
         "skillDrawable": "irelia_w",
         "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
+        "coolDown": [20,18,16,14,12],
+        "cost": [70,75,80,85,90],
         "skillDamageAp": [],
-        "skillDamageAd": [],
+        "skillDamageAd": [10,20,30,40,50],
         "skillDamageFix": [],
         "skillDamage": [
           0,
@@ -1369,21 +1369,21 @@
           0,
           0
         ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.0,
+        "skillApCoeff": 0.4,
+        "skillAdCoeff": 0.4,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": ""
+        "skillType": "ad",
+        "skillInfo": "충전 시작 시: 이렐리아가 최대 1.5초 동안 방어 태세에 돌입하여 행동할 수 없게 되지만 받는 물리 피해, 마법 피해가 감소합니다.\n\n발사 시: 이렐리아가 검을 날려 물리 피해를 입힙니다. 피해량은 충전 시간에 비례하여 최대 3배만큼 증가합니다.\n충전이 끝나면 자동으로 발사되며 적이 중단시킬 수 없습니다. 0.75초 후에는 최대 피해량으로 증가합니다."
       },
       "e": {
-        "skillTitle": "",
+        "skillTitle": "쌍검협무",
         "skillDrawable": "irelia_e",
         "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
-        "skillDamageAp": [],
+        "coolDown": [16,15,14,13,12],
+        "cost": [50,55,60,65,70],
+        "skillDamageAp": [70,110,150,190,230],
         "skillDamageAd": [],
         "skillDamageFix": [],
         "skillDamage": [
@@ -1393,21 +1393,21 @@
           0,
           0
         ],
-        "skillApCoeff": 0.0,
+        "skillApCoeff": 0.8,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": ""
+        "skillType": "ap",
+        "skillInfo": "이렐리아가 지면에 검을 던집니다. 3.5초 내에 스킬을 재사용할 수 있습니다.\nirelia E2\n재사용 시: 이렐리아가 두 번째 검을 던진 후 두 검이 서로를 향해 날아들어 0.75초 동안 적을 롤아이콘-군중제어 기절기절시키고 마법 피해를 입힙니다. 챔피언과 대형 정글 몬스터는 5초 동안 불안정 상태가 됩니다.\n이렐리아가 3.5초 후 자신의 위치에서 자동으로 스킬을 재사용합니다."
       },
       "r": {
-        "skillTitle": "",
+        "skillTitle": "선봉진격검",
         "skillDrawable": "irelia_r",
         "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
-        "skillDamageAp": [],
+        "coolDown": [125,105,85],
+        "cost": [100],
+        "skillDamageAp": [125,200,275],
         "skillDamageAd": [],
         "skillDamageFix": [],
         "skillDamage": [
@@ -1415,13 +1415,13 @@
           0,
           0
         ],
-        "skillApCoeff": 0.0,
+        "skillApCoeff": 0.7,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "Ultimate",
-        "skillInfo": ""
+        "skillType": "ap",
+        "skillInfo": "이렐리아가 칼날 다발을 날려 마법 피해를 입히고 챔피언 및 대형 정글 몬스터를 5초 동안 불안정 상태로 만듭니다. 칼날 다발은 결계 형태로 폭발하여 2.5초 동안 첫 번째 적중한 챔피언을 둘러쌉니다. 결계는 마법 피해를 입히고 적을 1.5초 동안 90% 둔화시킵니다.\n칼날 다발 폭발 시 주변 적들도 피해를 입습니다."
       }
     }
   },
@@ -3258,6 +3258,159 @@
         "skillHpCoeff": 0.0,
         "skillType": "Ultimate",
         "skillInfo": ""
+      }
+    }
+  },
+  {
+    "champDrawable": "talon",
+    "name": "Talon",
+    "lane": "JUNGLE",
+    "lore": "탈론은 음지에서 암약하는 무자비한 자객이다. 불의의 일격을 가하는 데에도, 이상한 낌새가 느껴지기도 전에 자취를 감추는 데도 능하다. 거칠기 짝이 없는 녹서스의 거리에서 싸우고, 상대를 처치하고, 도둑질을 하면서 살아남았고 위험한 존재라는 명성을 쌓았다. 악명이 자자한 뒤 쿠토 가문에 발탁된 뒤로는 녹서스 제국의 명을 받들어 적의 지도자, 대장, 영웅은 물론이고, 감히 자신이 섬기는 주인의 심기를 거스르는 녹서스 인마저도 종횡무진 암살하고 있다.\n장문의 배경과 폐기된 리그의 심판은 배경 문서 참조.",
+    "stats": {
+      "armorPenetration": 0,
+      "armorPenetrationPercent": 0,
+      "magicPenetration": 0,
+      "magicPenetrationPercent": 0,
+      "attackdamage": 65,
+      "attackdamageperlevel": 3.5,
+      "ap": 0,
+      "hp": 658,
+      "mp": 400,
+      "crit": 0,
+      "attackspeed": 0.625,
+      "attackspeedperlevel": 2.9,
+      "armor": 30,
+      "spellblock": 36,
+      "hpperlevel": 109,
+      "mpperlevel": 37,
+      "movespeed": 335,
+      "armorperlevel": 4.7,
+      "spellblockperlevel": 2.05,
+      "hpregen": 8.5,
+      "hpregenperlevel": 0.75,
+      "mpregen": 7.6,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillTitle": "검의 최후",
+        "skillDrawable": "talon_p",
+        "skillLevel": 0,
+        "coolDown": [],
+        "cost": [],
+        "skillDamageAp": [],
+        "skillDamageAd": [80,210],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 2.1,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillInfo": "탈론이 챔피언이나 대형 정글 몬스터에게 스킬을 사용해 피해를 입히면 6초 동안 중첩을 적용합니다.(최대 3회 중첩)\n\n3회 중첩된 대상에게 탈론이 기본 공격을 가하면 2초에 걸쳐 물리 피해를 추가로 입힙니다.\n\n정글 몬스터에게는 지속 피해로 110%의 피해를 입힙니다."
+      },
+      "q": {
+        "skillTitle": "녹서스식 외교",
+        "skillDrawable": "talon_q",
+        "skillLevel": 0,
+        "coolDown": [8,7,7,6,6],
+        "cost": [40,40,40,40,40],
+        "skillDamageAp": [],
+        "skillDamageAd": [65,85,105,125,145],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillInfo": "탈론이 대상에게 도약해 물리 피해를 입힙니다. 근접 공격이 가능한 거리에서 사용하면 대신 치명타가 적용되어 150%의 물리 피해를 입힙니다.\n\n이 스킬로 대상을 처치하면 체력을 회복하고 재사용 대기시간의 50%를 돌려받습니다.\n근접 공격 피해량은 치명타 피해량 증가에 영향을 받습니다"
+      },
+      "w": {
+        "skillTitle": "갈퀴손",
+        "skillDrawable": "talon_w",
+        "skillLevel": 0,
+        "coolDown": [9,8,8,7,7],
+        "cost": [50,55,60,65,70],
+        "skillDamageAp": [],
+        "skillDamageAd": [110,120,190,230,270],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.3,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillInfo": "탈론이 부메랑 단검을 여러 개 던져 물리 피해를 입힙니다. 이후 단검이 돌아오며 물리 피해를 입히고 1초 동안 둔화시킵니다."
+      },
+      "e": {
+        "skillTitle": "암살자의 길",
+        "skillDrawable": "talon_e",
+        "skillLevel": 0,
+        "coolDown": [2,2,2,2,2],
+        "cost": [0,0,0,0,0],
+        "skillDamageAp": [],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillInfo": "탈론이 가장 가까운 지형이나 구조물 위로 도약해 뛰어넘습니다. 한 번 넘어간 지형은 일정 시간 동안 다시 넘을 수 없습니다."
+      },
+      "r": {
+        "skillTitle": "그림자 공격",
+        "skillDrawable": "talon_r",
+        "skillLevel": 0,
+        "coolDown": [100,80,60],
+        "cost": [100,100,100],
+        "skillDamageAp": [],
+        "skillDamageAd": [270,405,540],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 3.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillInfo": "탈론이 사방에 검을 던져 물리 피해를 입히고, 이동 속도가 상승하며 최대 2.5초 동안 투명 상태가 됩니다. 투명 상태가 끝나면 검이 탈론에게 돌아오며 다시 물리 피해를 입힙니다.\n\n탈론이 기본 공격이나 녹서스식 외교 스킬로 투명 상태를 해제하면 검이 탈론 대신 탈론의 대상에게 날아갑니다.\n투명 상태의 유닛은 포탑이나 절대 시야로만 모습이 드러납니다."
       }
     }
   }
