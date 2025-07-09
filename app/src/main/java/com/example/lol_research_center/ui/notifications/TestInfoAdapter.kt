@@ -22,8 +22,11 @@ class TestInfoAdapter(
     private val calculatePhysicalDamage: (Int, Int, Stats) -> Float,
     private val calculateMagicDamage: (Int, Int, Stats) -> Float,
     private var selectedSkill: Skill?, // Add selectedSkill parameter
-    private val onItemRemove: (TestInfo) -> Unit
+    private val onItemRemove: (TestInfo) -> Unit,
+    private val onItemSelected: (TestInfo) -> Unit
 ) : RecyclerView.Adapter<TestInfoAdapter.TestViewHolder>() {
+
+    private var selectedPosition = RecyclerView.NO_POSITION
 
     fun updateData(newData: List<TestInfo>) {
         data = newData
@@ -90,16 +93,26 @@ class TestInfoAdapter(
         }
 
         holder.itemView.setOnClickListener {
-            info.clicked = !info.clicked
-            if (info.clicked) {
-                holder.itemView.setBackgroundResource(R.drawable.gold_outline) // Use your existing gold_outline drawable
-            } else {
-                holder.itemView.setBackgroundResource(R.drawable.lol_textpanel_bg) // Use your existing lol_textpanel_bg drawable
+            val currentPosition = holder.adapterPosition
+            if (currentPosition != RecyclerView.NO_POSITION) {
+                if (currentPosition == selectedPosition) {
+                    // If the clicked item is already selected, deselect it
+                    data[currentPosition].clicked = false
+                    selectedPosition = RecyclerView.NO_POSITION
+                    notifyItemChanged(currentPosition)
+                } else {
+                    // Deselect previously selected item if any
+                    if (selectedPosition != RecyclerView.NO_POSITION) {
+                        data[selectedPosition].clicked = false
+                        notifyItemChanged(selectedPosition)
+                    }
+                    // Select the new item
+                    data[currentPosition].clicked = true
+                    selectedPosition = currentPosition
+                    notifyItemChanged(currentPosition)
+                    onItemSelected(data[currentPosition])
+                }
             }
-            // You might want to notifyDataSetChanged() or notifyItemChanged(position) here
-            // if the clicked state needs to be reflected immediately in other views.
-            // However, for a single item, notifyItemChanged(position) is more efficient.
-            // notifyItemChanged(position)
         }
 
         // Set initial background based on clicked state
