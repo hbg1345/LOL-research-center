@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/skillRoot"
+    android:layout_width="40dp"
+    android:layout_height="40dp">
+
+    <!-- ① 아이콘 – 전체 영역을 채움 -->
+    <ImageView
+        android:id="@+id/imgSkill"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/leesin_e"
+        android:scaleType="centerCrop" />
+    <!-- ③ 스킬 키(알파벳) – 우측 하단 -->
+    <TextView
+        android:id="@+id/tvSkillKey"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="bottom|end"
+        android:background="@drawable/bg_skill_key"
+        android:gravity="center"
+        android:text="W"
+        android:textColor="#66FFC2"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/imgFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/frame_gold"
+        android:scaleType="fitXY"
+        android:clickable="false"
+        android:focusable="false"/>
+</FrameLayout>
