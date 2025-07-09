@@ -9,7 +9,7 @@
         android:id="@+id/imgSkill"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/leesin_e"
+        android:src="@drawable/empty_icon"
         android:scaleType="centerCrop" />
     <!-- ③ 스킬 키(알파벳) – 우측 하단 -->
     <TextView

@@ -3,12 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/skillComboContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_margin="8dp"
-    android:background="@drawable/lol_textpanel_bg"
+    android:background="#80000000"
     android:padding="8dp">
     <LinearLayout
+        android:layout_gravity="center"
         android:orientation="vertical"
+        android:background="@drawable/lol_textpanel_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -30,6 +32,7 @@
 
             <!-- 2) 스킬 아이콘 + 화살표 (2줄) -->
             <LinearLayout
+                android:layout_marginStart="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
