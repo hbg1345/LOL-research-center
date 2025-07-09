@@ -21,13 +21,16 @@
             android:layout_weight="1"
             android:hint="아이템 검색"
             android:imeOptions="actionSearch"
-            android:inputType="text" />
+            android:inputType="text"
+        android:textColor="@android:color/white"
+        android:textColorHint="#CCCCCC" />
 
         <Button
             android:id="@+id/search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="검색" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
