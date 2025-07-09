@@ -11,8 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.R
 import com.example.lol_research_center.model.TestInfo
 
+import com.example.lol_research_center.model.ChampionInfo
+import com.example.lol_research_center.model.ItemData
+import com.example.lol_research_center.model.Stats
+
 class TestInfoAdapter(
-    private var data: List<TestInfo>
+    private var data: List<TestInfo>,
+    private val calculateStats: (ChampionInfo, List<ItemData>, Int) -> Stats
 ) : RecyclerView.Adapter<TestInfoAdapter.TestViewHolder>() {
 
     fun updateData(newData: List<TestInfo>) {
@@ -57,12 +62,12 @@ class TestInfoAdapter(
         }
 
         // 스탯 5개
-        val s = info.champion.stats
-        holder.statAd.text = s.attackdamage.toString()
-        holder.statAs.text = String.format("%.2f", s.attackspeed)
-        holder.statArmor.text = s.armor.toString()
-        holder.statAp.text = s.ap.toString()
-        holder.statMr.text = s.spellblock.toString()
+        val calculatedStats = calculateStats(info.champion, info.items, info.champion.level)
+        holder.statAd.text = calculatedStats.attackdamage.toString()
+        holder.statAs.text = String.format("%.2f", calculatedStats.attackspeed)
+        holder.statArmor.text = calculatedStats.armor.toString()
+        holder.statAp.text = calculatedStats.ap.toString()
+        holder.statMr.text = calculatedStats.spellblock.toString()
 
         // textView4: 예시로 TestInfo id 표시
         holder.text4.text = info.id.toString()

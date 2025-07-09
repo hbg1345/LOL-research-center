@@ -73,7 +73,7 @@ class NotificationsFragment : Fragment() {
         binding.testInfoRecyclerView.apply {
             isNestedScrollingEnabled = false
             layoutManager = LinearLayoutManager(context)
-            testInfoAdapter = TestInfoAdapter(emptyList()) // Initialize with empty list
+            testInfoAdapter = TestInfoAdapter(emptyList(), ::calculateTotalStats) // Initialize with empty list and pass the stat calculation function
             adapter = testInfoAdapter
         }
     }
