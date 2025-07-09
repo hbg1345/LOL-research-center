@@ -12,8 +12,13 @@ import com.example.lol_research_center.R
 import com.example.lol_research_center.model.TestInfo
 
 class TestInfoAdapter(
-    private val data: List<TestInfo>
+    private var data: List<TestInfo>
 ) : RecyclerView.Adapter<TestInfoAdapter.TestViewHolder>() {
+
+    fun updateData(newData: List<TestInfo>) {
+        data = newData
+        notifyDataSetChanged()
+    }
 
     inner class TestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val champImg: ImageView = itemView.findViewById(R.id.cardChampImg)

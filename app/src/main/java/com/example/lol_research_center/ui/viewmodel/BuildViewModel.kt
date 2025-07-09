@@ -12,6 +12,7 @@ import com.example.lol_research_center.model.Skill
 import com.example.lol_research_center.model.SkillDamageSet
 import com.example.lol_research_center.model.Skills
 import com.example.lol_research_center.model.Stats
+import com.example.lol_research_center.model.TestInfo
 
 class BuildViewModel : ViewModel() {
 
@@ -22,6 +23,10 @@ class BuildViewModel : ViewModel() {
         val defaultSkill = Skill(skillTitle = "default skill name", skillDrawable = R.drawable.leesin_p, skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"Passive", skillInfo = "skill q info")
         val asheSkills = Skills(defaultSkill, defaultSkill, defaultSkill, defaultSkill, defaultSkill)
         val asheStats = Stats(
+            armorPenetration = 0f,
+            armorPenetrationPercent = 0.5f,
+            magicPenetration = 0f,
+            magicPenetrationPercent = 0.5f,
             attackdamage = 68,
             attackdamageperlevel = 3.5f,
             ap = 0,
@@ -32,7 +37,7 @@ class BuildViewModel : ViewModel() {
             attackspeedperlevel = 3.0f,
             armor = 36,
             spellblock = 32,
-            hpperlevel = 100,
+            hpperlevel = 1,
             mpperlevel = 0,
             movespeed = 345,
             armorperlevel = 4.0f,
@@ -41,14 +46,10 @@ class BuildViewModel : ViewModel() {
             hpregenperlevel = 0.7f,
             mpregen = 50f,
             mpregenperlevel = 0f,
-            critperlevel = 0f,
-            armorPenetration = 0f,
-            armorPenetrationPercent = 0.5f,
-            magicPenetration = 0f,
-            magicPenetrationPercent = 0.5f
+            critperlevel = 0f
         )
         val asheChampionInfo = ChampionInfo(
-            champDrawable = 0, // 실제 Drawable ID로 대체 필요
+            champDrawable = R.drawable.ahri, // 실제 Drawable ID로 대체 필요
             name = "Ashe",
             lane = Lane.ADC,
             stats = asheStats,
@@ -77,5 +78,11 @@ class BuildViewModel : ViewModel() {
     fun removeItem(item: ItemData) {
         val currentItems = _currentBuild.value?.items ?: emptyList()
         _currentBuild.value = _currentBuild.value?.copy(items = currentItems - item)
+    }
+
+    fun setTestInfo(champion: ChampionInfo, items: List<ItemData>) {
+        val currentTestInfoList = _currentBuild.value?.testInfoList?.toMutableList() ?: mutableListOf()
+        currentTestInfoList.add(TestInfo(champion = champion, items = items))
+        _currentBuild.value = _currentBuild.value?.copy(testInfoList = currentTestInfoList)
     }
 }
