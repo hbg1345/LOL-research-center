@@ -243,12 +243,20 @@ class NotificationsFragment : Fragment() {
             skillButtons[index].setTag(R.id.imgSkill, skill.skillDrawable)
         }
 
-
         // 나머지 5개 버튼은 기본 이미지 또는 비워둠 (선택사항)
         for (index in 5 until skillButtons.size) {
             val buttonImageView = skillButtons[index].findViewById<ImageView>(R.id.imgSkill)
             buttonImageView.setImageResource(R.drawable.empty_icon) // 기본 아이콘 또는 빈 이미지
         }
+        skillButtons[5].setTag(R.id.imgSkill, R.drawable.flash_spell)
+
+        skillButtons[6].setTag(R.id.imgSkill, R.drawable.ignite_spell)
+
+        skillButtons[7].setTag(R.id.imgSkill, R.drawable.smite_spell)
+        skillButtons[5].findViewById<ImageView>(R.id.imgSkill).setImageResource(R.drawable.flash_spell)
+        skillButtons[6].findViewById<ImageView>(R.id.imgSkill).setImageResource(R.drawable.ignite_spell)
+        skillButtons[7].findViewById<ImageView>(R.id.imgSkill).setImageResource(R.drawable.smite_spell)
+
     }
     private fun skillImgId(index: Int): Int {
         return resources.getIdentifier("skillImg$index", "id", requireContext().packageName)
