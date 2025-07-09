@@ -28,6 +28,7 @@ data class TestInfo(
     val champion: ChampionInfo,
     val items: List<ItemData>,
     val timestamp: Long = System.currentTimeMillis(), // 빌드 저장 시간
+    var clicked: Boolean = false,
 ) : Parcelable
 
 @Parcelize

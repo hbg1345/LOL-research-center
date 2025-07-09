@@ -88,6 +88,26 @@ class TestInfoAdapter(
         holder.closeBtn.setOnClickListener {
             onItemRemove(info)
         }
+
+        holder.itemView.setOnClickListener {
+            info.clicked = !info.clicked
+            if (info.clicked) {
+                holder.itemView.setBackgroundResource(R.drawable.gold_outline) // Use your existing gold_outline drawable
+            } else {
+                holder.itemView.setBackgroundResource(R.drawable.lol_textpanel_bg) // Use your existing lol_textpanel_bg drawable
+            }
+            // You might want to notifyDataSetChanged() or notifyItemChanged(position) here
+            // if the clicked state needs to be reflected immediately in other views.
+            // However, for a single item, notifyItemChanged(position) is more efficient.
+            // notifyItemChanged(position)
+        }
+
+        // Set initial background based on clicked state
+        if (info.clicked) {
+            holder.itemView.setBackgroundResource(R.drawable.gold_outline)
+        } else {
+            holder.itemView.setBackgroundResource(R.drawable.lol_textpanel_bg)
+        }
     }
 
     /**
