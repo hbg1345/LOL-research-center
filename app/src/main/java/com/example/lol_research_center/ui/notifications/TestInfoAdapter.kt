@@ -33,7 +33,7 @@ class TestInfoAdapter(
         val statHp: TextView = itemView.findViewById(R.id.statHpText)
         val statMr: TextView = itemView.findViewById(R.id.statMrText)
         val closeBtn: ImageButton = itemView.findViewById(R.id.closeButton)
-        val text4: TextView = itemView.findViewById(R.id.textView4)
+        val hitDamage: TextView = itemView.findViewById(R.id.hit)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestViewHolder {
@@ -67,7 +67,7 @@ class TestInfoAdapter(
         holder.statHp.text = calculatedStats.hp.toString()
         holder.statMr.text = calculatedStats.spellblock.toString()
         // textView4: 예시로 TestInfo id 표시
-        holder.text4.text = info.id.toString()
+        holder.hitDamage.text = info.id.toString()
 
         // 닫기 버튼 (추가 기능 구현 가능)
         holder.closeBtn.setOnClickListener {
