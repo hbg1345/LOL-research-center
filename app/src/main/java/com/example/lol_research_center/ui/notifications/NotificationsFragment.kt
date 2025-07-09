@@ -102,12 +102,17 @@ class NotificationsFragment : Fragment() {
         }
         btnSkillComboModal.setOnClickListener {
             skillImageViews.forEach { imgView ->
-                imgView.setImageResource(R.drawable.icon_add) // 기본 이미지 설정
+                imgView.setImageResource(R.drawable.icon_add) // 빈 이미지로 초기화
+                imgView.setTag(R.id.imgSkill, R.drawable.empty_icon) // <- 태그도 반드시 초기화!
                 val parent = imgView.parent as? View
                 val skillKeyText = parent?.findViewById<View>(R.id.tvSkillKey) as? TextView
                 skillKeyText?.text = ""
             }
-            currentIndex = 0 // 다시 처음부터 이미지 선택 가능하게 초기화
+            currentIndex = 0
+            // 나머지 콤보 정보 입력란도 초기화
+            skillComboModal.findViewById<TextView>(R.id.tvComboName)?.text = ""
+            skillComboModal.findViewById<TextView>(R.id.tvComboDescription)?.text = ""
+            skillComboModal.findViewById<TextView>(R.id.tvDamageTextView)?.text = "-"
             skillComboModal.visibility = View.VISIBLE
         }
 

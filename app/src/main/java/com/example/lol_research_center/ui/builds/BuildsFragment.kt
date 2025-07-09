@@ -14,7 +14,11 @@ import com.example.lol_research_center.databinding.FragmentBuildsBinding
 import com.example.lol_research_center.model.BuildInfo
 import androidx.fragment.app.activityViewModels // Add this import
 import androidx.navigation.fragment.findNavController
+<<<<<<< HEAD
 import com.example.lol_research_center.R
+=======
+import com.example.lol_research_center.R // Add this import
+>>>>>>> origin/home
 
 
 
