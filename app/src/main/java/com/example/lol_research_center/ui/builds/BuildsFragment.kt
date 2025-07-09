@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import com.example.lol_research_center.ui.viewmodel.BuildViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lol_research_center.databinding.FragmentBuildsBinding
 import com.example.lol_research_center.model.BuildInfo
@@ -25,6 +27,7 @@ class BuildsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val vm: BuildsViewModel by viewModels()
+    private val sharedBuildViewModel: BuildViewModel by activityViewModels()
     private lateinit var adapter: BuildListAdapter
 
     override fun onCreateView(
@@ -37,10 +40,9 @@ class BuildsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         adapter = BuildListAdapter(
             onClick = { build ->
-                val bundle = bundleOf("build" to build)
+                sharedBuildViewModel.setCurrentBuild(build)
                 findNavController().navigate(
-                    R.id.action_builds_to_notification,
-                    bundle
+                    R.id.action_builds_to_notification
                 )
             },
             onDeleteClick = { build ->

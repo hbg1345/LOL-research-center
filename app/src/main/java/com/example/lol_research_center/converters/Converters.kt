@@ -47,8 +47,7 @@ class Converters {
     @TypeConverter
     fun toTestInfoList(json: String?): List<TestInfo> {
         return if (json.isNullOrEmpty()) {
-            // DB에 아무 값도 없으면 기본 더미 하나를 반환
-            listOf(createDummyTestInfo())
+            emptyList()
         } else {
             val type = object : TypeToken<List<TestInfo>>() {}.type
             gson.fromJson(json, type)
