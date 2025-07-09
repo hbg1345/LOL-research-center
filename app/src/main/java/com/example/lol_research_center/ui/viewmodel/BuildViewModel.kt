@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 import com.example.lol_research_center.database.AppDatabase
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.lol_research_center.R
 import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.model.ChampionInfo
