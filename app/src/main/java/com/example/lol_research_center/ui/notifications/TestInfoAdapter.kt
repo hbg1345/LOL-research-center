@@ -21,7 +21,8 @@ class TestInfoAdapter(
     private val calculateStats: (ChampionInfo, List<ItemData>, Int) -> Stats,
     private val calculatePhysicalDamage: (Int, Int, Stats) -> Float,
     private val calculateMagicDamage: (Int, Int, Stats) -> Float,
-    private var selectedSkill: Skill? // Add selectedSkill parameter
+    private var selectedSkill: Skill?, // Add selectedSkill parameter
+    private val onItemRemove: (TestInfo) -> Unit
 ) : RecyclerView.Adapter<TestInfoAdapter.TestViewHolder>() {
 
     fun updateData(newData: List<TestInfo>) {
@@ -77,7 +78,7 @@ class TestInfoAdapter(
         holder.statMr.text = calculatedStats.spellblock.toString()
         // 데미지 계산 및 표시 (현재 선택된 스킬 사용)
         selectedSkill?.let { skill ->
-            val damage = calcDamageByType(skill, calculatedStats, info.champion.stats.armor, info.champion.stats.spellblock)
+            val damage = calcDamageByType(skill, calculatedStats, calculatedStats.armor, calculatedStats.spellblock)
             holder.hitDamage.text = damage.toString()
         } ?: run {
             holder.hitDamage.text = "N/A" // No skill selected
@@ -85,7 +86,7 @@ class TestInfoAdapter(
 
         // 닫기 버튼 (추가 기능 구현 가능)
         holder.closeBtn.setOnClickListener {
-            // TODO: 항목 삭제 등 원하는 동작 구현
+            onItemRemove(info)
         }
     }
 

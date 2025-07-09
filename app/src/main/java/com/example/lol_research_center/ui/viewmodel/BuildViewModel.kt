@@ -103,6 +103,12 @@ class BuildViewModel : ViewModel() {
         _currentBuild.value = _currentBuild.value?.copy(testInfoList = currentTestInfoList)
     }
 
+    fun removeTestInfo(testInfo: TestInfo) {
+        val currentTestInfoList = _currentBuild.value?.testInfoList?.toMutableList() ?: mutableListOf()
+        currentTestInfoList.remove(testInfo)
+        _currentBuild.value = _currentBuild.value?.copy(testInfoList = currentTestInfoList)
+    }
+
     fun setCurrentBuild(buildInfo: BuildInfo) {
         _currentBuild.value = buildInfo
     }
