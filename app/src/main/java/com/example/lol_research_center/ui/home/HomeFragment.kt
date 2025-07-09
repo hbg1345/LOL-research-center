@@ -16,9 +16,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.R
 import com.example.lol_research_center.databinding.FragmentHomeBinding
+import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.model.ChampionDataLoader
 import com.example.lol_research_center.model.ChampionInfo
 import com.example.lol_research_center.model.Lane
+import com.example.lol_research_center.model.SkillDamageSet
 import com.example.lol_research_center.ui.viewmodel.BuildViewModel
 
 class HomeFragment : Fragment() {
@@ -75,7 +77,19 @@ class HomeFragment : Fragment() {
         binding.confirmButton.setOnClickListener {
             _selectedChampionForConfirmation?.let {
                 selectedChamp ->
-                buildViewModel.setChampion(selectedChamp)
+                if (pickerMode) {
+                    // Create a new BuildInfo for a new build
+                    val newBuild = BuildInfo(
+                        champion = selectedChamp,
+                        items = emptyList(),
+                        calcResult = SkillDamageSet(0,0,0,0,0), // Default values
+                        testInfoList = emptyList() // Ensure empty test info list for new build
+                    )
+                    buildViewModel.setCurrentBuild(newBuild)
+                } else {
+                    // Existing flow for setting champion (if any)
+                    buildViewModel.setChampion(selectedChamp)
+                }
                 val bundle = Bundle().apply { putBoolean("pickerMode", pickerMode) }
                 findNavController().navigate(R.id.action_selectChampion_to_selectItems, bundle)
                 binding.confirmButton.visibility = View.GONE

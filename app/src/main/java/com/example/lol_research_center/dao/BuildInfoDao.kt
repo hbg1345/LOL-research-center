@@ -25,4 +25,10 @@ interface BuildInfoDao {
 
     @Delete
     suspend fun delete(build: BuildInfo)
+
+    @Query("SELECT * FROM build_info ORDER BY timestamp DESC LIMIT 1")
+    suspend fun getLatestBuild(): BuildInfo?
+
+    @androidx.room.Update
+    suspend fun updateBuildInfo(buildInfo: BuildInfo)
 }

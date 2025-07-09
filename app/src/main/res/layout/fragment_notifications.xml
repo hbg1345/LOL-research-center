@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="false">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint"
+    android:layout_height="match_parent">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".ui.notifications.NotificationsFragment"
-        android:background="@drawable/item_back"
-        >
-        <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
-        <!-- Health Bar -->
+        android:layout_height="match_parent"
+        android:fillViewport="false">
 
-        <LinearLayout
-            android:id="@+id/image_and_grid_container"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/healthBar">
+            tools:context=".ui.notifications.NotificationsFragment"
+            android:background="@drawable/item_back"
+            >
+            <!-- Existing TextViews and ProgressBar, adjust their constraints if needed -->
+            <!-- Health Bar -->
+
+            <LinearLayout
+                android:id="@+id/image_and_grid_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/healthBar">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -91,12 +95,332 @@
                 app:layout_constraintTop_toTopOf="@id/image_and_grid_container"
                 android:layout_gravity="center_vertical">
 
+                    <!-- Row 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <!-- Column 1: AD -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ad" />
+                            <TextView
+                                android:id="@+id/textView_ad"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="120"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                        <!-- Column 2: AP -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ap" />
+                            <TextView
+                                android:id="@+id/textView_ap"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Row 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                        <!-- Column 1: AS -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:id="@+id/imageView7"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/as" />
+                            <TextView
+                                android:id="@+id/textView_as"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                        <!-- Column 2: MR -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:id="@+id/imageView5"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/mr" />
+                            <TextView
+                                android:id="@+id/textView_mr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Row 3 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                        <!-- Column 1: AR -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:id="@+id/imageView6"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ar" />
+                            <TextView
+                                android:id="@+id/textView_ar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                        <!-- Column 2: MS -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:id="@+id/imageView8"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ms" />
+                            <TextView
+                                android:id="@+id/textView_ms"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Row 4: Armor Penetration and Armor Penetration Percent -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                        <!-- Column 1: Armor Pen -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:id="@+id/imageView_armorPen"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/armor_penetration" />
+                            <TextView
+                                android:id="@+id/textView_armorPen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                        <!-- Column 2: Armor Pen Percent -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:id="@+id/textView_armorPenPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="0%"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Row 5: Magic Penetration and Magic Penetration Percent -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                        <!-- Column 1: Magic Pen -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:id="@+id/imageView_magicPen"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/magic_penetration" />
+                            <TextView
+                                android:id="@+id/textView_magicPen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                        <!-- Column 2: Magic Pen Percent -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:id="@+id/textView_magicPenPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="0%"
+                                android:textSize="18sp"
+                                android:textColor="#FFFFFFFF"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <ProgressBar
+                android:id="@+id/healthBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginTop="16dp"
+                android:max="100"
+                android:progress="100"
+                android:progressTint="#FF0000"
+                android:scaleY="4"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/image_and_grid_container" />
+
+            <TextView
+                android:id="@+id/healthText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="256"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/healthBar"
+                app:layout_constraintEnd_toEndOf="@+id/healthBar"
+                app:layout_constraintStart_toStartOf="@+id/healthBar"
+                app:layout_constraintTop_toTopOf="@+id/healthBar" />
+
+            <!-- Mana Bar -->
+            <ProgressBar
+                android:id="@+id/manaBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginTop="4dp"
+                android:max="100"
+                android:progress="100"
+                android:progressTint="#0000FF"
+                android:scaleY="4"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/healthBar" />
+
+            <TextView
+                android:id="@+id/manaText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="50 / 100"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/manaBar"
+                app:layout_constraintEnd_toEndOf="@+id/manaBar"
+                app:layout_constraintStart_toStartOf="@+id/manaBar"
+                app:layout_constraintTop_toTopOf="@+id/manaBar" />
+
+            <LinearLayout
+                android:id="@+id/itemGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/skill_icon_border"
+                app:layout_constraintTop_toBottomOf="@+id/manaBar">
+
                 <!-- Row 1 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <!-- Column 1: AD -->
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="5dp">
+                    <!-- Column 1: Item 1 (ImageView10, TextView10) -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -104,20 +428,20 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
                         <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ad" />
+                            android:id="@+id/imageView10"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/amplifying_tome" />
                         <TextView
-                            android:id="@+id/textView_ad"
+                            android:id="@+id/itemStatText_10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:text="120"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
+                            android:text="스탯"
+                            android:textSize="10sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginStart="4dp" />
                     </LinearLayout>
-                    <!-- Column 2: AP -->
+                    <!-- Column 2: Item 2 (ImageView11, TextView11) -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -125,20 +449,18 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
                         <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginStart="8dp"
-                            android:src="@drawable/ap" />
+                            android:id="@+id/imageView11"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/doran_ring" />
                         <TextView
-                            android:id="@+id/textView_ap"
+                            android:id="@+id/itemStatText_11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="0"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
+                            android:text="스탯"
+                            android:textSize="10sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginStart="4dp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -147,30 +469,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-                    <!-- Column 1: AS -->
+                    android:layout_marginStart="5dp"
+                    >
+                    <!-- Column 1: Item 3 (ImageView12, TextView12) -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        >
                         <ImageView
-                            android:id="@+id/imageView7"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/as" />
+                            android:id="@+id/imageView12"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/dark_seal" />
                         <TextView
-                            android:id="@+id/textView_as"
+                            android:id="@+id/itemStatText_12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="0"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
+                            android:text="스탯"
+                            android:textSize="10sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginStart="4dp" />
                     </LinearLayout>
-                    <!-- Column 2: MR -->
+                    <!-- Column 2: Item 4 (ImageView13, TextView13) -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -178,20 +501,19 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
                         <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginStart="8dp"
-                            android:src="@drawable/mr" />
+                            android:id="@+id/imageView13"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/blasting_wand" />
                         <TextView
-                            android:id="@+id/textView_mr"
+                            android:id="@+id/itemStatText_13"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="0"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
+                            android:text="스탯"
+                            android:textSize="10sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginStart="4dp"
+                            />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -200,8 +522,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-                    <!-- Column 1: AR -->
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="5dp">
+                    <!-- Column 1: Item 5 (ImageView14, TextView14) -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -209,21 +532,20 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
                         <ImageView
-                            android:id="@+id/imageView6"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ar" />
+                            android:id="@+id/imageView14"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/tear_of_the_goddess" />
                         <TextView
-                            android:id="@+id/textView_ar"
+                            android:id="@+id/itemStatText_14"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="0"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
+                            android:text="스탯"
+                            android:textSize="10sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginStart="4dp" />
                     </LinearLayout>
-                    <!-- Column 2: MS -->
+                    <!-- Column 2: Item 6 (ImageView15, TextView15) -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -231,695 +553,407 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
                         <ImageView
-                            android:id="@+id/imageView8"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginStart="8dp"
-                            android:src="@drawable/ms" />
+                            android:id="@+id/imageView15"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/faerie_charm" />
                         <TextView
-                            android:id="@+id/textView_ms"
+                            android:id="@+id/itemStatText_15"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="0"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Row 4: Armor Penetration and Armor Penetration Percent -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-                    <!-- Column 1: Armor Pen -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                        <ImageView
-                            android:id="@+id/imageView_armorPen"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/armor_penetration" />
-                        <TextView
-                            android:id="@+id/textView_armorPen"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="0"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
-                    </LinearLayout>
-                    <!-- Column 2: Armor Pen Percent -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                        <TextView
-                            android:id="@+id/textView_armorPenPercent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="0%"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Row 5: Magic Penetration and Magic Penetration Percent -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-                    <!-- Column 1: Magic Pen -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                        <ImageView
-                            android:id="@+id/imageView_magicPen"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/magic_penetration" />
-                        <TextView
-                            android:id="@+id/textView_magicPen"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="0"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
-                    </LinearLayout>
-                    <!-- Column 2: Magic Pen Percent -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                        <TextView
-                            android:id="@+id/textView_magicPenPercent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="0%"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFFFF"/>
+                            android:text="스탯"
+                            android:textSize="10sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginStart="4dp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-        <ProgressBar
-            android:id="@+id/healthBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_marginTop="16dp"
-            android:max="100"
-            android:progress="100"
-            android:progressTint="#FF0000"
-            android:scaleY="4"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/image_and_grid_container" />
 
-        <TextView
-            android:id="@+id/healthText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="256"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/healthBar"
-            app:layout_constraintEnd_toEndOf="@+id/healthBar"
-            app:layout_constraintStart_toStartOf="@+id/healthBar"
-            app:layout_constraintTop_toTopOf="@+id/healthBar" />
-
-        <!-- Mana Bar -->
-        <ProgressBar
-            android:id="@+id/manaBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_marginTop="4dp"
-            android:max="100"
-            android:progress="100"
-            android:progressTint="#0000FF"
-            android:scaleY="4"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/healthBar" />
-
-        <TextView
-            android:id="@+id/manaText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="50 / 100"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/manaBar"
-            app:layout_constraintEnd_toEndOf="@+id/manaBar"
-            app:layout_constraintStart_toStartOf="@+id/manaBar"
-            app:layout_constraintTop_toTopOf="@+id/manaBar" />
-
-        <LinearLayout
-            android:id="@+id/itemGrid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="vertical"
-            android:background="@drawable/skill_icon_border"
-            app:layout_constraintTop_toBottomOf="@+id/manaBar">
-
-            <!-- Row 1 -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/buttonContainer"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="5dp">
-                <!-- Column 1: Item 1 (ImageView10, TextView10) -->
-                <LinearLayout
-                    android:layout_width="0dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemGrid">
+
+                <Button
+                    android:id="@+id/saveButton"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <ImageView
-                        android:id="@+id/imageView10"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/amplifying_tome" />
-                    <TextView
-                        android:id="@+id/itemStatText_10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="스탯"
-                        android:textSize="10sp"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginStart="4dp" />
-                </LinearLayout>
-                <!-- Column 2: Item 2 (ImageView11, TextView11) -->
-                <LinearLayout
-                    android:layout_width="0dp"
+                    android:text="저장"
+                    android:layout_marginEnd="16dp" />
+
+                <Button
+                    android:id="@+id/exitButton"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <ImageView
-                        android:id="@+id/imageView11"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/doran_ring" />
-                    <TextView
-                        android:id="@+id/itemStatText_11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="스탯"
-                        android:textSize="10sp"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginStart="4dp" />
-                </LinearLayout>
+                    android:text="나가기" />
             </LinearLayout>
 
-            <!-- Row 2 -->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/skillLinear"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
-                android:layout_marginStart="5dp"
-                >
-                <!-- Column 1: Item 3 (ImageView12, TextView12) -->
-                <LinearLayout
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonContainer"
+                app:layout_constraintVertical_bias="0.076">
+
+                <!-- 패시브(P) -->
+                <include
+                    android:id="@+id/imageButton1"
+                    layout="@layout/view_skill_icon"
                     android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="2dp"
+
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1" />
+
+                <!-- Q -->
+                <include
+                    android:id="@+id/imageButton2"
+                    layout="@layout/view_skill_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1" />
+
+                <!-- W -->
+                <include
+                    android:id="@+id/imageButton3"
+                    layout="@layout/view_skill_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="2dp"
+
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1" />
+
+                <!-- E -->
+                <include
+                    android:id="@+id/imageButton4"
+                    layout="@layout/view_skill_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="2dp"
+
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1" />
+
+                <!-- R -->
+                <include
+                    android:id="@+id/imageButton5"
+                    layout="@layout/view_skill_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="2dp"
+
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/skillDesc"
+                android:background="@drawable/lol_textpanel_bg"
+                app:layout_constraintStart_toStartOf="@+id/constraint"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/skillLinear">
+
+                <LinearLayout
+                    android:id="@+id/skillDescUpperLayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
-                        android:id="@+id/imageView12"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/dark_seal" />
-                    <TextView
-                        android:id="@+id/itemStatText_12"
+                        android:id="@+id/skillImg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="스탯"
-                        android:textSize="10sp"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginStart="4dp" />
-                </LinearLayout>
-                <!-- Column 2: Item 4 (ImageView13, TextView13) -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <ImageView
-                        android:id="@+id/imageView13"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/blasting_wand" />
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/leesin_q"
+                        app:layout_constraintStart_toStartOf="@+id/skillDescUpperLayout"
+                        app:layout_constraintTop_toTopOf="@+id/skillDescUpperLayout" />
+
                     <TextView
-                        android:id="@+id/itemStatText_13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="스탯"
-                        android:textSize="10sp"
-                        android:textColor="#FFFFFF"
+                        android:id="@+id/skillTitleText"
+                        android:layout_width="200dp"
+                        android:layout_height="64dp"
                         android:layout_marginStart="4dp"
-                        />
-                </LinearLayout>
-            </LinearLayout>
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/friz_quadrata_bold"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/lol_gold"
+                        android:textSize="24sp"
+                        app:layout_constraintStart_toEndOf="@+id/skillImg"
+                        app:layout_constraintTop_toTopOf="@+id/skillDescUpperLayout" />
 
-            <!-- Row 3 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp">
-                <!-- Column 1: Item 5 (ImageView14, TextView14) -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <ImageView
-                        android:id="@+id/imageView14"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/tear_of_the_goddess" />
+
                     <TextView
-                        android:id="@+id/itemStatText_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="스탯"
-                        android:textSize="10sp"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginStart="4dp" />
+                        android:id="@+id/skilllevelText"
+                        android:layout_width="42dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/friz_quadrata_bold"
+                        android:gravity="center"
+                        android:text="12"
+                        android:textAlignment="center"
+                        android:textColor="@color/lol_gold"
+                        android:textSize="24sp"
+                        app:layout_constraintStart_toEndOf="@+id/skillTitleText"
+                        app:layout_constraintTop_toTopOf="@+id/skillDescUpperLayout" />
+
+                    <LinearLayout
+                        android:id="@+id/skillDescLevelButtonLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toTopOf="@+id/skillDescUpperLayout">
+
+                        <ImageButton
+                            android:id="@+id/levelUpButton"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="16dp"
+                            android:background="@android:color/transparent"
+                            android:layout_marginTop="2dp"
+                            android:rotation="-90"
+                            android:src="@drawable/arrow_right"
+                            app:layout_constraintStart_toEndOf="@+id/skilllevelText"
+                            app:layout_constraintTop_toTopOf="@+id/skillDescLevelButtonLayout" />
+
+                        <ImageButton
+                            android:id="@+id/levelDownButton"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="16dp"
+                            android:background="@android:color/transparent"
+                            android:rotation="90"
+                            android:src="@drawable/arrow_right"
+                            android:layout_marginTop="15dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/levelUpButton"
+                            app:layout_constraintStart_toEndOf="@+id/skilllevelText" />
+                    </LinearLayout>
                 </LinearLayout>
-                <!-- Column 2: Item 6 (ImageView15, TextView15) -->
+
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <ImageView
-                        android:id="@+id/imageView15"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/faerie_charm" />
-                    <TextView
-                        android:id="@+id/itemStatText_15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="스탯"
-                        android:textSize="10sp"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginStart="4dp" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/buttonContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemGrid">
-
-            <Button
-                android:id="@+id/saveButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="저장"
-                android:layout_marginEnd="16dp" />
-
-            <Button
-                android:id="@+id/exitButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나가기" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/skillLinear"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonContainer"
-            app:layout_constraintVertical_bias="0.076">
-
-            <!-- 패시브(P) -->
-            <include
-                android:id="@+id/imageButton1"
-                layout="@layout/view_skill_icon"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="2dp"
-
-                android:layout_marginEnd="2dp"
-                android:layout_weight="1" />
-
-            <!-- Q -->
-            <include
-                android:id="@+id/imageButton2"
-                layout="@layout/view_skill_icon"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:layout_weight="1" />
-
-            <!-- W -->
-            <include
-                android:id="@+id/imageButton3"
-                layout="@layout/view_skill_icon"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="2dp"
-
-                android:layout_marginEnd="2dp"
-                android:layout_weight="1" />
-
-            <!-- E -->
-            <include
-                android:id="@+id/imageButton4"
-                layout="@layout/view_skill_icon"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="2dp"
-
-                android:layout_marginEnd="2dp"
-                android:layout_weight="1" />
-
-            <!-- R -->
-            <include
-                android:id="@+id/imageButton5"
-                layout="@layout/view_skill_icon"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="2dp"
-
-                android:layout_marginEnd="2dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/skillDesc"
-            android:background="@drawable/lol_textpanel_bg"
-            app:layout_constraintStart_toStartOf="@+id/constraint"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="10dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/skillLinear">
-
-            <LinearLayout
-                android:id="@+id/skillDescUpperLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/skillImg"
+                    android:id="@+id/skillDescLowerLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/leesin_q"
-                    app:layout_constraintStart_toStartOf="@+id/skillDescUpperLayout"
-                    app:layout_constraintTop_toTopOf="@+id/skillDescUpperLayout" />
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/skillTitleText"
-                    android:layout_width="200dp"
-                    android:layout_height="64dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/friz_quadrata_bold"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="@color/lol_gold"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toEndOf="@+id/skillImg"
-                    app:layout_constraintTop_toTopOf="@+id/skillDescUpperLayout" />
+                    <GridLayout
+                        android:id="@+id/skillDescGridLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:rowCount="2">
 
+                        <LinearLayout
+                            android:id="@+id/skillDescArLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/skilllevelText"
-                    android:layout_width="42dp"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/friz_quadrata_bold"
-                    android:gravity="center"
-                    android:text="12"
-                    android:textAlignment="center"
-                    android:textColor="@color/lol_gold"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toEndOf="@+id/skillTitleText"
-                    app:layout_constraintTop_toTopOf="@+id/skillDescUpperLayout" />
+                            <ImageView
+                                android:id="@+id/imageAr"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:src="@drawable/ar"
+                                app:layout_constraintStart_toStartOf="@+id/skillDescArLayout"
+                                app:layout_constraintTop_toTopOf="@+id/skillDescArLayout" />
 
-                <LinearLayout
-                    android:id="@+id/skillDescLevelButtonLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="16dp"
-                    android:orientation="vertical"
-                    app:layout_constraintTop_toTopOf="@+id/skillDescUpperLayout">
+                            <TextView
+                                android:id="@+id/arText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="0dp"
+                                android:text="TextView"
+                                app:layout_constraintStart_toEndOf="@+id/imageAr"
+                                app:layout_constraintTop_toTopOf="@+id/skillDescArLayout" />
+                        </LinearLayout>
 
-                    <ImageButton
-                        android:id="@+id/levelUpButton"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@android:color/transparent"
-                        android:layout_marginTop="2dp"
-                        android:rotation="-90"
-                        android:src="@drawable/arrow_right"
-                        app:layout_constraintStart_toEndOf="@+id/skilllevelText"
-                        app:layout_constraintTop_toTopOf="@+id/skillDescLevelButtonLayout" />
+                        <LinearLayout
+                            android:id="@+id/skillDescMrLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
 
-                    <ImageButton
-                        android:id="@+id/levelDownButton"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@android:color/transparent"
-                        android:rotation="90"
-                        android:src="@drawable/arrow_right"
-                        android:layout_marginTop="15dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/levelUpButton"
-                        app:layout_constraintStart_toEndOf="@+id/skilllevelText" />
+                            <ImageView
+                                android:id="@+id/imageMr"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:src="@drawable/mr"
+                                app:layout_constraintStart_toStartOf="@+id/skillDescMrLayout"
+                                app:layout_constraintTop_toTopOf="@+id/skillDescMrLayout" />
+
+                            <TextView
+                                android:id="@+id/mrText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="0dp"
+                                android:text="TextView"
+                                app:layout_constraintStart_toEndOf="@+id/imageMr"
+                                app:layout_constraintTop_toTopOf="@+id/skillDescMrLayout" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/skillDescCurHpLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageCurHp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:src="@drawable/hp5"
+                                app:layout_constraintStart_toStartOf="@+id/skillDescCurHpLayout"
+                                app:layout_constraintTop_toTopOf="@+id/skillDescCurHpLayout" />
+
+                            <TextView
+                                android:id="@+id/curHpText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="0dp"
+                                android:text="TextView"
+                                app:layout_constraintStart_toEndOf="@+id/imageCurHp"
+                                app:layout_constraintTop_toTopOf="@+id/skillDescCurHpLayout" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/skillDescHpLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageHp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:src="@drawable/hp"
+                                app:layout_constraintStart_toStartOf="@+id/skillDescHpLayout"
+                                app:layout_constraintTop_toTopOf="@+id/skillDescHpLayout" />
+
+                            <TextView
+                                android:id="@+id/hpText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="0dp"
+                                android:text="TextView"
+                                app:layout_constraintStart_toEndOf="@+id/imageHp"
+                                app:layout_constraintTop_toTopOf="@+id/skillDescHpLayout" />
+                        </LinearLayout>
+                    </GridLayout>
+
+                    <TextView
+                        android:id="@+id/dealTotal"
+                        android:layout_width="117dp"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:fontFamily="@font/friz_quadrata_bold"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/lol_gold"
+                        android:textSize="24sp"
+                        app:layout_constraintStart_toEndOf="@+id/skillDescGridLayout"
+                        app:layout_constraintTop_toTopOf="@+id/skillDescLowerLayout" />
                 </LinearLayout>
+
+
             </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/testInfoRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/skillDesc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/skillComboRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/testInfoRecyclerView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <LinearLayout
-                android:id="@+id/skillDescLowerLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <GridLayout
-                    android:id="@+id/skillDescGridLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:columnCount="2"
-                    android:rowCount="2">
-
-                    <LinearLayout
-                        android:id="@+id/skillDescArLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imageAr"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="0dp"
-                            android:src="@drawable/ar"
-                            app:layout_constraintStart_toStartOf="@+id/skillDescArLayout"
-                            app:layout_constraintTop_toTopOf="@+id/skillDescArLayout" />
-
-                        <TextView
-                            android:id="@+id/arText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:text="TextView"
-                            app:layout_constraintStart_toEndOf="@+id/imageAr"
-                            app:layout_constraintTop_toTopOf="@+id/skillDescArLayout" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/skillDescMrLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imageMr"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="0dp"
-                            android:src="@drawable/mr"
-                            app:layout_constraintStart_toStartOf="@+id/skillDescMrLayout"
-                            app:layout_constraintTop_toTopOf="@+id/skillDescMrLayout" />
-
-                        <TextView
-                            android:id="@+id/mrText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:text="TextView"
-                            app:layout_constraintStart_toEndOf="@+id/imageMr"
-                            app:layout_constraintTop_toTopOf="@+id/skillDescMrLayout" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/skillDescCurHpLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imageCurHp"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="0dp"
-                            android:src="@drawable/hp5"
-                            app:layout_constraintStart_toStartOf="@+id/skillDescCurHpLayout"
-                            app:layout_constraintTop_toTopOf="@+id/skillDescCurHpLayout" />
-
-                        <TextView
-                            android:id="@+id/curHpText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:text="TextView"
-                            app:layout_constraintStart_toEndOf="@+id/imageCurHp"
-                            app:layout_constraintTop_toTopOf="@+id/skillDescCurHpLayout" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/skillDescHpLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imageHp"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="0dp"
-                            android:src="@drawable/hp"
-                            app:layout_constraintStart_toStartOf="@+id/skillDescHpLayout"
-                            app:layout_constraintTop_toTopOf="@+id/skillDescHpLayout" />
-
-                        <TextView
-                            android:id="@+id/hpText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:text="TextView"
-                            app:layout_constraintStart_toEndOf="@+id/imageHp"
-                            app:layout_constraintTop_toTopOf="@+id/skillDescHpLayout" />
-                    </LinearLayout>
-                </GridLayout>
-
-                <TextView
-                    android:id="@+id/dealTotal"
-                    android:layout_width="117dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:fontFamily="@font/friz_quadrata_bold"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="@color/lol_gold"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toEndOf="@+id/skillDescGridLayout"
-                    app:layout_constraintTop_toTopOf="@+id/skillDescLowerLayout" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/imageButtonContainer"
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/skillComboRecyclerView"
+                android:background="@drawable/lol_textpanel_bg"
+                android:gravity="center"
+                android:layout_height="100dp">
+                <ImageButton
+                    android:id="@+id/testInfoAddButton"
+                    android:src="@drawable/icon_add"
+                    android:background="@android:color/transparent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"/>
             </LinearLayout>
-
-
-        </LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/testInfoRecyclerView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            app:layout_constraintTop_toBottomOf="@id/skillDesc"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginHorizontal="10dp"
-            android:id="@+id/imageButtonContainer"
-            android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/testInfoRecyclerView"
-            android:background="@drawable/lol_textpanel_bg"
-            android:gravity="center"
-            android:layout_height="100dp">
-            <ImageButton
-                android:id="@+id/testInfoAddButton"
-                android:src="@drawable/icon_add"
-                android:background="@android:color/transparent"
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/skillComboButtonContainer"
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/imageButtonContainer"
+                android:background="@drawable/lol_textpanel_bg"
+                android:gravity="center"
+                android:layout_height="100dp">
+                <ImageButton
+                    android:id="@+id/skillComboModalButton"
+                    android:src="@drawable/icon_add"
+                    android:background="@android:color/transparent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <include
+    android:id="@+id/skillComboModal"
+    layout="@layout/skill_combo_modal_ui"
+    android:visibility="gone"/>
+</FrameLayout>

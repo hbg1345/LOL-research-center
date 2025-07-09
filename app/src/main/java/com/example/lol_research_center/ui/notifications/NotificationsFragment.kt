@@ -6,6 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -14,8 +18,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.ui.home.HomeBottomSheetFragment
 import com.example.lol_research_center.R
+import com.example.lol_research_center.adapter.SkillComboAdapter
 import com.example.lol_research_center.database.AppDatabase
 import com.example.lol_research_center.database.DummyDataProvider.createDummyTestInfo
 import com.example.lol_research_center.databinding.FragmentNotificationsBinding
@@ -25,6 +31,7 @@ import com.example.lol_research_center.model.ItemData
 import com.example.lol_research_center.model.Lane
 import com.example.lol_research_center.model.ItemStats
 import com.example.lol_research_center.model.Skill
+import com.example.lol_research_center.model.SkillCombo
 import com.example.lol_research_center.model.SkillDamageSet
 import com.example.lol_research_center.model.Skills
 import com.example.lol_research_center.model.Stats
@@ -40,6 +47,11 @@ class NotificationsFragment : Fragment() {
     private val binding get() = _binding!!
     private val buildViewModel: BuildViewModel by activityViewModels()
     private val db by lazy { AppDatabase.getDatabase(requireContext().applicationContext) }
+    private lateinit var skillImageViews: List<ImageView>
+    private lateinit var skillButtons: List<View>
+    private var currentIndex = 0
+    private lateinit var skillComboAdapter: SkillComboAdapter
+    private val comboList = mutableListOf<SkillCombo>()
 
     // 현재 선택된 스킬
     private var selectedSkill: Skill? = null
@@ -69,7 +81,77 @@ class NotificationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        super.onViewCreated(view, savedInstanceState)
+        skillComboAdapter = SkillComboAdapter(comboList)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.skillComboRecyclerView)
+        recyclerView.adapter = skillComboAdapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         setupTestInfoRecyclerView() // Initialize adapter once
+        val btnSkillComboModal: ImageButton = view.findViewById(R.id.skillComboModalButton)
+        val skillComboModal: View = view.findViewById(R.id.skillComboModal)
+        val modalContent: View = (skillComboModal as ViewGroup).getChildAt(0) // 모달 내부의 LinearLayout
+
+        // 외부(어두운 배경)를 클릭하면 모달 닫기
+        skillComboModal.setOnClickListener {
+            skillComboModal.visibility = View.GONE
+        }
+
+        // 모달 본문을 클릭하면 닫히지 않도록 클릭 전파 막기
+        modalContent.setOnClickListener {
+            // 아무 동작 없음 (클릭이 전파되지 않게 막음)
+        }
+        btnSkillComboModal.setOnClickListener {
+            skillImageViews.forEach { imgView ->
+                imgView.setImageResource(R.drawable.icon_add) // 기본 이미지 설정
+                val parent = imgView.parent as? View
+                val skillKeyText = parent?.findViewById<View>(R.id.tvSkillKey) as? TextView
+                skillKeyText?.text = ""
+            }
+            currentIndex = 0 // 다시 처음부터 이미지 선택 가능하게 초기화
+            skillComboModal.visibility = View.VISIBLE
+        }
+
+        skillImageViews = listOf(
+            view.findViewById<View>(R.id.skillImg1).findViewById(R.id.imgSkill),
+            view.findViewById<View>(R.id.skillImg2).findViewById(R.id.imgSkill),
+            view.findViewById<View>(R.id.skillImg3).findViewById(R.id.imgSkill),
+            view.findViewById<View>(R.id.skillImg4).findViewById(R.id.imgSkill),
+            view.findViewById<View>(R.id.skillImg5).findViewById(R.id.imgSkill),
+            view.findViewById<View>(R.id.skillImg6).findViewById(R.id.imgSkill),
+            view.findViewById<View>(R.id.skillImg7).findViewById(R.id.imgSkill),
+            view.findViewById<View>(R.id.skillImg8).findViewById(R.id.imgSkill),
+            view.findViewById<View>(R.id.skillImg9).findViewById(R.id.imgSkill),
+            view.findViewById<View>(R.id.skillImg10).findViewById(R.id.imgSkill)
+        )
+
+        // 이미지 버튼 (skillBtn1 ~ skillBtn10)
+        skillButtons = listOf(
+            view.findViewById(R.id.skillBtn1),
+            view.findViewById(R.id.skillBtn2),
+            view.findViewById(R.id.skillBtn3),
+            view.findViewById(R.id.skillBtn4),
+            view.findViewById(R.id.skillBtn5),
+            view.findViewById(R.id.skillBtn6),
+            view.findViewById(R.id.skillBtn7),
+            view.findViewById(R.id.skillBtn8),
+            view.findViewById(R.id.skillBtn9),
+            view.findViewById(R.id.skillBtn10)
+        )
+
+        // 각 버튼마다 클릭 리스너 등록
+        skillButtons.forEach { button ->
+            button.setOnClickListener {
+                fillSkillIcon(button)
+            }
+        }
+        val skillKeys = listOf("P", "Q", "W", "E", "R") + List(5) { "" }
+
+        skillButtons.forEachIndexed { index, button ->
+            val skillKeyView = button.findViewById<TextView>(R.id.tvSkillKey)
+            skillKeyView?.text = skillKeys.getOrNull(index) ?: ""
+        }
+
+
 
         // Retrieve BuildInfo from arguments and set it in the ViewModel
         arguments?.getParcelable<BuildInfo>("build")?.let { buildInfo ->
@@ -126,12 +208,128 @@ class NotificationsFragment : Fragment() {
                 setupExitButton()
                 setupSaveButton()
                 testInfoAdapter.updateData(it.testInfoList) // Update data
+                setupSkillButtons(it)
             } ?: run {
                 Toast.makeText(context, "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
             }
         }
+        val imageButtons = listOf(
+            binding.imageButton1,
+            binding.imageButton2,
+            binding.imageButton3,
+            binding.imageButton4,
+            binding.imageButton5
+        )
+
+
+        val imageButtonKeys = listOf("P", "Q", "W", "E", "R")
+
+        imageButtons.forEachIndexed { index, textView ->
+            textView.tvKey.text = imageButtonKeys[index]
+        }
+        val btnSaveCombo = view.findViewById<Button>(R.id.btnSaveCombo)
+        btnSaveCombo.setOnClickListener {
+            // 1) 콤보 이름
+            val comboName = (skillComboModal.findViewById<TextView>(R.id.tvComboName)).text.toString()
+            // 2) 콤보 설명
+            val comboDesc = (skillComboModal.findViewById<TextView>(R.id.tvComboDescription)).text.toString()
+            // 3) 총 데미지
+            val comboDamage = (skillComboModal.findViewById<TextView>(R.id.tvDamageTextView))?.text?.toString() ?: "-"
+
+            // 4) 10개 스킬 아이콘(이미지)와 키값 리스트 뽑기
+            val skillDrawables = mutableListOf<Int>()
+            val skillKeys = mutableListOf<String>()
+
+            // skillImg1~10에서 추출
+            for (i in 1..10) {
+                val skillLayout = skillComboModal.findViewById<View>(skillImgId(i))
+                val img = skillLayout.findViewById<ImageView>(R.id.imgSkill)
+                val key = skillLayout.findViewById<TextView>(R.id.tvSkillKey)
+                skillDrawables.add(img.getTag(R.id.imgSkill) as? Int ?: R.drawable.empty_icon) // <- 수정!
+                skillKeys.add(key.text?.toString() ?: "")
+            }
+
+
+            // SkillCombo 객체 생성 및 추가
+            val combo = SkillCombo(
+                name = comboName,
+                skillDrawables = skillDrawables,
+                skillKeys = skillKeys,
+                damage = comboDamage,
+                description = comboDesc
+            )
+            comboList.add(combo)
+            skillComboAdapter.notifyItemInserted(comboList.size - 1)
+            skillComboModal.visibility = View.GONE
+        }
+
+
     }
+    private fun setupSkillButtons(buildInfo: BuildInfo) {
+        val championSkills = listOf(
+            buildInfo.champion.skills.p,
+            buildInfo.champion.skills.q,
+            buildInfo.champion.skills.w,
+            buildInfo.champion.skills.e,
+            buildInfo.champion.skills.r
+        )
+
+        // 첫 5개 버튼은 챔피언 스킬 이미지로 설정
+        championSkills.forEachIndexed { index, skill ->
+            val buttonImageView = skillButtons[index].findViewById<ImageView>(R.id.imgSkill)
+            buttonImageView.setImageResource(skill.skillDrawable)
+            skillButtons[index].setTag(R.id.imgSkill, skill.skillDrawable)
+        }
+
+        // 나머지 5개 버튼은 기본 이미지 또는 비워둠 (선택사항)
+        for (index in 5 until skillButtons.size) {
+            val buttonImageView = skillButtons[index].findViewById<ImageView>(R.id.imgSkill)
+            buttonImageView.setImageResource(R.drawable.empty_icon) // 기본 아이콘 또는 빈 이미지
+        }
+        skillButtons[5].setTag(R.id.imgSkill, R.drawable.flash_spell)
+
+        skillButtons[6].setTag(R.id.imgSkill, R.drawable.ignite_spell)
+
+        skillButtons[7].setTag(R.id.imgSkill, R.drawable.smite_spell)
+        skillButtons[5].findViewById<ImageView>(R.id.imgSkill).setImageResource(R.drawable.flash_spell)
+        skillButtons[6].findViewById<ImageView>(R.id.imgSkill).setImageResource(R.drawable.ignite_spell)
+        skillButtons[7].findViewById<ImageView>(R.id.imgSkill).setImageResource(R.drawable.smite_spell)
+
+    }
+    private fun skillImgId(index: Int): Int {
+        return resources.getIdentifier("skillImg$index", "id", requireContext().packageName)
+    }
+
+    private fun fillSkillIcon(button: View) {
+        val drawableId = button.getTag(R.id.imgSkill) as? Int ?: R.drawable.empty_icon  // 핵심: drawable id 꺼내기
+
+        if (currentIndex >= skillImageViews.size) {
+            Toast.makeText(requireContext(), "더 이상 선택할 수 없습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        val buttonImageView = button.findViewById<ImageView>(R.id.imgSkill)
+        val skillKey = when (button.id) {
+            R.id.skillBtn1 -> "P"
+            R.id.skillBtn2 -> "Q"
+            R.id.skillBtn3 -> "W"
+            R.id.skillBtn4 -> "E"
+            R.id.skillBtn5 -> "R"
+            else -> "" // 사용자 정의 스킬이라면 빈 값
+        }
+
+        val parent = skillImageViews[currentIndex].parent as? View
+        val skillKeyText = parent?.findViewById<View>(R.id.tvSkillKey) as? TextView
+        skillKeyText?.text = skillKey
+        // fillSkillIcon 함수 내에서
+
+        // 버튼의 이미지를 ImageView에 설정
+        skillImageViews[currentIndex].setImageDrawable(buttonImageView.drawable)
+        skillImageViews[currentIndex].setTag(R.id.imgSkill, drawableId)
+
+        currentIndex++  // 다음 이미지뷰로 이동
+    }
+
 
     private fun setupChampionInfo(info: BuildInfo) {
         binding.champImg.setImageResource(info.champion.champDrawable)
@@ -369,7 +567,7 @@ class NotificationsFragment : Fragment() {
                             existing.champion.name == championName &&
                                     existing.items.map { it.name }.sorted() == itemNames
                         }
-                        
+
                         CoroutineScope(Dispatchers.Main).launch {
                             if (!duplicate) {
                                 db.buildInfoDao().insertBuildInfo(infoToSave)
