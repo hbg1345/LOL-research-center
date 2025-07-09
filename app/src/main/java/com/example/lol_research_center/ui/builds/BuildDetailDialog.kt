@@ -30,3 +30,4 @@ class BuildDetailDialog : DialogFragment() {
             .create()
     }
 }
+

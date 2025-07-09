@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -151,6 +153,15 @@ class NotificationsFragment : Fragment() {
 
 
 
+        // Retrieve BuildInfo from arguments and set it in the ViewModel
+        arguments?.getParcelable<BuildInfo>("build")?.let { buildInfo ->
+            buildViewModel.setCurrentBuild(buildInfo)
+        } ?: run {
+            // If no BuildInfo is passed, it means we are creating a new build.
+            // Reset the current build in the ViewModel to ensure a clean state.
+            buildViewModel.resetCurrentBuild()
+        }
+
         binding.testInfoAddButton.setOnClickListener {
             Log.d("Builds", "+ 버튼 클릭")
 
@@ -160,14 +171,42 @@ class NotificationsFragment : Fragment() {
             homeBottomSheet.show(parentFragmentManager, homeBottomSheet.tag)
         }
 
+        // Set up click listener for the level TextView
+        binding.levelSpinner.setOnClickListener {
+            val currentLevel = currentChampionLevel // Use the stored current level
+            LevelPickerDialogFragment.newInstance(currentLevel).show(childFragmentManager, LevelPickerDialogFragment.TAG)
+        }
+
+        // Listen for result from LevelPickerDialogFragment
+        childFragmentManager.setFragmentResultListener(
+            LevelPickerDialogFragment.REQUEST_KEY,
+            viewLifecycleOwner
+        ) { requestKey, bundle ->
+            if (requestKey == LevelPickerDialogFragment.REQUEST_KEY) {
+                val selectedLevel = bundle.getInt(LevelPickerDialogFragment.BUNDLE_KEY_SELECTED_LEVEL)
+                if (currentChampionLevel != selectedLevel) {
+                    currentChampionLevel = selectedLevel
+                    val currentBuild = buildViewModel.currentBuild.value
+                    currentBuild?.let {
+                        val updatedChampion = it.champion.copy(level = selectedLevel)
+                        val updatedBuild = it.copy(champion = updatedChampion)
+                        buildViewModel.setCurrentBuild(updatedBuild)
+                    }
+                }
+            }
+        }
+
         buildViewModel.currentBuild.observe(viewLifecycleOwner) { buildInfo ->
             buildInfo?.let {
                 setupChampionInfo(it)
                 setupItems(it)
                 setupSkills(it)
+                // Update the TextView with the current level
+                currentChampionLevel = it.champion.level
+                binding.levelSpinner.text = "레벨: ${it.champion.level}"
                 setupLevelButtons(it)
                 setupExitButton()
-                setupSaveButton(it)
+                setupSaveButton()
                 testInfoAdapter.updateData(it.testInfoList) // Update data
                 setupSkillButtons(it)
             } ?: run {
@@ -443,12 +482,6 @@ class NotificationsFragment : Fragment() {
     private var currentChampionLevel: Int = 1 // 챔피언 레벨을 저장할 변수
 
     private fun setupLevelButtons(info: BuildInfo) {
-        // 초기 챔피언 레벨 설정
-        info.champion.level.let {
-            currentChampionLevel = it
-            binding.skilllevelText.text = currentChampionLevel.toString() // 챔피언 레벨 표시
-        }
-
         binding.levelUpButton.setOnClickListener {
             selectedSkill?.let { skill ->
                 val maxLvl = when (skill.skillTitle) {
@@ -519,28 +552,40 @@ class NotificationsFragment : Fragment() {
         return (base + bonus).toInt()
     }
 
-    private fun setupSaveButton(info: BuildInfo) {
+    private fun setupSaveButton() {
         binding.saveButton.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                val championName = info.champion.name
-                val itemNames = info.items.map { it.name }.sorted()
-                val duplicate = db.buildInfoDao().getAllBuilds().any { existing ->
-                    existing.champion.name == championName &&
-                            existing.items.map { it.name }.sorted() == itemNames
-                }
-                CoroutineScope(Dispatchers.Main).launch {
-                    if (info.id == 0L) { // New build
-                        if (!duplicate) {
-                            db.buildInfoDao().insertBuildInfo(info)
-                            Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(context, "이미 동일한 빌드 정보가 존재합니다.", Toast.LENGTH_SHORT).show()
+            val latestBuildInfo = buildViewModel.currentBuild.value
+
+            latestBuildInfo?.let { infoToSave ->
+                CoroutineScope(Dispatchers.IO).launch {
+                    // If id is 0, it's a new build. Otherwise, it's an existing one.
+                    if (infoToSave.id == 0L) {
+                        // New build: Check for duplicates before inserting
+                        val championName = infoToSave.champion.name
+                        val itemNames = infoToSave.items.map { it.name }.sorted()
+                        val duplicate = db.buildInfoDao().getAllBuilds().any { existing ->
+                            existing.champion.name == championName &&
+                                    existing.items.map { it.name }.sorted() == itemNames
                         }
-                    } else { // Existing build
-                        db.buildInfoDao().updateBuildInfo(info)
-                        Toast.makeText(context, "빌드 정보가 업데이트되었습니다.", Toast.LENGTH_SHORT).show()
+
+                        CoroutineScope(Dispatchers.Main).launch {
+                            if (!duplicate) {
+                                db.buildInfoDao().insertBuildInfo(infoToSave)
+                                Toast.makeText(context, "빌드가 저장되었습니다.", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(context, "이미 동일한 빌드 정보가 존재합니다.", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } else {
+                        // Existing build: Update it
+                        db.buildInfoDao().update(infoToSave)
+                        CoroutineScope(Dispatchers.Main).launch {
+                            Toast.makeText(context, "빌드가 업데이트되었습니다.", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
+            } ?: run {
+                Toast.makeText(context, "저장할 빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
             }
         }
     }

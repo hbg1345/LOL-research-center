@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Delete
+import androidx.room.Update
 import com.example.lol_research_center.model.BuildInfo
 import com.example.lol_research_center.model.TestInfo
 import kotlinx.coroutines.flow.Flow
@@ -12,6 +13,9 @@ import kotlinx.coroutines.flow.Flow
 interface BuildInfoDao {
     @Insert
     suspend fun insertBuildInfo(buildInfo: BuildInfo)
+
+    @Update
+    suspend fun update(buildInfo: BuildInfo)
 
     @Query("SELECT * FROM build_info ORDER BY timestamp DESC")
     fun getAll(): Flow<List<BuildInfo>>
