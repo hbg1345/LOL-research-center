@@ -656,7 +656,7 @@
 
             <LinearLayout
                 android:id="@+id/skillDescUpperLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -689,9 +689,10 @@
                     android:id="@+id/skilllevelText"
                     android:layout_width="42dp"
                     android:layout_height="64dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/friz_quadrata_bold"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="12"
                     android:textAlignment="center"
                     android:textColor="@color/lol_gold"
                     android:textSize="24sp"
@@ -711,7 +712,8 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="10dp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginTop="2dp"
                         android:rotation="-90"
                         android:src="@drawable/arrow_right"
                         app:layout_constraintStart_toEndOf="@+id/skilllevelText"
@@ -722,9 +724,11 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginStart="16dp"
+                        android:background="@android:color/transparent"
                         android:rotation="90"
                         android:src="@drawable/arrow_right"
-                        app:layout_constraintBottom_toBottomOf="@+id/skillDescLevelButtonLayout"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/levelUpButton"
                         app:layout_constraintStart_toEndOf="@+id/skilllevelText" />
                 </LinearLayout>
             </LinearLayout>
@@ -813,7 +817,7 @@
                             android:layout_height="20dp"
                             android:layout_marginStart="0dp"
                             android:layout_marginTop="0dp"
-                            android:src="@drawable/ar"
+                            android:src="@drawable/hp5"
                             app:layout_constraintStart_toStartOf="@+id/skillDescCurHpLayout"
                             app:layout_constraintTop_toTopOf="@+id/skillDescCurHpLayout" />
 
@@ -842,7 +846,7 @@
                             android:layout_height="20dp"
                             android:layout_marginStart="0dp"
                             android:layout_marginTop="0dp"
-                            android:src="@drawable/ar"
+                            android:src="@drawable/hp"
                             app:layout_constraintStart_toStartOf="@+id/skillDescHpLayout"
                             app:layout_constraintTop_toTopOf="@+id/skillDescHpLayout" />
 

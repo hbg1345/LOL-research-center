@@ -1,2035 +1,341 @@
-{
-//    "champDrawable": "ashe",
-//    "name": "Ashe",
-//    "lane": "ADC",
-//    "stats": {
-//      "attackdamage": 59,
-//      "attackdamageperlevel": 2.95,
-//      "ap": 0,
-//      "hp": 610,
-//      "mp": 280,
-//      "crit": 0,
-//      "attackspeed": 0.658,
-//      "attackspeedperlevel": 3.33,
-//      "armor": 26,
-//      "spellblock": 30,
-//      "hpperlevel": 101,
-//      "mpperlevel": 35,
-//      "movespeed": 325,
-//      "armorperlevel": 4.6,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 3.5,
-//      "hpregenperlevel": 0.55,
-//      "mpregen": 7.0,
-//      "mpregenperlevel": 0.65,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "ashe_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "ashe_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "ashe_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "ashe_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "ashe_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "caitlyn",
-//    "name": "Caitlyn",
-//    "lane": "ADC",
-//    "stats": {
-//      "attackdamage": 60,
-//      "attackdamageperlevel": 3.8,
-//      "ap": 0,
-//      "hp": 580,
-//      "mp": 315,
-//      "crit": 0,
-//      "attackspeed": 0.681,
-//      "attackspeedperlevel": 4.0,
-//      "armor": 27,
-//      "spellblock": 30,
-//      "hpperlevel": 107,
-//      "mpperlevel": 40,
-//      "movespeed": 325,
-//      "armorperlevel": 4.7,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 3.5,
-//      "hpregenperlevel": 0.55,
-//      "mpregen": 7.4,
-//      "mpregenperlevel": 0.7,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "caitlyn_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "caitlyn_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "caitlyn_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "caitlyn_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "caitlyn_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "camille",
-//    "name": "Camille",
-//    "lane": "TOP",
-//    "stats": {
-//      "attackdamage": 68,
-//      "attackdamageperlevel": 3.8,
-//      "ap": 0,
-//      "hp": 650,
-//      "mp": 339,
-//      "crit": 0,
-//      "attackspeed": 0.644,
-//      "attackspeedperlevel": 2.5,
-//      "armor": 35,
-//      "spellblock": 32,
-//      "hpperlevel": 99,
-//      "mpperlevel": 52,
-//      "movespeed": 340,
-//      "armorperlevel": 5.0,
-//      "spellblockperlevel": 2.05,
-//      "hpregen": 8.5,
-//      "hpregenperlevel": 0.8,
-//      "mpregen": 8.15,
-//      "mpregenperlevel": 0.75,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "camille_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "camille_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "camille_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "camille_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "camille_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "ezreal",
-//    "name": "Ezreal",
-//    "lane": "ADC",
-//    "stats": {
-//      "attackdamage": 60,
-//      "attackdamageperlevel": 2.75,
-//      "ap": 0,
-//      "hp": 600,
-//      "mp": 375,
-//      "crit": 0,
-//      "attackspeed": 0.625,
-//      "attackspeedperlevel": 2.5,
-//      "armor": 24,
-//      "spellblock": 30,
-//      "hpperlevel": 102,
-//      "mpperlevel": 70,
-//      "movespeed": 325,
-//      "armorperlevel": 4.2,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 4.0,
-//      "hpregenperlevel": 0.65,
-//      "mpregen": 8.5,
-//      "mpregenperlevel": 1.0,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "ezreal_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "ezreal_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "ezreal_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "ezreal_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "ezreal_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "graves",
-//    "name": "Graves",
-//    "lane": "JUNGLE",
-//    "stats": {
-//      "attackdamage": 68,
-//      "attackdamageperlevel": 3.0,
-//      "ap": 0,
-//      "hp": 625,
-//      "mp": 325,
-//      "crit": 0,
-//      "attackspeed": 0.475,
-//      "attackspeedperlevel": 2.6,
-//      "armor": 33,
-//      "spellblock": 30,
-//      "hpperlevel": 92,
-//      "mpperlevel": 40,
-//      "movespeed": 340,
-//      "armorperlevel": 4.6,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 8.0,
-//      "hpregenperlevel": 0.7,
-//      "mpregen": 7.6,
-//      "mpregenperlevel": 0.7,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "graves_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "graves_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "graves_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "graves_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "graves_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "irelia",
-//    "name": "Irelia",
-//    "lane": "MID",
-//    "stats": {
-//      "attackdamage": 65,
-//      "attackdamageperlevel": 3.5,
-//      "ap": 0,
-//      "hp": 630,
-//      "mp": 350,
-//      "crit": 0,
-//      "attackspeed": 0.656,
-//      "attackspeedperlevel": 2.5,
-//      "armor": 36,
-//      "spellblock": 30,
-//      "hpperlevel": 115,
-//      "mpperlevel": 50,
-//      "movespeed": 335,
-//      "armorperlevel": 4.7,
-//      "spellblockperlevel": 2.05,
-//      "hpregen": 6.0,
-//      "hpregenperlevel": 0.85,
-//      "mpregen": 8.0,
-//      "mpregenperlevel": 0.8,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "irelia_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "irelia_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "irelia_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "irelia_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "irelia_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "kaisa",
-//    "name": "Kai'Sa",
-//    "lane": "ADC",
-//    "stats": {
-//      "attackdamage": 59,
-//      "attackdamageperlevel": 2.6,
-//      "ap": 0,
-//      "hp": 640,
-//      "mp": 345,
-//      "crit": 0,
-//      "attackspeed": 0.644,
-//      "attackspeedperlevel": 1.8,
-//      "armor": 27,
-//      "spellblock": 30,
-//      "hpperlevel": 102,
-//      "mpperlevel": 40,
-//      "movespeed": 335,
-//      "armorperlevel": 4.2,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 4.0,
-//      "hpregenperlevel": 0.55,
-//      "mpregen": 8.2,
-//      "mpregenperlevel": 0.7,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "kaisa_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "kaisa_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "kaisa_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "kaisa_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "kaisa_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "katarina",
-//    "name": "Katarina",
-//    "lane": "MID",
-//    "stats": {
-//      "attackdamage": 58,
-//      "attackdamageperlevel": 3.2,
-//      "ap": 0,
-//      "hp": 672,
-//      "mp": 0,
-//      "crit": 0,
-//      "attackspeed": 0.658,
-//      "attackspeedperlevel": 2.74,
-//      "armor": 28,
-//      "spellblock": 32,
-//      "hpperlevel": 108,
-//      "mpperlevel": 0,
-//      "movespeed": 335,
-//      "armorperlevel": 4.7,
-//      "spellblockperlevel": 2.05,
-//      "hpregen": 7.5,
-//      "hpregenperlevel": 0.7,
-//      "mpregen": 0.0,
-//      "mpregenperlevel": 0.0,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "katarina_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "katarina_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "katarina_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "katarina_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "katarina_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "leblanc",
-//    "name": "LeBlanc",
-//    "lane": "MID",
-//    "stats": {
-//      "attackdamage": 55,
-//      "attackdamageperlevel": 2.2,
-//      "ap": 0,
-//      "hp": 598,
-//      "mp": 400,
-//      "crit": 0,
-//      "attackspeed": 0.658,
-//      "attackspeedperlevel": 2.35,
-//      "armor": 22,
-//      "spellblock": 30,
-//      "hpperlevel": 111,
-//      "mpperlevel": 25,
-//      "movespeed": 340,
-//      "armorperlevel": 4.7,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 7.5,
-//      "hpregenperlevel": 0.55,
-//      "mpregen": 8.0,
-//      "mpregenperlevel": 0.8,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "leblanc_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "leblanc_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "leblanc_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "leblanc_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "leblanc_r"
-//      }
-//    }
-//  },
-
-//  {
-//    "champDrawable": "missfortune",
-//    "name": "Miss Fortune",
-//    "lane": "ADC",
-//    "stats": {
-//      "attackdamage": 53,
-//      "attackdamageperlevel": 2.4,
-//      "ap": 0,
-//      "hp": 640,
-//      "mp": 300,
-//      "crit": 0,
-//      "attackspeed": 0.656,
-//      "attackspeedperlevel": 3.0,
-//      "armor": 25,
-//      "spellblock": 30,
-//      "hpperlevel": 103,
-//      "mpperlevel": 40,
-//      "movespeed": 325,
-//      "armorperlevel": 4.0,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 3.75,
-//      "hpregenperlevel": 0.65,
-//      "mpregen": 8.0,
-//      "mpregenperlevel": 0.8,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "missfortune_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "missfortune_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "missfortune_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "missfortune_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "missfortune_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "neeko",
-//    "name": "Neeko",
-//    "lane": "SUPPORT",
-//    "stats": {
-//      "attackdamage": 48,
-//      "attackdamageperlevel": 2.5,
-//      "ap": 0,
-//      "hp": 610,
-//      "mp": 450,
-//      "crit": 0,
-//      "attackspeed": 0.625,
-//      "attackspeedperlevel": 3.5,
-//      "armor": 21,
-//      "spellblock": 30,
-//      "hpperlevel": 104,
-//      "mpperlevel": 30,
-//      "movespeed": 340,
-//      "armorperlevel": 5.2,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 7.5,
-//      "hpregenperlevel": 0.75,
-//      "mpregen": 7.0,
-//      "mpregenperlevel": 0.7,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "neeko_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "neeko_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "neeko_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "neeko_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "neeko_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "orianna",
-//    "name": "Orianna",
-//    "lane": "MID",
-//    "stats": {
-//      "attackdamage": 44,
-//      "attackdamageperlevel": 2.6,
-//      "ap": 0,
-//      "hp": 585,
-//      "mp": 418,
-//      "crit": 0,
-//      "attackspeed": 0.658,
-//      "attackspeedperlevel": 3.5,
-//      "armor": 20,
-//      "spellblock": 26,
-//      "hpperlevel": 110,
-//      "mpperlevel": 25,
-//      "movespeed": 325,
-//      "armorperlevel": 4.2,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 7.0,
-//      "hpregenperlevel": 0.55,
-//      "mpregen": 8.0,
-//      "mpregenperlevel": 0.8,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "orianna_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "orianna_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "orianna_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "orianna_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "orianna_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "riven",
-//    "name": "Riven",
-//    "lane": "TOP",
-//    "stats": {
-//      "attackdamage": 64,
-//      "attackdamageperlevel": 3.0,
-//      "ap": 0,
-//      "hp": 630,
-//      "mp": 0,
-//      "crit": 0,
-//      "attackspeed": 0.625,
-//      "attackspeedperlevel": 3.5,
-//      "armor": 33,
-//      "spellblock": 32,
-//      "hpperlevel": 100,
-//      "mpperlevel": 0,
-//      "movespeed": 340,
-//      "armorperlevel": 4.4,
-//      "spellblockperlevel": 2.05,
-//      "hpregen": 8.5,
-//      "hpregenperlevel": 0.5,
-//      "mpregen": 0.0,
-//      "mpregenperlevel": 0.0,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "riven_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "riven_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "riven_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "riven_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "riven_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "twistedfate",
-//    "name": "Twisted Fate",
-//    "lane": "MID",
-//    "stats": {
-//      "attackdamage": 52,
-//      "attackdamageperlevel": 2.5,
-//      "ap": 0,
-//      "hp": 604,
-//      "mp": 333,
-//      "crit": 0,
-//      "attackspeed": 0.625,
-//      "attackspeedperlevel": 2.5,
-//      "armor": 24,
-//      "spellblock": 30,
-//      "hpperlevel": 108,
-//      "mpperlevel": 39,
-//      "movespeed": 330,
-//      "armorperlevel": 4.35,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 5.5,
-//      "hpregenperlevel": 0.6,
-//      "mpregen": 8.0,
-//      "mpregenperlevel": 0.8,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "twistedfate_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "twistedfate_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "twistedfate_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "twistedfate_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "twistedfate_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "vayne",
-//    "name": "Vayne",
-//    "lane": "ADC",
-//    "stats": {
-//      "attackdamage": 60,
-//      "attackdamageperlevel": 2.35,
-//      "ap": 0,
-//      "hp": 550,
-//      "mp": 232,
-//      "crit": 0,
-//      "attackspeed": 0.658,
-//      "attackspeedperlevel": 3.3,
-//      "armor": 23,
-//      "spellblock": 30,
-//      "hpperlevel": 103,
-//      "mpperlevel": 35,
-//      "movespeed": 330,
-//      "armorperlevel": 4.6,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 3.5,
-//      "hpregenperlevel": 0.55,
-//      "mpregen": 7.0,
-//      "mpregenperlevel": 0.4,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "vayne_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "vayne_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "vayne_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "vayne_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "vayne_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "velkoz",
-//    "name": "Vel'Koz",
-//    "lane": "SUPPORT",
-//    "stats": {
-//      "attackdamage": 51,
-//      "attackdamageperlevel": 3.2,
-//      "ap": 0,
-//      "hp": 550,
-//      "mp": 495,
-//      "crit": 0,
-//      "attackspeed": 0.658,
-//      "attackspeedperlevel": 1.68,
-//      "armor": 21,
-//      "spellblock": 30,
-//      "hpperlevel": 92,
-//      "mpperlevel": 45,
-//      "movespeed": 325,
-//      "armorperlevel": 4.5,
-//      "spellblockperlevel": 1.3,
-//      "hpregen": 5.5,
-//      "hpregenperlevel": 0.55,
-//      "mpregen": 8.0,
-//      "mpregenperlevel": 0.8,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "velkoz_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "velkoz_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "velkoz_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "velkoz_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "velkoz_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "zed",
-//    "name": "Zed",
-//    "lane": "MID",
-//    "stats": {
-//      "attackdamage": 63,
-//      "attackdamageperlevel": 3.4,
-//      "ap": 0,
-//      "hp": 654,
-//      "mp": 200,
-//      "crit": 0,
-//      "attackspeed": 0.651,
-//      "attackspeedperlevel": 3.3,
-//      "armor": 32,
-//      "spellblock": 29,
-//      "hpperlevel": 99,
-//      "mpperlevel": 0,
-//      "movespeed": 345,
-//      "armorperlevel": 4.7,
-//      "spellblockperlevel": 2.05,
-//      "hpregen": 7.0,
-//      "hpregenperlevel": 0.65,
-//      "mpregen": 50.0,
-//      "mpregenperlevel": 0.0,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "zed_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "zed_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "zed_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "zed_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "zed_r"
-//      }
-//    }
-//  },
-//  {
-//    "champDrawable": "vi",
-//    "name": "Vi",
-//    "lane": "JUNGLE",
-//    "stats": {
-//      "attackdamage": 65,
-//      "attackdamageperlevel": 3.5,
-//      "ap": 0,
-//      "hp": 585,
-//      "mp": 295,
-//      "crit": 0,
-//      "attackspeed": 0.644,
-//      "attackspeedperlevel": 2.5,
-//      "armor": 35,
-//      "spellblock": 32,
-//      "hpperlevel": 99,
-//      "mpperlevel": 45,
-//      "movespeed": 340,
-//      "armorperlevel": 4.5,
-//      "spellblockperlevel": 2.05,
-//      "hpregen": 7.0,
-//      "hpregenperlevel": 0.65,
-//      "mpregen": 8.0,
-//      "mpregenperlevel": 0.7,
-//      "critperlevel": 0.0
-//    },
-//    "itemDrawables": [],
-//    "skills": {
-//      "p": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Passive",
-//        "skillDrawable": "vi_p"
-//      },
-//      "q": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "vi_q"
-//      },
-//      "w": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "vi_w"
-//      },
-//      "e": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Active",
-//        "skillDrawable": "vi_e"
-//      },
-//      "r": {
-//        "skillLevel": 0,
-//        "skillDamage": [
-//          0,
-//          0,
-//          0
-//        ],
-//        "skillApCoeff": 0.0,
-//        "skillAdCoeff": 0.0,
-//        "skillArCoeff": 0.0,
-//        "skillMrCoeff": 0.0,
-//        "skillHpCoeff": 0.0,
-//        "skillType": "Ultimate",
-//        "skillDrawable": "vi_r"
-//      }
-//    }
-//  }
+[
+  {
+    "champDrawable": "velkoz",
+    "name": "Vel'Koz",
+    "lane": "SUPPORT",
+    "stats": {
+      "attackdamage": 51,
+      "attackdamageperlevel": 3.2,
+      "ap": 0,
+      "hp": 550,
+      "mp": 495,
+      "crit": 0,
+      "attackspeed": 0.658,
+      "attackspeedperlevel": 1.68,
+      "armor": 21,
+      "spellblock": 30,
+      "hpperlevel": 92,
+      "mpperlevel": 45,
+      "movespeed": 325,
+      "armorperlevel": 4.5,
+      "spellblockperlevel": 1.3,
+      "hpregen": 5.5,
+      "hpregenperlevel": 0.55,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive",
+        "skillDrawable": "velkoz_p"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillDrawable": "velkoz_q"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillDrawable": "velkoz_w"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillDrawable": "velkoz_e"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate",
+        "skillDrawable": "velkoz_r"
+      }
+    }
+  },
+  {
+    "champDrawable": "zed",
+    "name": "Zed",
+    "lane": "MID",
+    "stats": {
+      "attackdamage": 63,
+      "attackdamageperlevel": 3.4,
+      "ap": 0,
+      "hp": 654,
+      "mp": 200,
+      "crit": 0,
+      "attackspeed": 0.651,
+      "attackspeedperlevel": 3.3,
+      "armor": 32,
+      "spellblock": 29,
+      "hpperlevel": 99,
+      "mpperlevel": 0,
+      "movespeed": 345,
+      "armorperlevel": 4.7,
+      "spellblockperlevel": 2.05,
+      "hpregen": 7.0,
+      "hpregenperlevel": 0.65,
+      "mpregen": 50.0,
+      "mpregenperlevel": 0.0,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive",
+        "skillDrawable": "zed_p"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillDrawable": "zed_q"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillDrawable": "zed_w"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillDrawable": "zed_e"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate",
+        "skillDrawable": "zed_r"
+      }
+    }
+  },
+  {
+    "champDrawable": "vi",
+    "name": "Vi",
+    "lane": "JUNGLE",
+    "stats": {
+      "attackdamage": 65,
+      "attackdamageperlevel": 3.5,
+      "ap": 0,
+      "hp": 585,
+      "mp": 295,
+      "crit": 0,
+      "attackspeed": 0.644,
+      "attackspeedperlevel": 2.5,
+      "armor": 35,
+      "spellblock": 32,
+      "hpperlevel": 99,
+      "mpperlevel": 45,
+      "movespeed": 340,
+      "armorperlevel": 4.5,
+      "spellblockperlevel": 2.05,
+      "hpregen": 7.0,
+      "hpregenperlevel": 0.65,
+      "mpregen": 8.0,
+      "mpregenperlevel": 0.7,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Passive",
+        "skillDrawable": "vi_p"
+      },
+      "q": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillDrawable": "vi_q"
+      },
+      "w": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillDrawable": "vi_w"
+      },
+      "e": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillDrawable": "vi_e"
+      },
+      "r": {
+        "skillLevel": 0,
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Ultimate",
+        "skillDrawable": "vi_r"
+      }
+    }
+  }
+]
