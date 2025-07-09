@@ -29,7 +29,6 @@ class ChampioninfoFragment : Fragment() {
             requireArguments().getParcelable("championInfo")!!
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -49,6 +48,14 @@ class ChampioninfoFragment : Fragment() {
         val skillE = view.findViewById<FrameLayout>(R.id.imageButton4)
         val skillR = view.findViewById<FrameLayout>(R.id.imageButton5)
 
+        val stats = champInfo.stats
+
+        view.findViewById<TextView>(R.id.textView_ad).text = stats.attackdamage.toString()
+        view.findViewById<TextView>(R.id.textView_ap).text = stats.ap.toString()
+        view.findViewById<TextView>(R.id.textView_as).text = String.format("%.2f", stats.attackspeed)
+        view.findViewById<TextView>(R.id.textView_ar).text = stats.armor.toString()
+        view.findViewById<TextView>(R.id.textView_mr).text = stats.spellblock.toString()
+        view.findViewById<TextView>(R.id.textView_ms).text = stats.movespeed.toString()
         /* 3) 아이콘·쿨다운·키 라벨 세팅 */
         bindSkillIcon(skillP, champInfo.skills.p, 'P')
         bindSkillIcon(skillQ, champInfo.skills.q, 'Q')
