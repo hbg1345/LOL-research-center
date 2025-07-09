@@ -93,7 +93,7 @@ class HomeBottomSheetFragment : BottomSheetDialogFragment() {
 
         binding.confirmButton.setOnClickListener {
             _selectedChampionForConfirmation?.let { selectedChamp ->
-                buildViewModel.setChampion(selectedChamp)
+                
                 // Hide champion selection UI
                 binding.championRecyclerView.visibility = View.GONE
                 binding.searchView.visibility = View.GONE
