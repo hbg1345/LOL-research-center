@@ -69,6 +69,15 @@ class NotificationsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestInfoRecyclerView() // Initialize adapter once
 
+        // Retrieve BuildInfo from arguments and set it in the ViewModel
+        arguments?.getParcelable<BuildInfo>("build")?.let { buildInfo ->
+            buildViewModel.setCurrentBuild(buildInfo)
+        } ?: run {
+            // If no BuildInfo is passed, it means we are creating a new build.
+            // Reset the current build in the ViewModel to ensure a clean state.
+            buildViewModel.resetCurrentBuild()
+        }
+
         binding.testInfoAddButton.setOnClickListener {
             Log.d("Builds", "+ 버튼 클릭")
 
@@ -85,7 +94,7 @@ class NotificationsFragment : Fragment() {
                 setupSkills(it)
                 setupLevelButtons(it)
                 setupExitButton()
-                setupSaveButton(it)
+                setupSaveButton()
                 testInfoAdapter.updateData(it.testInfoList) // Update data
             } ?: run {
                 Toast.makeText(context, "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
@@ -321,23 +330,34 @@ class NotificationsFragment : Fragment() {
         return (base + bonus).toInt()
     }
 
-    private fun setupSaveButton(info: BuildInfo) {
+    private fun setupSaveButton() { // Remove info: BuildInfo parameter
         binding.saveButton.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                val championName = info.champion.name
-                val itemNames = info.items.map { it.name }.sorted()
-                val duplicate = db.buildInfoDao().getAllBuilds().any { existing ->
-                    existing.champion.name == championName &&
-                            existing.items.map { it.name }.sorted() == itemNames
-                }
-                CoroutineScope(Dispatchers.Main).launch {
-                    if (!duplicate) {
-                        db.buildInfoDao().insertBuildInfo(info)
-                        Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(context, "이미 동일한 빌드 정보가 존재합니다.", Toast.LENGTH_SHORT).show()
+            // Get the latest BuildInfo from the ViewModel
+            val latestBuildInfo = buildViewModel.currentBuild.value
+
+            latestBuildInfo?.let { infoToSave ->
+                CoroutineScope(Dispatchers.IO).launch {
+                    val championName = infoToSave.champion.name
+                    val itemNames = infoToSave.items.map { it.name }.sorted()
+                    val duplicate = db.buildInfoDao().getAllBuilds().any { existing ->
+                        existing.champion.name == championName &&
+                                existing.items.map { it.name }.sorted() == itemNames
+                    }
+                    CoroutineScope(Dispatchers.Main).launch {
+                        if (!duplicate) {
+                            db.buildInfoDao().insertBuildInfo(infoToSave) // Use infoToSave
+                            Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
+                        } else {
+                            // If it's a duplicate, it means we are trying to save an existing build.
+                            // We should update it instead of just showing a toast.
+                            // For now, let's just show the toast as per original logic,
+                            // but this is a potential area for improvement (update vs insert).
+                            Toast.makeText(context, "이미 동일한 빌드 정보가 존재합니다.", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
+            } ?: run {
+                Toast.makeText(context, "저장할 빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -19,6 +19,9 @@ class BuildViewModel : ViewModel() {
     private val _currentBuild = MutableLiveData<BuildInfo?>()
     val currentBuild: LiveData<BuildInfo?> = _currentBuild
 
+    // Make asheChampionInfo a class member so it can be reused
+    private val asheChampionInfo: ChampionInfo
+
     init {
         val defaultSkill = Skill(skillTitle = "default skill name", skillDrawable = R.drawable.leesin_p, skillLevel = 1, skillDamageAd = listOf(0,0,0,0,0),skillDamageAp = listOf(0,0,0,0,0),skillDamageFix = listOf(0,0,0,0,0), coolDown = listOf(10,10,10,10,10), cost = listOf(20,20,20,20,20), 0f,0f,0f,0f,0f,"Passive", skillInfo = "skill q info")
         val asheSkills = Skills(defaultSkill, defaultSkill, defaultSkill, defaultSkill, defaultSkill)
@@ -48,7 +51,7 @@ class BuildViewModel : ViewModel() {
             mpregenperlevel = 0f,
             critperlevel = 0f
         )
-        val asheChampionInfo = ChampionInfo(
+        asheChampionInfo = ChampionInfo( // Assign to class member
             champDrawable = R.drawable.ahri, // 실제 Drawable ID로 대체 필요
             name = "Ashe",
             lane = Lane.ADC,
@@ -61,6 +64,15 @@ class BuildViewModel : ViewModel() {
             champion = asheChampionInfo,
             items = emptyList(),
             calcResult = SkillDamageSet(0, 0, 0, 0, 0)
+        )
+    }
+
+    fun resetCurrentBuild() {
+        _currentBuild.value = BuildInfo(
+            champion = asheChampionInfo,
+            items = emptyList(),
+            calcResult = SkillDamageSet(0, 0, 0, 0, 0),
+            testInfoList = emptyList() // Ensure testInfoList is empty for a new build
         )
     }
 
@@ -84,5 +96,9 @@ class BuildViewModel : ViewModel() {
         val currentTestInfoList = _currentBuild.value?.testInfoList?.toMutableList() ?: mutableListOf()
         currentTestInfoList.add(TestInfo(champion = champion, items = items))
         _currentBuild.value = _currentBuild.value?.copy(testInfoList = currentTestInfoList)
+    }
+
+    fun setCurrentBuild(buildInfo: BuildInfo) {
+        _currentBuild.value = buildInfo
     }
 }

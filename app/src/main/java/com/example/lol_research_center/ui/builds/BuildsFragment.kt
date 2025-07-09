@@ -2,17 +2,18 @@
 package com.example.lol_research_center.ui.builds
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lol_research_center.databinding.FragmentBuildsBinding
 import com.example.lol_research_center.model.BuildInfo
+import androidx.fragment.app.activityViewModels // Add this import
 import androidx.navigation.fragment.findNavController
-import android.os.Build
-import android.util.Log
-import androidx.core.os.bundleOf
 import com.example.lol_research_center.R
+import com.example.lol_research_center.ui.viewmodel.BuildViewModel // Add this import
 
 
 
@@ -25,6 +26,7 @@ class BuildsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val vm: BuildsViewModel by viewModels()
+    private val buildViewModel: BuildViewModel by activityViewModels() // Get instance of BuildViewModel
     private lateinit var adapter: BuildListAdapter
 
     override fun onCreateView(
@@ -66,6 +68,9 @@ class BuildsFragment : Fragment() {
         /* (+) FloatingActionButton */
         binding.fabAdd.setOnClickListener {
             Log.d("Builds", "+ 버튼 클릭")
+
+            // Reset the current build in BuildViewModel before starting a new one
+            buildViewModel.resetCurrentBuild()
 
             val args = bundleOf("pickerMode" to true)
             findNavController().navigate(
