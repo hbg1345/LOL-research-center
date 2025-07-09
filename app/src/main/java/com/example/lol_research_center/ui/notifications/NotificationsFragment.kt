@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -87,11 +89,39 @@ class NotificationsFragment : Fragment() {
             homeBottomSheet.show(parentFragmentManager, homeBottomSheet.tag)
         }
 
+        // Set up click listener for the level TextView
+        binding.levelSpinner.setOnClickListener {
+            val currentLevel = currentChampionLevel // Use the stored current level
+            LevelPickerDialogFragment.newInstance(currentLevel).show(childFragmentManager, LevelPickerDialogFragment.TAG)
+        }
+
+        // Listen for result from LevelPickerDialogFragment
+        childFragmentManager.setFragmentResultListener(
+            LevelPickerDialogFragment.REQUEST_KEY,
+            viewLifecycleOwner
+        ) { requestKey, bundle ->
+            if (requestKey == LevelPickerDialogFragment.REQUEST_KEY) {
+                val selectedLevel = bundle.getInt(LevelPickerDialogFragment.BUNDLE_KEY_SELECTED_LEVEL)
+                if (currentChampionLevel != selectedLevel) {
+                    currentChampionLevel = selectedLevel
+                    val currentBuild = buildViewModel.currentBuild.value
+                    currentBuild?.let {
+                        val updatedChampion = it.champion.copy(level = selectedLevel)
+                        val updatedBuild = it.copy(champion = updatedChampion)
+                        buildViewModel.setCurrentBuild(updatedBuild)
+                    }
+                }
+            }
+        }
+
         buildViewModel.currentBuild.observe(viewLifecycleOwner) { buildInfo ->
             buildInfo?.let {
                 setupChampionInfo(it)
                 setupItems(it)
                 setupSkills(it)
+                // Update the TextView with the current level
+                currentChampionLevel = it.champion.level
+                binding.levelSpinner.text = "레벨: ${it.champion.level}"
                 setupLevelButtons(it)
                 setupExitButton()
                 setupSaveButton()
@@ -254,12 +284,6 @@ class NotificationsFragment : Fragment() {
     private var currentChampionLevel: Int = 1 // 챔피언 레벨을 저장할 변수
 
     private fun setupLevelButtons(info: BuildInfo) {
-        // 초기 챔피언 레벨 설정
-        info.champion.level.let {
-            currentChampionLevel = it
-            binding.skilllevelText.text = currentChampionLevel.toString() // 챔피언 레벨 표시
-        }
-
         binding.levelUpButton.setOnClickListener {
             selectedSkill?.let { skill ->
                 val maxLvl = when (skill.skillTitle) {
@@ -330,29 +354,35 @@ class NotificationsFragment : Fragment() {
         return (base + bonus).toInt()
     }
 
-    private fun setupSaveButton() { // Remove info: BuildInfo parameter
+    private fun setupSaveButton() {
         binding.saveButton.setOnClickListener {
-            // Get the latest BuildInfo from the ViewModel
             val latestBuildInfo = buildViewModel.currentBuild.value
 
             latestBuildInfo?.let { infoToSave ->
                 CoroutineScope(Dispatchers.IO).launch {
-                    val championName = infoToSave.champion.name
-                    val itemNames = infoToSave.items.map { it.name }.sorted()
-                    val duplicate = db.buildInfoDao().getAllBuilds().any { existing ->
-                        existing.champion.name == championName &&
-                                existing.items.map { it.name }.sorted() == itemNames
-                    }
-                    CoroutineScope(Dispatchers.Main).launch {
-                        if (!duplicate) {
-                            db.buildInfoDao().insertBuildInfo(infoToSave) // Use infoToSave
-                            Toast.makeText(context, "빌드 정보가 저장되었습니다.", Toast.LENGTH_SHORT).show()
-                        } else {
-                            // If it's a duplicate, it means we are trying to save an existing build.
-                            // We should update it instead of just showing a toast.
-                            // For now, let's just show the toast as per original logic,
-                            // but this is a potential area for improvement (update vs insert).
-                            Toast.makeText(context, "이미 동일한 빌드 정보가 존재합니다.", Toast.LENGTH_SHORT).show()
+                    // If id is 0, it's a new build. Otherwise, it's an existing one.
+                    if (infoToSave.id == 0L) {
+                        // New build: Check for duplicates before inserting
+                        val championName = infoToSave.champion.name
+                        val itemNames = infoToSave.items.map { it.name }.sorted()
+                        val duplicate = db.buildInfoDao().getAllBuilds().any { existing ->
+                            existing.champion.name == championName &&
+                                    existing.items.map { it.name }.sorted() == itemNames
+                        }
+                        
+                        CoroutineScope(Dispatchers.Main).launch {
+                            if (!duplicate) {
+                                db.buildInfoDao().insertBuildInfo(infoToSave)
+                                Toast.makeText(context, "빌드가 저장되었습니다.", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(context, "이미 동일한 빌드 정보가 존재합니다.", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } else {
+                        // Existing build: Update it
+                        db.buildInfoDao().update(infoToSave)
+                        CoroutineScope(Dispatchers.Main).launch {
+                            Toast.makeText(context, "빌드가 업데이트되었습니다.", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

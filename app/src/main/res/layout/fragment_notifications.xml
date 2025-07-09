@@ -28,39 +28,56 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/healthBar">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/champImgContainer"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="10dp"
-                android:layout_gravity="center_vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/image_and_grid_container">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="10dp">
 
-                <ImageView
-                    android:id="@+id/crystalRingBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/crystal_ring"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    />
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/champImg"
-                    android:layout_width="88dp"
-                    android:layout_height="88dp"
-                    android:src="@drawable/ahri"
-                    app:layout_constraintTop_toTopOf="@id/crystalRingBackground"
-                    app:layout_constraintBottom_toBottomOf="@id/crystalRingBackground"
-                    app:layout_constraintStart_toStartOf="@id/crystalRingBackground"
-                    app:layout_constraintEnd_toEndOf="@id/crystalRingBackground"
-                    />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/champImgContainer"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_vertical">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/crystalRingBackground"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/crystal_ring"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/champImg"
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:src="@drawable/ahri"
+                        app:layout_constraintTop_toTopOf="@id/crystalRingBackground"
+                        app:layout_constraintBottom_toBottomOf="@id/crystalRingBackground"
+                        app:layout_constraintStart_toStartOf="@id/crystalRingBackground"
+                        app:layout_constraintEnd_toEndOf="@id/crystalRingBackground"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <TextView
+                    android:id="@+id/levelSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="23dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Level 1"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:background="@drawable/spinner_background"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
             <LinearLayout
                 android:id="@+id/imageGrid"
                 android:layout_width="0dp"
@@ -70,8 +87,8 @@
                 app:layout_constraintStart_toEndOf="@+id/champImg"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/image_and_grid_container"
-                app:layout_constraintTop_toTopOf="@+id/image_and_grid_container"
+                app:layout_constraintBottom_toBottomOf="@id/image_and_grid_container"
+                app:layout_constraintTop_toTopOf="@id/image_and_grid_container"
                 android:layout_gravity="center_vertical">
 
                 <!-- Row 1 -->
