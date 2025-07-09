@@ -73,7 +73,9 @@ class NotificationsFragment : Fragment() {
         binding.testInfoRecyclerView.apply {
             isNestedScrollingEnabled = false
             layoutManager = LinearLayoutManager(context)
-            testInfoAdapter = TestInfoAdapter(emptyList(), ::calculateTotalStats, ::calculatePhysicalDamage, ::calculateMagicDamage, selectedSkill) // Initialize with empty list and pass the stat and damage calculation functions
+            testInfoAdapter = TestInfoAdapter(emptyList(), ::calculateTotalStats, ::calculatePhysicalDamage, ::calculateMagicDamage, selectedSkill) { testInfoToRemove ->
+                buildViewModel.removeTestInfo(testInfoToRemove)
+            } // Initialize with empty list and pass the stat and damage calculation functions
             adapter = testInfoAdapter
         }
     }
