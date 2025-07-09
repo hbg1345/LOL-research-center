@@ -6,14 +6,17 @@
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@android:color/transparent"
     app:cardElevation="2dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
+
+        android:background="@drawable/lol_textpanel_bg"
         android:orientation="horizontal"
         android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="80dp">
 
         <ImageView
             android:id="@+id/champIcon"
@@ -30,6 +33,7 @@
 
             <TextView
                 android:id="@+id/champName"
+                android:textColor="@color/lol_on_surface"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
