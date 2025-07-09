@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 레인 Chip 전용 투명 스타일 -->
-    <style name="LaneChip.Transparent" parent="Widget.Material3.Chip.Filter">
-        <!-- 배경 및 테두리 제거 -->
-        <item name="chipBackgroundColor">@android:color/transparent</item>
-        <item name="chipSurfaceColor">@android:color/transparent</item>
-<!--        <item name="chipStrokeColor">@android:color/transparent</item>-->
-<!--        <item name="rippleColor">@android:color/transparent</item>-->
-        <!-- ✔ 아이콘 숨기기 -->
-        <item name="checkedIconVisible">false</item>
-        <item name="checkedIcon">@null</item>
-        <!-- 크기 · 여백 통일 -->
-        <item name="chipMinHeight">60dp</item>
-        <item name="chipIconSize">50dp</item>
-        <item name="chipStartPadding">0dp</item>
-        <item name="chipEndPadding">0dp</item>
-        <item name="iconStartPadding">0dp</item>
-        <item name="iconEndPadding">0dp</item>
-        <item name="iconPadding">0dp</item>
+    <!-- styles.xml -->
+    <style name="MySearchViewTheme" parent="ThemeOverlay.AppCompat.Light">
+        <!-- 텍스트와 힌트 색 -->
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="textFillColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <!-- 돋보기·닫기 아이콘 색 -->
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="colorControlHighlight">@android:color/white</item>
     </style>
-
 </resources>
