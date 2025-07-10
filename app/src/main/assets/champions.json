@@ -248,266 +248,6 @@
     }
   },
   {
-    "champDrawable": "leesin",
-    "name": "Lee Sin",
-    "lane": "JUNGLE",
-    "lore": "리 신은 아이오니아에 전해 내려오는 고대 무술에 통달했다. 지조 높고 고결한 전사로, 싸워야 할 때에는 용의 혼의 정수를 끌어낸다. 오래 전에 시각을 잃었으나, 고향 땅의 신성한 균형을 해치려 드는 자를 막아내는 데 일생을 바치겠다는 신념은 흔들림이 없다. 명상에 잠긴 듯 고요한 태도를 얕보고 함부로 덤벼드는 적은 리 신의 불꽃 같은 주먹과 초인적 위력의 돌려차기에 속수무책으로 당한다.",
-    "stats": {
-      "armorPenetration": 0,
-      "armorPenetrationPercent": 0,
-      "magicPenetration": 0,
-      "magicPenetrationPercent": 0,
-      "attackdamage": 69,
-      "attackdamageperlevel": 3.7,
-      "ap": 0,
-      "hp": 645,
-      "mp": 200,
-      "crit": 0,
-      "attackspeed": 0.651,
-      "attackspeedperlevel": 3.0,
-      "armor": 36,
-      "spellblock": 32,
-      "hpperlevel": 108,
-      "mpperlevel": 0,
-      "movespeed": 345,
-      "armorperlevel": 4.9,
-      "spellblockperlevel": 2.05,
-      "hpregen": 7.5,
-      "hpregenperlevel": 0.7,
-      "mpregen": 50.0,
-      "mpregenperlevel": 0.0,
-      "critperlevel": 0.0
-    },
-    "itemDrawables": [],
-    "skills": {
-      "p": {
-        "skillTitle": "질풍격",
-        "coolDown": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cost": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillLevel": 0,
-        "skillDamageAp": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillDamageAd": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillDamageFix": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ad",
-        "skillDrawable": "leesin_p",
-        "skillInfo": "리 신이 스킬을 사용하면 다음 두 번의 기본 공격 속도가 40% 증가합니다. 첫 번째 기본 공격 시 기력을, 두 번째 기본 공격 시 절반의 기력을 회복합니다."
-      },
-      "q": {
-        "skillTitle": "음파/공명의 일격",
-        "coolDown": [
-          10,
-          9,
-          8,
-          7,
-          6
-        ],
-        "cost": [
-          75,
-          75,
-          75,
-          75,
-          75
-        ],
-        "skillLevel": 0,
-        "skillDamageAp": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillDamageAd": [
-          110,
-          160,
-          210,
-          260,
-          310
-        ],
-        "skillDamageFix": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 2.3,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ad",
-        "skillDrawable": "leesin_q",
-        "skillInfo": "리 신이 불협화음으로 된 음파를 발사하여 처음 적중한 적에게 물리 피해를 입히고 해당 적에 대한 절대 시야를 얻습니다. 다음 3초 안에 재사용할 수 있습니다.\n재사용 시: 리 신이 음파를 맞은 적에게 돌진하여 대상이 잃은 체력에 비례해 물리 피해를 입힙니다."
-      },
-      "w": {
-        "skillTitle": "방호/강철의 의지",
-        "coolDown": [
-          5,
-          5,
-          5,
-          5,
-          5
-        ],
-        "cost": [
-          75,
-          75,
-          75,
-          75,
-          75
-        ],
-        "skillLevel": 0,
-        "skillDamageAp": [
-          70,
-          115,
-          160,
-          205,
-          210
-        ],
-        "skillDamageAd": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillDamageFix": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.8,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillDrawable": "leesin_w",
-        "skillInfo": "리 신이 아군이나 와드를 향해 돌진합니다. 대상이 챔피언일 경우 해당 아군과 자신에게 2초 동안 보호막을 씌우고, 이 스킬의 재사용 대기시간이 50% 감소합니다.[9] 3초 안에 재사용할 수 있습니다\n재사용 시: 4초 동안 생명력 흡수와 주문 흡혈 효과가 증가합니다."
-      },
-      "e": {
-        "skillTitle": "폭풍/무력화",
-        "coolDown": [
-          8,
-          8,
-          8,
-          8,
-          8
-        ],
-        "cost": [
-          75,
-          75,
-          75,
-          75,
-          75
-        ],
-        "skillLevel": 0,
-        "skillDamageAp": [
-          35,
-          60,
-          85,
-          110,
-          135
-        ],
-        "skillDamageAd": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillDamageFix": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 1.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillDrawable": "leesin_e",
-        "skillInfo": "리 신이 바닥을 내리쳐 마법 피해를 입히고 4초 동안 은신한 적을 드러내는 충격파를 발생시킵니다. 스킬이 적에게 명중하면 다음 3초 안에 스킬을 재사용할 수 있습니다.\n재사용 시: 충격파에 적중한 주변 적을 둔화시킵니다. 둔화 효과는 4초에 걸쳐 사라집니다."
-      },
-      "r": {
-        "skillTitle": "용의 분노",
-        "coolDown": [
-          110,
-          85,
-          60
-        ],
-        "cost": [
-          0,
-          0,
-          0
-        ],
-        "skillLevel": 0,
-        "skillDamageAp": [
-          0,
-          0,
-          0
-        ],
-        "skillDamageAd": [
-          175,
-          400,
-          625
-        ],
-        "skillDamageFix": [
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 2.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ad",
-        "skillDrawable": "leesin_r",
-        "skillInfo": "리 신이 강력한 돌려차기로 적 챔피언을 롤아이콘-군중제어 넉백뒤로 날려버리고, 물리 피해를 입힙니다.\n\n날아간 대상과 부딪힌 적은 잠시 롤아이콘-군중제어 에어본공중에 떠오르고 날아간 대상 추가 체력에 비례하는 물리 피해를 입습니다.\n날아간 대상은 시전 시간 동안 속박됩니다."
-      }
-    }
-  },
-  {
     "champDrawable": "ashe",
     "name": "Ashe",
     "lane": "ADC",
@@ -1885,6 +1625,419 @@
     }
   },
   {
+    "champDrawable": "leesin",
+    "name": "Lee Sin",
+    "lane": "JUNGLE",
+    "lore": "리 신은 아이오니아에 전해 내려오는 고대 무술에 통달했다. 지조 높고 고결한 전사로, 싸워야 할 때에는 용의 혼의 정수를 끌어낸다. 오래 전에 시각을 잃었으나, 고향 땅의 신성한 균형을 해치려 드는 자를 막아내는 데 일생을 바치겠다는 신념은 흔들림이 없다. 명상에 잠긴 듯 고요한 태도를 얕보고 함부로 덤벼드는 적은 리 신의 불꽃 같은 주먹과 초인적 위력의 돌려차기에 속수무책으로 당한다.",
+    "stats": {
+      "armorPenetration": 0,
+      "armorPenetrationPercent": 0,
+      "magicPenetration": 0,
+      "magicPenetrationPercent": 0,
+      "attackdamage": 69,
+      "attackdamageperlevel": 3.7,
+      "ap": 0,
+      "hp": 645,
+      "mp": 200,
+      "crit": 0,
+      "attackspeed": 0.651,
+      "attackspeedperlevel": 3.0,
+      "armor": 36,
+      "spellblock": 32,
+      "hpperlevel": 108,
+      "mpperlevel": 0,
+      "movespeed": 345,
+      "armorperlevel": 4.9,
+      "spellblockperlevel": 2.05,
+      "hpregen": 7.5,
+      "hpregenperlevel": 0.7,
+      "mpregen": 50.0,
+      "mpregenperlevel": 0.0,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillTitle": "질풍격",
+        "coolDown": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cost": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillLevel": 0,
+        "skillDamageAp": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillDamageAd": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillDamageFix": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillDrawable": "leesin_p",
+        "skillInfo": "리 신이 스킬을 사용하면 다음 두 번의 기본 공격 속도가 40% 증가합니다. 첫 번째 기본 공격 시 기력을, 두 번째 기본 공격 시 절반의 기력을 회복합니다."
+      },
+      "q": {
+        "skillTitle": "음파/공명의 일격",
+        "coolDown": [
+          10,
+          9,
+          8,
+          7,
+          6
+        ],
+        "cost": [
+          75,
+          75,
+          75,
+          75,
+          75
+        ],
+        "skillLevel": 0,
+        "skillDamageAp": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillDamageAd": [
+          110,
+          160,
+          210,
+          260,
+          310
+        ],
+        "skillDamageFix": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 2.3,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillDrawable": "leesin_q",
+        "skillInfo": "리 신이 불협화음으로 된 음파를 발사하여 처음 적중한 적에게 물리 피해를 입히고 해당 적에 대한 절대 시야를 얻습니다. 다음 3초 안에 재사용할 수 있습니다.\n재사용 시: 리 신이 음파를 맞은 적에게 돌진하여 대상이 잃은 체력에 비례해 물리 피해를 입힙니다."
+      },
+      "w": {
+        "skillTitle": "방호/강철의 의지",
+        "coolDown": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "cost": [
+          75,
+          75,
+          75,
+          75,
+          75
+        ],
+        "skillLevel": 0,
+        "skillDamageAp": [
+          70,
+          115,
+          160,
+          205,
+          210
+        ],
+        "skillDamageAd": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillDamageFix": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.8,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillDrawable": "leesin_w",
+        "skillInfo": "리 신이 아군이나 와드를 향해 돌진합니다. 대상이 챔피언일 경우 해당 아군과 자신에게 2초 동안 보호막을 씌우고, 이 스킬의 재사용 대기시간이 50% 감소합니다.[9] 3초 안에 재사용할 수 있습니다\n재사용 시: 4초 동안 생명력 흡수와 주문 흡혈 효과가 증가합니다."
+      },
+      "e": {
+        "skillTitle": "폭풍/무력화",
+        "coolDown": [
+          8,
+          8,
+          8,
+          8,
+          8
+        ],
+        "cost": [
+          75,
+          75,
+          75,
+          75,
+          75
+        ],
+        "skillLevel": 0,
+        "skillDamageAp": [
+          35,
+          60,
+          85,
+          110,
+          135
+        ],
+        "skillDamageAd": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillDamageFix": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillDrawable": "leesin_e",
+        "skillInfo": "리 신이 바닥을 내리쳐 마법 피해를 입히고 4초 동안 은신한 적을 드러내는 충격파를 발생시킵니다. 스킬이 적에게 명중하면 다음 3초 안에 스킬을 재사용할 수 있습니다.\n재사용 시: 충격파에 적중한 주변 적을 둔화시킵니다. 둔화 효과는 4초에 걸쳐 사라집니다."
+      },
+      "r": {
+        "skillTitle": "용의 분노",
+        "coolDown": [
+          110,
+          85,
+          60
+        ],
+        "cost": [
+          0,
+          0,
+          0
+        ],
+        "skillLevel": 0,
+        "skillDamageAp": [
+          0,
+          0,
+          0
+        ],
+        "skillDamageAd": [
+          175,
+          400,
+          625
+        ],
+        "skillDamageFix": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 2.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillDrawable": "leesin_r",
+        "skillInfo": "리 신이 강력한 돌려차기로 적 챔피언을 롤아이콘-군중제어 넉백뒤로 날려버리고, 물리 피해를 입힙니다.\n\n날아간 대상과 부딪힌 적은 잠시 롤아이콘-군중제어 에어본공중에 떠오르고 날아간 대상 추가 체력에 비례하는 물리 피해를 입습니다.\n날아간 대상은 시전 시간 동안 속박됩니다."
+      }
+    }
+  },
+  {
+    "champDrawable": "lux",
+    "name": "Lux",
+    "lane": "MID",
+    "lore": "가렌과는 가족 사이이며 데마시아가 배제하는 마법사임에도 불구하고 나름 사이가 좋은 편. 유니버스 이전엔 사적으로는 친밀한 남매였으나 스토리 개편으로 가렌은 여동생으로선 나름 좋아하지만 그 럭스가 마법사라는 사실을 애써 외면하려고 하고, 꺼림칙하게 생각하는 점이 있다. 하지만 럭스 코믹스 이후에는 럭스가 마법사라는 사실을 받아들이는 태도를 보이며, 레전드 오브 룬테라에서의 상호작용 대사에서도 여느 다정한 남매의 대화를 주고받는다.[3]\n\n갈리오는 럭스의 마법을 긍정적으로 바라봐 준 몆 안 되는 존재이다. 럭스의 마력 덕분에 갈리오는 일시적으로 다시 움직일 수 있게 되었고 자신이 마법을 사용할 수 있다는 걸 부정적으로 생각했던 럭스에게 갈리오는 자신이 다시 움직일 수 없게 되더라도 럭스가 간직해야 할 소중한 것이라고 말해 주었다.\n\n사일러스는 그가 수용소에 잡혀지내던 시절 봉사활동을 다니다가 만나게 되었는데, 같은 마법사라는 점 때문인지 서로 여러 지식을 주고받으며 친해졌다. 코믹스의 묘사를 보면 손을 잡은 후 얼굴이 붉어지기까지 해 사일러스에게 연애감정까지 느끼는 듯한 묘사가 있다. 그러나 사일러스가 럭스를 이용해 페트리사이트 관련 서적을 얻어내 그 정보를 통해 수갑의 성질을 역이용하여 사형 당일 럭스를 제외한 사형장에 찾아온 전원을 죽인 뒤 사라진 것으로 인해 럭스에겐 사실상 은혜를 원수로 갚은 존재로 여겨지고 있다.\n\n그 외에 데마시아 소속 챔피언에 대해선 일단 믿을 만한 아군이라 인식하고 있다. 다만 그것과 별개로 데마시아의 상황을 좋게 보지는 않는 편.\n\n이즈리얼은 럭스를 짝사랑하고 있으며, 리그 오브 레전드의 다른 유니버스에서는 서로 사귀는 사이로 묘사되기도 한다. 레전드 오브 룬테라에서도 서로의 상호대사가 수많이 존재한다.[4]\n\n관계도에는 없지만 포스배로우에서 봉인이 풀린 녹턴과 마주하여 그를 일시적으로 물리치기도 했다.\n",
+    "stats": {
+      "armorPenetration": 0,
+      "armorPenetrationPercent": 0,
+      "magicPenetration": 0,
+      "magicPenetrationPercent": 0,
+      "attackdamage": 65,
+      "attackdamageperlevel": 3.5,
+      "ap": 0,
+      "hp": 580,
+      "mp": 480,
+      "crit": 0,
+      "attackspeed": 0.625,
+      "attackspeedperlevel": 3,
+      "armor": 21,
+      "spellblock": 30,
+      "hpperlevel": 99,
+      "mpperlevel": 23,
+      "movespeed": 330,
+      "armorperlevel": 5.2,
+      "spellblockperlevel": 1.3,
+      "hpregen": 5.5,
+      "hpregenperlevel": 0.55,
+      "mpregen": 7,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillTitle": "광채",
+        "skillDrawable": "lux_p",
+        "skillLevel": 0,
+        "coolDown": [],
+        "cost": [],
+        "skillDamageAp": [],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.3,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "럭스의 피해를 주는 스킬이 적에게 6초 동안 표식을 남깁니다. 럭스의 기본 공격은 이 표식을 소모해 마법 피해를 입힙니다.\n\n최후의 섬광은 적중 시 표식을 소모한 후 재적용합니다."
+      },
+      "q": {
+        "skillTitle": "빛의 속박",
+        "skillDrawable": "lux_q",
+        "skillLevel": 0,
+        "coolDown": [11,10,10,9,9],
+        "cost": [50,50,50,50,50],
+        "skillDamageAp": [80,120,160,200,240],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.65,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "럭스가 빛의 구체를 발사하여 처음 적중한 적 둘을 2초 동안 롤아이콘-군중제어 속박속박하고 각각 마법 피해를 입힙니다."
+      },
+      "w": {
+        "skillTitle": "프리즘 보호막",
+        "skillDrawable": "lux_w",
+        "skillLevel": 0,
+        "coolDown": [14,13,12,12,11,10],
+        "cost": [60,65,70,75,80],
+        "skillDamageAp": [80,110,140,170,200],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.8,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "럭스가 마법봉을 던져 봉에 닿은 모든 아군에게 보호막을 씌웁니다. 마법봉은 돌아올 때도 똑같이 보호막을 부여합니다.\n두 번의 보호막은 중첩될 수 있습니다."
+      },
+      "e": {
+        "skillTitle": "광휘의 특이점",
+        "skillDrawable": "lux_e",
+        "skillLevel": 0,
+        "coolDown": [10,9,9,8,8],
+        "cost": [70,80,90,100,110],
+        "skillDamageAp": [65,115,165,215,265],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.8,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "럭스가 빛의 영역을 생성해 적들을 둔화시키고 해당 지역을 드러냅니다.[13] 5초가 지나거나 스킬을 재사용하면 폭발하여 마법 피해를 입히고 추가로 1초 동안 둔화시킵니다."
+      },
+      "r": {
+        "skillTitle": "최후의 섬광",
+        "skillDrawable": "lux_r",
+        "skillLevel": 0,
+        "coolDown": [60,50,40],
+        "cost": [100,100,100],
+        "skillDamageAp": [270,405,540],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 1.2,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "럭스가 눈부신 광선을 발사하여 일직선상에 있는 모든 적에게 마법 피해를 입힙니다."
+      }
+    }
+  },
+  {
     "champDrawable": "missfortune",
     "name": "Miss Fortune",
     "lane": "ADC",
@@ -2034,6 +2187,159 @@
         "skillHpCoeff": 0.0,
         "skillType": "Ultimate",
         "skillInfo": ""
+      }
+    }
+  },
+  {
+    "champDrawable": "nami",
+    "name": "Nami",
+    "lane": "SUPPORT",
+    "lore": "나미는 바다에 사는 바스타야 종족으로, 어리지만 완고할 정도로 고집이 세다. 먼 옛날 타곤 인과 맺었던 약속이 깨지자, 마라이 종족으로는 처음으로 파도 치는 바다에서 나와 마른 육지로 모험을 떠났다. 달리 해결책이 없었기에, 자신의 종족을 안전하게 지켜주는 성스러운 의식을 완수한다는 임무를 자청한 것이었다. 새로운 시대는 혼란 그 자체지만, 나미는 용기와 결단력으로 불확실한 미래를 마주한다. 그녀의 무기는 바다의 힘을 소환하는 파도 소환사의 지팡이다.",
+    "stats": {
+      "armorPenetration": 0,
+      "armorPenetrationPercent": 0,
+      "magicPenetration": 0,
+      "magicPenetrationPercent": 0,
+      "attackdamage": 65,
+      "attackdamageperlevel": 3.5,
+      "ap": 0,
+      "hp": 560,
+      "mp": 365,
+      "crit": 0,
+      "attackspeed": 0.644,
+      "attackspeedperlevel": 2.61,
+      "armor": 29,
+      "spellblock": 30,
+      "hpperlevel": 88,
+      "mpperlevel": 43,
+      "movespeed": 335,
+      "armorperlevel": 5.2,
+      "spellblockperlevel": 1.3,
+      "hpregen": 5.5,
+      "hpregenperlevel": 0.55,
+      "mpregen": 7,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillTitle": "밀려오는 파도",
+        "skillDrawable": "nami_p",
+        "skillLevel": 0,
+        "coolDown": [],
+        "cost": [],
+        "skillDamageAp": [],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "나미의 스킬에 맞은 아군 챔피언은 1.5초 동안 이동 속도가 상승했다 1.5초에 걸쳐 원래대로 돌아옵니다."
+      },
+      "q": {
+        "skillTitle": "물의 감옥",
+        "skillDrawable": "nami_q",
+        "skillLevel": 0,
+        "coolDown": [12,11,10,9,8],
+        "cost": [60,60,60,60,60],
+        "skillDamageAp": [90,145,200,255,310],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.5,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "나미가 물방울을 던져 1.5초 동안 롤아이콘-군중제어 기절롤아이콘-군중제어 에어본 기절시키고 마법 피해를 입힙니다."
+      },
+      "w": {
+        "skillTitle": "밀물 썰물",
+        "skillDrawable": "nami_w",
+        "skillLevel": 0,
+        "coolDown": [10,10,10,10,10],
+        "cost": [70,75,80,85,90],
+        "skillDamageAp": [60,95,130,165,200],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.5,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "나미가 밀려드는 파도를 보내 아군 및 적 챔피언을 번갈아 맞힙니다.\n파도는 각 챔피언을 한 번만 맞힐 수 있으며 최대 3명의 대상에게 튕깁니다.\n\n- 아군의 체력을 회복시키고 근처 적 챔피언에게 튕깁니다.\n- 적에게 마법 피해를 입히고 근처 아군 챔피언에게 튕깁니다.\n피해량과 회복량은 한 번 튕길 때마다 -10 (+0.1 주문력)%씩 조정됩니다."
+      },
+      "e": {
+        "skillTitle": "파도 소환사의 축복",
+        "skillDrawable": "nami_e",
+        "skillLevel": 0,
+        "coolDown": [11,11,11,11,11],
+        "cost": [70,80,90,100,110],
+        "skillDamageAp": [80,120,160,200,240],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.8,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "나미가 6초 동안 아군 챔피언의 다음 기본 공격과 스킬 3회를 강화합니다.\n강화된 기본 공격과 스킬은 대상을 1초 동안 둔화시키고 마법 피해를 추가로 입힙니다.\n광역 스킬 강화 시 챔피언이 아닌 유닛에게는 33 ~ 66% 롤아이콘-레벨의 피해를 입힙니다."
+      },
+      "r": {
+        "skillTitle": "해일",
+        "skillDrawable": "nami_r",
+        "skillLevel": 0,
+        "coolDown": [120,110,100],
+        "cost": [100,100,100],
+        "skillDamageAp": [150,250,350],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.6,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ap",
+        "skillInfo": "나미가 해일을 소환하여 0.5초 동안 롤아이콘-군중제어 에어본 공중으로 띄워 올리고 둔화시키며 마법 피해를 입힙니다.\n둔화 지속 시간은 해일이 이동한 거리에 비례하며 최대 4초입니다.\n\n파도에 맞은 아군은 밀려오는 파도의 효과를 두 배로 받습니다.\n둔화의 최소 지속 시간은 2초입니다."
       }
     }
   },
@@ -2497,6 +2803,159 @@
     }
   },
   {
+    "champDrawable": "talon",
+    "name": "Talon",
+    "lane": "JUNGLE",
+    "lore": "탈론은 음지에서 암약하는 무자비한 자객이다. 불의의 일격을 가하는 데에도, 이상한 낌새가 느껴지기도 전에 자취를 감추는 데도 능하다. 거칠기 짝이 없는 녹서스의 거리에서 싸우고, 상대를 처치하고, 도둑질을 하면서 살아남았고 위험한 존재라는 명성을 쌓았다. 악명이 자자한 뒤 쿠토 가문에 발탁된 뒤로는 녹서스 제국의 명을 받들어 적의 지도자, 대장, 영웅은 물론이고, 감히 자신이 섬기는 주인의 심기를 거스르는 녹서스 인마저도 종횡무진 암살하고 있다.\n장문의 배경과 폐기된 리그의 심판은 배경 문서 참조.",
+    "stats": {
+      "armorPenetration": 0,
+      "armorPenetrationPercent": 0,
+      "magicPenetration": 0,
+      "magicPenetrationPercent": 0,
+      "attackdamage": 65,
+      "attackdamageperlevel": 3.5,
+      "ap": 0,
+      "hp": 658,
+      "mp": 400,
+      "crit": 0,
+      "attackspeed": 0.625,
+      "attackspeedperlevel": 2.9,
+      "armor": 30,
+      "spellblock": 36,
+      "hpperlevel": 109,
+      "mpperlevel": 37,
+      "movespeed": 335,
+      "armorperlevel": 4.7,
+      "spellblockperlevel": 2.05,
+      "hpregen": 8.5,
+      "hpregenperlevel": 0.75,
+      "mpregen": 7.6,
+      "mpregenperlevel": 0.8,
+      "critperlevel": 0.0
+    },
+    "itemDrawables": [],
+    "skills": {
+      "p": {
+        "skillTitle": "검의 최후",
+        "skillDrawable": "talon_p",
+        "skillLevel": 0,
+        "coolDown": [],
+        "cost": [],
+        "skillDamageAp": [],
+        "skillDamageAd": [80,210],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 2.1,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillInfo": "탈론이 챔피언이나 대형 정글 몬스터에게 스킬을 사용해 피해를 입히면 6초 동안 중첩을 적용합니다.(최대 3회 중첩)\n\n3회 중첩된 대상에게 탈론이 기본 공격을 가하면 2초에 걸쳐 물리 피해를 추가로 입힙니다.\n\n정글 몬스터에게는 지속 피해로 110%의 피해를 입힙니다."
+      },
+      "q": {
+        "skillTitle": "녹서스식 외교",
+        "skillDrawable": "talon_q",
+        "skillLevel": 0,
+        "coolDown": [8,7,7,6,6],
+        "cost": [40,40,40,40,40],
+        "skillDamageAp": [],
+        "skillDamageAd": [65,85,105,125,145],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillInfo": "탈론이 대상에게 도약해 물리 피해를 입힙니다. 근접 공격이 가능한 거리에서 사용하면 대신 치명타가 적용되어 150%의 물리 피해를 입힙니다.\n\n이 스킬로 대상을 처치하면 체력을 회복하고 재사용 대기시간의 50%를 돌려받습니다.\n근접 공격 피해량은 치명타 피해량 증가에 영향을 받습니다"
+      },
+      "w": {
+        "skillTitle": "갈퀴손",
+        "skillDrawable": "talon_w",
+        "skillLevel": 0,
+        "coolDown": [9,8,8,7,7],
+        "cost": [50,55,60,65,70],
+        "skillDamageAp": [],
+        "skillDamageAd": [110,120,190,230,270],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 1.3,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillInfo": "탈론이 부메랑 단검을 여러 개 던져 물리 피해를 입힙니다. 이후 단검이 돌아오며 물리 피해를 입히고 1초 동안 둔화시킵니다."
+      },
+      "e": {
+        "skillTitle": "암살자의 길",
+        "skillDrawable": "talon_e",
+        "skillLevel": 0,
+        "coolDown": [2,2,2,2,2],
+        "cost": [0,0,0,0,0],
+        "skillDamageAp": [],
+        "skillDamageAd": [],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 0.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "Active",
+        "skillInfo": "탈론이 가장 가까운 지형이나 구조물 위로 도약해 뛰어넘습니다. 한 번 넘어간 지형은 일정 시간 동안 다시 넘을 수 없습니다."
+      },
+      "r": {
+        "skillTitle": "그림자 공격",
+        "skillDrawable": "talon_r",
+        "skillLevel": 0,
+        "coolDown": [100,80,60],
+        "cost": [100,100,100],
+        "skillDamageAp": [],
+        "skillDamageAd": [270,405,540],
+        "skillDamageFix": [],
+        "skillDamage": [
+          0,
+          0,
+          0
+        ],
+        "skillApCoeff": 0.0,
+        "skillAdCoeff": 3.0,
+        "skillArCoeff": 0.0,
+        "skillMrCoeff": 0.0,
+        "skillHpCoeff": 0.0,
+        "skillType": "ad",
+        "skillInfo": "탈론이 사방에 검을 던져 물리 피해를 입히고, 이동 속도가 상승하며 최대 2.5초 동안 투명 상태가 됩니다. 투명 상태가 끝나면 검이 탈론에게 돌아오며 다시 물리 피해를 입힙니다.\n\n탈론이 기본 공격이나 녹서스식 외교 스킬로 투명 상태를 해제하면 검이 탈론 대신 탈론의 대상에게 날아갑니다.\n투명 상태의 유닛은 포탑이나 절대 시야로만 모습이 드러납니다."
+      }
+    }
+  },
+  {
     "champDrawable": "twistedfate",
     "name": "Twisted Fate",
     "lane": "MID",
@@ -2956,159 +3415,6 @@
     }
   },
   {
-    "champDrawable": "zed",
-    "name": "Zed",
-    "lane": "MID",
-    "lore": "",
-    "stats": {
-      "armorPenetration": 0,
-      "armorPenetrationPercent": 0,
-      "magicPenetration": 0,
-      "magicPenetrationPercent": 0,
-      "attackdamage": 63,
-      "attackdamageperlevel": 3.4,
-      "ap": 0,
-      "hp": 654,
-      "mp": 200,
-      "crit": 0,
-      "attackspeed": 0.651,
-      "attackspeedperlevel": 3.3,
-      "armor": 32,
-      "spellblock": 29,
-      "hpperlevel": 99,
-      "mpperlevel": 0,
-      "movespeed": 345,
-      "armorperlevel": 4.7,
-      "spellblockperlevel": 2.05,
-      "hpregen": 7.0,
-      "hpregenperlevel": 0.65,
-      "mpregen": 50.0,
-      "mpregenperlevel": 0.0,
-      "critperlevel": 0.0
-    },
-    "itemDrawables": [],
-    "skills": {
-      "p": {
-        "skillTitle": "",
-        "skillDrawable": "zed_p",
-        "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
-        "skillDamageAp": [],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "Passive",
-        "skillInfo": ""
-      },
-      "q": {
-        "skillTitle": "",
-        "skillDrawable": "zed_q",
-        "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
-        "skillDamageAp": [],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": ""
-      },
-      "w": {
-        "skillTitle": "",
-        "skillDrawable": "zed_w",
-        "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
-        "skillDamageAp": [],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": ""
-      },
-      "e": {
-        "skillTitle": "",
-        "skillDrawable": "zed_e",
-        "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
-        "skillDamageAp": [],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "Active",
-        "skillInfo": ""
-      },
-      "r": {
-        "skillTitle": "",
-        "skillDrawable": "zed_r",
-        "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
-        "skillDamageAp": [],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "Ultimate",
-        "skillInfo": ""
-      }
-    }
-  },
-  {
     "champDrawable": "vi",
     "name": "Vi",
     "lane": "JUNGLE",
@@ -3262,46 +3568,46 @@
     }
   },
   {
-    "champDrawable": "talon",
-    "name": "Talon",
-    "lane": "JUNGLE",
-    "lore": "탈론은 음지에서 암약하는 무자비한 자객이다. 불의의 일격을 가하는 데에도, 이상한 낌새가 느껴지기도 전에 자취를 감추는 데도 능하다. 거칠기 짝이 없는 녹서스의 거리에서 싸우고, 상대를 처치하고, 도둑질을 하면서 살아남았고 위험한 존재라는 명성을 쌓았다. 악명이 자자한 뒤 쿠토 가문에 발탁된 뒤로는 녹서스 제국의 명을 받들어 적의 지도자, 대장, 영웅은 물론이고, 감히 자신이 섬기는 주인의 심기를 거스르는 녹서스 인마저도 종횡무진 암살하고 있다.\n장문의 배경과 폐기된 리그의 심판은 배경 문서 참조.",
+    "champDrawable": "zed",
+    "name": "Zed",
+    "lane": "MID",
+    "lore": "",
     "stats": {
       "armorPenetration": 0,
       "armorPenetrationPercent": 0,
       "magicPenetration": 0,
       "magicPenetrationPercent": 0,
-      "attackdamage": 65,
-      "attackdamageperlevel": 3.5,
+      "attackdamage": 63,
+      "attackdamageperlevel": 3.4,
       "ap": 0,
-      "hp": 658,
-      "mp": 400,
+      "hp": 654,
+      "mp": 200,
       "crit": 0,
-      "attackspeed": 0.625,
-      "attackspeedperlevel": 2.9,
-      "armor": 30,
-      "spellblock": 36,
-      "hpperlevel": 109,
-      "mpperlevel": 37,
-      "movespeed": 335,
+      "attackspeed": 0.651,
+      "attackspeedperlevel": 3.3,
+      "armor": 32,
+      "spellblock": 29,
+      "hpperlevel": 99,
+      "mpperlevel": 0,
+      "movespeed": 345,
       "armorperlevel": 4.7,
       "spellblockperlevel": 2.05,
-      "hpregen": 8.5,
-      "hpregenperlevel": 0.75,
-      "mpregen": 7.6,
-      "mpregenperlevel": 0.8,
+      "hpregen": 7.0,
+      "hpregenperlevel": 0.65,
+      "mpregen": 50.0,
+      "mpregenperlevel": 0.0,
       "critperlevel": 0.0
     },
     "itemDrawables": [],
     "skills": {
       "p": {
-        "skillTitle": "검의 최후",
-        "skillDrawable": "talon_p",
+        "skillTitle": "",
+        "skillDrawable": "zed_p",
         "skillLevel": 0,
         "coolDown": [],
         "cost": [],
         "skillDamageAp": [],
-        "skillDamageAd": [80,210],
+        "skillDamageAd": [],
         "skillDamageFix": [],
         "skillDamage": [
           0,
@@ -3311,67 +3617,19 @@
           0
         ],
         "skillApCoeff": 0.0,
-        "skillAdCoeff": 2.1,
+        "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "ad",
-        "skillInfo": "탈론이 챔피언이나 대형 정글 몬스터에게 스킬을 사용해 피해를 입히면 6초 동안 중첩을 적용합니다.(최대 3회 중첩)\n\n3회 중첩된 대상에게 탈론이 기본 공격을 가하면 2초에 걸쳐 물리 피해를 추가로 입힙니다.\n\n정글 몬스터에게는 지속 피해로 110%의 피해를 입힙니다."
+        "skillType": "Passive",
+        "skillInfo": ""
       },
       "q": {
-        "skillTitle": "녹서스식 외교",
-        "skillDrawable": "talon_q",
+        "skillTitle": "",
+        "skillDrawable": "zed_q",
         "skillLevel": 0,
-        "coolDown": [8,7,7,6,6],
-        "cost": [40,40,40,40,40],
-        "skillDamageAp": [],
-        "skillDamageAd": [65,85,105,125,145],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 1.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ad",
-        "skillInfo": "탈론이 대상에게 도약해 물리 피해를 입힙니다. 근접 공격이 가능한 거리에서 사용하면 대신 치명타가 적용되어 150%의 물리 피해를 입힙니다.\n\n이 스킬로 대상을 처치하면 체력을 회복하고 재사용 대기시간의 50%를 돌려받습니다.\n근접 공격 피해량은 치명타 피해량 증가에 영향을 받습니다"
-      },
-      "w": {
-        "skillTitle": "갈퀴손",
-        "skillDrawable": "talon_w",
-        "skillLevel": 0,
-        "coolDown": [9,8,8,7,7],
-        "cost": [50,55,60,65,70],
-        "skillDamageAp": [],
-        "skillDamageAd": [110,120,190,230,270],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 1.3,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ad",
-        "skillInfo": "탈론이 부메랑 단검을 여러 개 던져 물리 피해를 입힙니다. 이후 단검이 돌아오며 물리 피해를 입히고 1초 동안 둔화시킵니다."
-      },
-      "e": {
-        "skillTitle": "암살자의 길",
-        "skillDrawable": "talon_e",
-        "skillLevel": 0,
-        "coolDown": [2,2,2,2,2],
-        "cost": [0,0,0,0,0],
+        "coolDown": [],
+        "cost": [],
         "skillDamageAp": [],
         "skillDamageAd": [],
         "skillDamageFix": [],
@@ -3388,221 +3646,11 @@
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
         "skillType": "Active",
-        "skillInfo": "탈론이 가장 가까운 지형이나 구조물 위로 도약해 뛰어넘습니다. 한 번 넘어간 지형은 일정 시간 동안 다시 넘을 수 없습니다."
-      },
-      "r": {
-        "skillTitle": "그림자 공격",
-        "skillDrawable": "talon_r",
-        "skillLevel": 0,
-        "coolDown": [100,80,60],
-        "cost": [100,100,100],
-        "skillDamageAp": [],
-        "skillDamageAd": [270,405,540],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.0,
-        "skillAdCoeff": 3.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ad",
-        "skillInfo": "탈론이 사방에 검을 던져 물리 피해를 입히고, 이동 속도가 상승하며 최대 2.5초 동안 투명 상태가 됩니다. 투명 상태가 끝나면 검이 탈론에게 돌아오며 다시 물리 피해를 입힙니다.\n\n탈론이 기본 공격이나 녹서스식 외교 스킬로 투명 상태를 해제하면 검이 탈론 대신 탈론의 대상에게 날아갑니다.\n투명 상태의 유닛은 포탑이나 절대 시야로만 모습이 드러납니다."
-      }
-    }
-  },
-  {
-    "champDrawable": "lux",
-    "name": "Lux",
-    "lane": "MID",
-    "lore": "가렌과는 가족 사이이며 데마시아가 배제하는 마법사임에도 불구하고 나름 사이가 좋은 편. 유니버스 이전엔 사적으로는 친밀한 남매였으나 스토리 개편으로 가렌은 여동생으로선 나름 좋아하지만 그 럭스가 마법사라는 사실을 애써 외면하려고 하고, 꺼림칙하게 생각하는 점이 있다. 하지만 럭스 코믹스 이후에는 럭스가 마법사라는 사실을 받아들이는 태도를 보이며, 레전드 오브 룬테라에서의 상호작용 대사에서도 여느 다정한 남매의 대화를 주고받는다.[3]\n\n갈리오는 럭스의 마법을 긍정적으로 바라봐 준 몆 안 되는 존재이다. 럭스의 마력 덕분에 갈리오는 일시적으로 다시 움직일 수 있게 되었고 자신이 마법을 사용할 수 있다는 걸 부정적으로 생각했던 럭스에게 갈리오는 자신이 다시 움직일 수 없게 되더라도 럭스가 간직해야 할 소중한 것이라고 말해 주었다.\n\n사일러스는 그가 수용소에 잡혀지내던 시절 봉사활동을 다니다가 만나게 되었는데, 같은 마법사라는 점 때문인지 서로 여러 지식을 주고받으며 친해졌다. 코믹스의 묘사를 보면 손을 잡은 후 얼굴이 붉어지기까지 해 사일러스에게 연애감정까지 느끼는 듯한 묘사가 있다. 그러나 사일러스가 럭스를 이용해 페트리사이트 관련 서적을 얻어내 그 정보를 통해 수갑의 성질을 역이용하여 사형 당일 럭스를 제외한 사형장에 찾아온 전원을 죽인 뒤 사라진 것으로 인해 럭스에겐 사실상 은혜를 원수로 갚은 존재로 여겨지고 있다.\n\n그 외에 데마시아 소속 챔피언에 대해선 일단 믿을 만한 아군이라 인식하고 있다. 다만 그것과 별개로 데마시아의 상황을 좋게 보지는 않는 편.\n\n이즈리얼은 럭스를 짝사랑하고 있으며, 리그 오브 레전드의 다른 유니버스에서는 서로 사귀는 사이로 묘사되기도 한다. 레전드 오브 룬테라에서도 서로의 상호대사가 수많이 존재한다.[4]\n\n관계도에는 없지만 포스배로우에서 봉인이 풀린 녹턴과 마주하여 그를 일시적으로 물리치기도 했다.\n",
-    "stats": {
-      "armorPenetration": 0,
-      "armorPenetrationPercent": 0,
-      "magicPenetration": 0,
-      "magicPenetrationPercent": 0,
-      "attackdamage": 65,
-      "attackdamageperlevel": 3.5,
-      "ap": 0,
-      "hp": 580,
-      "mp": 480,
-      "crit": 0,
-      "attackspeed": 0.625,
-      "attackspeedperlevel": 3,
-      "armor": 21,
-      "spellblock": 30,
-      "hpperlevel": 99,
-      "mpperlevel": 23,
-      "movespeed": 330,
-      "armorperlevel": 5.2,
-      "spellblockperlevel": 1.3,
-      "hpregen": 5.5,
-      "hpregenperlevel": 0.55,
-      "mpregen": 7,
-      "mpregenperlevel": 0.8,
-      "critperlevel": 0.0
-    },
-    "itemDrawables": [],
-    "skills": {
-      "p": {
-        "skillTitle": "광채",
-        "skillDrawable": "lux_p",
-        "skillLevel": 0,
-        "coolDown": [],
-        "cost": [],
-        "skillDamageAp": [],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.3,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "럭스의 피해를 주는 스킬이 적에게 6초 동안 표식을 남깁니다. 럭스의 기본 공격은 이 표식을 소모해 마법 피해를 입힙니다.\n\n최후의 섬광은 적중 시 표식을 소모한 후 재적용합니다."
-      },
-      "q": {
-        "skillTitle": "빛의 속박",
-        "skillDrawable": "lux_q",
-        "skillLevel": 0,
-        "coolDown": [11,10,10,9,9],
-        "cost": [50,50,50,50,50],
-        "skillDamageAp": [80,120,160,200,240],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.65,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "럭스가 빛의 구체를 발사하여 처음 적중한 적 둘을 2초 동안 롤아이콘-군중제어 속박속박하고 각각 마법 피해를 입힙니다."
+        "skillInfo": ""
       },
       "w": {
-        "skillTitle": "프리즘 보호막",
-        "skillDrawable": "lux_w",
-        "skillLevel": 0,
-        "coolDown": [14,13,12,12,11,10],
-        "cost": [60,65,70,75,80],
-        "skillDamageAp": [80,110,140,170,200],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.8,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "럭스가 마법봉을 던져 봉에 닿은 모든 아군에게 보호막을 씌웁니다. 마법봉은 돌아올 때도 똑같이 보호막을 부여합니다.\n두 번의 보호막은 중첩될 수 있습니다."
-      },
-      "e": {
-        "skillTitle": "광휘의 특이점",
-        "skillDrawable": "lux_e",
-        "skillLevel": 0,
-        "coolDown": [10,9,9,8,8],
-        "cost": [70,80,90,100,110],
-        "skillDamageAp": [65,115,165,215,265],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.8,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "럭스가 빛의 영역을 생성해 적들을 둔화시키고 해당 지역을 드러냅니다.[13] 5초가 지나거나 스킬을 재사용하면 폭발하여 마법 피해를 입히고 추가로 1초 동안 둔화시킵니다."
-      },
-      "r": {
-        "skillTitle": "최후의 섬광",
-        "skillDrawable": "lux_r",
-        "skillLevel": 0,
-        "coolDown": [60,50,40],
-        "cost": [100,100,100],
-        "skillDamageAp": [270,405,540],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 1.2,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "럭스가 눈부신 광선을 발사하여 일직선상에 있는 모든 적에게 마법 피해를 입힙니다."
-      }
-    }
-  },
-  {
-    "champDrawable": "nami",
-    "name": "Nami",
-    "lane": "SUPPORT",
-    "lore": "나미는 바다에 사는 바스타야 종족으로, 어리지만 완고할 정도로 고집이 세다. 먼 옛날 타곤 인과 맺었던 약속이 깨지자, 마라이 종족으로는 처음으로 파도 치는 바다에서 나와 마른 육지로 모험을 떠났다. 달리 해결책이 없었기에, 자신의 종족을 안전하게 지켜주는 성스러운 의식을 완수한다는 임무를 자청한 것이었다. 새로운 시대는 혼란 그 자체지만, 나미는 용기와 결단력으로 불확실한 미래를 마주한다. 그녀의 무기는 바다의 힘을 소환하는 파도 소환사의 지팡이다.",
-    "stats": {
-      "armorPenetration": 0,
-      "armorPenetrationPercent": 0,
-      "magicPenetration": 0,
-      "magicPenetrationPercent": 0,
-      "attackdamage": 65,
-      "attackdamageperlevel": 3.5,
-      "ap": 0,
-      "hp": 560,
-      "mp": 365,
-      "crit": 0,
-      "attackspeed": 0.644,
-      "attackspeedperlevel": 2.61,
-      "armor": 29,
-      "spellblock": 30,
-      "hpperlevel": 88,
-      "mpperlevel": 43,
-      "movespeed": 335,
-      "armorperlevel": 5.2,
-      "spellblockperlevel": 1.3,
-      "hpregen": 5.5,
-      "hpregenperlevel": 0.55,
-      "mpregen": 7,
-      "mpregenperlevel": 0.8,
-      "critperlevel": 0.0
-    },
-    "itemDrawables": [],
-    "skills": {
-      "p": {
-        "skillTitle": "밀려오는 파도",
-        "skillDrawable": "nami_p",
+        "skillTitle": "",
+        "skillDrawable": "zed_w",
         "skillLevel": 0,
         "coolDown": [],
         "cost": [],
@@ -3621,64 +3669,16 @@
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "나미의 스킬에 맞은 아군 챔피언은 1.5초 동안 이동 속도가 상승했다 1.5초에 걸쳐 원래대로 돌아옵니다."
-      },
-      "q": {
-        "skillTitle": "물의 감옥",
-        "skillDrawable": "nami_q",
-        "skillLevel": 0,
-        "coolDown": [12,11,10,9,8],
-        "cost": [60,60,60,60,60],
-        "skillDamageAp": [90,145,200,255,310],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.5,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "나미가 물방울을 던져 1.5초 동안 롤아이콘-군중제어 기절롤아이콘-군중제어 에어본 기절시키고 마법 피해를 입힙니다."
-      },
-      "w": {
-        "skillTitle": "밀물 썰물",
-        "skillDrawable": "nami_w",
-        "skillLevel": 0,
-        "coolDown": [10,10,10,10,10],
-        "cost": [70,75,80,85,90],
-        "skillDamageAp": [60,95,130,165,200],
-        "skillDamageAd": [],
-        "skillDamageFix": [],
-        "skillDamage": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "skillApCoeff": 0.5,
-        "skillAdCoeff": 0.0,
-        "skillArCoeff": 0.0,
-        "skillMrCoeff": 0.0,
-        "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "나미가 밀려드는 파도를 보내 아군 및 적 챔피언을 번갈아 맞힙니다.\n파도는 각 챔피언을 한 번만 맞힐 수 있으며 최대 3명의 대상에게 튕깁니다.\n\n- 아군의 체력을 회복시키고 근처 적 챔피언에게 튕깁니다.\n- 적에게 마법 피해를 입히고 근처 아군 챔피언에게 튕깁니다.\n피해량과 회복량은 한 번 튕길 때마다 -10 (+0.1 주문력)%씩 조정됩니다."
+        "skillType": "Active",
+        "skillInfo": ""
       },
       "e": {
-        "skillTitle": "파도 소환사의 축복",
-        "skillDrawable": "nami_e",
+        "skillTitle": "",
+        "skillDrawable": "zed_e",
         "skillLevel": 0,
-        "coolDown": [11,11,11,11,11],
-        "cost": [70,80,90,100,110],
-        "skillDamageAp": [80,120,160,200,240],
+        "coolDown": [],
+        "cost": [],
+        "skillDamageAp": [],
         "skillDamageAd": [],
         "skillDamageFix": [],
         "skillDamage": [
@@ -3688,21 +3688,21 @@
           0,
           0
         ],
-        "skillApCoeff": 0.8,
+        "skillApCoeff": 0.0,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "나미가 6초 동안 아군 챔피언의 다음 기본 공격과 스킬 3회를 강화합니다.\n강화된 기본 공격과 스킬은 대상을 1초 동안 둔화시키고 마법 피해를 추가로 입힙니다.\n광역 스킬 강화 시 챔피언이 아닌 유닛에게는 33 ~ 66% 롤아이콘-레벨의 피해를 입힙니다."
+        "skillType": "Active",
+        "skillInfo": ""
       },
       "r": {
-        "skillTitle": "해일",
-        "skillDrawable": "nami_r",
+        "skillTitle": "",
+        "skillDrawable": "zed_r",
         "skillLevel": 0,
-        "coolDown": [120,110,100],
-        "cost": [100,100,100],
-        "skillDamageAp": [150,250,350],
+        "coolDown": [],
+        "cost": [],
+        "skillDamageAp": [],
         "skillDamageAd": [],
         "skillDamageFix": [],
         "skillDamage": [
@@ -3710,13 +3710,13 @@
           0,
           0
         ],
-        "skillApCoeff": 0.6,
+        "skillApCoeff": 0.0,
         "skillAdCoeff": 0.0,
         "skillArCoeff": 0.0,
         "skillMrCoeff": 0.0,
         "skillHpCoeff": 0.0,
-        "skillType": "ap",
-        "skillInfo": "나미가 해일을 소환하여 0.5초 동안 롤아이콘-군중제어 에어본 공중으로 띄워 올리고 둔화시키며 마법 피해를 입힙니다.\n둔화 지속 시간은 해일이 이동한 거리에 비례하며 최대 4초입니다.\n\n파도에 맞은 아군은 밀려오는 파도의 효과를 두 배로 받습니다.\n둔화의 최소 지속 시간은 2초입니다."
+        "skillType": "Ultimate",
+        "skillInfo": ""
       }
     }
   }
