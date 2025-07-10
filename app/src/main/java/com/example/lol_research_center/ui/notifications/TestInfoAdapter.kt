@@ -23,7 +23,8 @@ class TestInfoAdapter(
     private val calculateMagicDamage: (Int, Int, Stats) -> Float,
     private var selectedSkill: Skill?, // Add selectedSkill parameter
     private val onItemRemove: (TestInfo) -> Unit,
-    private val onItemSelected: (TestInfo) -> Unit
+    private val onItemSelected: (TestInfo) -> Unit,
+    private var attackerStats: Stats // 추가: 공격 챔피언의 스탯
 ) : RecyclerView.Adapter<TestInfoAdapter.TestViewHolder>() {
 
     private var selectedPosition = RecyclerView.NO_POSITION
@@ -36,6 +37,11 @@ class TestInfoAdapter(
     fun updateSelectedSkill(newSkill: Skill?) {
         selectedSkill = newSkill
         notifyDataSetChanged()
+    }
+
+    fun updateAttackerStats(newAttackerStats: Stats) {
+        this.attackerStats = newAttackerStats
+        notifyDataSetChanged() // Refresh to reflect new attacker stats in damage calculations
     }
 
     inner class TestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -81,7 +87,8 @@ class TestInfoAdapter(
         holder.statMr.text = calculatedStats.spellblock.toString()
         // 데미지 계산 및 표시 (현재 선택된 스킬 사용)
         selectedSkill?.let { skill ->
-            val damage = calcDamageByType(skill, calculatedStats, calculatedStats.armor, calculatedStats.spellblock)
+            // calcDamageByType에 공격 챔피언의 스탯과 대상 챔피언의 방어 스탯을 전달
+            val damage = calcDamageByType(skill, attackerStats, calculatedStats.armor, calculatedStats.spellblock)
             holder.hitDamage.text = damage.toString()
         } ?: run {
             holder.hitDamage.text = "N/A" // No skill selected
@@ -128,7 +135,7 @@ class TestInfoAdapter(
      * base: skillDamageX[level - 1]
      * bonus: stats * coeff
      */
-    private fun calcDamage(skill: Skill, stats: Stats): Int {
+    private fun calcDamage(skill: Skill, attackerStats: Stats): Int { // attackerStats 매개변수 추가
         val lvl = skill.skillLevel
         if (lvl <= 0) return 0
         val baseList = when (skill.skillType) {
@@ -138,24 +145,25 @@ class TestInfoAdapter(
             else -> emptyList()
         }
         val base = baseList.getOrNull(lvl - 1) ?: 0
-        val bonus = stats.attackdamage * skill.skillAdCoeff +
-                stats.ap * skill.skillApCoeff +
-                stats.armor * skill.skillArCoeff +
-                stats.spellblock * skill.skillMrCoeff +
-                stats.hp * skill.skillHpCoeff
+        // 여기서 attackerStats를 사용
+        val bonus = attackerStats.attackdamage * skill.skillAdCoeff +
+                attackerStats.ap * skill.skillApCoeff +
+                attackerStats.armor * skill.skillArCoeff +
+                attackerStats.spellblock * skill.skillMrCoeff +
+                attackerStats.hp * skill.skillHpCoeff
         return (base + bonus).toInt()
     }
 
-    private fun calcDamageByType(skill: Skill, stats: Stats, targetArmor: Int, targetMR: Int): Int{
+    private fun calcDamageByType(skill: Skill, attackerStats: Stats, targetArmor: Int, targetMR: Int): Int{
         var damage = 0
         if(skill.skillType == "fix"){
-            damage = calcDamage(skill, stats)
+            damage = calcDamage(skill, attackerStats) // attackerStats 전달
         }
         else if(skill.skillType == "ad"){
-            damage = calculatePhysicalDamage(calcDamage(skill, stats), targetArmor, stats).toInt()
+            damage = calculatePhysicalDamage(calcDamage(skill, attackerStats), targetArmor, attackerStats).toInt() // attackerStats 전달
         }
         else if(skill.skillType == "ap"){
-            damage = calculateMagicDamage(calcDamage(skill,stats), targetMR, stats).toInt()
+            damage = calculateMagicDamage(calcDamage(skill,attackerStats), targetMR, attackerStats).toInt() // attackerStats 전달
         }
         return damage
     }

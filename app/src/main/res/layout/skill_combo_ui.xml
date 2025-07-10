@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/skillComboContainer"
     android:layout_width="match_parent"
-    android:layout_height="165dp"
+    android:layout_height="200dp"
     android:layout_margin="8dp"
     android:background="@drawable/lol_textpanel_bg"
     android:padding="8dp">
@@ -34,7 +34,7 @@
             <!-- 왼쪽: 아이콘 그리드 -->
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <!-- 첫 번째 줄 -->
@@ -42,7 +42,7 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:paddingBottom="4dp">
 
                     <!-- slot 1 -->
@@ -105,7 +105,7 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
+                    android:gravity="center">
 
                     <!-- slot 6 -->
                     <include
@@ -163,15 +163,6 @@
             </LinearLayout>
 
             <!-- 오른쪽: 총 데미지 -->
-            <TextView
-                android:id="@+id/tvDamageTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/friz_quadrata_bold"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:text="1500"
-                android:textColor="@color/lol_gold" />
         </LinearLayout>
 
         <!-- 3) 콤보 설명 -->
@@ -183,5 +174,15 @@
             android:text="콤보 설명을 여기에 입력하세요."
             android:textSize="14sp"
             android:paddingTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tvDamageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/friz_quadrata_bold"
+            android:gravity="center"
+            android:text="1500"
+            android:textAlignment="center"
+            android:textColor="@color/lol_gold" />
     </LinearLayout>
 </FrameLayout>

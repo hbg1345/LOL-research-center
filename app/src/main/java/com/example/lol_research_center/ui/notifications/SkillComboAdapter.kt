@@ -1,5 +1,6 @@
 package com.example.lol_research_center.ui.notifications
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,17 +54,38 @@ class SkillComboAdapter(
     fun calculateComboDamage(combo: SkillCombo): Int {
         var totalDamage = 0
         val attackerStats = calculateTotalStats(currentChampionInfo, currentItems, currentChampionLevel)
+        Log.d("ComboCalc", "Attacker: ${currentChampionInfo.name}, AD=${attackerStats.attackdamage}, AP=${attackerStats.ap}")
 
-        val targetArmor = selectedTestInfo?.champion?.stats?.armor ?: currentChampionInfo.stats.armor
-        val targetMR = selectedTestInfo?.champion?.stats?.spellblock ?: currentChampionInfo.stats.spellblock
+        val currentSelectedTestInfo = selectedTestInfo
+
+        val targetStats: Stats
+        if (currentSelectedTestInfo != null) {
+            // 대상 챔피언의 아이템을 포함한 최종 스탯 계산
+            targetStats = calculateTotalStats(currentSelectedTestInfo.champion, currentSelectedTestInfo.items, currentSelectedTestInfo.champion.level)
+        } else {
+            // 대상 챔피언이 선택되지 않은 경우, 공격 챔피언의 스탯을 폴백으로 사용 (기존 로직 유지)
+            targetStats = attackerStats // 또는 currentChampionInfo.stats를 사용해도 됨. 여기서는 attackerStats를 따름.
+        }
+
+        val targetArmor = targetStats.armor
+        val targetMR = targetStats.spellblock
+
+        Log.d("ComboCalc", "Selected TestInfo is null: ${currentSelectedTestInfo == null}")
+        if (currentSelectedTestInfo != null) {
+            Log.d("ComboCalc", "Target: ${currentSelectedTestInfo.champion.name}, Calculated Armor=${targetArmor}, Calculated MR=${targetMR}")
+        } else {
+            Log.d("ComboCalc", "Fallback Target (Attacker): ${currentChampionInfo.name}, Armor=${targetArmor}, MR=${targetMR}")
+        }
 
         for (drawableId in combo.skillDrawables) {
             val skill = skillMap[drawableId]
             if (skill != null) {
                 val skillDamage = calcDamageByType(skill, attackerStats, targetArmor, targetMR)
+                Log.d("ComboCalc", "  Skill: ${skill.skillTitle}, Individual Damage: $skillDamage")
                 totalDamage += skillDamage
             }
         }
+        Log.d("ComboCalc", "Total Combo Damage: $totalDamage")
         return totalDamage
     }
 

@@ -226,7 +226,7 @@
                 android:fontFamily="@font/friz_quadrata_bold"
                 android:text="10000"
                 android:textColor="@color/lol_gold"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
 

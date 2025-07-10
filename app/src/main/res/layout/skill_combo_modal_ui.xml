@@ -32,15 +32,16 @@
 
             <!-- 2) 스킬 아이콘 + 화살표 (2줄) -->
             <LinearLayout
-                android:layout_marginStart="15dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_gravity="center">
 
                 <!-- 왼쪽: 아이콘 그리드 -->
                 <LinearLayout
                     android:orientation="vertical"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <!-- 첫 번째 줄 -->
@@ -48,7 +49,7 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:paddingBottom="4dp">
 
                         <!-- slot 1 -->
@@ -111,7 +112,7 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical">
+                        android:gravity="center">
 
                         <!-- slot 6 -->
                         <include
@@ -167,18 +168,16 @@
                             layout="@layout/view_skill_icon_qwer"/>
                     </LinearLayout>
                 </LinearLayout>
-
-                <!-- 오른쪽: 총 데미지 -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/friz_quadrata_bold"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:text="-"
-                    android:textColor="@color/lol_gold" />
             </LinearLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/friz_quadrata_bold"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:text="-"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/lol_gold" />
             <!-- 3) 스킬 선택 뷰 -->
             <TextView
                 android:id="@+id/tvSkillSelect"
