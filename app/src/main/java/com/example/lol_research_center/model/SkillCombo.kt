@@ -4,6 +4,6 @@ data class SkillCombo(
     val name: String,
     val skillDrawables: List<Int>, // 10개
     val skillKeys: List<String>,   // 10개 (예: "Q", "W"...)
-    val damage: String,
+    val damage: Int,
     val description: String
 )

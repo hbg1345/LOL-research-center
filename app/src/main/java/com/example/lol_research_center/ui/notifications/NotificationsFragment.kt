@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lol_research_center.ui.home.HomeBottomSheetFragment
 import com.example.lol_research_center.R
-import com.example.lol_research_center.adapter.SkillComboAdapter
+import com.example.lol_research_center.ui.notifications.SkillComboAdapter
 import com.example.lol_research_center.database.AppDatabase
 import com.example.lol_research_center.database.DummyDataProvider.createDummyTestInfo
 import com.example.lol_research_center.databinding.FragmentNotificationsBinding
@@ -35,6 +35,7 @@ import com.example.lol_research_center.model.SkillCombo
 import com.example.lol_research_center.model.SkillDamageSet
 import com.example.lol_research_center.model.Skills
 import com.example.lol_research_center.model.Stats
+import com.example.lol_research_center.model.TestInfo
 import com.example.lol_research_center.ui.viewmodel.BuildViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -57,6 +58,8 @@ class NotificationsFragment : Fragment() {
     private var selectedSkill: Skill? = null
     private lateinit var testInfoAdapter: TestInfoAdapter
 
+    private var selectedTestInfo: TestInfo? = null // Add this line to store the selected TestInfo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -73,21 +76,62 @@ class NotificationsFragment : Fragment() {
         binding.testInfoRecyclerView.apply {
             isNestedScrollingEnabled = false
             layoutManager = LinearLayoutManager(context)
-            testInfoAdapter = TestInfoAdapter(emptyList(), ::calculateTotalStats, ::calculatePhysicalDamage, ::calculateMagicDamage, selectedSkill) { testInfoToRemove ->
-                buildViewModel.removeTestInfo(testInfoToRemove)
-            } // Initialize with empty list and pass the stat and damage calculation functions
-            adapter = testInfoAdapter
+            // testInfoAdapter initialization moved to buildViewModel.currentBuild.observe
+            // adapter = testInfoAdapter // This line will be set after initialization
         }
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        super.onViewCreated(view, savedInstanceState)
-        skillComboAdapter = SkillComboAdapter(comboList)
+        // Initialize skillComboAdapter later when buildInfo is available
         val recyclerView = view.findViewById<RecyclerView>(R.id.skillComboRecyclerView)
-        recyclerView.adapter = skillComboAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Initialize testInfoAdapter with a default state
+        testInfoAdapter = TestInfoAdapter(
+            data = emptyList(), // Initial empty list
+            calculateStats = ::calculateTotalStats,
+            calculatePhysicalDamage = ::calculatePhysicalDamage,
+            calculateMagicDamage = ::calculateMagicDamage,
+            selectedSkill = null, // No skill selected initially
+            onItemRemove = { testInfoToRemove: TestInfo ->
+                buildViewModel.removeTestInfo(testInfoToRemove)
+            },
+            onItemSelected = { selectedTestInfo: TestInfo ->
+                this@NotificationsFragment.selectedTestInfo = selectedTestInfo
+                skillComboAdapter.updateSelectedTestInfo(selectedTestInfo)
+                Log.d("NotificationsFragment", "TestInfo selected: ${selectedTestInfo.champion.name}")
+            },
+            attackerStats = Stats( // Break this into multiple lines
+                armorPenetration = 0f,
+                armorPenetrationPercent = 0f,
+                magicPenetration = 0f,
+                magicPenetrationPercent = 0f,
+                attackdamage = 0,
+                attackdamageperlevel = 0f,
+                ap = 0,
+                hp = 0,
+                mp = 0,
+                crit = 0,
+                attackspeed = 0f,
+                attackspeedperlevel = 0f,
+                armor = 0,
+                spellblock = 0,
+                hpperlevel = 0,
+                mpperlevel = 0,
+                movespeed = 0,
+                armorperlevel = 0f,
+                spellblockperlevel = 0f,
+                hpregen = 0f,
+                hpregenperlevel = 0f,
+                mpregen = 0f,
+                mpregenperlevel = 0f,
+                critperlevel = 0f
+            )
+        )
+        binding.testInfoRecyclerView.adapter = testInfoAdapter // Set adapter here
+
         setupTestInfoRecyclerView() // Initialize adapter once
         val btnSkillComboModal: ImageButton = view.findViewById(R.id.skillComboModalButton)
         val skillComboModal: View = view.findViewById(R.id.skillComboModal)
@@ -158,8 +202,6 @@ class NotificationsFragment : Fragment() {
             skillKeyView?.text = skillKeys.getOrNull(index) ?: ""
         }
 
-
-
         // Retrieve BuildInfo from arguments and set it in the ViewModel
         arguments?.getParcelable<BuildInfo>("build")?.let { buildInfo ->
             buildViewModel.setCurrentBuild(buildInfo)
@@ -214,8 +256,38 @@ class NotificationsFragment : Fragment() {
                 setupLevelButtons(it)
                 setupExitButton()
                 setupSaveButton()
-                testInfoAdapter.updateData(it.testInfoList) // Update data
+
+                // Update testInfoAdapter with actual data
+                val attackerStats = calculateTotalStats(it.champion, it.items, it.champion.level)
+                testInfoAdapter.updateData(it.testInfoList) // Update the data
+                testInfoAdapter.updateAttackerStats(attackerStats) // Add this new function to TestInfoAdapter
+                testInfoAdapter.updateSelectedSkill(selectedSkill) // Ensure selected skill is updated
+
                 setupSkillButtons(it)
+
+                // Initialize SkillComboAdapter here
+                val skillMap = mapOf(
+                    it.champion.skills.p.skillDrawable to it.champion.skills.p,
+                    it.champion.skills.q.skillDrawable to it.champion.skills.q,
+                    it.champion.skills.w.skillDrawable to it.champion.skills.w,
+                    it.champion.skills.e.skillDrawable to it.champion.skills.e,
+                    it.champion.skills.r.skillDrawable to it.champion.skills.r
+                )
+                skillComboAdapter = SkillComboAdapter(
+                    comboList,
+                    skillMap,
+                    ::calculateTotalStats,
+                    ::calculatePhysicalDamage,
+                    ::calculateMagicDamage,
+                    ::calcDamage,
+                    ::calcDamageByType,
+                    it.champion,
+                    it.items,
+                    it.champion.level,
+                    selectedTestInfo // Pass the selectedTestInfo here
+                )
+                binding.skillComboRecyclerView.adapter = skillComboAdapter
+
             } ?: run {
                 Toast.makeText(context, "빌드 정보가 없습니다.", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
@@ -237,33 +309,28 @@ class NotificationsFragment : Fragment() {
         }
         val btnSaveCombo = view.findViewById<Button>(R.id.btnSaveCombo)
         btnSaveCombo.setOnClickListener {
-            // 1) 콤보 이름
             val comboName = (skillComboModal.findViewById<TextView>(R.id.tvComboName)).text.toString()
-            // 2) 콤보 설명
             val comboDesc = (skillComboModal.findViewById<TextView>(R.id.tvComboDescription)).text.toString()
-            // 3) 총 데미지
-            val comboDamage = (skillComboModal.findViewById<TextView>(R.id.tvDamageTextView))?.text?.toString() ?: "-"
 
-            // 4) 10개 스킬 아이콘(이미지)와 키값 리스트 뽑기
             val skillDrawables = mutableListOf<Int>()
             val skillKeys = mutableListOf<String>()
 
-            // skillImg1~10에서 추출
             for (i in 1..10) {
                 val skillLayout = skillComboModal.findViewById<View>(skillImgId(i))
                 val img = skillLayout.findViewById<ImageView>(R.id.imgSkill)
                 val key = skillLayout.findViewById<TextView>(R.id.tvSkillKey)
-                skillDrawables.add(img.getTag(R.id.imgSkill) as? Int ?: R.drawable.empty_icon) // <- 수정!
+                skillDrawables.add(img.getTag(R.id.imgSkill) as? Int ?: R.drawable.empty_icon)
                 skillKeys.add(key.text?.toString() ?: "")
             }
 
+            val tempCombo = SkillCombo("", skillDrawables, skillKeys, 0, "") // Temporary combo to calculate damage
+            val totalComboDamage = skillComboAdapter.calculateComboDamage(tempCombo)
 
-            // SkillCombo 객체 생성 및 추가
             val combo = SkillCombo(
                 name = comboName,
                 skillDrawables = skillDrawables,
                 skillKeys = skillKeys,
-                damage = comboDamage,
+                damage = totalComboDamage,
                 description = comboDesc
             )
             comboList.add(combo)
@@ -344,6 +411,12 @@ class NotificationsFragment : Fragment() {
     }
 
     private fun calculateTotalStats(champion: ChampionInfo, items: List<ItemData>, level: Int): Stats {
+        Log.d("CalcTotalStats", "Calculating stats for: ${champion.name}, Level: $level")
+        Log.d("CalcTotalStats", "  Base Stats: AD=${champion.stats.attackdamage}, AP=${champion.stats.ap}, Armor=${champion.stats.armor}, MR=${champion.stats.spellblock}, HP=${champion.stats.hp}")
+        items.forEachIndexed { index, item ->
+            Log.d("CalcTotalStats", "  Item ${index + 1}: ${item.name}")
+        }
+
         val baseStats = champion.stats
         var totalAD = baseStats.attackdamage.toDouble()
         var totalAP = baseStats.ap.toDouble()
@@ -391,7 +464,7 @@ class NotificationsFragment : Fragment() {
         totalArmorPenetrationPercent = 1-totalArmorPenetrationPercent
         totalMagicPenetrationPercent = 1-totalMagicPenetrationPercent
 
-        return Stats(
+        val finalStats = Stats(
             attackdamage = totalAD.toInt(),
             ap = totalAP.toInt(),
             attackspeed = totalAS.toFloat(),
@@ -418,6 +491,8 @@ class NotificationsFragment : Fragment() {
             magicPenetration = totalMagicPenetration.toFloat(),
             magicPenetrationPercent = totalMagicPenetrationPercent.toFloat()
         )
+        Log.d("CalcTotalStats", "  Final Stats: AD=${finalStats.attackdamage}, AP=${finalStats.ap}, Armor=${finalStats.armor}, MR=${finalStats.spellblock}, HP=${finalStats.hp}")
+        return finalStats
     }
 
     private fun updateStatsUI(champion: ChampionInfo, items: List<ItemData>, level: Int) {
@@ -508,31 +583,54 @@ class NotificationsFragment : Fragment() {
         }
     }
 
-    private fun showSkill(skill: Skill, targetChamp: BuildInfo) {
-        val stats = calculateTotalStats(targetChamp.champion, targetChamp.items, currentChampionLevel)
-        val damage = calcDamageByType(skill, targetChamp, stats)
+    private fun showSkill(skill: Skill, attackerBuildInfo: BuildInfo) { // 매개변수 이름을 명확하게 변경
+        val attackerStats = calculateTotalStats(attackerBuildInfo.champion, attackerBuildInfo.items, currentChampionLevel)
+
+        // 대상 챔피언의 정보 (selectedTestInfo가 있으면 그것을 사용, 없으면 공격 챔피언 자신을 대상으로)
+        val targetChampionInfo: ChampionInfo
+        val targetItems: List<ItemData>
+        val targetLevel: Int
+
+        if (selectedTestInfo != null) {
+            targetChampionInfo = selectedTestInfo!!.champion
+            targetItems = selectedTestInfo!!.items
+            targetLevel = selectedTestInfo!!.champion.level // TestInfo에 대상 챔피언의 레벨이 있다고 가정
+        } else {
+            // 선택된 대상이 없으면 공격 챔피언 자신을 대상으로 간주
+            targetChampionInfo = attackerBuildInfo.champion
+            targetItems = attackerBuildInfo.items
+            targetLevel = attackerBuildInfo.champion.level
+        }
+
+        val targetStats = calculateTotalStats(targetChampionInfo, targetItems, targetLevel)
+
+        val damage = calcDamageByType(skill, attackerStats, targetStats.armor, targetStats.spellblock)
+        Log.d("SkillDisplay", "Individual Skill: ${skill.skillTitle}, Attacker Stats: AD=${attackerStats.attackdamage}, AP=${attackerStats.ap}, Target: ${targetChampionInfo.name}, Armor=${targetStats.armor}, MR=${targetStats.spellblock}, Damage: $damage")
         with(binding) {
             skillImg.setImageResource(skill.skillDrawable)
             skillTitleText.text = skill.skillTitle
             skilllevelText.text =
-                if (skill.skillTitle == targetChamp.champion.skills.p.skillTitle) "-"
+                if (skill.skillTitle == attackerBuildInfo.champion.skills.p.skillTitle) "-"
                 else skill.skillLevel.toString()
             // 총 데미지 표시
             dealTotal.text = damage.toString()
         }
         testInfoAdapter.updateSelectedSkill(skill) // Update selected skill in adapter
     }
-    private fun calcDamageByType(skill: Skill, targetChamp: BuildInfo, stats: Stats): Int{
+    private fun calcDamageByType(skill: Skill, stats: Stats, targetArmor: Int, targetMR: Int): Int{
         var damage = 0
+        val rawDamage = calcDamage(skill, stats) // Calculate raw damage once
         if(skill.skillType == "fix"){
-            damage = calcDamage(skill, stats)
+            damage = rawDamage
+            Log.d("CalcDamageByType", "Skill: ${skill.skillTitle}, Type: Fixed, Raw Damage: $rawDamage, Final Damage: $damage")
         }
         else if(skill.skillType == "ad"){
-            damage = calculatePhysicalDamage(calcDamage(skill, stats), targetChamp.champion.stats.armor, stats).toInt()
+            damage = calculatePhysicalDamage(rawDamage, targetArmor, stats).toInt()
+            Log.d("CalcDamageByType", "Skill: ${skill.skillTitle}, Type: Physical, Raw Damage: $rawDamage, Target Armor: $targetArmor, Final Damage: $damage")
         }
         else if(skill.skillType == "ap"){
-
-            damage = calculateMagicDamage(calcDamage(skill,stats), targetChamp.champion.stats.spellblock, stats).toInt()
+            damage = calculateMagicDamage(rawDamage, targetMR, stats).toInt()
+            Log.d("CalcDamageByType", "Skill: ${skill.skillTitle}, Type: Magic, Raw Damage: $rawDamage, Target MR: $targetMR, Final Damage: $damage")
         }
         return damage
     }
@@ -544,7 +642,10 @@ class NotificationsFragment : Fragment() {
      */
     private fun calcDamage(skill: Skill, stats: Stats): Int {
         val lvl = skill.skillLevel
-        if (lvl <= 0) return 0
+        if (lvl <= 0) {
+            Log.d("CalcDamage", "Skill: ${skill.skillTitle}, Level: $lvl (returning 0)")
+            return 0
+        }
         val baseList = when (skill.skillType) {
             "ad" -> skill.skillDamageAd
             "ap" -> skill.skillDamageAp
@@ -557,7 +658,11 @@ class NotificationsFragment : Fragment() {
                 stats.armor * skill.skillArCoeff +
                 stats.spellblock * skill.skillMrCoeff +
                 stats.hp * skill.skillHpCoeff
-        return (base + bonus).toInt()
+        val total = (base + bonus).toInt()
+        Log.d("CalcDamage", "Skill: ${skill.skillTitle}, Level: $lvl, Base: $base, Bonus: $bonus, Total Raw: $total")
+        Log.d("CalcDamage", "  Coeffs: AD=${skill.skillAdCoeff}, AP=${skill.skillApCoeff}, AR=${skill.skillArCoeff}, MR=${skill.skillMrCoeff}, HP=${skill.skillHpCoeff}")
+        Log.d("CalcDamage", "  Attacker Stats: AD=${stats.attackdamage}, AP=${stats.ap}, AR=${stats.armor}, MR=${stats.spellblock}, HP=${stats.hp}")
+        return total
     }
 
     private fun setupSaveButton() {
@@ -629,6 +734,7 @@ class NotificationsFragment : Fragment() {
         } else {
             2f - (1f / (1f - afterFlat * 0.01f))
         }
+        Log.d("CalcPhysicalDamage", "Raw Damage: $rawDamage, Target Armor: $targetArmor, Attacker Armor Pen %: ${stats.armorPenetrationPercent}, Attacker Flat Armor Pen: ${stats.armorPenetration}, After % Pen: $afterPercent, After Flat Pen: $afterFlat, Damage Coeff: $coeff")
         return rawDamage * coeff
     }
 
@@ -659,7 +765,7 @@ class NotificationsFragment : Fragment() {
         } else {
             2f - (1f / (1f - afterFlat * 0.01f))
         }
-
+        Log.d("CalcMagicDamage", "Raw Damage: $rawDamage, Target MR: $targetMR, Attacker Magic Pen %: ${stats.magicPenetrationPercent}, Attacker Flat Magic Pen: ${stats.magicPenetration}, After % Pen: $afterPercent, After Flat Pen: $afterFlat, Damage Coeff: $coeff")
         return rawDamage * coeff
     }
 

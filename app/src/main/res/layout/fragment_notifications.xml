@@ -707,7 +707,7 @@
 
                     <TextView
                         android:id="@+id/skilllevelText"
-                        android:layout_width="42dp"
+                        android:layout_width="20dp"
                         android:layout_height="64dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/friz_quadrata_bold"
@@ -757,7 +757,8 @@
                     android:id="@+id/skillDescLowerLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <GridLayout
                         android:id="@+id/skillDescGridLayout"
