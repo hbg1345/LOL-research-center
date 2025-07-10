@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.example.lol_research_center.ui.notifications.NotificationsFragment"
-        android:label="Notifications"
+        android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications">
         <argument
             android:name="build"
